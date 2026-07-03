@@ -1,0 +1,106 @@
+{
+ "_meta": {
+  "title": "DATUM · Catálogos (D0) — fuente limpia, en construcción",
+  "purpose": "Catálogos de referencia (reference_catalog/reference_value) que el modelo usa. Se va poblando a medida que la limpia confirma cada uno. NO es volcado de los 181 históricos; arranca limpio.",
+  "estado": "EN_CONSTRUCCION",
+  "convencion": {
+   "tipo_valor": "CERRADO (lista fija gobernada) | NEGOCIO (valores los aporta el cliente/founder) | ABIERTO",
+   "estado": "CONFIRMADO (validado en limpia) | PENDIENTE (valores por definir) | PROPUESTO"
+  }
+ },
+ "catalogs": {
+  "SOURCE_FREQUENCY": {
+   "dominio": "D0 · Operación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_entity.access_frequency_code"
+   ],
+   "desc": "Frecuencia de refresco/acceso de una entidad canónica.",
+   "values": {
+    "REAL_TIME": "Refresco en tiempo real / continuo.",
+    "HOURLY": "Refresco horario.",
+    "DAILY": "Refresco diario.",
+    "WEEKLY": "Refresco semanal.",
+    "MONTHLY": "Refresco mensual.",
+    "RARELY": "Refresco esporádico / bajo demanda."
+   }
+  },
+  "LIFECYCLE_STATE": {
+   "dominio": "D0 · Estados / ciclo de vida",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_entity.lifecycle_state_code"
+   ],
+   "desc": "Estado ACTUAL del ciclo de vida de la DEFINICIÓN de una entidad (situación actual; historial en canonical_entity_version). El estado es una acción/transición del ciclo de vida.",
+   "values": {
+    "DRAFT": "En edición/modelado, aún no productiva (mientras se modifica la entidad).",
+    "IN_DEFINITION": "En definición inicial.",
+    "ACTIVE": "Publicada y vigente en producción.",
+    "DEPRECATED": "En retirada, sustituida por otra versión.",
+    "RETIRED": "Retirada definitivamente."
+   }
+  },
+  "ASSESSMENT_TYPE": {
+   "dominio": "D0 · Gobierno (D8)",
+   "tipo_valor": "CERRADO",
+   "estado": "CUARENTENA",
+   "usado_en": [
+    "assessment_pattern",
+    "criticality vía canonical_entity.criticality_assessment_pattern_code"
+   ],
+   "desc": "Tipos de evaluación gobernada. La criticidad es un assessment, no un valor tecleado.",
+   "values": {
+    "CRITICALITY": "Evaluación de criticidad del dato (preguntas → impacto → score → nivel).",
+    "MATURITY": "Evaluación de madurez de gobierno.",
+    "RISK": "Evaluación de riesgo.",
+    "COMPLIANCE": "Evaluación de cumplimiento.",
+    "DEFINITION_QUALITY": "Evaluación de calidad de la definición."
+   },
+   "nota": "EN CUARENTENA: el founder no tiene claro su encaje. No usar hasta resolver. La FK de evaluación en canonical_entity apunta a assessment_pattern (assessment_code), no a este catálogo."
+  },
+  "MAPPING_CONDITION_KIND": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "mapping_condition.condition_kind_code"
+   ],
+   "desc": "Tipo de condición de un mapping.",
+   "values": {
+    "JOIN": "Unión entre source entities (multi-source).",
+    "FILTER": "Filtro WHERE sobre el origen."
+   }
+  },
+  "CARDINALITY": {
+   "dominio": "D0 · Sistema de tipos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_relation_end.cardinality_max"
+   ],
+   "desc": "Lado de un extremo de relación (ONE/MANY). Combinado con is_mandatory describe la cardinalidad completa sin enumerar combinaciones.",
+   "values": {
+    "ONE": "Lado uno (1).",
+    "MANY": "Lado muchos (N)."
+   }
+  },
+  "RECORD_STATUS": {
+   "dominio": "D0",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "storage_location.status_code",
+    "physical_catalog.status_code",
+    "physical_schema.status_code",
+    "(cualquier tabla del metadato)"
+   ],
+   "desc": "Estado de registro de cualquier objeto del metadato: activo o dado de baja.",
+   "values": {
+    "ACTIVE": "Registro activo y vigente",
+    "INACTIVE": "Registro dado de baja / no vigente"
+   }
+  }
+ }
+}
