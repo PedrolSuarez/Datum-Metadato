@@ -487,13 +487,13 @@
 | Atributo | TYD | PK | FK → | Catálogo (meta) |
 |---|---|:--:|---|---|
 | code | TYD_CODE | 🔑 |  |  |
-| owner_business_domain_code | TYD_CODE |  | business_domain |  |
+| canonical_accelerator_code | TYD_CODE |  | canonical_accelerator |  |
 | parent_term_code | TYD_CODE |  | business_term |  |
 | is_pii_related | TYD_BOOLEAN |  |  |  |
 | is_regulatory | TYD_BOOLEAN |  |  |  |
 | regulatory_reference | TYD_TEXT_SUMMARY |  |  |  |
 | approved_by_committee_at | TYD_DATE |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -588,7 +588,6 @@
 | security_classification_code | TYD_CODE |  | reference_value |  |
 | estimated_annual_volume | TYD_BIGINT_VOLUME |  |  |  |
 | access_frequency_code | TYD_CODE |  | reference_value |  |
-| canonical_accelerator_code | TYD_CODE |  | canonical_accelerator |  |
 | lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
