@@ -30,7 +30,7 @@
  },
  "entities": {
   "reference_category": {
-   "subdomain": "D01 · Catálogos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Categoría del catálogo, asociada al dominio del metamodelo (D0-D14).",
    "attributes": [
@@ -41,14 +41,6 @@
      "pk": 1,
      "fk_target": null,
      "desc": "= dominio D0-D14 asociado"
-    },
-    {
-     "name": "metamodel_domain_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "metamodel_domain",
-     "desc": "dominio del metamodelo"
     },
     {
      "name": "sort_order",
@@ -75,11 +67,11 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0",
+   "domain": "",
    "status": "CUARENTENA"
   },
   "reference_catalog": {
-   "subdomain": "D01 · Catálogos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Cabecera del catálogo: declara que existe (RECORD_STATUS, DQ_DIMENSION…) y su gobierno.",
    "attributes": [
@@ -148,10 +140,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "reference_value": {
-   "subdomain": "D01 · Catálogos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Detalle: los valores de cada catálogo (ACTIVE, P1, DATA_OWNER…).",
    "attributes": [
@@ -236,10 +228,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "data_type_domain_simple": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Dominio de tipo SIMPLE (atómico): tipo genérico, longitud, precisión, escala, regex.",
    "attributes": [
@@ -332,10 +324,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "data_type_domain_composite": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Dominio de tipo COMPOSITE: sin especificación; definido por sus campos.",
    "attributes": [
@@ -380,10 +372,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "data_type_domain_field": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Campos de un composite. Cada campo apunta SOLO a un dominio SIMPLE.",
    "attributes": [
@@ -444,10 +436,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "data_type_domain_dq_rule": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Reglas DQ heredables asociadas a un dominio (enlace a dq_rule de D6).",
    "attributes": [
@@ -476,10 +468,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "generic_data_type": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Tipo genérico abstracto (ALFANUMERICO, ENTERO…), independiente de tecnología.",
    "attributes": [
@@ -508,7 +500,7 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "technology": {
    "subdomain": "Tipos de datos",
@@ -591,7 +583,7 @@
    "domain": "D3"
   },
   "data_type_mapping": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "REF",
    "desc": "Mapeo genérico→físico por tecnología.",
    "attributes": [
@@ -628,10 +620,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "language": {
-   "subdomain": "D04 · Códigos ISO",
+   "subdomain": "",
    "type": "REF",
    "desc": "Idiomas ISO 639, con dirección LTR/RTL y soporte en DATUM.",
    "attributes": [
@@ -692,10 +684,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "country": {
-   "subdomain": "D04 · Códigos ISO",
+   "subdomain": "",
    "type": "REF",
    "desc": "Países ISO 3166-1, con prefijo (ITU), TLD, moneda e idioma.",
    "attributes": [
@@ -780,10 +772,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "country_subdivision": {
-   "subdomain": "D04 · Códigos ISO",
+   "subdomain": "",
    "type": "REF",
    "desc": "Subdivisiones ISO 3166-2, jerárquica (parent).",
    "attributes": [
@@ -836,10 +828,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "currency": {
-   "subdomain": "D04 · Códigos ISO",
+   "subdomain": "",
    "type": "REF",
    "desc": "Monedas ISO 4217, con símbolo y decimales.",
    "attributes": [
@@ -900,10 +892,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "unit_of_measure": {
-   "subdomain": "D04 · Códigos ISO",
+   "subdomain": "",
    "type": "REF",
    "desc": "Unidades (KG, M, L…) con categoría y conversión.",
    "attributes": [
@@ -940,72 +932,7 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
-  },
-  "metamodel_domain": {
-   "subdomain": "D01 · Catálogos de datos",
-   "type": "REF",
-   "desc": "Los dominios D0-D14, con schema_name y si es sustrato.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "D0..D14"
-    },
-    {
-     "name": "code_alpha",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "REFERENCE, BUSINESS…"
-    },
-    {
-     "name": "schema_name",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "metadata.reference…"
-    },
-    {
-     "name": "sort_order",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "orden"
-    },
-    {
-     "name": "is_substrate",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "solo D0"
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
-    }
-   ],
-   "domain": "D0",
-   "status": "CUARENTENA"
+   "domain": ""
   },
   "physical_catalog": {
    "subdomain": "",
@@ -1162,7 +1089,7 @@
    "i18n": true
   },
   "object_text": {
-   "subdomain": "D03 · Multiidioma (i18n)",
+   "subdomain": "",
    "type": "REF",
    "desc": "Texto traducible: una fila por (objeto × tipo de texto × idioma). Enlace polimórfico por row_uuid.",
    "attributes": [
@@ -1223,10 +1150,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "object_type": {
-   "subdomain": "D03 · Multiidioma (i18n)",
+   "subdomain": "",
    "type": "REF",
    "desc": "Catálogo de clases de objeto traducible (CANONICAL_ENTITY, KPI, REFERENCE_VALUE…).",
    "attributes": [
@@ -1255,10 +1182,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "text_field_kind": {
-   "subdomain": "D03 · Multiidioma (i18n)",
+   "subdomain": "",
    "type": "REF",
    "desc": "Los 3 campos traducibles obligatorios: DISPLAY (UI), DESCRIPTION (summary), FUNCTIONAL (detalle).",
    "attributes": [
@@ -1295,10 +1222,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "business_unit": {
-   "subdomain": "Organización (organigrama real)",
+   "subdomain": "",
    "type": "MDM meta",
    "desc": "Unidad organizativa real (CEO→C-level→área). Jerarquía solo por parent-hijo. Es el organigrama Y el perímetro de gobierno: el dominio de gobierno ES la unidad. Lleva criticidad, madurez y topología.",
    "attributes": [
@@ -1401,10 +1328,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D1"
+   "domain": ""
   },
   "business_unit_role_assignment": {
-   "subdomain": "Organización (organigrama real)",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Asignación de perfil de gobierno (OWNER/STEWARD/CONSUMER) a una unidad. El perfil viene del IdP del cliente; DATUM NO sabe qué persona lo ocupa (eso es seguridad/IdP), solo que el rol existe y está asignado. Regla: 1 OWNER + N STEWARD por unidad.",
    "attributes": [
@@ -1465,10 +1392,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D1"
+   "domain": ""
   },
   "business_process": {
-   "subdomain": "Procesos",
+   "subdomain": "",
    "type": "MDM meta",
    "desc": "Proceso de negocio gobernado, asociado a UNA unidad que lo opera y carga sus datos. Hereda el gobierno de su unidad. Asignado a un patrón de workflow.",
    "attributes": [
@@ -1547,10 +1474,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D1"
+   "domain": ""
   },
   "business_term": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "NÚCLEO",
    "desc": "",
    "attributes": [
@@ -1645,11 +1572,11 @@
      "desc": ""
     }
    ],
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "business_process_term": {
-   "subdomain": "Procesos",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Relación N:M proceso ↔ entidad crítica: qué entidades críticas opera cada proceso de negocio. Es el puente por el que la BU gobierna las entidades (vía proceso).",
    "attributes": [
@@ -1678,10 +1605,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D1"
+   "domain": ""
   },
   "business_term_synonym": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -1710,11 +1637,11 @@
      "desc": ""
     }
    ],
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "business_term_related": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -1751,7 +1678,7 @@
      "desc": ""
     }
    ],
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "workflow_pattern": {
@@ -1901,7 +1828,7 @@
    "domain": "D0"
   },
   "canonical_entity": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "NÚCLEO",
    "desc": "",
    "attributes": [
@@ -2013,10 +1940,10 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_attribute": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "NÚCLEO",
    "desc": "",
    "attributes": [
@@ -2166,7 +2093,7 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_entity_bk_alias": {
    "subdomain": "A.bis · BK hash / desanonimización",
@@ -2307,7 +2234,7 @@
    "domain": "D2"
   },
   "canonical_key": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -2393,10 +2320,10 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_key_attribute": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -2458,10 +2385,10 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_attribute_constraint": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -2531,10 +2458,10 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_entity_constraint": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -2588,10 +2515,10 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "canonical_entity_constraint_attribute": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -2637,7 +2564,7 @@
     }
    ],
    "i18n": true,
-   "domain": "D2"
+   "domain": ""
   },
   "object_version": {
    "subdomain": "D06 · Versión y aprobación",
@@ -5975,7 +5902,7 @@
    "domain": "D7"
   },
   "business_rule": {
-   "subdomain": "E · Reglas de negocio",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Reglas de negocio DECLARADAS sobre KPI/producto (puro negocio, NO derivables de estructura): TARGET (venta>1M), THRESHOLD (umbral de alerta), SLA (frescura/disponibilidad/latencia), VALUE (ROI esperado). Categorizadas. Forman la MADUREZ del dato. Evaluadas como DQ por el runner de cálculo. La medición real → observabilidad.",
    "attributes": [
@@ -6052,7 +5979,7 @@
      "desc": "composite"
     }
    ],
-   "domain": "D1"
+   "domain": ""
   },
   "data_exposure": {
    "subdomain": "A · Exposición",
@@ -7693,7 +7620,7 @@
    "domain": "D14"
   },
   "data_type_domain_ui_control": {
-   "subdomain": "D02 · Tipos de datos",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Control visual derivado del TYD por CONTEXTO (metadata-first para UI): dominio simple × ui_context (EDIT/SEARCH/VIEW/FILTER/EXPORT/LIST/DETAIL…) → control (DATEPICKER/DROPDOWN/INPUT/TOGGLE/RANGE…). El atributo auto-gestiona su presentación desde el TYD; D10 solo lo consume. Mismo patrón que data_type_domain_dq_rule.",
    "attributes": [
@@ -7738,7 +7665,7 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "ui_module": {
    "subdomain": "A · Módulos y pantallas",
@@ -11462,7 +11389,7 @@
    "domain": "D3"
   },
   "canonical_relation": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -11524,11 +11451,11 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_relation_end": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -11590,11 +11517,11 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_relation_attribute_map": {
-   "subdomain": "D21 · Entidad Canónica",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -11640,11 +11567,11 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_attribute_business_term": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -11698,7 +11625,7 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_entity_business_process": {
@@ -11752,7 +11679,7 @@
    "i18n": true
   },
   "business_term_canonical_entity": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -11806,7 +11733,7 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_entity_version": {
@@ -12040,7 +11967,7 @@
    "i18n": true
   },
   "canonical_accelerator": {
-   "subdomain": "D20 · Términos de Negocio",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -12104,7 +12031,7 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
+   "domain": "",
    "i18n": true
   },
   "canonical_entity_attribute": {
