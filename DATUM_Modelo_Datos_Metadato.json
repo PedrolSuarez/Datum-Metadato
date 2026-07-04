@@ -1559,11 +1559,11 @@
      "desc": ""
     },
     {
-     "name": "owner_business_domain_code",
+     "name": "canonical_accelerator_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "business_domain",
+     "fk_target": "canonical_accelerator",
      "desc": ""
     },
     {
@@ -1612,7 +1612,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "RECORD_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -1967,14 +1969,6 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "canonical_accelerator_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_accelerator",
      "desc": ""
     },
     {
