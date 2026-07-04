@@ -1008,7 +1008,7 @@
    "status": "CUARENTENA"
   },
   "physical_catalog": {
-   "subdomain": "D00 · Implementación física catálogos",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -1085,11 +1085,11 @@
      "desc": ""
     }
    ],
-   "domain": "D0",
+   "domain": "",
    "i18n": true
   },
   "physical_schema": {
-   "subdomain": "D00 · Implementación física catálogos",
+   "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -1158,7 +1158,7 @@
      "desc": ""
     }
    ],
-   "domain": "D0",
+   "domain": "",
    "i18n": true
   },
   "object_text": {
@@ -3136,7 +3136,7 @@
    "domain": "D8"
   },
   "config_pattern": {
-   "subdomain": "D05 · Configuración física de tabla",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Patrón de CONFIGURACIÓN de entidad (RDM, MDM, CMD, OBSERVABILIDAD, METADATO, SOURCE…; SOURCE = patrón de aterrizaje de fuentes). Entidad propia (cuelga sus defaults). Eje ORTOGONAL al patrón de evaluación/criticidad (assessment_pattern). Cada entidad se asigna a uno vía canonical_entity.config_pattern_code.",
    "attributes": [
@@ -3173,10 +3173,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "delta_property": {
-   "subdomain": "D05 · Configuración física de tabla",
+   "subdomain": "",
    "type": "CATÁLOGO",
    "desc": "Catálogo TIPADO de Delta Lake table properties disponibles (delta.autoOptimize.optimizeWrite, delta.appendOnly, delta.logRetentionDuration…): tipo de valor, rango/valores válidos y default técnico de Delta. Solo Delta Lake.",
    "attributes": [
@@ -3229,10 +3229,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "config_pattern_delta_default": {
-   "subdomain": "D05 · Configuración física de tabla",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Estándar de comportamiento del patrón: por cada (config_pattern × delta_property) un valor por defecto. 1:N desde el patrón. Es el nivel intermedio entre canonical_physical_policy (default GLOBAL) y la entidad.",
    "attributes": [
@@ -3269,10 +3269,10 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "object_delta_override": {
-   "subdomain": "D05 · Configuración física de tabla",
+   "subdomain": "",
    "type": "CANÓNICA",
    "desc": "Override PARCIAL polimórfico de configuración Delta: aplica a CUALQUIER objeto materializado en Delta (canonical_entity D2, source_entity D3, common, business…) vía object_row_uuid+object_type, y por CAPA (layer_code). Solo las propiedades que cambian respecto al patrón. Precedencia: override(capa) → default del patrón → default técnico de delta_property.",
    "attributes": [
@@ -3325,7 +3325,7 @@
      "desc": "composite"
     }
    ],
-   "domain": "D0"
+   "domain": ""
   },
   "source_system": {
    "subdomain": "A · Sistemas y conexiones",
@@ -12339,8 +12339,8 @@
    "domain": "D3"
   },
   "storage_layer": {
-   "domain": "D0",
-   "subdomain": "D00 · Implementación física catálogos",
+   "domain": "",
+   "subdomain": "",
    "source": "",
    "attributes": [
     {
@@ -12402,8 +12402,8 @@
    "i18n": true
   },
   "storage_location": {
-   "domain": "D0",
-   "subdomain": "D00 · Implementación física catálogos",
+   "domain": "",
+   "subdomain": "",
    "source": "",
    "attributes": [
     {
