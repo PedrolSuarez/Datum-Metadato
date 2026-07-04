@@ -12009,20 +12009,14 @@
      "desc": ""
     },
     {
-     "name": "domain_scope",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
      "name": "status_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "RECORD_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "entity_count",
