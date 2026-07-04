@@ -3,7 +3,7 @@
 > Fuente única del metamodelo. Total entidades: **194**.
 > Generado desde `DATUM_Modelo_Datos_Metadato.json`. Estructura: dominio → subdominio → entidad → atributos.
 
-## D0  (32 entidades)
+## D0  (31 entidades)
 
 ### D00 · Implementación física catálogos  (4)
 
@@ -59,19 +59,7 @@
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
-### D01 · Catálogos de datos  (5)
-
-#### `canonical_accelerator` — 🧩 derivada
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| accelerator_version | TYD_NAME |  |  |  |
-| domain_scope | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
-| entity_count | TYD_INT |  |  |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
+### D01 · Catálogos de datos  (4)
 
 #### `metamodel_domain` — 🔶 CUARENTENA
 
@@ -463,7 +451,7 @@
 | business_term_code | TYD_CODE | 🔑 | business_term |  |
 | audit | TYD_AUDIT |  |  |  |
 
-## D2  (30 entidades)
+## D2  (31 entidades)
 
 ### A.bis · BK hash / desanonimización  (2)
 
@@ -492,7 +480,7 @@
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
-### D20 · Términos de Negocio  (5)
+### D20 · Términos de Negocio  (6)
 
 #### `business_term`
 
@@ -853,6 +841,17 @@
 | canonical_entity_code | TYD_CODE |  | canonical_entity |  |
 | data_type_domain_code | TYD_CODE |  | data_type_domain_simple |  |
 | is_mandatory | TYD_BOOLEAN |  |  |  |
+| row_uuid | TYD_UUID |  |  |  |
+| audit | TYD_AUDIT |  |  |  |
+
+#### `canonical_accelerator` — 🧩 derivada
+
+| Atributo | TYD | PK | FK → | Catálogo (meta) |
+|---|---|:--:|---|---|
+| code | TYD_CODE | 🔑 |  |  |
+| accelerator_version | TYD_NAME |  |  |  |
+| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
+| entity_count | TYD_INT |  |  |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
