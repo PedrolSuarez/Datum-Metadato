@@ -640,7 +640,7 @@
    },
    {
     "code": "physical_catalog",
-    "business_term_code": "METADATA",
+    "business_term_code": "CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -653,7 +653,7 @@
    },
    {
     "code": "physical_schema",
-    "business_term_code": "METADATA",
+    "business_term_code": "CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1030,7 +1030,7 @@
    },
    {
     "code": "config_pattern",
-    "business_term_code": "METADATA",
+    "business_term_code": "DELTA_CONFIG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1043,7 +1043,7 @@
    },
    {
     "code": "delta_property",
-    "business_term_code": "METADATA",
+    "business_term_code": "DELTA_CONFIG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1056,7 +1056,7 @@
    },
    {
     "code": "config_pattern_delta_default",
-    "business_term_code": "METADATA",
+    "business_term_code": "DELTA_CONFIG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1069,7 +1069,7 @@
    },
    {
     "code": "object_delta_override",
-    "business_term_code": "METADATA",
+    "business_term_code": "DELTA_CONFIG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2915,7 +2915,7 @@
    },
    {
     "code": "storage_layer",
-    "business_term_code": "METADATA",
+    "business_term_code": "CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2928,7 +2928,7 @@
    },
    {
     "code": "storage_location",
-    "business_term_code": "METADATA",
+    "business_term_code": "CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -3012,7 +3012,7 @@
    {
     "code": "CATALOG",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "DATABRICKS",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -3042,7 +3042,7 @@
    {
     "code": "DELTA_CONFIG",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "DATABRICKS",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -3091,6 +3091,16 @@
    },
    {
     "code": "GOVERNANCE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "status_code": "ACTIVE"
+   },
+   {
+    "code": "DATABRICKS",
     "canonical_accelerator_code": "METADATA",
     "parent_term_code": null,
     "is_pii_related": false,

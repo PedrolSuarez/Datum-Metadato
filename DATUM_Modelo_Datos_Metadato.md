@@ -3,61 +3,9 @@
 > Fuente única del metamodelo. Total entidades: **194**.
 > Generado desde `DATUM_Modelo_Datos_Metadato.json`. Estructura: dominio → subdominio → entidad → atributos.
 
-## D0  (31 entidades)
+## D0  (23 entidades)
 
-### D00 · Implementación física catálogos  (4)
-
-#### `physical_catalog`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| storage_layer_code | TYD_CODE |  | storage_layer |  |
-| storage_location_code | TYD_CODE |  | storage_location |  |
-| physical_name | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
-| assigned_catalog_code | TYD_CODE |  | physical_catalog |  |
-| assigned_schema_code | TYD_CODE |  | physical_schema |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `physical_schema`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| physical_catalog_code | TYD_CODE | 🔑 | physical_catalog |  |
-| code | TYD_CODE | 🔑 |  |  |
-| physical_name | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
-| assigned_catalog_code | TYD_CODE |  | physical_catalog |  |
-| assigned_schema_code | TYD_CODE |  | physical_schema |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `storage_layer`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| bucket_uri_location | TYD_URL |  |  |  |
-| sort_order | TYD_INT |  |  |  |
-| assigned_catalog_code | TYD_CODE |  | physical_catalog |  |
-| assigned_schema_code | TYD_CODE |  | physical_schema |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `storage_location`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| storage_layer_code | TYD_CODE |  | storage_layer |  |
-| container_path | TYD_STRING |  |  |  |
-| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
-| assigned_catalog_code | TYD_CODE |  | physical_catalog |  |
-| assigned_schema_code | TYD_CODE |  | physical_schema |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
+### D00 · Implementación física catálogos  (0)
 
 ### D01 · Catálogos de datos  (4)
 
@@ -278,47 +226,7 @@
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
-### D05 · Configuración física de tabla  (4)
-
-#### `config_pattern`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `config_pattern_delta_default`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| config_pattern_code | TYD_CODE | 🔑 | config_pattern |  |
-| delta_property_code | TYD_CODE | 🔑 | delta_property |  |
-| property_value | TYD_EXPRESSION |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `delta_property`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| code | TYD_CODE | 🔑 |  |  |
-| value_logical_type_code | TYD_CODE |  | reference_value |  |
-| allowed_values_reference_catalog_code | TYD_CODE |  | reference_catalog |  |
-| technical_default | TYD_EXPRESSION |  |  |  |
-| row_uuid | TYD_UUID |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
-
-#### `object_delta_override`
-
-| Atributo | TYD | PK | FK → | Catálogo (meta) |
-|---|---|:--:|---|---|
-| object_row_uuid | TYD_UUID | 🔑 | (polimórfico) |  |
-| object_type_code | TYD_CODE | 🔑 | object_type |  |
-| layer_code | TYD_CODE | 🔑 | reference_value |  |
-| delta_property_code | TYD_CODE | 🔑 | delta_property |  |
-| property_value | TYD_EXPRESSION |  |  |  |
-| audit | TYD_AUDIT |  |  |  |
+### D05 · Configuración física de tabla  (0)
 
 ### D06 · Versión y aprobación  (2)
 
