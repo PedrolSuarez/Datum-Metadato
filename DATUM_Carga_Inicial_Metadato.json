@@ -419,7 +419,7 @@
   "canonical_entity": [
    {
     "code": "reference_category",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -428,11 +428,11 @@
     "security_classification_code": "INTERNAL",
     "estimated_annual_volume": "",
     "access_frequency_code": "",
-    "lifecycle_state_code": "ACTIVE"
+    "lifecycle_state_code": "DEPRECATED"
    },
    {
     "code": "reference_catalog",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -445,7 +445,7 @@
    },
    {
     "code": "reference_value",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_CATALOG",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -458,7 +458,7 @@
    },
    {
     "code": "data_type_domain_simple",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -471,7 +471,7 @@
    },
    {
     "code": "data_type_domain_composite",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -484,7 +484,7 @@
    },
    {
     "code": "data_type_domain_field",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -497,7 +497,7 @@
    },
    {
     "code": "data_type_domain_dq_rule",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -510,7 +510,7 @@
    },
    {
     "code": "generic_data_type",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -549,7 +549,7 @@
    },
    {
     "code": "data_type_mapping",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -562,7 +562,7 @@
    },
    {
     "code": "language",
-    "business_term_code": "METADATA",
+    "business_term_code": "ISO_CODE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -575,7 +575,7 @@
    },
    {
     "code": "country",
-    "business_term_code": "METADATA",
+    "business_term_code": "ISO_CODE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -588,7 +588,7 @@
    },
    {
     "code": "country_subdivision",
-    "business_term_code": "METADATA",
+    "business_term_code": "ISO_CODE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -601,7 +601,7 @@
    },
    {
     "code": "currency",
-    "business_term_code": "METADATA",
+    "business_term_code": "ISO_CODE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -614,20 +614,7 @@
    },
    {
     "code": "unit_of_measure",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_catalog_code": "metadata",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "INTERNAL",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "",
-    "lifecycle_state_code": "ACTIVE"
-   },
-   {
-    "code": "metamodel_domain",
-    "business_term_code": "METADATA",
+    "business_term_code": "ISO_CODE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -666,7 +653,7 @@
    },
    {
     "code": "object_text",
-    "business_term_code": "METADATA",
+    "business_term_code": "I18N",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -679,7 +666,7 @@
    },
    {
     "code": "object_type",
-    "business_term_code": "METADATA",
+    "business_term_code": "I18N",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -692,7 +679,7 @@
    },
    {
     "code": "text_field_kind",
-    "business_term_code": "METADATA",
+    "business_term_code": "I18N",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -705,7 +692,7 @@
    },
    {
     "code": "business_unit",
-    "business_term_code": "METADATA",
+    "business_term_code": "ORG_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -718,7 +705,7 @@
    },
    {
     "code": "business_unit_role_assignment",
-    "business_term_code": "METADATA",
+    "business_term_code": "ORG_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -731,7 +718,7 @@
    },
    {
     "code": "business_process",
-    "business_term_code": "METADATA",
+    "business_term_code": "ORG_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -744,7 +731,7 @@
    },
    {
     "code": "business_term",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -757,7 +744,7 @@
    },
    {
     "code": "business_process_term",
-    "business_term_code": "METADATA",
+    "business_term_code": "ORG_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -770,7 +757,7 @@
    },
    {
     "code": "business_term_synonym",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -783,7 +770,7 @@
    },
    {
     "code": "business_term_related",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -822,7 +809,7 @@
    },
    {
     "code": "canonical_entity",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -835,7 +822,7 @@
    },
    {
     "code": "canonical_attribute",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -874,7 +861,7 @@
    },
    {
     "code": "canonical_key",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -887,7 +874,7 @@
    },
    {
     "code": "canonical_key_attribute",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -900,7 +887,7 @@
    },
    {
     "code": "canonical_attribute_constraint",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -913,7 +900,7 @@
    },
    {
     "code": "canonical_entity_constraint",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -926,7 +913,7 @@
    },
    {
     "code": "canonical_entity_constraint_attribute",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1615,7 +1602,7 @@
    },
    {
     "code": "business_rule",
-    "business_term_code": "METADATA",
+    "business_term_code": "ORG_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -1979,7 +1966,7 @@
    },
    {
     "code": "data_type_domain_ui_control",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2720,7 +2707,7 @@
    },
    {
     "code": "canonical_relation",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2733,7 +2720,7 @@
    },
    {
     "code": "canonical_relation_end",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2746,7 +2733,7 @@
    },
    {
     "code": "canonical_relation_attribute_map",
-    "business_term_code": "METADATA",
+    "business_term_code": "CANONICAL_ENTITY",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2759,7 +2746,7 @@
    },
    {
     "code": "canonical_attribute_business_term",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2785,7 +2772,7 @@
    },
    {
     "code": "business_term_canonical_entity",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2837,7 +2824,7 @@
    },
    {
     "code": "canonical_accelerator",
-    "business_term_code": "METADATA",
+    "business_term_code": "ACCELERATOR",
     "config_pattern_code": "DEFAULT",
     "physical_catalog_code": "metadata",
     "physical_schema_code": "metadata",
@@ -2988,7 +2975,18 @@
    {
     "code": "BUSINESS_TERM",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_DATA",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 20
+   },
+   {
+    "code": "CANONICAL_ENTITY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_DATA",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -2997,26 +2995,15 @@
     "display_order": 30
    },
    {
-    "code": "CANONICAL_ENTITY",
-    "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "lifecycle_state_code": "ACTIVE",
-    "display_order": 40
-   },
-   {
     "code": "ORG_STRUCTURE",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "HIERARCHY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "lifecycle_state_code": "ACTIVE",
-    "display_order": 100
+    "display_order": 20
    },
    {
     "code": "CATALOG",
@@ -3032,24 +3019,24 @@
    {
     "code": "DATA_DOMAIN",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_STRUCTURE",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "lifecycle_state_code": "ACTIVE",
-    "display_order": 50
+    "display_order": 20
    },
    {
     "code": "I18N",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_STRUCTURE",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "lifecycle_state_code": "ACTIVE",
-    "display_order": 90
+    "display_order": 30
    },
    {
     "code": "DELTA_CONFIG",
@@ -3127,6 +3114,94 @@
     "approved_by_committee_at": null,
     "lifecycle_state_code": "ACTIVE",
     "display_order": 10
+   },
+   {
+    "code": "COMMON_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 15
+   },
+   {
+    "code": "DATA_CATALOG",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 10
+   },
+   {
+    "code": "ISO_CODE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 40
+   },
+   {
+    "code": "COMMON_DATA",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 16
+   },
+   {
+    "code": "ACCELERATOR",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_DATA",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 10
+   },
+   {
+    "code": "HIERARCHY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 17
+   },
+   {
+    "code": "GEO_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "HIERARCHY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 10
+   },
+   {
+    "code": "TEMPORAL_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "HIERARCHY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 30
    }
   ]
  }
