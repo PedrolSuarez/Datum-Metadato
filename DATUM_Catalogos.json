@@ -31,7 +31,7 @@
    "tipo_valor": "CERRADO",
    "estado": "CONFIRMADO",
    "usado_en": [
-    "canonical_entity.lifecycle_state_code"
+    "(cualquier tabla del metadato).lifecycle_state_code"
    ],
    "desc": "Estado ACTUAL del ciclo de vida de la DEFINICIÓN de una entidad (situación actual; historial en canonical_entity_version). El estado es una acción/transición del ciclo de vida.",
    "values": {
@@ -84,22 +84,6 @@
    "values": {
     "ONE": "Lado uno (1).",
     "MANY": "Lado muchos (N)."
-   }
-  },
-  "RECORD_STATUS": {
-   "dominio": "D0",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "storage_location.status_code",
-    "physical_catalog.status_code",
-    "physical_schema.status_code",
-    "(cualquier tabla del metadato)"
-   ],
-   "desc": "Estado de registro de cualquier objeto del metadato: activo o dado de baja.",
-   "values": {
-    "ACTIVE": "Registro activo y vigente",
-    "INACTIVE": "Registro dado de baja / no vigente"
    }
   }
  }

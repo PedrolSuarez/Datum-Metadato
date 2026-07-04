@@ -73,7 +73,7 @@
     "code": "LOC_METADATA_D0",
     "storage_layer_code": "METADATA",
     "container_path": "/d0",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -81,7 +81,7 @@
     "code": "LOC_METADATA_D1",
     "storage_layer_code": "METADATA",
     "container_path": "/d1",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -89,7 +89,7 @@
     "code": "LOC_METADATA_D2",
     "storage_layer_code": "METADATA",
     "container_path": "/d2",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -97,7 +97,7 @@
     "code": "LOC_METADATA_D3",
     "storage_layer_code": "METADATA",
     "container_path": "/d3",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -105,7 +105,7 @@
     "code": "LOC_METADATA_D4",
     "storage_layer_code": "METADATA",
     "container_path": "/d4",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -113,7 +113,7 @@
     "code": "LOC_METADATA_D5",
     "storage_layer_code": "METADATA",
     "container_path": "/d5",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -121,7 +121,7 @@
     "code": "LOC_METADATA_D6",
     "storage_layer_code": "METADATA",
     "container_path": "/d6",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -129,7 +129,7 @@
     "code": "LOC_METADATA_D7",
     "storage_layer_code": "METADATA",
     "container_path": "/d7",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -137,7 +137,7 @@
     "code": "LOC_METADATA_D8",
     "storage_layer_code": "METADATA",
     "container_path": "/d8",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -145,7 +145,7 @@
     "code": "LOC_METADATA_D9",
     "storage_layer_code": "METADATA",
     "container_path": "/d9",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -153,7 +153,7 @@
     "code": "LOC_METADATA_D10",
     "storage_layer_code": "METADATA",
     "container_path": "/d10",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -161,7 +161,7 @@
     "code": "LOC_METADATA_D14",
     "storage_layer_code": "METADATA",
     "container_path": "/d14",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    }
@@ -172,7 +172,7 @@
     "storage_layer_code": "",
     "storage_location_code": "",
     "physical_name": "databricks",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -181,7 +181,7 @@
     "storage_layer_code": "METADATA",
     "storage_location_code": "LOC_METADATA_D0",
     "physical_name": "metadato",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -190,7 +190,7 @@
     "storage_layer_code": "OBSERVABILITY",
     "storage_location_code": "",
     "physical_name": "observability",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -199,7 +199,7 @@
     "storage_layer_code": "LANDING",
     "storage_location_code": "",
     "physical_name": "source",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -208,7 +208,7 @@
     "storage_layer_code": "COMMON",
     "storage_location_code": "",
     "physical_name": "commondata",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -217,7 +217,7 @@
     "storage_layer_code": "BUSINESS",
     "storage_location_code": "",
     "physical_name": "business",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    }
@@ -227,7 +227,7 @@
     "physical_catalog_code": "databricks",
     "code": "storage",
     "physical_name": "storage",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -235,7 +235,7 @@
     "physical_catalog_code": "metadato",
     "code": "d0",
     "physical_name": "d0",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -243,7 +243,7 @@
     "physical_catalog_code": "metadato",
     "code": "d1",
     "physical_name": "d1",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -251,7 +251,7 @@
     "physical_catalog_code": "metadato",
     "code": "d2",
     "physical_name": "d2",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -259,7 +259,7 @@
     "physical_catalog_code": "metadato",
     "code": "d3",
     "physical_name": "d3",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -267,7 +267,7 @@
     "physical_catalog_code": "metadato",
     "code": "d4",
     "physical_name": "d4",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -275,7 +275,7 @@
     "physical_catalog_code": "metadato",
     "code": "d5",
     "physical_name": "d5",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -283,7 +283,7 @@
     "physical_catalog_code": "metadato",
     "code": "d6",
     "physical_name": "d6",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -291,7 +291,7 @@
     "physical_catalog_code": "metadato",
     "code": "d7",
     "physical_name": "d7",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -299,7 +299,7 @@
     "physical_catalog_code": "metadato",
     "code": "d8",
     "physical_name": "d8",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -307,7 +307,7 @@
     "physical_catalog_code": "metadato",
     "code": "d9",
     "physical_name": "d9",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -315,7 +315,7 @@
     "physical_catalog_code": "metadato",
     "code": "d10",
     "physical_name": "d10",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -323,7 +323,7 @@
     "physical_catalog_code": "metadato",
     "code": "d14",
     "physical_name": "d14",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -331,7 +331,7 @@
     "physical_catalog_code": "observability",
     "code": "process",
     "physical_name": "process",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -339,7 +339,7 @@
     "physical_catalog_code": "observability",
     "code": "quality",
     "physical_name": "quality",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -347,7 +347,7 @@
     "physical_catalog_code": "observability",
     "code": "audit",
     "physical_name": "audit",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -355,7 +355,7 @@
     "physical_catalog_code": "source",
     "code": "fuente_database",
     "physical_name": "fuente_database",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -363,7 +363,7 @@
     "physical_catalog_code": "commondata",
     "code": "rdm",
     "physical_name": "rdm",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -371,7 +371,7 @@
     "physical_catalog_code": "commondata",
     "code": "mdm",
     "physical_name": "mdm",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -379,7 +379,7 @@
     "physical_catalog_code": "commondata",
     "code": "dpo",
     "physical_name": "dpo",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -387,7 +387,7 @@
     "physical_catalog_code": "business",
     "code": "fact",
     "physical_name": "fact",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -395,7 +395,7 @@
     "physical_catalog_code": "business",
     "code": "dataproduct",
     "physical_name": "dataproduct",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -403,7 +403,7 @@
     "physical_catalog_code": "business",
     "code": "dataset",
     "physical_name": "dataset",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -411,7 +411,7 @@
     "physical_catalog_code": "business",
     "code": "dimension",
     "physical_name": "dimension",
-    "status_code": "ACTIVE",
+    "lifecycle_state_code": "ACTIVE",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    }
@@ -2944,38 +2944,44 @@
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 194
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 194,
+    "display_order": 10
    },
    {
     "code": "OBSERVABILITY",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 0
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 0,
+    "display_order": 20
    },
    {
     "code": "FINANCE",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 0
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 0,
+    "display_order": 30
    },
    {
     "code": "HR",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 0
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 0,
+    "display_order": 40
    },
    {
     "code": "LEGAL",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 0
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 0,
+    "display_order": 50
    },
    {
     "code": "MARKETING",
     "accelerator_version": "1.0.0",
-    "status_code": "ACTIVE",
-    "entity_count": 0
+    "lifecycle_state_code": "ACTIVE",
+    "entity_count": 0,
+    "display_order": 60
    }
   ],
   "business_term": [
@@ -2987,7 +2993,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 30
    },
    {
     "code": "CANONICAL_ENTITY",
@@ -2997,7 +3004,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 40
    },
    {
     "code": "ORG_STRUCTURE",
@@ -3007,7 +3015,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 100
    },
    {
     "code": "CATALOG",
@@ -3017,7 +3026,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 10
    },
    {
     "code": "DATA_DOMAIN",
@@ -3027,7 +3037,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 50
    },
    {
     "code": "I18N",
@@ -3037,7 +3048,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 90
    },
    {
     "code": "DELTA_CONFIG",
@@ -3047,7 +3059,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 20
    },
    {
     "code": "BUSINESS_PROCESS",
@@ -3057,7 +3070,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 20
    },
    {
     "code": "DATA_SOURCE",
@@ -3067,7 +3081,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 70
    },
    {
     "code": "DATA_QUALITY",
@@ -3077,7 +3092,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 60
    },
    {
     "code": "TRANSFORMATION",
@@ -3087,7 +3103,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 110
    },
    {
     "code": "GOVERNANCE",
@@ -3097,7 +3114,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 80
    },
    {
     "code": "DATABRICKS",
@@ -3107,7 +3125,8 @@
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "status_code": "ACTIVE"
+    "lifecycle_state_code": "ACTIVE",
+    "display_order": 10
    }
   ]
  }

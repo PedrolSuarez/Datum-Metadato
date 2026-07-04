@@ -268,7 +268,7 @@
 | purpose_code | TYD_CODE |  | reference_value |  |
 | is_automated | TYD_BOOLEAN |  |  |  |
 | sla_total_minutes | TYD_INT |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -319,7 +319,7 @@
 | maturity_target_code | TYD_CODE |  | reference_value |  |
 | topology_code | TYD_CODE |  | reference_value |  |
 | cost_center_code | TYD_CODE |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -347,7 +347,7 @@
 | workflow_pattern_code | TYD_CODE |  | workflow_pattern |  |
 | is_critical | TYD_BOOLEAN |  |  |  |
 | frequency_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -401,7 +401,8 @@
 | is_regulatory | TYD_BOOLEAN |  |  |  |
 | regulatory_reference | TYD_TEXT_SUMMARY |  |  |  |
 | approved_by_committee_at | TYD_DATE |  |  |  |
-| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
+| lifecycle_state_code | TYD_CODE |  | reference_value | LIFECYCLE_STATE ⚙︎ |
+| display_order | TYD_INT |  |  |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -723,7 +724,7 @@
 | archive_after_days | TYD_INT |  |  |  |
 | purge_after_days | TYD_INT |  |  |  |
 | requires_approval | TYD_BOOLEAN |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -757,8 +758,9 @@
 |---|---|:--:|---|---|
 | code | TYD_CODE | 🔑 |  |  |
 | accelerator_version | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value | RECORD_STATUS ⚙︎ |
+| lifecycle_state_code | TYD_CODE |  | reference_value | LIFECYCLE_STATE ⚙︎ |
 | entity_count | TYD_INT |  |  |  |
+| display_order | TYD_INT |  |  |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -777,7 +779,7 @@
 | port | TYD_INT |  |  |  |
 | landing_strategy_code | TYD_CODE |  | reference_value |  |
 | schema_detection_mode_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -805,7 +807,7 @@
 | issued_at | TYD_TIMESTAMP |  |  |  |
 | expires_at | TYD_TIMESTAMP |  |  |  |
 | key_vault_reference | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -819,7 +821,7 @@
 | business_unit_code | TYD_CODE |  | business_unit |  |
 | connection_secret_ref | TYD_TEXT_SUMMARY |  |  |  |
 | environment_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -866,7 +868,7 @@
 | db_object_type_code | TYD_CODE |  | reference_value |  |
 | is_in_scope | TYD_BOOLEAN |  |  |  |
 | scope_reason_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1125,7 +1127,7 @@
 | source_system_code | TYD_CODE |  | source_system |  |
 | started_at | TYD_TIMESTAMP |  |  |  |
 | finished_at | TYD_TIMESTAMP |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | detection_mode_code | TYD_CODE |  | reference_value |  |
 | entities_discovered | TYD_INT |  |  |  |
 | triggered_by_code | TYD_CODE |  | reference_value |  |
@@ -1284,7 +1286,7 @@
 | runner_kind_code | TYD_CODE |  | reference_value |  |
 | source_system_code | TYD_CODE |  | source_system |  |
 | schedule_cron | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1296,7 +1298,7 @@
 | runner_kind_code | TYD_CODE |  | reference_value |  |
 | source_system_code | TYD_CODE |  | source_system |  |
 | schedule_cron | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1308,7 +1310,7 @@
 | runner_kind_code | TYD_CODE |  | reference_value |  |
 | source_system_code | TYD_CODE |  | source_system |  |
 | schedule_cron | TYD_NAME |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1343,7 +1345,7 @@
 | code | TYD_CODE | 🔑 |  |  |
 | transformation_type_code | TYD_CODE |  | reference_value |  |
 | is_deterministic | TYD_BOOLEAN |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1421,7 +1423,7 @@
 | implementation_kind_code | TYD_CODE |  | reference_value |  |
 | is_multi_source | TYD_BOOLEAN |  |  |  |
 | respects_source_of_record | TYD_BOOLEAN |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | approval_status_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
@@ -1446,7 +1448,7 @@
 | canonical_entity_code | TYD_CODE |  | canonical_entity |  |
 | schedule_cron | TYD_NAME |  |  |  |
 | approval_status_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1495,7 +1497,7 @@
 | code | TYD_CODE | 🔑 |  |  |
 | source_reference_catalog_code | TYD_CODE |  | reference_catalog |  |
 | target_reference_catalog_code | TYD_CODE |  | reference_catalog |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1679,7 +1681,7 @@
 | source_object_type_code | TYD_CODE |  | object_type |  |
 | business_view_code | TYD_CODE |  | canonical_view |  |
 | analysis_hierarchy_text | TYD_TEXT_SUMMARY |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1739,7 +1741,7 @@
 | code | TYD_CODE | 🔑 |  |  |
 | data_quality_requirement_code | TYD_CODE |  | data_quality_requirement |  |
 | target_date | TYD_TIMESTAMP |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1789,7 +1791,7 @@
 | time_grain_code | TYD_CODE |  | reference_value |  |
 | materialization_mode_code | TYD_CODE |  | reference_value |  |
 | aggregation_view_code | TYD_CODE |  | canonical_view |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -1814,7 +1816,7 @@
 | accumulative_fact_code | TYD_CODE |  | accumulative_fact |  |
 | calculation_view_code | TYD_CODE |  | canonical_view |  |
 | unit_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -2057,7 +2059,7 @@
 | assessment_type_code | TYD_CODE |  | reference_value |  |
 | level_reference_catalog_code | TYD_CODE |  | reference_catalog |  |
 | scoring_method_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -2126,7 +2128,7 @@
 | mechanism_code | TYD_CODE |  | reference_value |  |
 | owner_business_unit_code | TYD_CODE |  | business_unit |  |
 | approval_status_code | TYD_CODE |  | reference_value |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -2188,7 +2190,7 @@
 | data_product_code | TYD_CODE |  | data_product |  |
 | listing_mode_code | TYD_CODE |  | reference_value |  |
 | terms_document_code | TYD_CODE |  | governed_document |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
@@ -2372,7 +2374,7 @@
 | requires_periodic_review | TYD_BOOLEAN |  |  |  |
 | review_period_months | TYD_INT |  |  |  |
 | last_reviewed_at | TYD_TIMESTAMP |  |  |  |
-| status_code | TYD_CODE |  | reference_value |  |
+| lifecycle_state_code | TYD_CODE |  | reference_value |  |
 | row_uuid | TYD_UUID |  |  |  |
 | audit | TYD_AUDIT |  |  |  |
 
