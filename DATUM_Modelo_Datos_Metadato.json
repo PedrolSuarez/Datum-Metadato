@@ -1045,13 +1045,13 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
      "catalog_ref_metadata_only": true
     },
     {
@@ -1118,13 +1118,13 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
      "catalog_ref_metadata_only": true
     },
     {
@@ -1375,12 +1375,14 @@
      "desc": "centro de coste"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -1519,12 +1521,14 @@
      "desc": "PROCESS_FREQUENCY"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -1607,14 +1611,22 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
      "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "display_order",
+     "tyd": "TYD_INT",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "orden de visualización entre hermanos"
     },
     {
      "name": "row_uuid",
@@ -1780,12 +1792,14 @@
      "desc": "SLA del patrón"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -1977,7 +1991,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -2917,12 +2933,14 @@
      "desc": "método de cálculo (WEIGHTED_SUM por defecto)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -3149,12 +3167,14 @@
      "desc": "RDM/MDM/CMD/OBSERVABILITY/METADATA…"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -3381,12 +3401,14 @@
      "desc": "ENVIRONMENT (PROD/PRE/DEV)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -3565,12 +3587,14 @@
      "desc": "SCOPE_REASON: motivo de inclusión/exclusión (auditable)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -4518,12 +4542,14 @@
      "desc": "mismo input→mismo output (apta para cache)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -4646,12 +4672,14 @@
      "desc": "APPROVAL_STATUS"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -4934,12 +4962,14 @@
      "desc": "catálogo destino"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -5270,12 +5300,14 @@
      "desc": "fecha objetivo"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -5574,12 +5606,14 @@
      "desc": "vista/AST que construye el acumulado (GROUP BY sobre el origen)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -5686,12 +5720,14 @@
      "desc": "jerarquía de análisis (marca→grupo; día→mes→año)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -5766,12 +5802,14 @@
      "desc": "unidad de medida"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -6070,12 +6108,14 @@
      "desc": "APPROVAL_STATUS (autorización del owner)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -6374,12 +6414,14 @@
      "desc": "T&C (D14)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -7518,12 +7560,14 @@
      "desc": "última revisión"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECORD_STATUS"
+     "desc": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -8542,12 +8586,14 @@
      "desc": "respeta canonical_attribute_source_of_record (D2); survivorship solo como fallback"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado del mapping (ACTIVE/DRAFT/DEPRECATED)"
+     "desc": "estado del mapping (ACTIVE/DRAFT/DEPRECATED)",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "approval_status_code",
@@ -9330,12 +9376,14 @@
      "desc": "DECLARED/INFERRED_FROM_SAMPLE"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado de la conexión"
+     "desc": "estado de la conexión",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -9492,12 +9540,14 @@
      "desc": "referencia al token en Key Vault"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "VALID/EXPIRED/REVOKED"
+     "desc": "VALID/EXPIRED/REVOKED",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -10670,12 +10720,14 @@
      "desc": "fin"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado global"
+     "desc": "estado global",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "detection_mode_code",
@@ -11246,12 +11298,14 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado"
+     "desc": "estado",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -11311,12 +11365,14 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado"
+     "desc": "estado",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -11376,12 +11432,14 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "estado"
+     "desc": "estado",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -12003,13 +12061,13 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
      "catalog_ref_metadata_only": true
     },
     {
@@ -12019,6 +12077,14 @@
      "pk": 0,
      "fk_target": null,
      "desc": ""
+    },
+    {
+     "name": "display_order",
+     "tyd": "TYD_INT",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "orden de visualización entre hermanos"
     },
     {
      "name": "row_uuid",
@@ -12203,12 +12269,14 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "LIFECYCLE_STATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "row_uuid",
@@ -12431,13 +12499,13 @@
      "desc": ""
     },
     {
-     "name": "status_code",
+     "name": "lifecycle_state_code",
      "tyd": "TYD_CODE",
      "mandatory": "0",
      "pk": "0",
      "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "RECORD_STATUS",
+     "reference_catalog": "LIFECYCLE_STATE",
      "catalog_ref_metadata_only": true
     },
     {
