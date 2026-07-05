@@ -1,6 +1,6 @@
 # 99 · Control de sincronización — Proyecto «DATUM metadato»
 
-**Versión:** v1.1 — Julio 2026
+**Versión:** v1.2 — Julio 2026
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
 ## Regla de oro
@@ -18,7 +18,7 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 ## Aceleradores incorporados
 | Acelerador | Estado | Ficheros | Notas |
 |---|---|---|---|
-| Metadato (METADATA) | ACTIVO | modelo + catálogos + carga inicial | el metamodelo mismo; 194 entidades |
+| Metadato (METADATA) | ACTIVO | modelo + catálogos + carga inicial | el metamodelo mismo; 193 entidades |
 | Observabilidad (OBSERVABILITY) | REGISTRADO (0 entidades) | seed acelerador | catálogo físico `observability` previsto |
 | Financiero (FINANCE) | REGISTRADO (0 entidades) | seed acelerador | catálogo físico `business` |
 | RRHH (HR) | REGISTRADO (0 entidades) | seed acelerador | — |
@@ -32,15 +32,30 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 - Seed ampliado: 6 aceleradores (v1.0.0, ACTIVE) + 13 términos (12 base + DATABRICKS) del acelerador METADATA.
 - Visualizador: conmutador Por acelerador / Por dominio.
 
+## Estado tras METADATO-9..16 (v1.2)
+- **Modelo: 193 entidades** (eliminada `metamodel_domain`, huérfana; retirado `reference_category.metamodel_domain_code`). `_meta.total_entities` a sanear (declara 195).
+- **Estado unificado en `LIFECYCLE_STATE`** (metadata-first, 5 valores DRAFT/IN_DEFINITION/ACTIVE/DEPRECATED/RETIRED); eliminado `RECORD_STATUS`; `status_code`→`lifecycle_state_code` (31 atributos). Seed en ACTIVE.
+- **Catálogos de valores vigentes**: SOURCE_FREQUENCY, LIFECYCLE_STATE, ASSESSMENT_TYPE, MAPPING_CONDITION_KIND, CARDINALITY.
+- `display_order` en `canonical_accelerator` y `business_term` (orden estable del árbol).
+- **Jerarquía de términos (METADATA)** — raíces y orden: DATABRICKS 10 (CATALOG, DELTA_CONFIG), COMMON_STRUCTURE 15 (DATA_CATALOG, DATA_DOMAIN, I18N, ISO_CODE), COMMON_DATA 16 (ACCELERATOR, BUSINESS_TERM, CANONICAL_ENTITY), HIERARCHY 17 (GEO_STRUCTURE, ORG_STRUCTURE, TEMPORAL_STRUCTURE), BUSINESS_PROCESS 20, DATA_QUALITY 60, DATA_SOURCE 70, GOVERNANCE 80, TRANSFORMATION 110.
+- **Visualizador**: code en árbol, bolas de estado (5 colores), tema claro/oscuro, iconos Tabler.
+- **ER por término** operativo con principios conceptuales (METADATO-14): FK como relaciones (no columnas), técnicos y ubicación física ocultos, dependiente vs no-dependiente, cardinalidad 1:N/0:N, notación pata de gallo, cajas propia/externa/catálogo. Término **CATALOG** cerrado como referencia (METADATO-16).
+
 ## Pendientes abiertos
-- `_meta.total_entities` del modelo declara 195 vs. 194 reales (desde herencia); sanear.
+- `_meta.total_entities` del modelo declara 195 vs. **193 reales**; sanear.
+- **lifecycle_state**: hacerlo obligatorio y universal (falta en `storage_layer`; opcional en `storage_location`); valorar incorporarlo por construcción vía `TYD_AUDIT`.
+- Poblar `business_term_canonical_entity` con la entidad principal (`is_primary`) de cada término (hoy vacío → ER usa fallback).
+- **BK vs PK**: introducir la distinción clave de negocio / clave técnica (hoy todo es PK).
+- Valorar marcar la FK de ubicación física con flag explícito en el atributo (hoy se oculta por nombre en el ER).
+- Mostrar valores dentro de las cajas de catálogo del ER (hoy solo el nombre).
 - `business_term.owner_business_domain_code` eliminado; si se requiere dominio propietario, definir tabla `business_domain` (no existe).
-- Términos de METADATA por completar/ajustar; resto de aceleradores sin entidades.
-- i18n de términos, aceleradores y D00 sin traducir.
+- GEO_STRUCTURE y TEMPORAL_STRUCTURE sin entidades; resto de aceleradores sin entidades.
+- i18n de términos, aceleradores, D00 e ISO_CODE sin traducir.
 
 ## Historial de versiones
 - **v1.0 (Julio 2026):** creación del proyecto «DATUM metadato». Hereda el estado del metamodelo tras DATUM-108 (DATUM-Producto). Establece gobierno propio (par 99/18-METADATO) y el rol de bootstrap del Control Plane de los JSON.
 - **v1.1 (Julio 2026):** decisiones METADATO-3..8. Jerarquía por acelerador (D20 raíz), saneamiento de `canonical_accelerator` y `business_term`, seed de 6 aceleradores + 13 términos, reclasificación de D00/D05 a términos, visualizador por acelerador.
+- **v1.2 (Julio 2026):** decisiones METADATO-9..16. Saneamiento a 193 entidades, estado unificado LIFECYCLE_STATE, `display_order`, reestructuración de términos (COMMON_STRUCTURE/COMMON_DATA/HIERARCHY), ER por término y **principios de modelado del ER conceptual** (FK como relaciones, dependencia/cardinalidad, ocultación de técnicos y ubicación física), término CATALOG cerrado.
 
 ---
-*Fin de `99-METADATO-control.md` v1.1.*
+*Fin de `99-METADATO-control.md` v1.2.*
