@@ -1,0 +1,156 @@
+{
+ "entity": "reference_category",
+ "entity_metadata": [
+  {
+   "field": "business_term_code",
+   "value": "DATA_CATALOG",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 1,
+   "is_visible_er": false,
+   "fk_entity": "business_term"
+  },
+  {
+   "field": "config_pattern_code",
+   "value": "DEFAULT",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 1,
+   "is_visible_er": false,
+   "fk_entity": "config_pattern"
+  },
+  {
+   "field": "physical_catalog_code",
+   "value": "metadato",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 1,
+   "is_visible_er": false,
+   "fk_entity": "physical_catalog"
+  },
+  {
+   "field": "physical_schema_code",
+   "value": "metadata",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 1,
+   "is_visible_er": false,
+   "fk_entity": "physical_schema"
+  },
+  {
+   "field": "is_pii",
+   "value": "0",
+   "data_type_domain_code": "TYD_BOOLEAN",
+   "mandatory": 1,
+   "is_visible_er": true
+  },
+  {
+   "field": "is_sensitive",
+   "value": "0",
+   "data_type_domain_code": "TYD_BOOLEAN",
+   "mandatory": 1,
+   "is_visible_er": true
+  },
+  {
+   "field": "security_classification_code",
+   "value": "PUBLIC",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 1,
+   "is_visible_er": true,
+   "catalog_ref": {
+    "catalog": "SECURITY_CLASSIFICATION",
+    "value": "PUBLIC",
+    "metadata_only": true
+   }
+  },
+  {
+   "field": "estimated_annual_volume",
+   "value": null,
+   "data_type_domain_code": "TYD_BIGINT_VOLUME",
+   "mandatory": 0,
+   "is_visible_er": true
+  },
+  {
+   "field": "access_frequency_code",
+   "value": "RARELY",
+   "data_type_domain_code": "TYD_CODE",
+   "mandatory": 0,
+   "is_visible_er": true,
+   "catalog_ref": {
+    "catalog": "SOURCE_FREQUENCY",
+    "value": "RARELY",
+    "metadata_only": true
+   }
+  },
+  {
+   "field": "system",
+   "value": null,
+   "data_type_domain_code": "TYD_SYSTEM",
+   "mandatory": 1,
+   "is_visible_er": false
+  }
+ ],
+ "attributes": [
+  {
+   "code": "code",
+   "attribute_order": 1,
+   "is_visible_er": true,
+   "data_type_domain_code": "TYD_CODE",
+   "pk": 1,
+   "is_nullable": false,
+   "is_pii": false,
+   "is_sensitive": false,
+   "security_classification_code": "PUBLIC",
+   "materialization_mode_code": null,
+   "referenced_entity_code": null,
+   "column_default": null,
+   "is_auto_increment": false,
+   "is_generated": false,
+   "generation_expression": null,
+   "regex_pattern_override": null
+  },
+  {
+   "code": "sort_order",
+   "attribute_order": 2,
+   "is_visible_er": true,
+   "data_type_domain_code": "TYD_INT",
+   "pk": 0,
+   "is_nullable": false,
+   "is_pii": false,
+   "is_sensitive": false,
+   "security_classification_code": "PUBLIC",
+   "materialization_mode_code": null,
+   "referenced_entity_code": null,
+   "column_default": null,
+   "is_auto_increment": false,
+   "is_generated": false,
+   "generation_expression": null,
+   "regex_pattern_override": null
+  },
+  {
+   "code": "system",
+   "attribute_order": 3,
+   "is_visible_er": false,
+   "data_type_domain_code": "TYD_SYSTEM",
+   "pk": 0,
+   "is_nullable": false,
+   "is_pii": false,
+   "is_sensitive": false,
+   "security_classification_code": "PUBLIC",
+   "materialization_mode_code": null,
+   "referenced_entity_code": null,
+   "column_default": null,
+   "is_auto_increment": false,
+   "is_generated": false,
+   "generation_expression": null,
+   "regex_pattern_override": null
+  }
+ ],
+ "keys": [
+  {
+   "type": "PK",
+   "attributes": [
+    "code"
+   ]
+  }
+ ],
+ "relations": [],
+ "constraints": [],
+ "partitions": []
+}
