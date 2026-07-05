@@ -24,7 +24,9 @@
     "WEEKLY": "Refresco semanal.",
     "MONTHLY": "Refresco mensual.",
     "RARELY": "Refresco esporádico / bajo demanda."
-   }
+   },
+   "category": "TIME",
+   "canonical_accelerator": "METADATA"
   },
   "LIFECYCLE_STATE": {
    "dominio": "D0 · Estados / ciclo de vida",
@@ -40,7 +42,9 @@
     "ACTIVE": "Publicada y vigente en producción.",
     "DEPRECATED": "En retirada, sustituida por otra versión.",
     "RETIRED": "Retirada definitivamente."
-   }
+   },
+   "category": "STATE",
+   "canonical_accelerator": "METADATA"
   },
   "ASSESSMENT_TYPE": {
    "dominio": "D0 · Gobierno (D8)",
@@ -58,7 +62,9 @@
     "COMPLIANCE": "Evaluación de cumplimiento.",
     "DEFINITION_QUALITY": "Evaluación de calidad de la definición."
    },
-   "nota": "EN CUARENTENA: el founder no tiene claro su encaje. No usar hasta resolver. La FK de evaluación en canonical_entity apunta a assessment_pattern (assessment_code), no a este catálogo."
+   "nota": "EN CUARENTENA: el founder no tiene claro su encaje. No usar hasta resolver. La FK de evaluación en canonical_entity apunta a assessment_pattern (assessment_code), no a este catálogo.",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA"
   },
   "MAPPING_CONDITION_KIND": {
    "dominio": "D0 · Transformación (D4)",
@@ -71,7 +77,9 @@
    "values": {
     "JOIN": "Unión entre source entities (multi-source).",
     "FILTER": "Filtro WHERE sobre el origen."
-   }
+   },
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA"
   },
   "CARDINALITY": {
    "dominio": "D0 · Sistema de tipos",
@@ -84,7 +92,182 @@
    "values": {
     "ONE": "Lado uno (1).",
     "MANY": "Lado muchos (N)."
+   },
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA"
+  },
+  "STANDARD_AUTHORITY": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "ACTIVE",
+   "usado_en": [
+    "reference_catalog.external_authority_code"
+   ],
+   "desc": "Autoridades externas que definen estándares para catálogos de referencia (p. ej. ISO define ISO 4217/3166).",
+   "values": {
+    "ISO": "International Organization for Standardization.",
+    "IETF": "Internet Engineering Task Force (RFC, BCP 47).",
+    "UN_CEFACT": "UN Centre for Trade Facilitation and Electronic Business (UN/LOCODE, unidades).",
+    "ITU": "International Telecommunication Union.",
+    "IANA": "Internet Assigned Numbers Authority.",
+    "SWIFT": "Society for Worldwide Interbank Financial Telecommunication (BIC, IBAN).",
+    "W3C": "World Wide Web Consortium.",
+    "NIST": "National Institute of Standards and Technology.",
+    "OGC": "Open Geospatial Consortium.",
+    "INTERNAL": "Autoridad interna DATUM (catálogo propio, sin estándar externo)."
+   },
+   "category": "ROLE",
+   "canonical_accelerator": "METADATA"
+  },
+  "SECURITY_CLASSIFICATION": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "canonical_entity.security_classification_code",
+    "canonical_attribute.security_classification_code"
+   ],
+   "desc": "Clasificación de seguridad del dato (entidad/atributo).",
+   "values": {
+    "PUBLIC": "Dato público, sin restricción.",
+    "INTERNAL": "Uso interno de la organización.",
+    "CONFIDENTIAL": "Confidencial; acceso restringido por necesidad.",
+    "RESTRICTED": "Máxima restricción; acceso muy limitado y auditado."
+   }
+  },
+  "KEY_TYPE": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Tipo de clave canónica (PK, única, foránea, índice).",
+   "values": {
+    "PK": "Clave primaria.",
+    "UN": "Restricción de unicidad.",
+    "IX": "Índice."
+   }
+  },
+  "REFERENTIAL_ACTION": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Acción referencial on delete/on update.",
+   "values": {
+    "CASCADE": "",
+    "RESTRICT": "",
+    "SET_NULL": "",
+    "NO_ACTION": ""
+   }
+  },
+  "CONSTRAINT_TYPE": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Tipo de restricción de integridad.",
+   "values": {
+    "CHECK": "",
+    "NOT_NULL": "",
+    "UNIQUE": "",
+    "PRIMARY_KEY": "",
+    "FOREIGN_KEY": ""
+   }
+  },
+  "RELATION_KIND": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Cardinalidad de una relación canónica.",
+   "values": {
+    "ONE_TO_ONE": "",
+    "ONE_TO_MANY": "",
+    "MANY_TO_MANY": ""
+   }
+  },
+  "MATERIALIZATION_MODE": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Modo de materialización de un atributo.",
+   "values": {
+    "STORED": "",
+    "VIRTUAL": "",
+    "COMPUTED": ""
+   }
+  },
+  "EXPRESSION_ROLE": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "ROLE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Papel de un atributo dentro de una expresión de constraint.",
+   "values": {
+    "OPERAND": "",
+    "SUBJECT": "",
+    "REFERENCE": ""
+   }
+  },
+  "RELATION_END_ROLE": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "ROLE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Papel del extremo de una relación (padre/hijo).",
+   "values": {
+    "PARENT": "",
+    "CHILD": ""
+   }
+  },
+  "PARTITION_STRATEGY": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Estrategia de particionamiento físico de la entidad (Delta).",
+   "values": {
+    "LIQUID": "Liquid Clustering (CLUSTER BY).",
+    "PARTITIONED": "Particionamiento por columnas (PARTITIONED BY).",
+    "NONE": "Sin particionamiento explícito."
    }
   }
- }
+ },
+ "categories": [
+  {
+   "code": "TYPE",
+   "sort_order": 10
+  },
+  {
+   "code": "STATE",
+   "sort_order": 20
+  },
+  {
+   "code": "SITUATION",
+   "sort_order": 30
+  },
+  {
+   "code": "REASON",
+   "sort_order": 40
+  },
+  {
+   "code": "TIME",
+   "sort_order": 50
+  },
+  {
+   "code": "ROLE",
+   "sort_order": 60
+  }
+ ]
 }

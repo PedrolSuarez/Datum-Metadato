@@ -51,20 +51,11 @@
      "desc": "orden"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -92,6 +83,13 @@
      "desc": "dominio al que pertenece"
     },
     {
+     "name": "canonical_accelerator_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "canonical_accelerator"
+    },
+    {
      "name": "is_ordered",
      "tyd": "TYD_BOOLEAN",
      "mandatory": 1,
@@ -112,8 +110,10 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "STANDARD_AUTHORITY",
-     "desc": "ISO/ITU/DAMA/INTERNAL"
+     "fk_target": "reference_value",
+     "desc": "ISO/ITU/DAMA/INTERNAL",
+     "reference_catalog": "STANDARD_AUTHORITY",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "external_standard_ref",
@@ -124,20 +124,11 @@
      "desc": "\"ISO 4217\"…"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -188,44 +179,11 @@
      "desc": "sin transición de salida"
     },
     {
-     "name": "valid_from",
-     "tyd": "TYD_DATE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "inicio vigencia"
-    },
-    {
-     "name": "valid_to",
-     "tyd": "TYD_DATE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fin vigencia"
-    },
-    {
-     "name": "external_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "mapeo a estándar externo"
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -308,20 +266,11 @@
      "desc": "PII por defecto"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -356,20 +305,11 @@
      "desc": "clasificación"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -428,12 +368,11 @@
      "desc": "orden"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -460,12 +399,11 @@
      "desc": "regla DQ (D6)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -484,20 +422,11 @@
      "desc": "ALFANUMERICO, ENTERO…"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -524,20 +453,11 @@
      "desc": "TECHNOLOGY_CATEGORY"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -564,20 +484,11 @@
      "desc": "STRING, VARCHAR, BIGINT…"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -612,12 +523,11 @@
      "desc": "tipo físico destino"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -668,20 +578,11 @@
      "desc": "soportado en DATUM"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -756,20 +657,11 @@
      "desc": "CONTINENT"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -812,20 +704,11 @@
      "desc": "provincia/estado/región"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -876,20 +759,11 @@
      "desc": "en uso"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -916,20 +790,11 @@
      "desc": "UOM_CATEGORY"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -972,16 +837,6 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "assigned_catalog_code",
      "tyd": "TYD_CODE",
      "mandatory": "1",
@@ -996,20 +851,11 @@
      "fk_target": "physical_schema"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -1045,16 +891,6 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "assigned_catalog_code",
      "tyd": "TYD_CODE",
      "mandatory": "1",
@@ -1069,20 +905,11 @@
      "fk_target": "physical_schema"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -1134,20 +961,11 @@
      "desc": "el texto traducido"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1166,20 +984,11 @@
      "desc": "CANONICAL_ENTITY, KPI…"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1206,20 +1015,11 @@
      "desc": "orden"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1302,30 +1102,11 @@
      "desc": "centro de coste"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1376,20 +1157,11 @@
      "desc": "hasta"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1448,30 +1220,11 @@
      "desc": "PROCESS_FREQUENCY"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1538,16 +1291,6 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "display_order",
      "tyd": "TYD_INT",
      "mandatory": 0,
@@ -1556,20 +1299,11 @@
      "desc": "orden de visualización entre hermanos"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -1597,12 +1331,11 @@
      "desc": "entidad crítica operada"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -1629,12 +1362,11 @@
      "desc": ""
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -1670,12 +1402,11 @@
      "desc": ""
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "domain": "",
@@ -1719,30 +1450,11 @@
      "desc": "SLA del patrón"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D0"
@@ -1809,20 +1521,11 @@
      "desc": "SLA del paso"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D0"
@@ -1851,7 +1554,7 @@
     {
      "name": "config_pattern_code",
      "tyd": "TYD_CODE",
-     "mandatory": 0,
+     "mandatory": 1,
      "pk": 0,
      "fk_target": "config_pattern",
      "desc": ""
@@ -1861,8 +1564,7 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "physical_catalog",
-     "desc": ""
+     "fk_target": "physical_catalog"
     },
     {
      "name": "physical_schema_code",
@@ -1894,7 +1596,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "SECURITY_CLASSIFICATION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "estimated_annual_volume",
@@ -1910,33 +1614,16 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
      "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
+     "reference_catalog": "SOURCE_FREQUENCY",
      "catalog_ref_metadata_only": true
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -1972,6 +1659,13 @@
      "desc": ""
     },
     {
+     "name": "is_visible_er",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    },
+    {
      "name": "data_type_domain_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
@@ -1985,7 +1679,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "MATERIALIZATION_MODE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "referenced_entity_code",
@@ -1993,14 +1689,6 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "physical_column_name",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
      "desc": ""
     },
     {
@@ -2025,18 +1713,12 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "SECURITY_CLASSIFICATION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_nullable",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "is_unique",
      "tyd": "TYD_BOOLEAN",
      "mandatory": 1,
      "pk": 0,
@@ -2076,20 +1758,18 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
+     "name": "regex_pattern_override",
+     "tyd": "TYD_EXPRESSION",
+     "mandatory": 0,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2157,12 +1837,11 @@
      "desc": ""
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2214,20 +1893,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2260,7 +1930,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "KEY_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_used_for_matching",
@@ -2271,52 +1943,11 @@
      "desc": ""
     },
     {
-     "name": "referenced_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "referenced_key_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_key",
-     "desc": ""
-    },
-    {
-     "name": "on_delete_action_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "on_update_action_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2376,85 +2007,11 @@
      "desc": ""
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    }
-   ],
-   "i18n": true,
-   "domain": ""
-  },
-  "canonical_attribute_constraint": {
-   "subdomain": "",
-   "type": "CANÓNICA",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_attribute",
-     "desc": ""
-    },
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "constraint_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "expression",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "min_value",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "max_value",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "allowed_values_reference_catalog_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_catalog",
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2487,7 +2044,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "CONSTRAINT_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "expression",
@@ -2506,12 +2065,11 @@
      "desc": ""
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2552,15 +2110,16 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "EXPRESSION_ROLE",
+     "catalog_ref_metadata_only": true
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -2628,20 +2187,11 @@
      "desc": "fin (NULL si vigente)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D0"
@@ -2708,20 +2258,11 @@
      "desc": "acto de aprobación vigente"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D0"
@@ -2796,20 +2337,11 @@
      "desc": "última evaluación vigente del objeto"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -2860,30 +2392,11 @@
      "desc": "método de cálculo (WEIGHTED_SUM por defecto)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -2942,20 +2455,11 @@
      "desc": "obligatoria para cerrar el acto"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n (enunciado)"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -3006,20 +2510,11 @@
      "desc": "nivel asignado al rango (DATA_CRITICALITY u otro)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -3070,12 +2565,11 @@
      "desc": "justificación opcional"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -3094,30 +2588,11 @@
      "desc": "RDM/MDM/CMD/OBSERVABILITY/METADATA…"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n (nombre/descripción)"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -3136,44 +2611,26 @@
      "desc": "nombre real Delta: delta.autoOptimize.optimizeWrite…"
     },
     {
+     "name": "technical_name",
+     "tyd": "TYD_STRING",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    },
+    {
      "name": "value_logical_type_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
+     "fk_target": null,
      "desc": "LOGICAL_TYPE del valor (BOOLEAN/INT/DURATION…)"
     },
     {
-     "name": "allowed_values_reference_catalog_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_catalog",
-     "desc": "valores válidos si aplica"
-    },
-    {
-     "name": "technical_default",
-     "tyd": "TYD_EXPRESSION",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "default técnico de Delta"
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -3208,12 +2665,11 @@
      "desc": "valor estándar del patrón (tipado)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -3240,14 +2696,6 @@
      "desc": "clase del objeto (CANONICAL_ENTITY/SOURCE_ENTITY…)"
     },
     {
-     "name": "layer_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "reference_value",
-     "desc": "capa: LANDING/RAW/COMMON/BUSINESS/OPERATIONAL"
-    },
-    {
      "name": "delta_property_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
@@ -3264,12 +2712,11 @@
      "desc": "valor que sustituye al del patrón (solo lo que cambia)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -3328,30 +2775,11 @@
      "desc": "ENVIRONMENT (PROD/PRE/DEV)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3514,30 +2942,11 @@
      "desc": "SCOPE_REASON: motivo de inclusión/exclusión (auditable)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3636,20 +3045,11 @@
      "desc": "PII detectada por profiling (insumo, no gobierno; el gobierno se fija en D2)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3700,20 +3100,11 @@
      "desc": "detectada por discovery (true) vs declarada manualmente (false)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3756,12 +3147,11 @@
      "desc": "orden en clave compuesta"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3820,20 +3210,11 @@
      "desc": "cadencia de captura (cron)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3876,12 +3257,11 @@
      "desc": "orden si compuesta"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3940,20 +3320,11 @@
      "desc": "responsabilidades, escalado, cláusulas de salida"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -3996,12 +3367,11 @@
      "desc": "qué pasa al incumplir (→ observacional familia E)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D3"
@@ -4092,20 +3462,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "i18n": true,
@@ -4157,12 +3518,11 @@
      "desc": "nodo raíz del AST"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D2"
@@ -4229,12 +3589,11 @@
      "desc": "orden entre hermanos"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D2"
@@ -4293,12 +3652,11 @@
      "desc": "si LITERAL: valor tipado"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D2"
@@ -4333,20 +3691,11 @@
      "desc": "tipo de retorno"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D2"
@@ -4421,20 +3770,11 @@
      "desc": "fecha de compilación"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4469,30 +3809,11 @@
      "desc": "mismo input→mismo output (apta para cache)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4543,12 +3864,11 @@
      "desc": "valor por defecto tipado"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4599,30 +3919,11 @@
      "desc": "APPROVAL_STATUS"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4689,12 +3990,11 @@
      "desc": "orden en el DAG"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4729,12 +4029,11 @@
      "desc": "DEPENDENCY_TYPE (SUCCESS/COMPLETION)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4777,20 +4076,11 @@
      "desc": "vigencia"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4841,20 +4131,11 @@
      "desc": "aprobación CISO"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4889,30 +4170,11 @@
      "desc": "catálogo destino"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -4947,12 +4209,11 @@
      "desc": "valor destino"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -5011,12 +4272,11 @@
      "desc": "origen del disparo"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -5067,12 +4327,11 @@
      "desc": "inicio del step"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D4"
@@ -5123,20 +4382,11 @@
      "desc": "si PII"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5179,20 +4429,11 @@
      "desc": "prioridad"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5227,30 +4468,11 @@
      "desc": "fecha objetivo"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5277,20 +4499,11 @@
      "desc": "cómo asegurar"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5325,20 +4538,11 @@
      "desc": "procedimiento"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5373,20 +4577,11 @@
      "desc": "umbral % (acto emitido→OBS_DQ_CERTIFICATION)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5421,20 +4616,11 @@
      "desc": "método"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5461,12 +4647,11 @@
      "desc": "característica ISO 25012"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5533,30 +4718,11 @@
      "desc": "vista/AST que construye el acumulado (GROUP BY sobre el origen)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5591,12 +4757,11 @@
      "desc": "orden"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5647,30 +4812,11 @@
      "desc": "jerarquía de análisis (marca→grupo; día→mes→año)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D6"
@@ -5729,30 +4875,11 @@
      "desc": "unidad de medida"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5787,12 +4914,11 @@
      "desc": "orden"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5843,20 +4969,11 @@
      "desc": "PUBLICATION_STATUS"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5891,12 +5008,11 @@
      "desc": "perspectiva (GENERAL/PRODUCT/PAYMENT/TAX…)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D7"
@@ -5963,20 +5079,11 @@
      "desc": "dimensión de madurez del dato"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -6035,30 +5142,11 @@
      "desc": "APPROVAL_STATUS (autorización del owner)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6117,20 +5205,11 @@
      "desc": "fin"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6189,12 +5268,11 @@
      "desc": "enmascara PII campo a campo en la respuesta"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6245,12 +5323,11 @@
      "desc": "formato de salida"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6293,12 +5370,11 @@
      "desc": "nivel de grant (READ)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6341,30 +5417,11 @@
      "desc": "T&C (D14)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6423,20 +5480,11 @@
      "desc": "fecha de solicitud"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6495,20 +5543,11 @@
      "desc": "propaga el derecho de borrado al receptor"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D9"
@@ -6551,20 +5590,11 @@
      "desc": "propósito"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6639,20 +5669,11 @@
      "desc": "es DECISIÓN de gobierno (autorización); el ENFORCEMENT lo hace UC"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6679,12 +5700,11 @@
      "desc": "política ABAC aplicada"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6727,12 +5747,11 @@
      "desc": "fecha"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6775,12 +5794,11 @@
      "desc": "recalculada (vista derivada O(1) para el runner)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6839,20 +5857,11 @@
      "desc": "expresión de la política (AST)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6887,12 +5896,11 @@
      "desc": "tipo"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6927,20 +5935,11 @@
      "desc": "alcance (eventos → observabilidad)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -6975,20 +5974,11 @@
      "desc": "descripción"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7023,20 +6013,11 @@
      "desc": "base primaria"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7095,20 +6076,11 @@
      "desc": "FK al DOCUMENTO físico real (D14); el registro es el metadato declarado, el documento vive en D14"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7167,20 +6139,11 @@
      "desc": "workflow (regla de oro DATUM-29: autoriza el owner)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7231,20 +6194,11 @@
      "desc": "FK al DOCUMENTO físico real (D14); el registro es el metadato declarado, el documento vive en D14"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7287,20 +6241,11 @@
      "desc": "FK al DOCUMENTO físico real (D14); el registro es el metadato declarado, el documento vive en D14"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7343,20 +6288,11 @@
      "desc": "FK al DOCUMENTO físico real (D14); el registro es el metadato declarado, el documento vive en D14"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7391,20 +6327,11 @@
      "desc": "workflow (las brechas reales → observabilidad)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D8"
@@ -7487,30 +6414,11 @@
      "desc": "última revisión"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RECORD_STATUS",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D14"
@@ -7561,12 +6469,11 @@
      "desc": "vínculo primario (1 por documento)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D14"
@@ -7609,12 +6516,11 @@
      "desc": "OWNERSHIP_ROLE (PRIMARY_OWNER/REVIEWER/CONTRIBUTOR/APPROVER)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D14"
@@ -7657,12 +6563,11 @@
      "desc": "el atributo/pantalla puede sobreescribir"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": ""
@@ -7705,20 +6610,11 @@
      "desc": "orden"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -7785,20 +6681,11 @@
      "desc": "título"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -7841,12 +6728,11 @@
      "desc": "pantalla padre"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -7889,20 +6775,11 @@
      "desc": "patrón de plataforma"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -7953,12 +6830,11 @@
      "desc": "orden"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8025,12 +6901,11 @@
      "desc": "etiqueta personalizada"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8073,12 +6948,11 @@
      "desc": "UI_ACTION (VIEW/CREATE/EDIT/DELETE/APPROVE/EXPORT/EXECUTE_WORKFLOW/COMMENT)"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8113,20 +6987,11 @@
      "desc": "descripción"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8185,20 +7050,11 @@
      "desc": "modificado por el cliente sobre el visual completo por defecto"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8241,20 +7097,11 @@
      "desc": "CSM asignado"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8289,12 +7136,11 @@
      "desc": "título"
     },
     {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D10"
@@ -8361,20 +7207,11 @@
      "desc": "se materializa como vista (target LINEAGE) sobre el grafo declarado"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D5"
@@ -8417,20 +7254,11 @@
      "desc": "propósito (pre-breaking-change: qué se ve afectado si cambio/retiro X)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite"
+     "fk_target": null
     }
    ],
    "domain": "D5"
@@ -8513,16 +7341,6 @@
      "desc": "respeta canonical_attribute_source_of_record (D2); survivorship solo como fallback"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado del mapping (ACTIVE/DRAFT/DEPRECATED)",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "approval_status_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
@@ -8531,20 +7349,11 @@
      "desc": "estado de aprobación"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8596,20 +7405,11 @@
      "desc": "rol del input (PRIMARY/LOOKUP_KEY/CONDITION_OPERAND)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8653,20 +7453,11 @@
      "desc": "expresión que produce el valor (COMPOSITE kind+content; resuelta por cast_and_validate)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8702,20 +7493,11 @@
      "desc": "valor tipado del parámetro (COMPOSITE kind+content)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8791,20 +7573,11 @@
      "desc": "expresión: a.k = b.k (JOIN) o predicado WHERE (COMPOSITE kind+content)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8864,20 +7637,11 @@
      "desc": "sugerido por discovery (sí) vs concretado por modelador (no)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -8937,20 +7701,11 @@
      "desc": "versión vigente sí/no"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9010,20 +7765,11 @@
      "desc": "versión vigente sí/no"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9067,20 +7813,11 @@
      "desc": "obligatorio sí/no"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9124,20 +7861,11 @@
      "desc": "obligatorio sí/no"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9173,20 +7901,11 @@
      "desc": "valor tipado (COMPOSITE kind+content)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9222,20 +7941,11 @@
      "desc": "valor tipado (COMPOSITE kind+content)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D4",
@@ -9303,30 +8013,11 @@
      "desc": "DECLARED/INFERRED_FROM_SAMPLE"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado de la conexión",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9402,20 +8093,11 @@
      "desc": "custodia (IT/DPO)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9467,30 +8149,11 @@
      "desc": "referencia al token en Key Vault"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "VALID/EXPIRED/REVOKED",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9542,20 +8205,11 @@
      "desc": "TABLE/VIEW/MATERIALIZED_VIEW"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9615,20 +8269,11 @@
      "desc": "delimitador (CSV)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9680,20 +8325,11 @@
      "desc": "JSONPath a la colección de datos"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9745,20 +8381,11 @@
      "desc": "obligatorio"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9802,20 +8429,11 @@
      "desc": "ruta al nodo de datos"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9867,20 +8485,11 @@
      "desc": "namespace del servicio"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9932,20 +8541,11 @@
      "desc": "consumer group"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -9989,20 +8589,11 @@
      "desc": "HMAC/NONE"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10054,20 +8645,11 @@
      "desc": "DATA/INSTRUCTIONS/CHART/PIVOT"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10111,20 +8693,11 @@
      "desc": "patrón de miembros a capturar"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10168,20 +8741,11 @@
      "desc": "layout/copybook del registro"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10257,20 +8821,11 @@
      "desc": "ratificada por Comité"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10314,20 +8869,11 @@
      "desc": "confirmado por modelador"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10387,20 +8933,11 @@
      "desc": "rol semántico (customer, tax_subject…)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10444,20 +8981,11 @@
      "desc": "declarado por (origen/modelador)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10517,20 +9045,11 @@
      "desc": "motivo del cambio (drift aceptado)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10590,20 +9109,11 @@
      "desc": "motivo"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10647,16 +9157,6 @@
      "desc": "fin"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado global",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "detection_mode_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
@@ -10681,20 +9181,11 @@
      "desc": "SCHEDULED/MANUAL"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10762,20 +9253,11 @@
      "desc": "detalle del cambio"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10835,20 +9317,11 @@
      "desc": "discovery activo"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10892,20 +9365,11 @@
      "desc": "RANDOM/TOP_N/STRATIFIED"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -10981,20 +9445,11 @@
      "desc": "PII auto-detectado"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11038,20 +9493,11 @@
      "desc": "confirmado por modelador"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11103,20 +9549,11 @@
      "desc": "regla activa"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11168,20 +9605,11 @@
      "desc": "score del match (%)"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11225,30 +9653,11 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11292,30 +9701,11 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11359,30 +9749,11 @@
      "desc": "cadencia (cron)"
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "estado",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -11407,7 +9778,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "RELATION_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "source_canonical_entity_code",
@@ -11426,6 +9799,24 @@
      "desc": ""
     },
     {
+     "name": "on_delete_action_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "REFERENTIAL_ACTION",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "on_update_action_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "REFERENTIAL_ACTION",
+     "catalog_ref_metadata_only": true
+    },
+    {
      "name": "is_identifying",
      "tyd": "TYD_BOOLEAN",
      "mandatory": 0,
@@ -11434,20 +9825,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11473,7 +9855,9 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "RELATION_END_ROLE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "canonical_entity_code",
@@ -11489,7 +9873,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "CARDINALITY",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_mandatory",
@@ -11500,20 +9886,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11550,20 +9927,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11608,20 +9976,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11658,20 +10017,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11716,20 +10066,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11790,20 +10131,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11864,20 +10196,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11946,20 +10269,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -11988,16 +10302,6 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "entity_count",
      "tyd": "TYD_INT",
      "mandatory": 0,
@@ -12014,20 +10318,11 @@
      "desc": "orden de visualización entre hermanos"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -12072,20 +10367,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -12130,20 +10416,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -12196,30 +10473,11 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -12264,20 +10522,11 @@
      "desc": ""
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D2",
@@ -12314,20 +10563,11 @@
      "desc": "FULL/PARTIAL"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "índice único · ancla i18n"
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "composite (6 campos)"
+     "fk_target": null
     }
    ],
    "source": "derivado_del_volcado_D3",
@@ -12377,20 +10617,11 @@
      "fk_target": "physical_schema"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": "1",
-     "pk": "0",
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": "1",
-     "pk": "0",
-     "fk_target": null,
-     "desc": ""
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
     }
    ],
    "desc": "",
@@ -12426,16 +10657,6 @@
      "desc": ""
     },
     {
-     "name": "lifecycle_state_code",
-     "tyd": "TYD_CODE",
-     "mandatory": "0",
-     "pk": "0",
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "LIFECYCLE_STATE",
-     "catalog_ref_metadata_only": true
-    },
-    {
      "name": "assigned_catalog_code",
      "tyd": "TYD_CODE",
      "mandatory": "1",
@@ -12450,24 +10671,74 @@
      "fk_target": "physical_schema"
     },
     {
-     "name": "row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": "1",
-     "pk": "0",
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "audit",
-     "tyd": "TYD_AUDIT",
-     "mandatory": "1",
-     "pk": "0",
-     "fk_target": null,
-     "desc": ""
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
     }
    ],
    "desc": "",
    "i18n": true
+  },
+  "canonical_entity_partition": {
+   "attributes": [
+    {
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "canonical_entity"
+    },
+    {
+     "name": "partition_strategy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "PARTITION_STRATEGY",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ]
+  },
+  "canonical_entity_partition_attribute": {
+   "attributes": [
+    {
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "canonical_entity_partition"
+    },
+    {
+     "name": "canonical_attribute_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "canonical_attribute"
+    },
+    {
+     "name": "partition_order",
+     "tyd": "TYD_INT",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ]
   }
  }
 }
