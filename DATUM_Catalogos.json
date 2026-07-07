@@ -242,6 +242,20 @@
     "PARTITIONED": "Particionamiento por columnas (PARTITIONED BY).",
     "NONE": "Sin particionamiento explícito."
    }
+  },
+  "CARDINALITY_REL": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Cardinalidad de una relación canónica (lado source→target).",
+   "values": {
+    "0:N": "",
+    "1:N": "",
+    "0:1": "",
+    "1:1": ""
+   }
   }
  },
  "categories": [

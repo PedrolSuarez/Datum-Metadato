@@ -385,7 +385,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "reference_catalog",
@@ -397,7 +398,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "reference_value",
@@ -409,7 +411,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_domain_simple",
@@ -421,7 +424,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_domain_composite",
@@ -433,7 +437,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_domain_field",
@@ -445,7 +450,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_domain_dq_rule",
@@ -457,7 +463,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "generic_data_type",
@@ -469,7 +476,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "technology",
@@ -481,7 +489,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type",
@@ -493,7 +502,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_mapping",
@@ -505,7 +515,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "language",
@@ -517,7 +528,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "country",
@@ -529,7 +541,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "country_subdivision",
@@ -541,7 +554,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "currency",
@@ -553,7 +567,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "unit_of_measure",
@@ -565,7 +580,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "physical_catalog",
@@ -577,7 +593,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "physical_schema",
@@ -589,7 +606,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_text",
@@ -601,7 +619,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_type",
@@ -613,7 +632,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "text_field_kind",
@@ -625,7 +645,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_unit",
@@ -637,7 +658,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_unit_role_assignment",
@@ -649,7 +671,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_process",
@@ -661,7 +684,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_term",
@@ -673,7 +697,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_process_term",
@@ -685,7 +710,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_term_synonym",
@@ -697,7 +723,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_term_related",
@@ -709,7 +736,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "workflow_pattern",
@@ -721,7 +749,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "workflow_pattern_step",
@@ -733,7 +762,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity",
@@ -745,7 +775,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_attribute",
@@ -757,7 +788,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_bk_alias",
@@ -769,7 +801,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_bk_lookup_config",
@@ -781,7 +814,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_key",
@@ -793,7 +827,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_key_attribute",
@@ -805,7 +840,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_constraint",
@@ -817,19 +853,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
-   },
-   {
-    "code": "canonical_entity_constraint_attribute",
-    "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_version",
@@ -841,7 +866,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_approval",
@@ -853,7 +879,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_assessment",
@@ -865,7 +892,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "assessment_pattern",
@@ -877,7 +905,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "assessment_question",
@@ -889,7 +918,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "assessment_pattern_threshold",
@@ -901,7 +931,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_assessment_answer",
@@ -913,7 +944,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "config_pattern",
@@ -925,7 +957,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "delta_property",
@@ -937,7 +970,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "config_pattern_delta_default",
@@ -949,7 +983,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "object_delta_override",
@@ -961,7 +996,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_system",
@@ -973,7 +1009,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity",
@@ -985,7 +1022,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute",
@@ -997,7 +1035,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_key",
@@ -1009,7 +1048,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_key_attribute",
@@ -1021,7 +1061,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_capture_config",
@@ -1033,7 +1074,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_partition_strategy",
@@ -1045,7 +1087,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_data_contract",
@@ -1057,7 +1100,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_data_contract_sla",
@@ -1069,7 +1113,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_view",
@@ -1081,7 +1126,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "expression",
@@ -1093,7 +1139,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "expression_node",
@@ -1105,7 +1152,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "expression_operand",
@@ -1117,7 +1165,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "function_catalog",
@@ -1129,7 +1178,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "compiled_ddl",
@@ -1141,7 +1191,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_rule",
@@ -1153,7 +1204,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_rule_parameter",
@@ -1165,7 +1217,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_pipeline",
@@ -1177,7 +1230,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_pipeline_step",
@@ -1189,7 +1243,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "pipeline_dependency",
@@ -1201,7 +1256,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "masking_config",
@@ -1213,7 +1269,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "encryption_config",
@@ -1225,7 +1282,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "reference_mapping_set",
@@ -1237,7 +1295,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "reference_mapping_set_entry",
@@ -1249,7 +1308,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_run",
@@ -1261,7 +1321,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_run_step",
@@ -1273,7 +1334,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_quarantine_policy",
@@ -1285,7 +1347,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_quality_requirement",
@@ -1297,7 +1360,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_implementation_plan",
@@ -1309,7 +1373,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_assurance_procedure",
@@ -1321,7 +1386,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_audit_plan",
@@ -1333,7 +1399,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_certification_criteria",
@@ -1345,7 +1412,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_evaluation_specification",
@@ -1357,7 +1425,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_dimension_to_iso_characteristic",
@@ -1369,7 +1438,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "accumulative_fact",
@@ -1381,7 +1451,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "accumulative_fact_dimension",
@@ -1393,7 +1464,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dimension",
@@ -1405,7 +1477,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "kpi",
@@ -1417,7 +1490,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "kpi_dependency",
@@ -1429,7 +1503,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_product",
@@ -1441,7 +1516,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_product_fact",
@@ -1453,7 +1529,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_rule",
@@ -1465,7 +1542,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_exposure",
@@ -1477,7 +1555,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "exposure_consumer",
@@ -1489,7 +1568,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "exposure_api_config",
@@ -1501,7 +1581,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "exposure_push_config",
@@ -1513,7 +1594,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "exposure_direct_config",
@@ -1525,7 +1607,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "marketplace_listing",
@@ -1537,7 +1620,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "marketplace_request",
@@ -1549,7 +1633,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "exposure_compliance",
@@ -1561,7 +1646,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "governance_role",
@@ -1573,7 +1659,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_access_grant",
@@ -1585,7 +1672,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_access_grant_condition",
@@ -1597,7 +1685,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_access_grant_approval",
@@ -1609,7 +1698,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "effective_permission_cache",
@@ -1621,7 +1711,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "access_policy",
@@ -1633,7 +1724,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "access_policy_target",
@@ -1645,7 +1737,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_access_review",
@@ -1657,7 +1750,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "legal_basis",
@@ -1669,7 +1763,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "processing_purpose",
@@ -1681,7 +1776,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "processing_activity_record",
@@ -1693,7 +1789,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_sharing_request",
@@ -1705,7 +1802,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_sharing_agreement",
@@ -1717,7 +1815,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_processing_agreement",
@@ -1729,7 +1828,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "international_data_transfer",
@@ -1741,7 +1841,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "incident_type_definition",
@@ -1753,7 +1854,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "governed_document",
@@ -1765,7 +1867,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "governed_document_link",
@@ -1777,7 +1880,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "governed_document_owner",
@@ -1789,7 +1893,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_type_domain_ui_control",
@@ -1801,7 +1906,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_module",
@@ -1813,7 +1919,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_screen",
@@ -1825,7 +1932,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_screen_breadcrumb_definition",
@@ -1837,7 +1945,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "presentation_pattern",
@@ -1849,7 +1958,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "pattern_slot",
@@ -1861,7 +1971,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_screen_slot_binding",
@@ -1873,7 +1984,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_role_permission",
@@ -1885,7 +1997,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_role_permission_set",
@@ -1897,7 +2010,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "client_branding",
@@ -1909,7 +2023,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "support_module_config",
@@ -1921,7 +2036,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "support_ticket_category",
@@ -1933,7 +2049,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "lineage_view_definition",
@@ -1945,7 +2062,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "impact_analysis",
@@ -1957,7 +2075,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_mapping",
@@ -1969,7 +2088,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_input",
@@ -1981,7 +2101,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_output",
@@ -1993,7 +2114,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_parameter_value",
@@ -2005,7 +2127,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_condition",
@@ -2017,7 +2140,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_canonical_attribute_map",
@@ -2029,7 +2153,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_rule_version",
@@ -2041,7 +2166,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "transformation_mapping_version",
@@ -2053,7 +2179,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "rule_attribute",
@@ -2065,7 +2192,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_attribute",
@@ -2077,7 +2205,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "rule_attribute_value",
@@ -2089,7 +2218,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "mapping_attribute_value",
@@ -2101,7 +2231,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_connection",
@@ -2113,7 +2244,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_connection_credential",
@@ -2125,7 +2257,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_connection_token_state",
@@ -2137,7 +2270,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_database",
@@ -2149,7 +2283,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_file",
@@ -2161,7 +2296,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_api_endpoint",
@@ -2173,7 +2309,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_api_endpoint_parameter",
@@ -2185,7 +2322,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_api_graphql_query",
@@ -2197,7 +2335,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_api_soap_operation",
@@ -2209,7 +2348,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_stream_topic",
@@ -2221,7 +2361,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_webhook",
@@ -2233,7 +2374,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_excel_workbook",
@@ -2245,7 +2387,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_archive_container",
@@ -2257,7 +2400,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "multi_record",
@@ -2269,7 +2413,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "golden_source",
@@ -2281,7 +2426,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_canonical_entity_hint",
@@ -2293,7 +2439,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_relation",
@@ -2305,7 +2452,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_quality_hint",
@@ -2317,7 +2465,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_version",
@@ -2329,7 +2478,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_version",
@@ -2341,7 +2491,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_run",
@@ -2353,7 +2504,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_drift",
@@ -2365,7 +2517,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_config",
@@ -2377,7 +2530,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_sampling_result",
@@ -2389,7 +2543,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_profile",
@@ -2401,7 +2556,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_detected_type_domain",
@@ -2413,7 +2569,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "discovery_rule",
@@ -2425,7 +2582,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "discovery_rule_evaluation",
@@ -2437,7 +2595,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "runner_discover",
@@ -2449,7 +2608,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "runner_ingest_managed",
@@ -2461,7 +2621,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "runner_ingest_streaming",
@@ -2473,7 +2634,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_relation",
@@ -2485,19 +2647,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
-   },
-   {
-    "code": "canonical_relation_end",
-    "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_relation_attribute_map",
@@ -2509,7 +2660,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_attribute_business_term",
@@ -2521,7 +2673,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_business_process",
@@ -2533,7 +2686,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "business_term_canonical_entity",
@@ -2545,7 +2699,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_version",
@@ -2557,7 +2712,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_attribute_version",
@@ -2569,7 +2725,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_model_change",
@@ -2581,7 +2738,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_accelerator",
@@ -2593,7 +2751,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_entity_attribute",
@@ -2605,7 +2764,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "canonical_attribute_attribute",
@@ -2617,7 +2777,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "lifecycle_policy",
@@ -2629,7 +2790,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "lifecycle_phase_approval_rule",
@@ -2641,7 +2803,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_entity_business_term",
@@ -2653,7 +2816,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "storage_layer",
@@ -2665,7 +2829,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "storage_location",
@@ -2677,31 +2842,8 @@
     "security_classification_code": "PUBLIC",
     "estimated_annual_volume": "",
     "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
-   },
-   {
-    "code": "canonical_entity_partition",
-    "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
-   },
-   {
-    "code": "canonical_entity_partition_attribute",
-    "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato"
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [

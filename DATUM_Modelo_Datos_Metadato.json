@@ -1564,7 +1564,7 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "physical_catalog"
+     "fk_target": null
     },
     {
      "name": "physical_schema_code",
@@ -1572,7 +1572,21 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "physical_schema",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "physical_schema",
+      "columns": [
+       {
+        "source": "physical_catalog_code",
+        "target": "physical_catalog_code"
+       },
+       {
+        "source": "physical_schema_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": false
     },
     {
      "name": "is_pii",
@@ -1619,6 +1633,15 @@
      "catalog_ref_metadata_only": true
     },
     {
+     "name": "partition_strategy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "PARTITION_STRATEGY",
+     "catalog_ref_metadata_only": true
+    },
+    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -1640,7 +1663,8 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_entity",
-     "desc": ""
+     "desc": "",
+     "is_identifying": true
     },
     {
      "name": "code",
@@ -1659,6 +1683,13 @@
      "desc": ""
     },
     {
+     "name": "partition_order",
+     "tyd": "TYD_INT",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null
+    },
+    {
      "name": "is_visible_er",
      "tyd": "TYD_BOOLEAN",
      "mandatory": 1,
@@ -1671,24 +1702,6 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "data_type_domain_simple",
-     "desc": ""
-    },
-    {
-     "name": "materialization_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "MATERIALIZATION_MODE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "referenced_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
      "desc": ""
     },
     {
@@ -1914,7 +1927,8 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_entity",
-     "desc": ""
+     "desc": "",
+     "is_identifying": true
     },
     {
      "name": "code",
@@ -1935,14 +1949,6 @@
      "catalog_ref_metadata_only": true
     },
     {
-     "name": "is_used_for_matching",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -1959,12 +1965,33 @@
    "desc": "",
    "attributes": [
     {
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null
+    },
+    {
      "name": "canonical_key_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_key",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "canonical_key",
+      "columns": [
+       {
+        "source": "canonical_entity_code",
+        "target": "canonical_entity_code"
+       },
+       {
+        "source": "canonical_key_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": true
     },
     {
      "name": "canonical_attribute_code",
@@ -1972,15 +1999,21 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_attribute",
-     "desc": ""
-    },
-    {
-     "name": "referenced_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_attribute",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "canonical_attribute",
+      "columns": [
+       {
+        "source": "canonical_entity_code",
+        "target": "canonical_entity_code"
+       },
+       {
+        "source": "canonical_attribute_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": true
     },
     {
      "name": "position_in_key",
@@ -1994,14 +2027,6 @@
      "name": "is_descending",
      "tyd": "TYD_BOOLEAN",
      "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "partition_transform",
-     "tyd": "TYD_EXPRESSION",
-     "mandatory": 0,
      "pk": 0,
      "fk_target": null,
      "desc": ""
@@ -2028,7 +2053,8 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_entity",
-     "desc": ""
+     "desc": "",
+     "is_identifying": true
     },
     {
      "name": "code",
@@ -2037,16 +2063,6 @@
      "pk": 1,
      "fk_target": null,
      "desc": ""
-    },
-    {
-     "name": "constraint_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "CONSTRAINT_TYPE",
-     "catalog_ref_metadata_only": true
     },
     {
      "name": "expression",
@@ -2063,56 +2079,6 @@
      "pk": 0,
      "fk_target": null,
      "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "i18n": true,
-   "domain": ""
-  },
-  "canonical_entity_constraint_attribute": {
-   "subdomain": "",
-   "type": "CANÓNICA",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_entity_constraint_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity_constraint",
-     "desc": ""
-    },
-    {
-     "name": "canonical_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_attribute",
-     "desc": ""
-    },
-    {
-     "name": "position_in_constraint",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "role_in_expression_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "EXPRESSION_ROLE",
-     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -9773,30 +9739,31 @@
      "desc": ""
     },
     {
-     "name": "relation_kind_code",
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "canonical_entity",
+     "desc": "",
+     "is_identifying": true
+    },
+    {
+     "name": "reference_canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "canonical_entity",
+     "desc": "",
+     "is_identifying": false
+    },
+    {
+     "name": "cardinality_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "RELATION_KIND",
+     "reference_catalog": "CARDINALITY_REL",
      "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "source_canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "target_canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": ""
     },
     {
      "name": "on_delete_action_code",
@@ -9836,79 +9803,39 @@
    "domain": "",
    "i18n": true
   },
-  "canonical_relation_end": {
-   "subdomain": "",
-   "type": "REF",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_relation_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_relation",
-     "desc": ""
-    },
-    {
-     "name": "end_role_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "RELATION_END_ROLE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "cardinality_max",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "",
-     "reference_catalog": "CARDINALITY",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "is_mandatory",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D2",
-   "domain": "",
-   "i18n": true
-  },
   "canonical_relation_attribute_map": {
    "subdomain": "",
    "type": "REF",
    "desc": "",
    "attributes": [
     {
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null
+    },
+    {
      "name": "canonical_relation_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_relation",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "canonical_relation",
+      "columns": [
+       {
+        "source": "canonical_entity_code",
+        "target": "canonical_entity_code"
+       },
+       {
+        "source": "canonical_relation_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": true
     },
     {
      "name": "source_attribute_code",
@@ -9916,15 +9843,50 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "canonical_attribute",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "canonical_attribute",
+      "columns": [
+       {
+        "source": "canonical_entity_code",
+        "target": "canonical_entity_code"
+       },
+       {
+        "source": "source_attribute_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": true
     },
     {
-     "name": "target_attribute_code",
+     "name": "reference_attribute_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "canonical_attribute",
-     "desc": ""
+     "desc": "",
+     "fk_composite": {
+      "target": "canonical_attribute",
+      "columns": [
+       {
+        "source": "canonical_entity_code",
+        "target": "canonical_entity_code"
+       },
+       {
+        "source": "reference_attribute_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": false
+    },
+    {
+     "name": "orden",
+     "tyd": "TYD_INT",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
     },
     {
      "name": "system",
@@ -10680,65 +10642,6 @@
    ],
    "desc": "",
    "i18n": true
-  },
-  "canonical_entity_partition": {
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity"
-    },
-    {
-     "name": "partition_strategy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "PARTITION_STRATEGY",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ]
-  },
-  "canonical_entity_partition_attribute": {
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity_partition"
-    },
-    {
-     "name": "canonical_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_attribute"
-    },
-    {
-     "name": "partition_order",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ]
   }
  }
 }
