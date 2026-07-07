@@ -81,21 +81,6 @@
    "category": "TYPE",
    "canonical_accelerator": "METADATA"
   },
-  "CARDINALITY": {
-   "dominio": "D0 · Sistema de tipos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "canonical_relation_end.cardinality_max"
-   ],
-   "desc": "Lado de un extremo de relación (ONE/MANY). Combinado con is_mandatory describe la cardinalidad completa sin enumerar combinaciones.",
-   "values": {
-    "ONE": "Lado uno (1).",
-    "MANY": "Lado muchos (N)."
-   },
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA"
-  },
   "STANDARD_AUTHORITY": {
    "dominio": "D0 · Catálogos de datos (D1)",
    "tipo_valor": "CERRADO",
@@ -164,72 +149,6 @@
     "NO_ACTION": ""
    }
   },
-  "CONSTRAINT_TYPE": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Tipo de restricción de integridad.",
-   "values": {
-    "CHECK": "",
-    "NOT_NULL": "",
-    "UNIQUE": "",
-    "PRIMARY_KEY": "",
-    "FOREIGN_KEY": ""
-   }
-  },
-  "RELATION_KIND": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Cardinalidad de una relación canónica.",
-   "values": {
-    "ONE_TO_ONE": "",
-    "ONE_TO_MANY": "",
-    "MANY_TO_MANY": ""
-   }
-  },
-  "MATERIALIZATION_MODE": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Modo de materialización de un atributo.",
-   "values": {
-    "STORED": "",
-    "VIRTUAL": "",
-    "COMPUTED": ""
-   }
-  },
-  "EXPRESSION_ROLE": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "ROLE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Papel de un atributo dentro de una expresión de constraint.",
-   "values": {
-    "OPERAND": "",
-    "SUBJECT": "",
-    "REFERENCE": ""
-   }
-  },
-  "RELATION_END_ROLE": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "ROLE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Papel del extremo de una relación (padre/hijo).",
-   "values": {
-    "PARENT": "",
-    "CHILD": ""
-   }
-  },
   "PARTITION_STRATEGY": {
    "dominio": "D0 · Catálogos de datos (D1)",
    "tipo_valor": "CERRADO",
@@ -243,7 +162,7 @@
     "NONE": "Sin particionamiento explícito."
    }
   },
-  "CARDINALITY_REL": {
+  "CARDINALITY": {
    "dominio": "D0 · Catálogos de datos (D1)",
    "tipo_valor": "CERRADO",
    "estado": "CONFIRMADO",
@@ -255,7 +174,11 @@
     "1:N": "",
     "0:1": "",
     "1:1": ""
-   }
+   },
+   "usado_en": [
+    "canonical_relation.cardinality_code",
+    "business_term_related.cardinality_code"
+   ]
   }
  },
  "categories": [
