@@ -2664,34 +2664,8 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "canonical_attribute_business_term",
-    "business_term_code": "BUSINESS_TERM",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
     "code": "canonical_entity_business_process",
     "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "business_term_canonical_entity",
-    "business_term_code": "BUSINESS_TERM",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -2795,19 +2769,6 @@
    },
    {
     "code": "lifecycle_phase_approval_rule",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_entity_business_term",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -3240,15 +3201,6 @@
     "external_standard_ref": null
    },
    {
-    "code": "CARDINALITY",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": true,
-    "min_active_values": 2,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
     "code": "ASSESSMENT_TYPE",
     "category_code": "TYPE",
     "canonical_accelerator_code": "METADATA",
@@ -3312,51 +3264,6 @@
     "external_standard_ref": null
    },
    {
-    "code": "CONSTRAINT_TYPE",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 5,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
-    "code": "RELATION_KIND",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 3,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
-    "code": "MATERIALIZATION_MODE",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 3,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
-    "code": "EXPRESSION_ROLE",
-    "category_code": "ROLE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 3,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
-    "code": "RELATION_END_ROLE",
-    "category_code": "ROLE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 2,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
     "code": "PARTITION_STRATEGY",
     "category_code": "TYPE",
     "canonical_accelerator_code": "METADATA",
@@ -3377,20 +3284,6 @@
    {
     "reference_catalog_code": "MAPPING_CONDITION_KIND",
     "code": "FILTER",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CARDINALITY",
-    "code": "ONE",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CARDINALITY",
-    "code": "MANY",
     "sort_order": 2,
     "is_default": false,
     "is_terminal": true
@@ -3630,118 +3523,6 @@
     "reference_catalog_code": "REFERENTIAL_ACTION",
     "code": "NO_ACTION",
     "sort_order": 4,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CONSTRAINT_TYPE",
-    "code": "CHECK",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CONSTRAINT_TYPE",
-    "code": "NOT_NULL",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CONSTRAINT_TYPE",
-    "code": "UNIQUE",
-    "sort_order": 3,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CONSTRAINT_TYPE",
-    "code": "PRIMARY_KEY",
-    "sort_order": 4,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "CONSTRAINT_TYPE",
-    "code": "FOREIGN_KEY",
-    "sort_order": 5,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "RELATION_KIND",
-    "code": "ONE_TO_ONE",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "RELATION_KIND",
-    "code": "ONE_TO_MANY",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "RELATION_KIND",
-    "code": "MANY_TO_MANY",
-    "sort_order": 3,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "MATERIALIZATION_MODE",
-    "code": "STORED",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "MATERIALIZATION_MODE",
-    "code": "VIRTUAL",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "MATERIALIZATION_MODE",
-    "code": "COMPUTED",
-    "sort_order": 3,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "EXPRESSION_ROLE",
-    "code": "OPERAND",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "EXPRESSION_ROLE",
-    "code": "SUBJECT",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "EXPRESSION_ROLE",
-    "code": "REFERENCE",
-    "sort_order": 3,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "RELATION_END_ROLE",
-    "code": "PARENT",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "RELATION_END_ROLE",
-    "code": "CHILD",
-    "sort_order": 2,
     "is_default": false,
     "is_terminal": true
    },
