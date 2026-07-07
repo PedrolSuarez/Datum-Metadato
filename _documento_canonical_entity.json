@@ -1,0 +1,336 @@
+{
+ "code": "canonical_entity",
+ "entity": {
+  "business_term_code": "CANONICAL_ENTITY",
+  "config_pattern_code": "DEFAULT",
+  "physical_catalog_code": "metadato",
+  "physical_schema_code": "metadata",
+  "is_pii": "0",
+  "is_sensitive": "0",
+  "security_classification_code": "PUBLIC",
+  "estimated_annual_volume": null,
+  "access_frequency_code": "RARELY",
+  "system": null
+ },
+ "children": {
+  "attributes": [
+   {
+    "code": "code",
+    "attribute_order": 1,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "business_term_code",
+    "attribute_order": 2,
+    "is_visible_er": false,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": "business_term",
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "config_pattern_code",
+    "attribute_order": 3,
+    "is_visible_er": false,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": "config_pattern",
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "physical_catalog_code",
+    "attribute_order": 4,
+    "is_visible_er": false,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": "physical_catalog",
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "physical_schema_code",
+    "attribute_order": 5,
+    "is_visible_er": false,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": "physical_schema",
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "is_pii",
+    "attribute_order": 6,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_BOOLEAN",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "is_sensitive",
+    "attribute_order": 7,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_BOOLEAN",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "security_classification_code",
+    "attribute_order": 8,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null,
+    "catalog_ref": {
+     "reference_catalog": "SECURITY_CLASSIFICATION",
+     "catalog_ref_metadata_only": true
+    }
+   },
+   {
+    "code": "estimated_annual_volume",
+    "attribute_order": 9,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_BIGINT_VOLUME",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": true,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   },
+   {
+    "code": "access_frequency_code",
+    "attribute_order": 10,
+    "is_visible_er": true,
+    "data_type_domain_code": "TYD_CODE",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": true,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null,
+    "catalog_ref": {
+     "reference_catalog": "SOURCE_FREQUENCY",
+     "catalog_ref_metadata_only": true
+    }
+   },
+   {
+    "code": "system",
+    "attribute_order": 11,
+    "is_visible_er": false,
+    "data_type_domain_code": "TYD_SYSTEM",
+    "materialization_mode_code": null,
+    "referenced_entity_code": null,
+    "is_pii": false,
+    "is_sensitive": false,
+    "security_classification_code": "PUBLIC",
+    "is_nullable": false,
+    "column_default": null,
+    "is_auto_increment": false,
+    "is_generated": false,
+    "generation_expression": null,
+    "regex_pattern_override": null,
+    "system": null
+   }
+  ],
+  "keys": [
+   {
+    "code": "PK_canonical_entity",
+    "key_type_code": "PK",
+    "is_used_for_matching": false,
+    "columns": [
+     {
+      "canonical_attribute_code": "code",
+      "referenced_attribute_code": null,
+      "position_in_key": 1,
+      "is_descending": false,
+      "partition_transform": null
+     }
+    ]
+   }
+  ],
+  "relations": [
+   {
+    "code": "FK_canonical_entity__business_term_code",
+    "relation_kind_code": "ONE_TO_MANY",
+    "source_canonical_entity_code": "canonical_entity",
+    "target_canonical_entity_code": "business_term",
+    "on_delete_action_code": "RESTRICT",
+    "on_update_action_code": "RESTRICT",
+    "is_identifying": false,
+    "ends": [
+     {
+      "end_role_code": "PARENT",
+      "canonical_entity_code": "business_term",
+      "cardinality_max": "1",
+      "is_mandatory": true
+     },
+     {
+      "end_role_code": "CHILD",
+      "canonical_entity_code": "canonical_entity",
+      "cardinality_max": "N",
+      "is_mandatory": true
+     }
+    ],
+    "attribute_map": [
+     {
+      "source_attribute_code": "business_term_code",
+      "target_attribute_code": "code"
+     }
+    ]
+   },
+   {
+    "code": "FK_canonical_entity__config_pattern_code",
+    "relation_kind_code": "ONE_TO_MANY",
+    "source_canonical_entity_code": "canonical_entity",
+    "target_canonical_entity_code": "config_pattern",
+    "on_delete_action_code": "RESTRICT",
+    "on_update_action_code": "RESTRICT",
+    "is_identifying": false,
+    "ends": [
+     {
+      "end_role_code": "PARENT",
+      "canonical_entity_code": "config_pattern",
+      "cardinality_max": "1",
+      "is_mandatory": true
+     },
+     {
+      "end_role_code": "CHILD",
+      "canonical_entity_code": "canonical_entity",
+      "cardinality_max": "N",
+      "is_mandatory": true
+     }
+    ],
+    "attribute_map": [
+     {
+      "source_attribute_code": "config_pattern_code",
+      "target_attribute_code": "code"
+     }
+    ]
+   },
+   {
+    "code": "FK_canonical_entity__physical_catalog_code",
+    "relation_kind_code": "ONE_TO_MANY",
+    "source_canonical_entity_code": "canonical_entity",
+    "target_canonical_entity_code": "physical_schema",
+    "on_delete_action_code": "RESTRICT",
+    "on_update_action_code": "RESTRICT",
+    "is_identifying": false,
+    "ends": [
+     {
+      "end_role_code": "PARENT",
+      "canonical_entity_code": "physical_schema",
+      "cardinality_max": "1",
+      "is_mandatory": true
+     },
+     {
+      "end_role_code": "CHILD",
+      "canonical_entity_code": "canonical_entity",
+      "cardinality_max": "N",
+      "is_mandatory": true
+     }
+    ],
+    "attribute_map": [
+     {
+      "source_attribute_code": "physical_catalog_code",
+      "target_attribute_code": "physical_catalog_code"
+     },
+     {
+      "source_attribute_code": "physical_schema_code",
+      "target_attribute_code": "code"
+     }
+    ]
+   }
+  ],
+  "constraints": [],
+  "partitions": []
+ }
+}
