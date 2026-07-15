@@ -1,0 +1,286 @@
+{
+  "_meta": {
+    "schema": "datum.dimension/v1",
+    "scope": "GLOBAL",
+    "dimension": "TIME",
+    "naturaleza": "CONSTRUIDA (no existe en el visor). Estándar gregoriano + ISO 8601 + régimen fiscal.",
+    "principio": "Grano base único (día) con sub-día. MÚLTIPLES jerarquías paralelas sobre el mismo día: CALENDAR (estricta), ISO_WEEK (8601), FISCAL (config compañía). Particiones alternativas del año (trimestre, semestre) NO anidan como árbol: son roll-ups alternativos.",
+    "i18n": "cada nivel y cada valor llevará textos ES/EN/FR/PT al generar multiidioma; row_id ya sembrado.",
+    "grano_base": "day",
+    "subgrano": [
+      "daypart",
+      "hour"
+    ],
+    "nota_grano": "Hoy baja hasta hora. Para Operaciones/IoT podría extenderse a minuto/segundo."
+  },
+  "dimension_id": "TIME",
+  "row_id": "bf2d6d50-ea66-510a-888c-2711ac24e6b2",
+  "grain_base": "day",
+  "hierarchies": [
+    {
+      "hierarchy_id": "CALENDAR",
+      "label_es": "Calendario natural",
+      "type": "STRICT",
+      "desc": "Jerarquía gregoriana estándar, roll-up estricto y anidado.",
+      "levels": [
+        {
+          "level_id": "year",
+          "row_id": "4b3951c6-9ebe-502e-be0a-3618e989ad59",
+          "label_es": "Año",
+          "parent_level": "__root__",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "is_leap_year"
+          ]
+        },
+        {
+          "level_id": "quarter",
+          "row_id": "0003d310-7e84-54df-9080-c4bcfd6d944c",
+          "label_es": "Trimestre",
+          "parent_level": "year",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "quarter_number"
+          ]
+        },
+        {
+          "level_id": "month",
+          "row_id": "517d7243-05a9-5120-abef-501f9686e68a",
+          "label_es": "Mes",
+          "parent_level": "quarter",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "month_number",
+            "days_in_month"
+          ]
+        },
+        {
+          "level_id": "day",
+          "row_id": "f107e08e-d577-509b-be7c-b0ae7d2c58fe",
+          "label_es": "Día",
+          "parent_level": "month",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "day_of_month",
+            "day_of_week",
+            "day_of_year",
+            "is_weekend",
+            "is_holiday_es"
+          ]
+        },
+        {
+          "level_id": "daypart",
+          "row_id": "26951ceb-bad1-50f8-8d05-c434c5c56e81",
+          "label_es": "Franja horaria",
+          "parent_level": "day",
+          "rollup": "SUBDAY",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "daypart_code"
+          ],
+          "note": "Valores: MADRUGADA, MAÑANA, TARDE, NOCHE"
+        },
+        {
+          "level_id": "hour",
+          "row_id": "e41d81ea-7958-57a4-a9e2-bdc4f353a3f4",
+          "label_es": "Hora",
+          "parent_level": "daypart",
+          "rollup": "SUBDAY",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "hour_24"
+          ]
+        }
+      ]
+    },
+    {
+      "hierarchy_id": "ISO_WEEK",
+      "label_es": "Semana ISO 8601",
+      "type": "PARALLEL",
+      "desc": "Jerarquía ISO 8601. La semana cruza límites de mes/año; iso_year diverge del año natural. Comparte el día como hoja con CALENDAR.",
+      "levels": [
+        {
+          "level_id": "iso_year",
+          "row_id": "166543ab-f693-54a3-9194-add12568184d",
+          "label_es": "Año ISO",
+          "parent_level": "__root__",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "iso_year_number"
+          ],
+          "note": "Puede diferir del año natural en los días frontera de enero/diciembre."
+        },
+        {
+          "level_id": "iso_week",
+          "row_id": "dd778406-13e1-5ee9-a663-3ac23b96a7f0",
+          "label_es": "Semana ISO",
+          "parent_level": "iso_year",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "iso_week_number",
+            "week_start_monday_date",
+            "week_end_sunday_date"
+          ],
+          "note": "1..52/53; semana 1 contiene el primer jueves."
+        },
+        {
+          "level_id": "day",
+          "row_id": "041c9bba-20ab-5068-9ef8-809d61f8a550",
+          "label_es": "Día",
+          "parent_level": "iso_week",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "iso_day_of_week"
+          ],
+          "note": "Mismo grano día que CALENDAR (hoja compartida)."
+        }
+      ]
+    },
+    {
+      "hierarchy_id": "FISCAL",
+      "label_es": "Ejercicio fiscal",
+      "type": "PARALLEL_CONFIG",
+      "desc": "Jerarquía fiscal configurable por compañía/jurisdicción. Por defecto: España.",
+      "default_config": {
+        "jurisdiction": "ES",
+        "fiscal_year_start_month": 1,
+        "fiscal_year_end_month": 12,
+        "fiscal_year_equals_calendar": true,
+        "vat_settlement_period": "QUARTERLY",
+        "nota": "Régimen España por defecto: ejercicio = año natural; liquidación IVA trimestral (mod. 303). Configurable por compañía."
+      },
+      "levels": [
+        {
+          "level_id": "fiscal_year",
+          "row_id": "538a69c6-fbf6-5f00-a4b9-0014a1fa7beb",
+          "label_es": "Ejercicio fiscal",
+          "parent_level": "__root__",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "fiscal_year_label",
+            "start_date",
+            "end_date"
+          ]
+        },
+        {
+          "level_id": "fiscal_period",
+          "row_id": "7dc35f18-684e-5d02-8fee-eeea85c38e27",
+          "label_es": "Periodo fiscal",
+          "parent_level": "fiscal_year",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date",
+            "fiscal_period_number",
+            "period_kind"
+          ],
+          "note": "period_kind: QUARTER (España IVA trimestral) o MONTH según régimen."
+        },
+        {
+          "level_id": "day",
+          "row_id": "a89a4efe-40e7-5f90-8f93-300e042a1add",
+          "label_es": "Día",
+          "parent_level": "fiscal_period",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "name_short",
+            "sort_order",
+            "period_start_date",
+            "period_end_date"
+          ],
+          "note": "Hoja compartida con CALENDAR."
+        }
+      ]
+    }
+  ],
+  "alt_partitions": [
+    {
+      "of_level": "year",
+      "partition_id": "semester",
+      "label_es": "Semestre",
+      "row_id": "0174c8d2-f46b-508a-9bf4-53527c00a6e3",
+      "type": "ALTERNATIVE_ROLLUP",
+      "n": 2,
+      "note": "Partición del año en 2. NO anida con trimestre (un semestre = 2 trimestres exactos, pero se modela como roll-up alternativo, no como nivel del árbol estricto)."
+    },
+    {
+      "of_level": "year",
+      "partition_id": "quarter_alt",
+      "label_es": "Trimestre (roll-up)",
+      "row_id": "ea5b6b4a-4923-5eae-a315-2fdb937a1518",
+      "type": "ALTERNATIVE_ROLLUP",
+      "n": 4,
+      "note": "Trimestre ya existe como nivel ESTRICTO en CALENDAR; aquí se referencia como partición canónica del año. Semestre y trimestre son cortes alternativos, no se encadenan entre sí."
+    }
+  ],
+  "cross_links": [],
+  "pendientes": [
+    "Valores fiscales concretos por compañía != España (start_month, period_kind) -> _PENDIENTE_ en perfil de compañía.",
+    "Calendario de festivos (is_holiday_es) depende de país/CCAA -> se cruza con GEOGRAPHY (jurisdicción).",
+    "Posible extensión sub-hora (minuto/segundo) para Operaciones."
+  ]
+}

@@ -1,0 +1,3678 @@
+{
+ "_meta": {
+  "proposito": "Carga inicial (seed) del metadato — instancias, NO estructura. Se despliega ANTES que nada: contiene la lógica de ubicación física.",
+  "fuente_unica": "complementa DATUM_Modelo_Datos_Metadato.json (estructura) y DATUM_Catalogos.json (catálogos)",
+  "orden_carga": [
+   "physical_catalog",
+   "physical_schema",
+   "storage_layer",
+   "storage_location",
+   "canonical_entity"
+  ],
+  "nota_esquemas": "physical_name confirmado solo para D00(storage) y D01(catalog); resto PENDIENTE de que Pedro dé el nombre físico limpio.",
+  "nota_i18n": "dominios y subdominios de cada catálogo/esquema deben traducirse a ES/EN/FR/PT (mecanismo i18n); traducción se aborda después.",
+  "nota_multiidioma": "Sin descripciones embebidas. code únicamente; todos los textos (entidades, valores, dominios, esquemas) van al i18n en ES/EN/FR/PT, se traducen después.",
+  "nota_storage": "Catálogo físico STORAGE = managed sin ubicación (storage_location_code vacío -> Databricks gestiona). Esquema 'catalogos'. Las 4 tablas D00 se asignan a STORAGE.catalogos.",
+  "nota_catalogos": "6 catálogos: databricks(managed,sin ubicacion,esquema storage)=donde viven las 4 tablas D00; metadato(con ubicacion, esquemas=dominios); observability(process/quality/audit); source(fuente_database); commondata(rdm/mdm/dpo); business(fact/dataproduct/dataset/dimension).",
+  "nota_canonical_entity": "Autorregistro del metamodelo: 1 fila por entidad. business_term=METADATA, config_pattern=DEFAULT, accelerator=METADATA, catálogo físico=metadata, esquema físico=metadata. Estructura alineada a canonical_entity."
+ },
+ "seed": {
+  "storage_layer": [
+   {
+    "code": "METADATA",
+    "sort_order": 1,
+    "bucket_uri_location": "s3://metadata",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "OBSERVABILITY",
+    "sort_order": 2,
+    "bucket_uri_location": "s3://monitoring",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LANDING",
+    "sort_order": 3,
+    "bucket_uri_location": "s3://landing",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "OPERATIONAL",
+    "sort_order": 4,
+    "bucket_uri_location": "s3://operational",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "COMMON",
+    "sort_order": 5,
+    "bucket_uri_location": "s3://common",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "BUSINESS",
+    "sort_order": 6,
+    "bucket_uri_location": "s3://business",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "NEGOCIO",
+    "sort_order": 7,
+    "bucket_uri_location": "s3://negocio",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   }
+  ],
+  "storage_location": [
+   {
+    "code": "LOC_METADATA_D0",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d0",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D1",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d1",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D2",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d2",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D3",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d3",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D4",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d4",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D5",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d5",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D6",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d6",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D7",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d7",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D8",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d8",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D9",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d9",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D10",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d10",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "LOC_METADATA_D14",
+    "storage_layer_code": "METADATA",
+    "container_path": "/d14",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   }
+  ],
+  "physical_catalog": [
+   {
+    "code": "databricks",
+    "storage_layer_code": "",
+    "storage_location_code": "",
+    "physical_name": "databricks",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "metadato",
+    "storage_layer_code": "METADATA",
+    "storage_location_code": "LOC_METADATA_D0",
+    "physical_name": "metadato",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "observability",
+    "storage_layer_code": "OBSERVABILITY",
+    "storage_location_code": "",
+    "physical_name": "observability",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "source",
+    "storage_layer_code": "LANDING",
+    "storage_location_code": "",
+    "physical_name": "source",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "commondata",
+    "storage_layer_code": "COMMON",
+    "storage_location_code": "",
+    "physical_name": "commondata",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "business",
+    "storage_layer_code": "BUSINESS",
+    "storage_location_code": "",
+    "physical_name": "business",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   }
+  ],
+  "physical_schema": [
+   {
+    "physical_catalog_code": "databricks",
+    "code": "storage",
+    "physical_name": "storage",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d0",
+    "physical_name": "d0",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d1",
+    "physical_name": "d1",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d2",
+    "physical_name": "d2",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d3",
+    "physical_name": "d3",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d4",
+    "physical_name": "d4",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d5",
+    "physical_name": "d5",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d6",
+    "physical_name": "d6",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d7",
+    "physical_name": "d7",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d8",
+    "physical_name": "d8",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d9",
+    "physical_name": "d9",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d10",
+    "physical_name": "d10",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "metadato",
+    "code": "d14",
+    "physical_name": "d14",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "observability",
+    "code": "process",
+    "physical_name": "process",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "observability",
+    "code": "quality",
+    "physical_name": "quality",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "observability",
+    "code": "audit",
+    "physical_name": "audit",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "source",
+    "code": "fuente_database",
+    "physical_name": "fuente_database",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "commondata",
+    "code": "rdm",
+    "physical_name": "rdm",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "commondata",
+    "code": "mdm",
+    "physical_name": "mdm",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "commondata",
+    "code": "dpo",
+    "physical_name": "dpo",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "business",
+    "code": "fact",
+    "physical_name": "fact",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "business",
+    "code": "dataproduct",
+    "physical_name": "dataproduct",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "business",
+    "code": "dataset",
+    "physical_name": "dataset",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "business",
+    "code": "dimension",
+    "physical_name": "dimension",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   }
+  ],
+  "canonical_entity": [
+   {
+    "code": "reference_category",
+    "business_term_code": "DATA_CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "reference_catalog",
+    "business_term_code": "DATA_CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "reference_value",
+    "business_term_code": "DATA_CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_domain",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_domain_composite",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_domain_field",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_domain_validation",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "generic_data_type",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "technology",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_mapping",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "language",
+    "business_term_code": "ISO_CODE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "country",
+    "business_term_code": "ISO_CODE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "country_subdivision",
+    "business_term_code": "ISO_CODE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "currency",
+    "business_term_code": "ISO_CODE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "unit_of_measure",
+    "business_term_code": "ISO_CODE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "physical_catalog",
+    "business_term_code": "CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "physical_schema",
+    "business_term_code": "CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_text",
+    "business_term_code": "I18N",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_type",
+    "business_term_code": "I18N",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "text_field_kind",
+    "business_term_code": "I18N",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_unit",
+    "business_term_code": "ORG_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_unit_role_assignment",
+    "business_term_code": "ORG_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_process",
+    "business_term_code": "ORG_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_term",
+    "business_term_code": "BUSINESS_TERM",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_process_term",
+    "business_term_code": "ORG_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_term_synonym",
+    "business_term_code": "BUSINESS_TERM",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_term_related",
+    "business_term_code": "BUSINESS_TERM",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "workflow_pattern",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "workflow_pattern_step",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_attribute",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_bk_alias",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_bk_lookup_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_key",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_key_attribute",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_constraint",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_approval",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_assessment",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "assessment_pattern",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "assessment_question",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "assessment_pattern_threshold",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_assessment_answer",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "config_pattern",
+    "business_term_code": "DELTA_CONFIG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "delta_property",
+    "business_term_code": "DELTA_CONFIG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "config_pattern_delta_default",
+    "business_term_code": "DELTA_CONFIG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "object_delta_override",
+    "business_term_code": "DELTA_CONFIG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_system",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_key",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_key_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_capture_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_partition_strategy",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_data_contract",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_data_contract_sla",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_view",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "expression",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "expression_node",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "expression_operand",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "function_catalog",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "compiled_ddl",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_rule",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_rule_parameter",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_pipeline",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_pipeline_step",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "pipeline_dependency",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "masking_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "encryption_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "reference_mapping_set",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "reference_mapping_set_entry",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_run",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_run_step",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_quarantine_policy",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_quality_requirement",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_implementation_plan",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_assurance_procedure",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_audit_plan",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_certification_criteria",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_evaluation_specification",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_dimension_to_iso_characteristic",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "accumulative_fact",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "accumulative_fact_dimension",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dimension",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "kpi",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "kpi_dependency",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_product",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_product_fact",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "business_rule",
+    "business_term_code": "ORG_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_exposure",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "exposure_consumer",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "exposure_api_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "exposure_push_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "exposure_direct_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "marketplace_listing",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "marketplace_request",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "exposure_compliance",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "governance_role",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_access_grant",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_access_grant_condition",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_access_grant_approval",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "effective_permission_cache",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "access_policy",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "access_policy_target",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_access_review",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "legal_basis",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "processing_purpose",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "processing_activity_record",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_sharing_request",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_sharing_agreement",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_processing_agreement",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "international_data_transfer",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "incident_type_definition",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "governed_document",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "governed_document_link",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "governed_document_owner",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_type_domain_ui_control",
+    "business_term_code": "DATA_DOMAIN",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_module",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_screen",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_screen_breadcrumb_definition",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "presentation_pattern",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "pattern_slot",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_screen_slot_binding",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_role_permission",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_role_permission_set",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "client_branding",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "support_module_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "support_ticket_category",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "lineage_view_definition",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "impact_analysis",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_mapping",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_input",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_output",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_parameter_value",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_condition",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_canonical_attribute_map",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_rule_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_mapping_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "rule_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "rule_attribute_value",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "mapping_attribute_value",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_connection",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_connection_credential",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_connection_token_state",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_database",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_file",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_api_endpoint",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_api_endpoint_parameter",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_api_graphql_query",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_api_soap_operation",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_stream_topic",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_webhook",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_excel_workbook",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_archive_container",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "multi_record",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "golden_source",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_canonical_entity_hint",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_relation",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_quality_hint",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_run",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_drift",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_config",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_sampling_result",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_profile",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_detected_type_domain",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_rule",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_rule_evaluation",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "runner_discover",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "runner_ingest_managed",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "runner_ingest_streaming",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_relation",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_relation_attribute_map",
+    "business_term_code": "CANONICAL_ENTITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_business_process",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_attribute_version",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_model_change",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_accelerator",
+    "business_term_code": "ACCELERATOR",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_entity_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "canonical_attribute_attribute",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "lifecycle_policy",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "lifecycle_phase_approval_rule",
+    "business_term_code": "METADATA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "storage_layer",
+    "business_term_code": "CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "storage_location",
+    "business_term_code": "CATALOG",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_hierarchy",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_level",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_level_attribute",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_alt_partition",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   }
+  ],
+  "canonical_accelerator": [
+   {
+    "code": "METADATA",
+    "accelerator_version": "1.0.0",
+    "entity_count": 194,
+    "display_order": 10
+   },
+   {
+    "code": "OBSERVABILITY",
+    "accelerator_version": "1.0.0",
+    "entity_count": 0,
+    "display_order": 20
+   },
+   {
+    "code": "FINANCE",
+    "accelerator_version": "1.0.0",
+    "entity_count": 0,
+    "display_order": 30
+   },
+   {
+    "code": "HR",
+    "accelerator_version": "1.0.0",
+    "entity_count": 0,
+    "display_order": 40
+   },
+   {
+    "code": "LEGAL",
+    "accelerator_version": "1.0.0",
+    "entity_count": 0,
+    "display_order": 50
+   },
+   {
+    "code": "MARKETING",
+    "accelerator_version": "1.0.0",
+    "entity_count": 0,
+    "display_order": 60
+   }
+  ],
+  "business_term": [
+   {
+    "code": "BUSINESS_TERM",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_DATA",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "CANONICAL_ENTITY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_DATA",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 30
+   },
+   {
+    "code": "ORG_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "HIERARCHY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "CATALOG",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATABRICKS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "DATA_DOMAIN",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "I18N",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 30
+   },
+   {
+    "code": "DELTA_CONFIG",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATABRICKS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "BUSINESS_PROCESS",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "DATA_SOURCE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 70
+   },
+   {
+    "code": "DATA_QUALITY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 60
+   },
+   {
+    "code": "TRANSFORMATION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 110
+   },
+   {
+    "code": "GOVERNANCE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 80
+   },
+   {
+    "code": "DATABRICKS",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "COMMON_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 15
+   },
+   {
+    "code": "DATA_CATALOG",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "ISO_CODE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 40
+   },
+   {
+    "code": "COMMON_DATA",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 16
+   },
+   {
+    "code": "ACCELERATOR",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "HIERARCHY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 17
+   },
+   {
+    "code": "GEO_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "HIERARCHY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "TEMPORAL_STRUCTURE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "HIERARCHY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 30
+   }
+  ],
+  "delta_property": [
+   {
+    "code": "OPTIMIZE_WRITE",
+    "technical_name": "delta.autoOptimize.optimizeWrite",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "AUTO_COMPACT",
+    "technical_name": "delta.autoOptimize.autoCompact",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "TARGET_FILE_SIZE",
+    "technical_name": "delta.targetFileSize",
+    "value_logical_type_code": "STRING"
+   },
+   {
+    "code": "DATA_SKIPPING_COLS",
+    "technical_name": "delta.dataSkippingNumIndexedCols",
+    "value_logical_type_code": "INT"
+   },
+   {
+    "code": "DATA_SKIPPING_STATS_COLS",
+    "technical_name": "delta.dataSkippingStatsColumns",
+    "value_logical_type_code": "STRING"
+   },
+   {
+    "code": "DELETION_VECTORS",
+    "technical_name": "delta.enableDeletionVectors",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "APPEND_ONLY",
+    "technical_name": "delta.appendOnly",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "CHANGE_DATA_FEED",
+    "technical_name": "delta.enableChangeDataFeed",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "ROW_TRACKING",
+    "technical_name": "delta.enableRowTracking",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "LOG_RETENTION",
+    "technical_name": "delta.logRetentionDuration",
+    "value_logical_type_code": "INTERVAL"
+   },
+   {
+    "code": "DELETED_FILE_RETENTION",
+    "technical_name": "delta.deletedFileRetentionDuration",
+    "value_logical_type_code": "INTERVAL"
+   },
+   {
+    "code": "SET_TXN_RETENTION",
+    "technical_name": "delta.setTransactionRetentionDuration",
+    "value_logical_type_code": "INTERVAL"
+   },
+   {
+    "code": "COLUMN_MAPPING",
+    "technical_name": "delta.columnMapping.mode",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "TYPE_WIDENING",
+    "technical_name": "delta.enableTypeWidening",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "ISOLATION_LEVEL",
+    "technical_name": "delta.isolationLevel",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "CHECKPOINT_POLICY",
+    "technical_name": "delta.checkpointPolicy",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "PARQUET_COMPRESSION",
+    "technical_name": "delta.parquet.compression.codec",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "ICEBERG_COMPAT_V2",
+    "technical_name": "delta.enableIcebergCompatV2",
+    "value_logical_type_code": "BOOLEAN"
+   },
+   {
+    "code": "UNIFORM_FORMATS",
+    "technical_name": "delta.universalFormat.enabledFormats",
+    "value_logical_type_code": "ENUM"
+   },
+   {
+    "code": "SYMLINK_MANIFEST",
+    "technical_name": "delta.compatibility.symlinkFormatManifest.enabled",
+    "value_logical_type_code": "BOOLEAN"
+   }
+  ],
+  "config_pattern": [
+   {
+    "code": "DEFAULT"
+   }
+  ],
+  "reference_category": [
+   {
+    "code": "TYPE",
+    "sort_order": 10
+   },
+   {
+    "code": "STATE",
+    "sort_order": 20
+   },
+   {
+    "code": "SITUATION",
+    "sort_order": 30
+   },
+   {
+    "code": "REASON",
+    "sort_order": 40
+   },
+   {
+    "code": "TIME",
+    "sort_order": 50
+   },
+   {
+    "code": "ROLE",
+    "sort_order": 60
+   }
+  ],
+  "reference_catalog": [
+   {
+    "code": "MAPPING_CONDITION_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "ASSESSMENT_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 5,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "LIFECYCLE_STATE",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 5,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "SOURCE_FREQUENCY",
+    "category_code": "TIME",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 6,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "STANDARD_AUTHORITY",
+    "category_code": "ROLE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 10,
+    "external_authority_code": "ISO",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SECURITY_CLASSIFICATION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "KEY_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "REFERENTIAL_ACTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "PARTITION_STRATEGY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 3,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "TEMPORAL_HIERARCHY_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "ROLLUP_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   }
+  ],
+  "reference_value": [
+   {
+    "reference_catalog_code": "MAPPING_CONDITION_KIND",
+    "code": "JOIN",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MAPPING_CONDITION_KIND",
+    "code": "FILTER",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ASSESSMENT_TYPE",
+    "code": "CRITICALITY",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ASSESSMENT_TYPE",
+    "code": "MATURITY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ASSESSMENT_TYPE",
+    "code": "RISK",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ASSESSMENT_TYPE",
+    "code": "COMPLIANCE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ASSESSMENT_TYPE",
+    "code": "DEFINITION_QUALITY",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LIFECYCLE_STATE",
+    "code": "DRAFT",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LIFECYCLE_STATE",
+    "code": "IN_DEFINITION",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LIFECYCLE_STATE",
+    "code": "ACTIVE",
+    "sort_order": 3,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LIFECYCLE_STATE",
+    "code": "DEPRECATED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LIFECYCLE_STATE",
+    "code": "RETIRED",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "REAL_TIME",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "HOURLY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "DAILY",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "WEEKLY",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "MONTHLY",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "code": "RARELY",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "ISO",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "IETF",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "UN_CEFACT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "ITU",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "IANA",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "SWIFT",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "W3C",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "NIST",
+    "sort_order": 8,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "OGC",
+    "sort_order": 9,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STANDARD_AUTHORITY",
+    "code": "INTERNAL",
+    "sort_order": 10,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SECURITY_CLASSIFICATION",
+    "code": "PUBLIC",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SECURITY_CLASSIFICATION",
+    "code": "INTERNAL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SECURITY_CLASSIFICATION",
+    "code": "CONFIDENTIAL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SECURITY_CLASSIFICATION",
+    "code": "RESTRICTED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "REFERENTIAL_ACTION",
+    "code": "CASCADE",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "REFERENTIAL_ACTION",
+    "code": "RESTRICT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "REFERENTIAL_ACTION",
+    "code": "SET_NULL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "REFERENTIAL_ACTION",
+    "code": "NO_ACTION",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "KEY_TYPE",
+    "code": "PK",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "KEY_TYPE",
+    "code": "UN",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "KEY_TYPE",
+    "code": "IX",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PARTITION_STRATEGY",
+    "code": "LIQUID",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PARTITION_STRATEGY",
+    "code": "PARTITIONED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PARTITION_STRATEGY",
+    "code": "NONE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "STRICT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "PARALLEL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "PARALLEL_CONFIG",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ROLLUP_KIND",
+    "code": "STRICT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ROLLUP_KIND",
+    "code": "SUBDAY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   }
+  ]
+ }
+}

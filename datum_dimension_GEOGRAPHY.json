@@ -1,0 +1,205 @@
+{
+  "_meta": {
+    "schema": "datum.dimension/v1",
+    "scope": "GLOBAL",
+    "dimension": "GEOGRAPHY",
+    "naturaleza": "CONSTRUIDA. Administrativa sobre ISO 3166; comercial y fiscal-territorial configurables.",
+    "principio": "Grano base único (localidad). 3 jerarquías paralelas: ADMINISTRATIVE (estándar, una), COMMERCIAL (N, configurables, agrupan países/localidades como miembros N:M), FISCAL_TERRITORY (norma, no mapea 1:1 con administrativa). country = nivel pivote de cross-links.",
+    "grano_base": "locality",
+    "i18n": "niveles y valores traducibles ES/EN/FR/PT; row_id sembrado."
+  },
+  "dimension_id": "GEOGRAPHY",
+  "row_id": "5f5bcbb8-d8f0-55a5-aaac-677196d978cd",
+  "grain_base": "locality",
+  "hierarchies": [
+    {
+      "hierarchy_id": "ADMINISTRATIVE",
+      "label_es": "Geografía administrativa",
+      "type": "STRICT",
+      "desc": "Jerarquía oficial ISO 3166 / INE. Balanceada, única.",
+      "levels": [
+        {
+          "level_id": "continent",
+          "row_id": "54845012-df80-5b8c-8552-5b99faa5dfc4",
+          "label_es": "Continente",
+          "parent_level": "__root__",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long"
+          ]
+        },
+        {
+          "level_id": "supra_zone",
+          "row_id": "74d1da6b-7c1a-581d-b99d-9879f91670ce",
+          "label_es": "Zona supranacional",
+          "parent_level": "continent",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long"
+          ],
+          "note": "Ej.: UE, EFTA, Magreb. Agrupación administrativa, no comercial."
+        },
+        {
+          "level_id": "country",
+          "row_id": "c74d3270-3ebb-59d5-9fa6-b06549616e60",
+          "label_es": "País",
+          "parent_level": "supra_zone",
+          "rollup": "STRICT",
+          "attributes": [
+            "iso_alpha2",
+            "iso_alpha3",
+            "name_long",
+            "name_short"
+          ],
+          "note": "NIVEL PIVOTE: cross-links a currency, language, fiscal_territory."
+        },
+        {
+          "level_id": "region",
+          "row_id": "b6a9a59d-dec0-5f10-9ae7-0e0a58e23155",
+          "label_es": "Región / CCAA",
+          "parent_level": "country",
+          "rollup": "STRICT",
+          "attributes": [
+            "iso_3166_2",
+            "name_long"
+          ]
+        },
+        {
+          "level_id": "province",
+          "row_id": "d4df879c-52df-5900-b930-767e5d92b2de",
+          "label_es": "Provincia",
+          "parent_level": "region",
+          "rollup": "STRICT",
+          "attributes": [
+            "iso_3166_2",
+            "name_long"
+          ]
+        },
+        {
+          "level_id": "locality",
+          "row_id": "80186d81-d484-5440-8ed8-5638e7980ed9",
+          "label_es": "Localidad / Municipio",
+          "parent_level": "province",
+          "rollup": "STRICT",
+          "attributes": [
+            "code",
+            "name_long",
+            "postal_code_range"
+          ],
+          "note": "Poblado fino (INE) PENDIENTE; ISO solo llega a provincia."
+        }
+      ]
+    },
+    {
+      "hierarchy_id": "COMMERCIAL",
+      "label_es": "Geografía comercial",
+      "type": "PARALLEL_CONFIG_MULTI",
+      "desc": "N jerarquías comerciales configurables por compañía (ventas, marketing, logística...). NO heredan del árbol administrativo: agrupan países/localidades como miembros (N:M).",
+      "instantiable": true,
+      "default_levels": [
+        {
+          "level_id": "commercial_division",
+          "row_id": "3f780c0e-38d1-55ea-a33a-efbc1f038e54",
+          "label_es": "División comercial",
+          "parent_level": "__root__",
+          "rollup": "CONFIG",
+          "attributes": [
+            "code",
+            "name_long"
+          ]
+        },
+        {
+          "level_id": "commercial_area",
+          "row_id": "da16e69c-a419-5438-bcbb-ccd529c1370d",
+          "label_es": "Área comercial",
+          "parent_level": "commercial_division",
+          "rollup": "CONFIG",
+          "attributes": [
+            "code",
+            "name_long"
+          ]
+        },
+        {
+          "level_id": "influence_zone",
+          "row_id": "a9ee00e0-bbc2-5554-8c7f-855a88f4bd45",
+          "label_es": "Zona de influencia",
+          "parent_level": "commercial_area",
+          "rollup": "CONFIG",
+          "attributes": [
+            "code",
+            "name_long"
+          ],
+          "note": "Ej.: 'Europa del Sur' agrupa ES,IT,PT,GR. Miembros vía relación N:M con country/locality."
+        }
+      ],
+      "anchor_level": "country|locality (configurable)",
+      "membership": "N:M influence_zone <-> country|locality (tabla puente, no herencia)",
+      "values": "_PENDIENTE_"
+    },
+    {
+      "hierarchy_id": "FISCAL_TERRITORY",
+      "label_es": "Territorio fiscal",
+      "type": "PARALLEL_CONFIG",
+      "desc": "Jurisdicción fiscal, gobernada por norma. No mapea 1:1 con administrativa (forales ES, estados USA).",
+      "levels": [
+        {
+          "level_id": "tax_jurisdiction",
+          "row_id": "553cf1c6-f008-5127-a44b-628f4b92eee2",
+          "label_es": "Jurisdicción fiscal",
+          "parent_level": "__root__",
+          "rollup": "CONFIG",
+          "attributes": [
+            "code",
+            "name_long"
+          ],
+          "note": "Ej.: ES-Común, ES-PaísVasco(foral), ES-Navarra(foral)."
+        },
+        {
+          "level_id": "tax_regime",
+          "row_id": "51be1497-f27e-5ef1-9297-98b1ce92a0d1",
+          "label_es": "Régimen fiscal",
+          "parent_level": "tax_jurisdiction",
+          "rollup": "CONFIG",
+          "attributes": [
+            "code",
+            "name_long"
+          ]
+        }
+      ],
+      "anchor": "country/region (N:M, no 1:1)",
+      "values": "_PENDIENTE_"
+    }
+  ],
+  "cross_links": [
+    {
+      "from_level": "country",
+      "to_dimension": "currency",
+      "card": "N:1",
+      "note": "país → moneda (ES→EUR)"
+    },
+    {
+      "from_level": "country",
+      "to_dimension": "language",
+      "card": "N:M",
+      "note": "país → idioma(s) (CH→DE/FR/IT)"
+    },
+    {
+      "from_level": "country",
+      "to_hierarchy": "FISCAL_TERRITORY",
+      "card": "1:N",
+      "note": "país contiene jurisdicciones fiscales"
+    },
+    {
+      "from_hierarchy": "FISCAL_TERRITORY",
+      "to_dimension": "TIME",
+      "note": "jurisdicción → calendario de festivos y periodo fiscal (resuelve pendiente de TIME)"
+    }
+  ],
+  "pendientes": [
+    "Localidades/municipios (INE) -> poblado fino PENDIENTE; estructura lista.",
+    "Festivos móviles y autonómicos -> cruce FISCAL_TERRITORY × TIME.",
+    "Valores comerciales y fiscales concretos -> por compañía (_PENDIENTE_)."
+  ]
+}

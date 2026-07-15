@@ -1,0 +1,4314 @@
+{
+ "_meta": {
+  "schema": "datum.geography_population/v1",
+  "scope": "DEMO",
+  "countries": [
+   "ES",
+   "FR",
+   "MA",
+   "PT",
+   "GB"
+  ],
+  "fuente": "ISO 3166 (pycountry)",
+  "nivel_maximo": "provincia/región (ISO 3166-2). Localidad/municipio (INE) PENDIENTE.",
+  "nota": "Precarga demo. Migra al runner de poblado del Data Plane.",
+  "conteos": {
+   "continent": 2,
+   "supra_zone": 3,
+   "country": 5,
+   "region": 408,
+   "province": 113,
+   "xlink_country_currency": 5,
+   "xlink_country_language": 6
+  }
+ },
+ "continent": [
+  {
+   "row_id": "cf1688a2-f414-5ed1-9d9a-0239cee155d2",
+   "code": "EU"
+  },
+  {
+   "row_id": "18e69aca-930c-51df-a3ba-ecc22b936bc2",
+   "code": "AF"
+  }
+ ],
+ "supra_zone": [
+  {
+   "row_id": "d787ec7d-d4a8-550c-9f71-c43eba1917b1",
+   "code": "UE",
+   "continent": "EU"
+  },
+  {
+   "row_id": "68f4c9aa-2854-58f2-949a-2be654983dcb",
+   "code": "MAGREB",
+   "continent": "AF"
+  },
+  {
+   "row_id": "a84bf2d1-7781-59f1-8fe9-fe2a44139f58",
+   "code": "EFTA_OTHER",
+   "continent": "EU"
+  }
+ ],
+ "country": [
+  {
+   "row_id": "ccbfe4f5-e84d-571a-aabf-99be30271447",
+   "iso_alpha2": "ES",
+   "iso_alpha3": "ESP",
+   "name_long": "Spain",
+   "continent": "EU",
+   "supra_zone": "UE"
+  },
+  {
+   "row_id": "e15ff5bc-2897-5bc5-941c-480638644185",
+   "iso_alpha2": "FR",
+   "iso_alpha3": "FRA",
+   "name_long": "France",
+   "continent": "EU",
+   "supra_zone": "UE"
+  },
+  {
+   "row_id": "b22ca070-d419-59d5-b0c5-3ee2021f879c",
+   "iso_alpha2": "MA",
+   "iso_alpha3": "MAR",
+   "name_long": "Morocco",
+   "continent": "AF",
+   "supra_zone": "MAGREB"
+  },
+  {
+   "row_id": "c660cf35-931a-56db-8ccf-bf7be7c38093",
+   "iso_alpha2": "PT",
+   "iso_alpha3": "PRT",
+   "name_long": "Portugal",
+   "continent": "EU",
+   "supra_zone": "UE"
+  },
+  {
+   "row_id": "9aa203f0-f7e3-5eb3-8ae6-761ffcfec426",
+   "iso_alpha2": "GB",
+   "iso_alpha3": "GBR",
+   "name_long": "United Kingdom",
+   "continent": "EU",
+   "supra_zone": "EFTA_OTHER"
+  }
+ ],
+ "region": [
+  {
+   "row_id": "6611fc2c-664c-552a-b9e3-2a62caf9cf46",
+   "iso_3166_2": "ES-AN",
+   "name_long": "Andalucía",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "01477216-6d15-5153-8479-c22f75ffd450",
+   "iso_3166_2": "ES-AR",
+   "name_long": "Aragón",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "5088c028-9a53-5b98-a0aa-8ca72fe3be02",
+   "iso_3166_2": "ES-AS",
+   "name_long": "Asturias, Principado de",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "e2e985f2-cb8f-556a-a1d5-c975bee55f93",
+   "iso_3166_2": "ES-CB",
+   "name_long": "Cantabria",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "7ad8ebed-77f5-5e4e-87da-0114bb137b9c",
+   "iso_3166_2": "ES-CE",
+   "name_long": "Ceuta",
+   "country": "ES",
+   "type": "Autonomous city in north africa",
+   "parent_code": null
+  },
+  {
+   "row_id": "a584fda4-8059-54da-9710-d600c5f47e55",
+   "iso_3166_2": "ES-CL",
+   "name_long": "Castilla y León",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "e2d3a214-5b67-5219-a14f-fd82842cf067",
+   "iso_3166_2": "ES-CM",
+   "name_long": "Castilla-La Mancha",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "d9e36e24-18ab-5f40-9dbd-a8dfc190fbea",
+   "iso_3166_2": "ES-CN",
+   "name_long": "Canarias",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "859ed207-6e2a-5644-9d66-5281d8f788ad",
+   "iso_3166_2": "ES-CT",
+   "name_long": "Catalunya [Cataluña]",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "66adc0b1-5b32-50e0-b83f-84fbeef9d2d6",
+   "iso_3166_2": "ES-EX",
+   "name_long": "Extremadura",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "e1435964-f8f6-59a4-a12d-11338f01135b",
+   "iso_3166_2": "ES-GA",
+   "name_long": "Galicia [Galicia]",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "464e8152-4768-5d39-8b3f-b8f90e296ab4",
+   "iso_3166_2": "ES-IB",
+   "name_long": "Illes Balears [Islas Baleares]",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "27536847-4ff3-53ce-a0c2-484212b54846",
+   "iso_3166_2": "ES-MC",
+   "name_long": "Murcia, Región de",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "05cda1ee-53b6-59fd-9c93-8db09aaa8295",
+   "iso_3166_2": "ES-MD",
+   "name_long": "Madrid, Comunidad de",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "0b98876d-b3dc-5e8b-8595-7e718f7bda32",
+   "iso_3166_2": "ES-ML",
+   "name_long": "Melilla",
+   "country": "ES",
+   "type": "Autonomous city in north africa",
+   "parent_code": null
+  },
+  {
+   "row_id": "76b09244-6e20-5e14-bdc0-ea6c668ae5eb",
+   "iso_3166_2": "ES-NC",
+   "name_long": "Navarra, Comunidad Foral de",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "54286036-1eda-57f2-b173-116eaa882775",
+   "iso_3166_2": "ES-PV",
+   "name_long": "País Vasco",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "5c88b8a4-12f4-5d76-8710-a371cc2659dd",
+   "iso_3166_2": "ES-RI",
+   "name_long": "La Rioja",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "c8d707bb-5ba2-5630-b4e4-35876cf805aa",
+   "iso_3166_2": "ES-VC",
+   "name_long": "Valenciana, Comunidad",
+   "country": "ES",
+   "type": "Autonomous community",
+   "parent_code": null
+  },
+  {
+   "row_id": "84445a8e-071c-5bd6-9b29-52b2e2bf4603",
+   "iso_3166_2": "FR-01",
+   "name_long": "Ain",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "8d1d8f96-3e4a-5287-93ac-8983fbdc913c",
+   "iso_3166_2": "FR-02",
+   "name_long": "Aisne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-HDF"
+  },
+  {
+   "row_id": "27e5c424-79a3-5f0d-bda3-91bc83ef6dc0",
+   "iso_3166_2": "FR-03",
+   "name_long": "Allier",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "863c41b9-f2a4-5a6a-8de5-748d918113ad",
+   "iso_3166_2": "FR-04",
+   "name_long": "Alpes-de-Haute-Provence",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "6709c2ee-8281-5bcb-b079-7d17eba89e64",
+   "iso_3166_2": "FR-05",
+   "name_long": "Hautes-Alpes",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "1525b99e-2f37-543d-9d3a-8a8b9d612b9e",
+   "iso_3166_2": "FR-06",
+   "name_long": "Alpes-Maritimes",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "a5898e2e-2ba6-543b-84be-fd9442ece8be",
+   "iso_3166_2": "FR-07",
+   "name_long": "Ardèche",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "affbfa95-3be9-5815-8087-ef5e27c14cf4",
+   "iso_3166_2": "FR-08",
+   "name_long": "Ardennes",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "5d47dfd4-3cc2-5d5a-ab95-d874109be1c6",
+   "iso_3166_2": "FR-09",
+   "name_long": "Ariège",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "95e1242b-927f-558b-b7f0-ed0f39bbdcb6",
+   "iso_3166_2": "FR-10",
+   "name_long": "Aube",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "248460d3-8698-57a2-9294-186c8465e720",
+   "iso_3166_2": "FR-11",
+   "name_long": "Aude",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "279fd5ba-468b-5fdc-8120-1e6e557eb0c1",
+   "iso_3166_2": "FR-12",
+   "name_long": "Aveyron",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "453d6d7b-ce93-5fe3-bb26-e4a1fd448f23",
+   "iso_3166_2": "FR-13",
+   "name_long": "Bouches-du-Rhône",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "90bbec79-db8b-5da7-9450-f6729c1e8744",
+   "iso_3166_2": "FR-14",
+   "name_long": "Calvados",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NOR"
+  },
+  {
+   "row_id": "005c9f37-1d65-5e64-a8a1-445f9a969a75",
+   "iso_3166_2": "FR-15",
+   "name_long": "Cantal",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "6558b9bb-e178-5a98-8f02-e3c75d5f3d4e",
+   "iso_3166_2": "FR-16",
+   "name_long": "Charente",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "70a166dc-7cdf-501c-b66a-ee72933d8c93",
+   "iso_3166_2": "FR-17",
+   "name_long": "Charente-Maritime",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "b9d4fba6-f7aa-5394-a013-04912275226e",
+   "iso_3166_2": "FR-18",
+   "name_long": "Cher",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "ddff4170-fed9-5fd4-ac30-1d2a43cd0d0c",
+   "iso_3166_2": "FR-19",
+   "name_long": "Corrèze",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "766a4c5e-aa4b-5754-9eda-6d7161d4441d",
+   "iso_3166_2": "FR-20R",
+   "name_long": "Corse",
+   "country": "FR",
+   "type": "Metropolitan collectivity with special status",
+   "parent_code": null
+  },
+  {
+   "row_id": "7d99b3e6-6452-52fd-8e70-a35bddac413b",
+   "iso_3166_2": "FR-21",
+   "name_long": "Côte-d'Or",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "94e660e2-d236-5a26-bc7f-579cc02e2e8a",
+   "iso_3166_2": "FR-22",
+   "name_long": "Côtes-d'Armor",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BRE"
+  },
+  {
+   "row_id": "74da66d7-8114-5c37-b68a-a28dca6f0ea2",
+   "iso_3166_2": "FR-23",
+   "name_long": "Creuse",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "13532db7-ced2-5b48-a07e-a43af7d41117",
+   "iso_3166_2": "FR-24",
+   "name_long": "Dordogne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "641bfbaa-2542-5a44-92fd-f066ccfba2fe",
+   "iso_3166_2": "FR-25",
+   "name_long": "Doubs",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "4c300178-f5f8-50d8-ae3b-1f95c43fca7f",
+   "iso_3166_2": "FR-26",
+   "name_long": "Drôme",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "d4cd12c1-1944-594a-9abb-7a079d96455a",
+   "iso_3166_2": "FR-27",
+   "name_long": "Eure",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NOR"
+  },
+  {
+   "row_id": "f4fc702a-3a43-5b50-adef-9bdf46f8eee0",
+   "iso_3166_2": "FR-28",
+   "name_long": "Eure-et-Loir",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "cabe4134-08e1-571a-8d6c-e06f4b6c10b3",
+   "iso_3166_2": "FR-29",
+   "name_long": "Finistère",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BRE"
+  },
+  {
+   "row_id": "76f4a66e-5bfb-5aba-b1bd-33310c8ab1f7",
+   "iso_3166_2": "FR-2A",
+   "name_long": "Corse-du-Sud",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-20R"
+  },
+  {
+   "row_id": "9bd7100e-f6f7-53f8-bd52-848e96ac267f",
+   "iso_3166_2": "FR-2B",
+   "name_long": "Haute-Corse",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-20R"
+  },
+  {
+   "row_id": "680d5445-48cc-5749-84a3-fff773ec4694",
+   "iso_3166_2": "FR-30",
+   "name_long": "Gard",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "a19c4dcd-daeb-5c50-942a-28af8bdfcda5",
+   "iso_3166_2": "FR-31",
+   "name_long": "Haute-Garonne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "80623204-c688-501c-bf3e-2b21b1d9e83e",
+   "iso_3166_2": "FR-32",
+   "name_long": "Gers",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "b3603fed-e1b0-5817-bf57-589b13704b36",
+   "iso_3166_2": "FR-33",
+   "name_long": "Gironde",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "018df0fe-f068-5855-80d4-873cf6a2582a",
+   "iso_3166_2": "FR-34",
+   "name_long": "Hérault",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "5c2ee1ca-20ef-58d3-a327-77b3cf4a4e19",
+   "iso_3166_2": "FR-35",
+   "name_long": "Ille-et-Vilaine",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BRE"
+  },
+  {
+   "row_id": "ffdb1a48-dff6-5f6a-b565-cfbe04edc7ed",
+   "iso_3166_2": "FR-36",
+   "name_long": "Indre",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "0b3316e2-6fa8-52a2-a2b5-936e69560eda",
+   "iso_3166_2": "FR-37",
+   "name_long": "Indre-et-Loire",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "85b5d4d4-9634-53a7-953e-66ae2c71ca89",
+   "iso_3166_2": "FR-38",
+   "name_long": "Isère",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "1b4c3cfc-5e79-57e6-ad4f-eedcf7ac0a05",
+   "iso_3166_2": "FR-39",
+   "name_long": "Jura",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "5804aed3-332d-5bf6-98cf-0f540255f095",
+   "iso_3166_2": "FR-40",
+   "name_long": "Landes",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "5b9e3def-0b9a-5cdf-9513-8a88bf1a6e81",
+   "iso_3166_2": "FR-41",
+   "name_long": "Loir-et-Cher",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "5bfe6d34-3e2d-58d5-84a3-30fcc26e743b",
+   "iso_3166_2": "FR-42",
+   "name_long": "Loire",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "576af39f-ff39-586e-82bb-d99949ecc4d2",
+   "iso_3166_2": "FR-43",
+   "name_long": "Haute-Loire",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "7c198351-d4dc-5804-a1c0-eb5804d5cc6b",
+   "iso_3166_2": "FR-44",
+   "name_long": "Loire-Atlantique",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PDL"
+  },
+  {
+   "row_id": "537fc1ca-846a-5e3e-b7b6-7b0b4b2fa7bd",
+   "iso_3166_2": "FR-45",
+   "name_long": "Loiret",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-CVL"
+  },
+  {
+   "row_id": "eb19b5a1-86e6-5ff5-9fcd-ecfbd0a8a8bd",
+   "iso_3166_2": "FR-46",
+   "name_long": "Lot",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "cdb544bc-5515-5fc9-abe2-0693f1d98d09",
+   "iso_3166_2": "FR-47",
+   "name_long": "Lot-et-Garonne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "9b426fab-3806-54e2-a4ae-bffefeb43f64",
+   "iso_3166_2": "FR-48",
+   "name_long": "Lozère",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "d1c81059-132e-5cc1-8455-a719c173900d",
+   "iso_3166_2": "FR-49",
+   "name_long": "Maine-et-Loire",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PDL"
+  },
+  {
+   "row_id": "1e27bdb4-0172-5c68-93c8-debcc46d222c",
+   "iso_3166_2": "FR-50",
+   "name_long": "Manche",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NOR"
+  },
+  {
+   "row_id": "158d0dec-9d67-5306-b3ef-7d844fe151b7",
+   "iso_3166_2": "FR-51",
+   "name_long": "Marne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "e62e62cc-83fb-566b-bc57-7b51fbf5ff64",
+   "iso_3166_2": "FR-52",
+   "name_long": "Haute-Marne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "46b033fa-25f8-5527-9846-2ce341f46a32",
+   "iso_3166_2": "FR-53",
+   "name_long": "Mayenne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PDL"
+  },
+  {
+   "row_id": "8348bbb7-7cdd-5dc3-b9bc-eae684a2e962",
+   "iso_3166_2": "FR-54",
+   "name_long": "Meurthe-et-Moselle",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "834bae4c-b7bb-5bae-a7cc-0dc9f60114a5",
+   "iso_3166_2": "FR-55",
+   "name_long": "Meuse",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "bf38e4fe-0bfa-5107-9b74-42cd3cbb803a",
+   "iso_3166_2": "FR-56",
+   "name_long": "Morbihan",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BRE"
+  },
+  {
+   "row_id": "d96dfcbf-cf94-557c-84e1-0813280fdd56",
+   "iso_3166_2": "FR-57",
+   "name_long": "Moselle",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "5e6bc0d7-373c-5bfd-a1b7-bc5e541e90d5",
+   "iso_3166_2": "FR-58",
+   "name_long": "Nièvre",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "1060e455-ecf8-54f2-8870-da856672ccf7",
+   "iso_3166_2": "FR-59",
+   "name_long": "Nord",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-HDF"
+  },
+  {
+   "row_id": "f695cdef-83f8-5a6a-bcac-0a3a22f2513f",
+   "iso_3166_2": "FR-60",
+   "name_long": "Oise",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-HDF"
+  },
+  {
+   "row_id": "38cf54b5-7cb8-59f7-83bb-563229576c92",
+   "iso_3166_2": "FR-61",
+   "name_long": "Orne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NOR"
+  },
+  {
+   "row_id": "d751a480-04e2-5e14-b232-d70ad1b3233b",
+   "iso_3166_2": "FR-62",
+   "name_long": "Pas-de-Calais",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-HDF"
+  },
+  {
+   "row_id": "4d1ced7b-d899-560a-b00d-6fa2e8c40e5f",
+   "iso_3166_2": "FR-63",
+   "name_long": "Puy-de-Dôme",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "adb633f9-4463-571e-b4af-b23dc2d8a71a",
+   "iso_3166_2": "FR-64",
+   "name_long": "Pyrénées-Atlantiques",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "c47e044b-8387-5cb1-9bac-7c6d8909ba40",
+   "iso_3166_2": "FR-65",
+   "name_long": "Hautes-Pyrénées",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "190b9a88-6dcc-51dd-a153-92d66a7eaf92",
+   "iso_3166_2": "FR-66",
+   "name_long": "Pyrénées-Orientales",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "d5f5113b-480c-5b6f-b3f7-27f926a3a829",
+   "iso_3166_2": "FR-67",
+   "name_long": "Bas-Rhin",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-6AE"
+  },
+  {
+   "row_id": "d32b6d5d-3076-512c-a868-fbe22b8b2521",
+   "iso_3166_2": "FR-68",
+   "name_long": "Haut-Rhin",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-6AE"
+  },
+  {
+   "row_id": "b9f687df-0a76-5dc5-b08a-117c58550084",
+   "iso_3166_2": "FR-69",
+   "name_long": "Rhône",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "ab3ee7e5-4412-5d10-a337-f4b7baad8ee3",
+   "iso_3166_2": "FR-69M",
+   "name_long": "Métropole de Lyon",
+   "country": "FR",
+   "type": "Metropolitan collectivity with special status",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "df92dd1b-e9c2-51d9-9de1-7e47c9415511",
+   "iso_3166_2": "FR-6AE",
+   "name_long": "Alsace",
+   "country": "FR",
+   "type": "European collectivity",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "76e1ba25-30fd-5437-880b-a6c050b2d196",
+   "iso_3166_2": "FR-70",
+   "name_long": "Haute-Saône",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "96a65535-f322-5d3d-ae99-6db5b2578221",
+   "iso_3166_2": "FR-71",
+   "name_long": "Saône-et-Loire",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "3e57d0d0-8ae3-5bef-bf72-f28fa9fcc0ea",
+   "iso_3166_2": "FR-72",
+   "name_long": "Sarthe",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PDL"
+  },
+  {
+   "row_id": "79fe0301-9785-5e8d-9d59-17d709f7b3c7",
+   "iso_3166_2": "FR-73",
+   "name_long": "Savoie",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "e294a1a7-61e5-58e6-af6f-5003d4df0215",
+   "iso_3166_2": "FR-74",
+   "name_long": "Haute-Savoie",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-ARA"
+  },
+  {
+   "row_id": "b2c39c1e-0169-507d-9674-0c5ace42e993",
+   "iso_3166_2": "FR-75C",
+   "name_long": "Paris",
+   "country": "FR",
+   "type": "Metropolitan collectivity with special status",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "3db2aba8-6d43-5adb-bf71-a3d42db6cefa",
+   "iso_3166_2": "FR-76",
+   "name_long": "Seine-Maritime",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NOR"
+  },
+  {
+   "row_id": "cd2a0bac-09c6-5a12-9986-4e14a81d776f",
+   "iso_3166_2": "FR-77",
+   "name_long": "Seine-et-Marne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "15c54918-de1d-5a98-8e07-9ac46cc48bd0",
+   "iso_3166_2": "FR-78",
+   "name_long": "Yvelines",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "2700ac0b-858b-5cde-89ef-888d178a609c",
+   "iso_3166_2": "FR-79",
+   "name_long": "Deux-Sèvres",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "8c2abc8d-f747-5d8d-af65-e6746dfdd3c1",
+   "iso_3166_2": "FR-80",
+   "name_long": "Somme",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-HDF"
+  },
+  {
+   "row_id": "c95b7f00-dda5-5b34-899f-4d486701e41f",
+   "iso_3166_2": "FR-81",
+   "name_long": "Tarn",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "b1647701-618a-5e76-ad5a-f83a07928527",
+   "iso_3166_2": "FR-82",
+   "name_long": "Tarn-et-Garonne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-OCC"
+  },
+  {
+   "row_id": "50e1b6f5-8f0e-541a-b72d-e4ba0dbcc9a5",
+   "iso_3166_2": "FR-83",
+   "name_long": "Var",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "08ddd893-ed24-5e89-93cc-5c9ee0b10de7",
+   "iso_3166_2": "FR-84",
+   "name_long": "Vaucluse",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PAC"
+  },
+  {
+   "row_id": "3c30af84-8081-5b82-8482-15882b3fddab",
+   "iso_3166_2": "FR-85",
+   "name_long": "Vendée",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-PDL"
+  },
+  {
+   "row_id": "bd7a2467-c338-54e8-8aad-eaefa7f61fc1",
+   "iso_3166_2": "FR-86",
+   "name_long": "Vienne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "eb4daa01-ee29-5a13-a2d4-611d60a762d7",
+   "iso_3166_2": "FR-87",
+   "name_long": "Haute-Vienne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-NAQ"
+  },
+  {
+   "row_id": "5424ef5c-be84-5c4e-85f3-5d56e6064e23",
+   "iso_3166_2": "FR-88",
+   "name_long": "Vosges",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-GES"
+  },
+  {
+   "row_id": "6410ffd7-0e0e-5161-a6b0-6173f2df0b4e",
+   "iso_3166_2": "FR-89",
+   "name_long": "Yonne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "5846147a-9272-50ba-9fb4-e9b39fcb9fa6",
+   "iso_3166_2": "FR-90",
+   "name_long": "Territoire de Belfort",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-BFC"
+  },
+  {
+   "row_id": "02b146f1-82b2-50ed-aaed-bbd6e875fae6",
+   "iso_3166_2": "FR-91",
+   "name_long": "Essonne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "bb854b75-b3f5-5d24-bc55-dc91769e1a1d",
+   "iso_3166_2": "FR-92",
+   "name_long": "Hauts-de-Seine",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "70bb1573-7740-581c-aaab-9314b0faced5",
+   "iso_3166_2": "FR-93",
+   "name_long": "Seine-Saint-Denis",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "15fc197c-e7ce-50a6-8441-446568187d1b",
+   "iso_3166_2": "FR-94",
+   "name_long": "Val-de-Marne",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "7f2f4af3-7b84-5733-80f6-b22fb706f51f",
+   "iso_3166_2": "FR-95",
+   "name_long": "Val-d'Oise",
+   "country": "FR",
+   "type": "Metropolitan department",
+   "parent_code": "FR-IDF"
+  },
+  {
+   "row_id": "eb1bdb24-7458-52d5-9339-29766edc735e",
+   "iso_3166_2": "FR-971",
+   "name_long": "Guadeloupe",
+   "country": "FR",
+   "type": "Overseas departmental collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "ed429f59-32c5-56f1-9914-d64eb5794575",
+   "iso_3166_2": "FR-972",
+   "name_long": "Martinique",
+   "country": "FR",
+   "type": "Overseas unique territorial collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "166b4e8e-4ef4-5785-b0bc-6470100a526d",
+   "iso_3166_2": "FR-973",
+   "name_long": "Guyane (française)",
+   "country": "FR",
+   "type": "Overseas unique territorial collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "c6892893-eee3-5bdc-b565-74540628a2f6",
+   "iso_3166_2": "FR-974",
+   "name_long": "La Réunion",
+   "country": "FR",
+   "type": "Overseas departmental collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "7ef82c4b-710f-5180-86e7-f68ff29eb63e",
+   "iso_3166_2": "FR-976",
+   "name_long": "Mayotte",
+   "country": "FR",
+   "type": "Overseas departmental collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "b9721028-17c3-55cf-bc04-2c2a0ab17409",
+   "iso_3166_2": "FR-ARA",
+   "name_long": "Auvergne-Rhône-Alpes",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "d09f2f9b-5a10-5618-81d1-a623a0b5aa63",
+   "iso_3166_2": "FR-BFC",
+   "name_long": "Bourgogne-Franche-Comté",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "5ca03eda-90ff-5db6-96e4-07197019d04b",
+   "iso_3166_2": "FR-BL",
+   "name_long": "Saint-Barthélemy",
+   "country": "FR",
+   "type": "Overseas collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "e84bc0f9-b396-5fc1-a09d-01fafdec62d1",
+   "iso_3166_2": "FR-BRE",
+   "name_long": "Bretagne",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "1653951d-db2c-5156-97c2-cfd6a6ef5ce4",
+   "iso_3166_2": "FR-CP",
+   "name_long": "Clipperton",
+   "country": "FR",
+   "type": "Dependency",
+   "parent_code": null
+  },
+  {
+   "row_id": "ebe921e0-059e-5dda-962b-aee931f89816",
+   "iso_3166_2": "FR-CVL",
+   "name_long": "Centre-Val de Loire",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "24282651-a6e4-532e-8f1d-fbaa8c6636e3",
+   "iso_3166_2": "FR-GES",
+   "name_long": "Grand-Est",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "da83f713-32d1-523b-829d-24c0fa0c07c7",
+   "iso_3166_2": "FR-HDF",
+   "name_long": "Hauts-de-France",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "917b47ba-a24f-565a-969f-a1312caf552f",
+   "iso_3166_2": "FR-IDF",
+   "name_long": "Île-de-France",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "3227d363-4b61-5232-a949-5952752df214",
+   "iso_3166_2": "FR-MF",
+   "name_long": "Saint-Martin",
+   "country": "FR",
+   "type": "Overseas collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "20aca63d-d1fd-5a78-8dc8-9de056746e41",
+   "iso_3166_2": "FR-NAQ",
+   "name_long": "Nouvelle-Aquitaine",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "7a47ee39-cb37-5c9d-8c8f-64ac9dbaeae2",
+   "iso_3166_2": "FR-NC",
+   "name_long": "Nouvelle-Calédonie",
+   "country": "FR",
+   "type": "Overseas collectivity with special status",
+   "parent_code": null
+  },
+  {
+   "row_id": "41ec3ac4-2994-5a17-b7a6-94d5a41e2eb2",
+   "iso_3166_2": "FR-NOR",
+   "name_long": "Normandie",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "f16a75cb-9b21-56dc-b88a-dd682fed83b0",
+   "iso_3166_2": "FR-OCC",
+   "name_long": "Occitanie",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "0560bd59-1c3a-5e28-a69d-69925ac7c1ff",
+   "iso_3166_2": "FR-PAC",
+   "name_long": "Provence-Alpes-Côte-d’Azur",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "4287e816-4139-5a4a-a1d7-b1369887b64a",
+   "iso_3166_2": "FR-PDL",
+   "name_long": "Pays-de-la-Loire",
+   "country": "FR",
+   "type": "Metropolitan region",
+   "parent_code": null
+  },
+  {
+   "row_id": "7f988fef-3d7b-55ce-acf4-fda296f0a86e",
+   "iso_3166_2": "FR-PF",
+   "name_long": "Polynésie française",
+   "country": "FR",
+   "type": "Overseas collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "208c64ba-2846-5fc0-af2d-205f32292a54",
+   "iso_3166_2": "FR-PM",
+   "name_long": "Saint-Pierre-et-Miquelon",
+   "country": "FR",
+   "type": "Overseas collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "3bf4c8f2-74cc-57b7-b09d-95bacde08896",
+   "iso_3166_2": "FR-TF",
+   "name_long": "Terres australes françaises",
+   "country": "FR",
+   "type": "Overseas territory",
+   "parent_code": null
+  },
+  {
+   "row_id": "7186fe72-b8c9-5722-a788-1c52dfd7ca2d",
+   "iso_3166_2": "FR-WF",
+   "name_long": "Wallis-et-Futuna",
+   "country": "FR",
+   "type": "Overseas collectivity",
+   "parent_code": null
+  },
+  {
+   "row_id": "8667716d-f834-59af-86f4-f40d27eef754",
+   "iso_3166_2": "MA-01",
+   "name_long": "Tanger-Tétouan-Al Hoceïma",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "3fe45441-2efc-5e3b-9cbf-05789b5a646a",
+   "iso_3166_2": "MA-02",
+   "name_long": "L'Oriental",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "c340bdcf-1978-51ab-8ad8-1ea6518f786d",
+   "iso_3166_2": "MA-03",
+   "name_long": "Fès-Meknès",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "14025fd3-5eca-5c00-a5c3-53517a136875",
+   "iso_3166_2": "MA-04",
+   "name_long": "Rabat-Salé-Kénitra",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "5b3889d3-b572-5431-ad2a-97ac2ed89539",
+   "iso_3166_2": "MA-05",
+   "name_long": "Béni Mellal-Khénifra",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "bcb268c4-cf76-5550-8755-54ae8ebb19ed",
+   "iso_3166_2": "MA-06",
+   "name_long": "Casablanca-Settat",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "040c1ac2-7e22-5477-adf0-723a547d6f53",
+   "iso_3166_2": "MA-07",
+   "name_long": "Marrakech-Safi",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "af99b927-0e69-5fbe-9c1e-3a8672d7ce29",
+   "iso_3166_2": "MA-08",
+   "name_long": "Drâa-Tafilalet",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "90f16015-de4f-53d6-ba65-5cfeafc84755",
+   "iso_3166_2": "MA-09",
+   "name_long": "Souss-Massa",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "4759d379-923a-587f-9e98-6aaec3e1c28c",
+   "iso_3166_2": "MA-10",
+   "name_long": "Guelmim-Oued Noun (EH-partial)",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "84969310-8dfa-5526-aa28-589363895836",
+   "iso_3166_2": "MA-11",
+   "name_long": "Laâyoune-Sakia El Hamra (EH-partial)",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "0a151dd1-26d0-589f-928b-e082634401d7",
+   "iso_3166_2": "MA-12",
+   "name_long": "Dakhla-Oued Ed-Dahab (EH)",
+   "country": "MA",
+   "type": "Region",
+   "parent_code": null
+  },
+  {
+   "row_id": "543c89cf-db56-5ec0-909b-1f4f49bbf6fc",
+   "iso_3166_2": "MA-AGD",
+   "name_long": "Agadir-Ida-Ou-Tanane",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-09"
+  },
+  {
+   "row_id": "083cced6-2d53-5b60-a0e5-6c3c0eabb890",
+   "iso_3166_2": "MA-CAS",
+   "name_long": "Casablanca",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "79addaf7-e525-5795-bdf1-9fe0d6793fbf",
+   "iso_3166_2": "MA-FES",
+   "name_long": "Fès",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "dfeadf65-61ca-5de0-90cc-fa4769d77d93",
+   "iso_3166_2": "MA-INE",
+   "name_long": "Inezgane-Ait Melloul",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-09"
+  },
+  {
+   "row_id": "39f09e2a-eea4-55a3-9b0b-0e7396ca505f",
+   "iso_3166_2": "MA-MAR",
+   "name_long": "Marrakech",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "890575f0-0e07-5f39-96ac-7315ee382cfa",
+   "iso_3166_2": "MA-MDF",
+   "name_long": "M’diq-Fnideq",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "24bbca1c-0830-5d70-9795-2594de4e933f",
+   "iso_3166_2": "MA-MEK",
+   "name_long": "Meknès",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "7fc26b1a-280e-511c-b2ad-ef4d25d85fb8",
+   "iso_3166_2": "MA-MOH",
+   "name_long": "Mohammadia",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "2dfb74f8-bcaa-5039-8a88-c68ca691b105",
+   "iso_3166_2": "MA-OUJ",
+   "name_long": "Oujda-Angad",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "713cb12b-16c5-5ff6-a649-449672170546",
+   "iso_3166_2": "MA-RAB",
+   "name_long": "Rabat",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "e454c377-0a67-5c4a-a1a0-738774689746",
+   "iso_3166_2": "MA-SAL",
+   "name_long": "Salé",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "55ba131b-de46-599b-bc8d-ccc750188337",
+   "iso_3166_2": "MA-SKH",
+   "name_long": "Skhirate-Témara",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "14271fd3-4435-59ff-b15e-d743f6945843",
+   "iso_3166_2": "MA-TNG",
+   "name_long": "Tanger-Assilah",
+   "country": "MA",
+   "type": "Prefecture",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "e0b1b5e1-6914-5579-89d7-e2d3482b76b9",
+   "iso_3166_2": "PT-01",
+   "name_long": "Aveiro",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "cb77ab86-d47b-5894-a799-4adb6603fac4",
+   "iso_3166_2": "PT-02",
+   "name_long": "Beja",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "095c0cd9-94f9-5e1e-8fdf-92a3b5f75668",
+   "iso_3166_2": "PT-03",
+   "name_long": "Braga",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "1f5029ce-1ac0-5ac0-a322-168c5803dfb6",
+   "iso_3166_2": "PT-04",
+   "name_long": "Bragança",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "7ac5fa2c-ec0c-5d32-9852-35eed851956a",
+   "iso_3166_2": "PT-05",
+   "name_long": "Castelo Branco",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "d24c0157-5ab8-55f8-a84a-2fd24ef4adb4",
+   "iso_3166_2": "PT-06",
+   "name_long": "Coimbra",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "e37fda26-4471-5b0b-9474-f6f24d853cba",
+   "iso_3166_2": "PT-07",
+   "name_long": "Évora",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "df6e9398-8f47-5f74-9f4f-c0b8140fba01",
+   "iso_3166_2": "PT-08",
+   "name_long": "Faro",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "5922629d-6526-5fb6-a3de-bfe4fcf82b2d",
+   "iso_3166_2": "PT-09",
+   "name_long": "Guarda",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "2834a67c-2be0-5ab4-95bb-f3a9d2c04f78",
+   "iso_3166_2": "PT-10",
+   "name_long": "Leiria",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "48c0b92b-fae9-5fc0-b5bd-2edc705c2f68",
+   "iso_3166_2": "PT-11",
+   "name_long": "Lisboa",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "40ffeb50-f8b9-5da8-a0b4-132d06dd053c",
+   "iso_3166_2": "PT-12",
+   "name_long": "Portalegre",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "f3a770e5-454d-5ca0-b829-6f9afccd7d59",
+   "iso_3166_2": "PT-13",
+   "name_long": "Porto",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "d33bb535-012d-579c-b5e1-f0a6de9dd7ce",
+   "iso_3166_2": "PT-14",
+   "name_long": "Santarém",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "6514cc34-26f5-53a4-8805-be0bb657be6b",
+   "iso_3166_2": "PT-15",
+   "name_long": "Setúbal",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "f5ef95c3-7b96-58f2-b748-c180381331d5",
+   "iso_3166_2": "PT-16",
+   "name_long": "Viana do Castelo",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "1b32db61-f9c2-5d8b-ad10-3d82324afeef",
+   "iso_3166_2": "PT-17",
+   "name_long": "Vila Real",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "8c166465-6649-56e5-95f3-ffab4f1182c7",
+   "iso_3166_2": "PT-18",
+   "name_long": "Viseu",
+   "country": "PT",
+   "type": "District",
+   "parent_code": null
+  },
+  {
+   "row_id": "23e11cf8-dda2-558e-8c42-8e0ac264dd0e",
+   "iso_3166_2": "PT-20",
+   "name_long": "Região Autónoma dos Açores",
+   "country": "PT",
+   "type": "Autonomous region",
+   "parent_code": null
+  },
+  {
+   "row_id": "fed12014-0c64-5dce-be17-d1f945b194e7",
+   "iso_3166_2": "PT-30",
+   "name_long": "Região Autónoma da Madeira",
+   "country": "PT",
+   "type": "Autonomous region",
+   "parent_code": null
+  },
+  {
+   "row_id": "85130f1e-20b9-56d5-a623-9f230cc624b9",
+   "iso_3166_2": "GB-ABC",
+   "name_long": "Armagh City, Banbridge and Craigavon",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "7e0bbec6-d7ff-5f62-bb66-2951395413fb",
+   "iso_3166_2": "GB-ABD",
+   "name_long": "Aberdeenshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "28099626-7bc8-5d45-a374-e73e0b939f9e",
+   "iso_3166_2": "GB-ABE",
+   "name_long": "Aberdeen City",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "e58cbdd5-1bc7-56f8-a508-28d8a7ea37b5",
+   "iso_3166_2": "GB-AGB",
+   "name_long": "Argyll and Bute",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "48b9b23d-d0cb-5e5a-9093-a48c84e9d91c",
+   "iso_3166_2": "GB-AGY",
+   "name_long": "Isle of Anglesey [Sir Ynys Môn GB-YNM]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "42007942-a509-5fd2-8cb4-f91bf9ae2b93",
+   "iso_3166_2": "GB-AND",
+   "name_long": "Ards and North Down",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "4cc48af1-2fcd-54a7-89f0-dcf3851b425c",
+   "iso_3166_2": "GB-ANN",
+   "name_long": "Antrim and Newtownabbey",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "64b9fdfe-e65e-5aaf-bb5a-ac4774638646",
+   "iso_3166_2": "GB-ANS",
+   "name_long": "Angus",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "0fb72ab3-46e7-50ae-971e-7f2c86bd013f",
+   "iso_3166_2": "GB-BAS",
+   "name_long": "Bath and North East Somerset",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "bd9e25f9-a9d2-5ba9-82ef-81e6e9b85b64",
+   "iso_3166_2": "GB-BBD",
+   "name_long": "Blackburn with Darwen",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "baef0279-5ff2-5493-99b0-b6cac46f0565",
+   "iso_3166_2": "GB-BCP",
+   "name_long": "Bournemouth, Christchurch and Poole",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "27765a25-b900-5ecd-b23e-c72cb71c4af1",
+   "iso_3166_2": "GB-BDF",
+   "name_long": "Bedford",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6516e63c-102a-550e-985c-b20ac89e5c89",
+   "iso_3166_2": "GB-BDG",
+   "name_long": "Barking and Dagenham",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "3c680e26-b2d9-589b-9a42-9de84100a84b",
+   "iso_3166_2": "GB-BEN",
+   "name_long": "Brent",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c9083bae-a6ee-5e4f-9680-a76773e61159",
+   "iso_3166_2": "GB-BEX",
+   "name_long": "Bexley",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "db1661f8-7c2d-5094-a321-b28899803c92",
+   "iso_3166_2": "GB-BFS",
+   "name_long": "Belfast City",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "2a8ea1b0-083b-5eee-8f9c-3adec3f7ca39",
+   "iso_3166_2": "GB-BGE",
+   "name_long": "Bridgend [Pen-y-bont ar Ogwr GB-POG]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "edc73bcf-3a7f-5674-9c0e-99cd1733b9f7",
+   "iso_3166_2": "GB-BGW",
+   "name_long": "Blaenau Gwent",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "86b6571c-3248-574d-9114-618f4fcc76a3",
+   "iso_3166_2": "GB-BIR",
+   "name_long": "Birmingham",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9e12374b-412d-5caa-b19a-70d3363627a6",
+   "iso_3166_2": "GB-BKM",
+   "name_long": "Buckinghamshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "dc7df7b1-4454-5326-8f85-3ee77d386ffb",
+   "iso_3166_2": "GB-BNE",
+   "name_long": "Barnet",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "988649ff-0753-55b1-944c-37612f41ccbe",
+   "iso_3166_2": "GB-BNH",
+   "name_long": "Brighton and Hove",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "33c82da7-88d8-56de-a6e5-f6ff256a784c",
+   "iso_3166_2": "GB-BNS",
+   "name_long": "Barnsley",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "35d1999d-2aa8-58d6-ad0c-a8d82253deac",
+   "iso_3166_2": "GB-BOL",
+   "name_long": "Bolton",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "76f0d685-9040-55f3-9fb3-47ef083f9e2c",
+   "iso_3166_2": "GB-BPL",
+   "name_long": "Blackpool",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "40df0ec7-c651-592a-8ee6-0b238a9c0a04",
+   "iso_3166_2": "GB-BRC",
+   "name_long": "Bracknell Forest",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2a7462f8-74e8-5e85-8bf5-4a1e52df52a3",
+   "iso_3166_2": "GB-BRD",
+   "name_long": "Bradford",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "fabac33d-d5d1-55d5-9d0f-0c3ad284fac9",
+   "iso_3166_2": "GB-BRY",
+   "name_long": "Bromley",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "bcf2aa11-865d-5b4c-8218-2218f3d09ae5",
+   "iso_3166_2": "GB-BST",
+   "name_long": "Bristol, City of",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8446e78d-770e-5cff-8f4d-71129b338314",
+   "iso_3166_2": "GB-BUR",
+   "name_long": "Bury",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "82090dfa-d905-5cc7-9317-44c63ce13d92",
+   "iso_3166_2": "GB-CAM",
+   "name_long": "Cambridgeshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "15b1167e-6a91-5410-8ca5-cdc3cb95313a",
+   "iso_3166_2": "GB-CAY",
+   "name_long": "Caerphilly [Caerffili GB-CAF]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "ce78978f-b6ee-5683-8ed1-1a6e38c7866c",
+   "iso_3166_2": "GB-CBF",
+   "name_long": "Central Bedfordshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c9e076c4-0e13-5675-8689-a2f6d565d11e",
+   "iso_3166_2": "GB-CCG",
+   "name_long": "Causeway Coast and Glens",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "937c3844-9a47-5dd3-9d44-c72f77db7b87",
+   "iso_3166_2": "GB-CGN",
+   "name_long": "Ceredigion [Sir Ceredigion]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "d0965309-d650-5594-8f7e-6c3b24fe5331",
+   "iso_3166_2": "GB-CHE",
+   "name_long": "Cheshire East",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d3915711-65a2-5c77-b165-17f9b1b14756",
+   "iso_3166_2": "GB-CHW",
+   "name_long": "Cheshire West and Chester",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d3f1ad97-6dbd-5d3e-97d0-71fb3dd44fa5",
+   "iso_3166_2": "GB-CLD",
+   "name_long": "Calderdale",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9eeee801-e3ba-5e9b-a37b-6adb4bc33afd",
+   "iso_3166_2": "GB-CLK",
+   "name_long": "Clackmannanshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "d1ae472d-2a63-5c0d-80e2-d57b67e67156",
+   "iso_3166_2": "GB-CMA",
+   "name_long": "Cumbria",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "0d2ae722-0a6c-5c0d-b891-a9eb4ae87e89",
+   "iso_3166_2": "GB-CMD",
+   "name_long": "Camden",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "90f33edf-5384-527e-bfaf-e3048f397d0c",
+   "iso_3166_2": "GB-CMN",
+   "name_long": "Carmarthenshire [Sir Gaerfyrddin GB-GFY]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "65a7546a-55b6-5582-a57e-a35af672a33f",
+   "iso_3166_2": "GB-CON",
+   "name_long": "Cornwall",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "fd888fb8-4906-5e5b-9e16-5904c802cb2b",
+   "iso_3166_2": "GB-COV",
+   "name_long": "Coventry",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "67f1a18d-f249-581d-90bd-43993f15701f",
+   "iso_3166_2": "GB-CRF",
+   "name_long": "Cardiff [Caerdydd GB-CRD]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "9de659cb-e945-5b4a-bbaa-ae6edc08e72f",
+   "iso_3166_2": "GB-CRY",
+   "name_long": "Croydon",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "dc7ea6ff-ef67-5623-a5b8-1c757c7a9e37",
+   "iso_3166_2": "GB-CWY",
+   "name_long": "Conwy",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "9e6a48cc-038c-511f-bdec-cc7f60c955f1",
+   "iso_3166_2": "GB-DAL",
+   "name_long": "Darlington",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8c5cb87b-b44f-53c9-a71f-2df3b0f859a0",
+   "iso_3166_2": "GB-DBY",
+   "name_long": "Derbyshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9d58f0db-63b4-5ac1-b466-cfdfe7c83f03",
+   "iso_3166_2": "GB-DEN",
+   "name_long": "Denbighshire [Sir Ddinbych GB-DDB]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "9da30908-a646-5974-88ca-8b0c9f524e55",
+   "iso_3166_2": "GB-DER",
+   "name_long": "Derby",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "0acbb3d0-7499-5b1c-82f2-efb8fcbc3e50",
+   "iso_3166_2": "GB-DEV",
+   "name_long": "Devon",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "efb32e9b-c4c3-5573-8f80-4526b241f4bc",
+   "iso_3166_2": "GB-DGY",
+   "name_long": "Dumfries and Galloway",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "7a362ff7-340c-596b-8ab0-dc5bcca64dd5",
+   "iso_3166_2": "GB-DNC",
+   "name_long": "Doncaster",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9156fc31-6576-5677-a150-050cfc9b0a0d",
+   "iso_3166_2": "GB-DND",
+   "name_long": "Dundee City",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "ecad0acb-49e5-5b05-98be-ea2d840923f7",
+   "iso_3166_2": "GB-DOR",
+   "name_long": "Dorset",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c9f3dfe6-8d1b-532c-ad17-a287a2df28c4",
+   "iso_3166_2": "GB-DRS",
+   "name_long": "Derry and Strabane",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "b548fcd1-9d97-5458-9439-fba45d91363c",
+   "iso_3166_2": "GB-DUD",
+   "name_long": "Dudley",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "853b3d6a-72c8-525e-9ec1-acb0a76d3ab8",
+   "iso_3166_2": "GB-DUR",
+   "name_long": "Durham, County",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2ddc3a9a-fbb0-5630-ba91-2c5bdd1ed6f9",
+   "iso_3166_2": "GB-EAL",
+   "name_long": "Ealing",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e9f453e6-3418-5c57-af16-0da6c46e5846",
+   "iso_3166_2": "GB-EAY",
+   "name_long": "East Ayrshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "27923d41-5003-57d6-ab7a-83628127cfbc",
+   "iso_3166_2": "GB-EDH",
+   "name_long": "Edinburgh, City of",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "b8e5a9ad-04b1-56be-8b68-e55a7c7cb1e5",
+   "iso_3166_2": "GB-EDU",
+   "name_long": "East Dunbartonshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "8f14a0af-7a79-567f-8a61-055abfe5065d",
+   "iso_3166_2": "GB-ELN",
+   "name_long": "East Lothian",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "57acb63b-e2b5-51dd-a4e4-67023b655360",
+   "iso_3166_2": "GB-ELS",
+   "name_long": "Eilean Siar",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "c5fd128f-8313-57d8-a95d-0685312a6cce",
+   "iso_3166_2": "GB-ENF",
+   "name_long": "Enfield",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6a6c72dc-ece6-5439-982a-8c5ac753db70",
+   "iso_3166_2": "GB-ENG",
+   "name_long": "England",
+   "country": "GB",
+   "type": "Country",
+   "parent_code": null
+  },
+  {
+   "row_id": "da256a3c-76eb-5cfa-882c-bb6477fe8eb4",
+   "iso_3166_2": "GB-ERW",
+   "name_long": "East Renfrewshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "085a0418-98d3-5622-a296-307493e7aa04",
+   "iso_3166_2": "GB-ERY",
+   "name_long": "East Riding of Yorkshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c24c5a1e-73f3-5050-adca-50216415be0d",
+   "iso_3166_2": "GB-ESS",
+   "name_long": "Essex",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "a28d8380-3350-5ac5-82e8-4c9205ca0869",
+   "iso_3166_2": "GB-ESX",
+   "name_long": "East Sussex",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6055f132-bd04-5731-bf20-e8021dbdcc66",
+   "iso_3166_2": "GB-FAL",
+   "name_long": "Falkirk",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "e5af0238-fbb7-586f-8be1-2d8b5830581e",
+   "iso_3166_2": "GB-FIF",
+   "name_long": "Fife",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "ed6d3438-9e5d-5238-ac9b-47dd68769e41",
+   "iso_3166_2": "GB-FLN",
+   "name_long": "Flintshire [Sir y Fflint GB-FFL]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "a28c35e7-ccc6-590d-9a49-be2534becdd5",
+   "iso_3166_2": "GB-FMO",
+   "name_long": "Fermanagh and Omagh",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "57b3ca5d-1a70-5856-861d-27a361d85417",
+   "iso_3166_2": "GB-GAT",
+   "name_long": "Gateshead",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "3bb04510-e872-5ecc-b1be-9e843154af47",
+   "iso_3166_2": "GB-GLG",
+   "name_long": "Glasgow City",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "2f8cae40-41ca-5fea-8880-0778658d42b8",
+   "iso_3166_2": "GB-GLS",
+   "name_long": "Gloucestershire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "7ae2d8ac-0f3b-51a2-95c2-880ab4eb3e9f",
+   "iso_3166_2": "GB-GRE",
+   "name_long": "Greenwich",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2cb20d64-89d2-5896-b794-7f04ae7e036a",
+   "iso_3166_2": "GB-GWN",
+   "name_long": "Gwynedd",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "f5fb3369-4830-59d3-ac6f-edd86f5cb64c",
+   "iso_3166_2": "GB-HAL",
+   "name_long": "Halton",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "4db091aa-f402-57d8-a09d-0a41531b8d11",
+   "iso_3166_2": "GB-HAM",
+   "name_long": "Hampshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6a8cda97-19bf-57d9-ab47-25372a29ede0",
+   "iso_3166_2": "GB-HAV",
+   "name_long": "Havering",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d569d173-2d1f-52e8-ad59-59635ee039c5",
+   "iso_3166_2": "GB-HCK",
+   "name_long": "Hackney",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "b758cf07-de0a-55e6-a46c-d1639f7bd9fc",
+   "iso_3166_2": "GB-HEF",
+   "name_long": "Herefordshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "45930ce0-9a53-543a-88a6-07085b60a6a5",
+   "iso_3166_2": "GB-HIL",
+   "name_long": "Hillingdon",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "a429d000-e8ae-5f90-823a-955765a8cf15",
+   "iso_3166_2": "GB-HLD",
+   "name_long": "Highland",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "637e27f6-f3b4-554c-bc0b-53697a79f71a",
+   "iso_3166_2": "GB-HMF",
+   "name_long": "Hammersmith and Fulham",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "09a891f2-1924-56a1-aeca-3567d2ce8c46",
+   "iso_3166_2": "GB-HNS",
+   "name_long": "Hounslow",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e2b00ce5-71d4-5775-817c-39143239c12a",
+   "iso_3166_2": "GB-HPL",
+   "name_long": "Hartlepool",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "271ba796-2182-5aad-a1cd-a5c08dd5da9a",
+   "iso_3166_2": "GB-HRT",
+   "name_long": "Hertfordshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9bb32d18-12d6-5217-886b-e2a9de9fb13f",
+   "iso_3166_2": "GB-HRW",
+   "name_long": "Harrow",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "59310cc8-bfdf-5bde-9275-b076db3aa970",
+   "iso_3166_2": "GB-HRY",
+   "name_long": "Haringey",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c12dc22a-e259-5294-85a9-70135d6e5429",
+   "iso_3166_2": "GB-IOS",
+   "name_long": "Isles of Scilly",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "09aa6eeb-aaa0-56db-be82-e230847797c3",
+   "iso_3166_2": "GB-IOW",
+   "name_long": "Isle of Wight",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "74a164fa-4910-531c-a355-bdc178da1926",
+   "iso_3166_2": "GB-ISL",
+   "name_long": "Islington",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "37dffa12-bd0e-57d1-86b4-4e748e940ab3",
+   "iso_3166_2": "GB-IVC",
+   "name_long": "Inverclyde",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "698b138f-a91b-520f-9ee3-9e0498e613bc",
+   "iso_3166_2": "GB-KEC",
+   "name_long": "Kensington and Chelsea",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "5a3b8cee-1af8-5e95-8906-d8e6e7b03c8f",
+   "iso_3166_2": "GB-KEN",
+   "name_long": "Kent",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e632bda9-eabb-58ee-b716-84ba76b26059",
+   "iso_3166_2": "GB-KHL",
+   "name_long": "Kingston upon Hull",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e71638c8-937f-5edc-b0d9-4bd80d5f877e",
+   "iso_3166_2": "GB-KIR",
+   "name_long": "Kirklees",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "703aae07-f031-54ad-84ab-2305bb08cec2",
+   "iso_3166_2": "GB-KTT",
+   "name_long": "Kingston upon Thames",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c3b096ce-541e-5657-97a7-2e5135e2687a",
+   "iso_3166_2": "GB-KWL",
+   "name_long": "Knowsley",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c262f946-72dc-5bd4-af77-e524e774e442",
+   "iso_3166_2": "GB-LAN",
+   "name_long": "Lancashire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "b32d8490-d7bd-5a60-a8f4-a68cd780efa3",
+   "iso_3166_2": "GB-LBC",
+   "name_long": "Lisburn and Castlereagh",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "e79f035b-e04c-5508-ae05-e189af92eb6a",
+   "iso_3166_2": "GB-LBH",
+   "name_long": "Lambeth",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6606f302-faf1-5964-b507-cedf630cb6f5",
+   "iso_3166_2": "GB-LCE",
+   "name_long": "Leicester",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "f2b67ec7-d4b5-598d-8fdb-8ce014b60760",
+   "iso_3166_2": "GB-LDS",
+   "name_long": "Leeds",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "0bd0fa4d-c9f1-5e05-9cfe-3d3b61b254a5",
+   "iso_3166_2": "GB-LEC",
+   "name_long": "Leicestershire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "24b5218d-9968-5922-9609-2c9056736300",
+   "iso_3166_2": "GB-LEW",
+   "name_long": "Lewisham",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2af535e3-dc55-5abc-b329-2e3b1ff1c9d0",
+   "iso_3166_2": "GB-LIN",
+   "name_long": "Lincolnshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "99c704e4-ceb7-5ea4-b274-6b77eeed2c93",
+   "iso_3166_2": "GB-LIV",
+   "name_long": "Liverpool",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "867f7586-40b6-5fe5-9296-e83114d3e616",
+   "iso_3166_2": "GB-LND",
+   "name_long": "London, City of",
+   "country": "GB",
+   "type": "City corporation",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "1ed23262-aab7-5013-8a22-3d8964d6f4bc",
+   "iso_3166_2": "GB-LUT",
+   "name_long": "Luton",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "88b1b800-82c3-5b61-ba60-5e9a1a1b74a0",
+   "iso_3166_2": "GB-MAN",
+   "name_long": "Manchester",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e7dabb7a-a8c7-5ebb-9530-39f7f96c82d2",
+   "iso_3166_2": "GB-MDB",
+   "name_long": "Middlesbrough",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "aab41a9c-b797-5c7f-804a-1bf3bbb5717d",
+   "iso_3166_2": "GB-MDW",
+   "name_long": "Medway",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "ae592419-4e18-5357-b7a0-e9c58fd945d7",
+   "iso_3166_2": "GB-MEA",
+   "name_long": "Mid and East Antrim",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "cb9087a9-153f-5f80-a517-266ee989946d",
+   "iso_3166_2": "GB-MIK",
+   "name_long": "Milton Keynes",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e82e390f-1b09-5f55-944c-6983489a342f",
+   "iso_3166_2": "GB-MLN",
+   "name_long": "Midlothian",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "5c90585d-f0cc-569f-98d6-36b6eb0ec3be",
+   "iso_3166_2": "GB-MON",
+   "name_long": "Monmouthshire [Sir Fynwy GB-FYN]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "1d32d1f5-902d-566b-8caa-8c30ff49ac47",
+   "iso_3166_2": "GB-MRT",
+   "name_long": "Merton",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "005fdc88-a790-54bc-9dee-770439b6b301",
+   "iso_3166_2": "GB-MRY",
+   "name_long": "Moray",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "4745ddf7-433b-58a1-bd2e-e78be7271704",
+   "iso_3166_2": "GB-MTY",
+   "name_long": "Merthyr Tydfil [Merthyr Tudful GB-MTU]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "a7343e68-a0a4-56f9-bf25-670ca6a58529",
+   "iso_3166_2": "GB-MUL",
+   "name_long": "Mid-Ulster",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "3d7e7033-d1d3-53ff-906a-56cc36a3424a",
+   "iso_3166_2": "GB-NAY",
+   "name_long": "North Ayrshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "8be6dd5b-e328-5add-a670-b917567a7008",
+   "iso_3166_2": "GB-NBL",
+   "name_long": "Northumberland",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "985a9775-e09f-539e-b738-ad25dbaa3d1a",
+   "iso_3166_2": "GB-NEL",
+   "name_long": "North East Lincolnshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2de415fa-354c-549f-9321-680686f43aec",
+   "iso_3166_2": "GB-NET",
+   "name_long": "Newcastle upon Tyne",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "b67fc1f1-71ac-5d5f-a524-41e0b4e19314",
+   "iso_3166_2": "GB-NFK",
+   "name_long": "Norfolk",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d640e076-404e-5aaf-b359-fc8e1fe5e3e3",
+   "iso_3166_2": "GB-NGM",
+   "name_long": "Nottingham",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "61b0fcc9-b761-5fde-9e9c-85c4e2801d91",
+   "iso_3166_2": "GB-NLK",
+   "name_long": "North Lanarkshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "add8c5dd-2274-58cb-9750-12a8069c76c4",
+   "iso_3166_2": "GB-NLN",
+   "name_long": "North Lincolnshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e463d317-8681-5d5a-acbb-a977c2620489",
+   "iso_3166_2": "GB-NMD",
+   "name_long": "Newry, Mourne and Down",
+   "country": "GB",
+   "type": "District",
+   "parent_code": "GB-NIR"
+  },
+  {
+   "row_id": "f4fe5a12-edf6-5664-b917-6bb94c0ffa3f",
+   "iso_3166_2": "GB-NNH",
+   "name_long": "North Northamptonshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d988d31e-0384-5d54-b8fe-52bae7103016",
+   "iso_3166_2": "GB-NSM",
+   "name_long": "North Somerset",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "5a53791b-8f4b-56c5-99dd-81696def052c",
+   "iso_3166_2": "GB-NTL",
+   "name_long": "Neath Port Talbot [Castell-nedd Port Talbot GB-CTL]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "3736d280-e0f4-53da-9002-7e83c22ac7ed",
+   "iso_3166_2": "GB-NTT",
+   "name_long": "Nottinghamshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e78f345c-6155-52cf-8613-4f40b5a3094c",
+   "iso_3166_2": "GB-NTY",
+   "name_long": "North Tyneside",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "43adc653-434b-5672-a851-414a96c7b5e9",
+   "iso_3166_2": "GB-NWM",
+   "name_long": "Newham",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "968c039b-961d-5cc4-98c7-6b8a4383964f",
+   "iso_3166_2": "GB-NWP",
+   "name_long": "Newport [Casnewydd GB-CNW]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "28360bdd-b915-578a-8488-34b62a38e050",
+   "iso_3166_2": "GB-NYK",
+   "name_long": "North Yorkshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "1f2c262d-d5bd-50f1-8733-a63a2a6739a2",
+   "iso_3166_2": "GB-OLD",
+   "name_long": "Oldham",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8d41f4ae-5d74-5046-a5ef-6cc74033c071",
+   "iso_3166_2": "GB-ORK",
+   "name_long": "Orkney Islands",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "242fbe93-8f16-5d97-86cb-433b6e409d97",
+   "iso_3166_2": "GB-OXF",
+   "name_long": "Oxfordshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "0f86008a-cb0d-5cad-b45b-3bc7a82f2543",
+   "iso_3166_2": "GB-PEM",
+   "name_long": "Pembrokeshire [Sir Benfro GB-BNF]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "dc0221fb-d0a6-545e-a312-67a5181ad069",
+   "iso_3166_2": "GB-PKN",
+   "name_long": "Perth and Kinross",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "38e02b99-9ce5-5393-bcb1-f654012232c1",
+   "iso_3166_2": "GB-PLY",
+   "name_long": "Plymouth",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "29d635f6-cea5-5dc5-8f9c-c29a8c307308",
+   "iso_3166_2": "GB-POR",
+   "name_long": "Portsmouth",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d7595812-e28e-5838-b4fd-af07fefa5654",
+   "iso_3166_2": "GB-POW",
+   "name_long": "Powys",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "61f40a6c-6c54-5c78-8d3c-6a20e0a6ff93",
+   "iso_3166_2": "GB-PTE",
+   "name_long": "Peterborough",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9ec31fbd-e38c-5eb9-afb1-2a71b505722f",
+   "iso_3166_2": "GB-RCC",
+   "name_long": "Redcar and Cleveland",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "eb0e99e8-6c85-5f68-9ff6-bb0fa344719e",
+   "iso_3166_2": "GB-RCH",
+   "name_long": "Rochdale",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8e5c0cb4-ba07-5409-9dd9-ff7bc6351e01",
+   "iso_3166_2": "GB-RCT",
+   "name_long": "Rhondda Cynon Taff [Rhondda CynonTaf]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "77057498-c718-5d97-b15b-606e7232f922",
+   "iso_3166_2": "GB-RDB",
+   "name_long": "Redbridge",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "bcff3247-8355-54fe-9552-179788cbf167",
+   "iso_3166_2": "GB-RDG",
+   "name_long": "Reading",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "cf25c516-bd1e-5c85-b274-1ff37e4f0bc3",
+   "iso_3166_2": "GB-RFW",
+   "name_long": "Renfrewshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "ae75790a-4395-58bf-9e16-4476f9abbcee",
+   "iso_3166_2": "GB-RIC",
+   "name_long": "Richmond upon Thames",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "ae47dffd-73af-5ce1-878e-19393a597307",
+   "iso_3166_2": "GB-ROT",
+   "name_long": "Rotherham",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "dcb3b149-4e6f-550c-b315-ee829ef79d57",
+   "iso_3166_2": "GB-RUT",
+   "name_long": "Rutland",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e20697e9-0167-59d5-ab55-73da1b29fa55",
+   "iso_3166_2": "GB-SAW",
+   "name_long": "Sandwell",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "568704dd-7a3d-5aec-a638-7458fbfb98d6",
+   "iso_3166_2": "GB-SAY",
+   "name_long": "South Ayrshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "b03a15ac-ce19-524b-8889-7f0933161eda",
+   "iso_3166_2": "GB-SCB",
+   "name_long": "Scottish Borders",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "8e7281c7-c8f7-5606-99ba-db8970993b83",
+   "iso_3166_2": "GB-SCT",
+   "name_long": "Scotland",
+   "country": "GB",
+   "type": "Country",
+   "parent_code": null
+  },
+  {
+   "row_id": "4fd07df9-de84-5989-80be-140b15664c2c",
+   "iso_3166_2": "GB-SFK",
+   "name_long": "Suffolk",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d6e49a11-ec6c-58d3-89e4-4527d324c1c2",
+   "iso_3166_2": "GB-SFT",
+   "name_long": "Sefton",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6e239b08-badf-50f5-a404-8c088ff75c30",
+   "iso_3166_2": "GB-SGC",
+   "name_long": "South Gloucestershire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "365feca6-4bfc-5088-81fc-f8c25df2592f",
+   "iso_3166_2": "GB-SHF",
+   "name_long": "Sheffield",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c6e4f52b-9d69-59cd-ba53-fa61ec73792d",
+   "iso_3166_2": "GB-SHN",
+   "name_long": "St. Helens",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8a4e1903-4eca-59ec-ae1e-fc2d9346b243",
+   "iso_3166_2": "GB-SHR",
+   "name_long": "Shropshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "16b74025-7fda-522e-aac0-404d88ad1343",
+   "iso_3166_2": "GB-SKP",
+   "name_long": "Stockport",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "4f8ae771-f90d-5ab5-a876-d60d919de1e2",
+   "iso_3166_2": "GB-SLF",
+   "name_long": "Salford",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "871949b2-c2a3-597b-87ba-721e61fb42a2",
+   "iso_3166_2": "GB-SLG",
+   "name_long": "Slough",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "6f16cc5f-2362-586c-b3b0-3e6f79cece13",
+   "iso_3166_2": "GB-SLK",
+   "name_long": "South Lanarkshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "55dfe362-b4aa-52a7-8b16-5a469360e9f9",
+   "iso_3166_2": "GB-SND",
+   "name_long": "Sunderland",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "81315126-4ad9-5235-adea-611c8e867505",
+   "iso_3166_2": "GB-SOL",
+   "name_long": "Solihull",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "8e13fd4c-bdcf-5dfa-8993-52018f65bf9d",
+   "iso_3166_2": "GB-SOM",
+   "name_long": "Somerset",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "42c9a58d-3649-53e2-a6fa-240f6e9c5dc4",
+   "iso_3166_2": "GB-SOS",
+   "name_long": "Southend-on-Sea",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "7079c58c-10d7-5a05-9f65-04fbc52c5bc8",
+   "iso_3166_2": "GB-SRY",
+   "name_long": "Surrey",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "3ac5416d-4bbf-5c03-aea7-f48174e50fb0",
+   "iso_3166_2": "GB-STE",
+   "name_long": "Stoke-on-Trent",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "093cd999-b118-5492-8282-11d2420d235d",
+   "iso_3166_2": "GB-STG",
+   "name_long": "Stirling",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "abee6d67-8836-5f70-8709-ec732f25bae1",
+   "iso_3166_2": "GB-STH",
+   "name_long": "Southampton",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "5eaeb1a2-ce86-5fec-9998-2cd7bbc86bad",
+   "iso_3166_2": "GB-STN",
+   "name_long": "Sutton",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "ac50a340-764d-5572-b40f-da4aecfb4302",
+   "iso_3166_2": "GB-STS",
+   "name_long": "Staffordshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "40f7cbb3-85b3-5b70-ba83-5a3653f8d096",
+   "iso_3166_2": "GB-STT",
+   "name_long": "Stockton-on-Tees",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "21b248d4-fec5-587c-b33e-97516af87259",
+   "iso_3166_2": "GB-STY",
+   "name_long": "South Tyneside",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "02bfa472-a1b0-540b-8d6d-c3bec64a6d75",
+   "iso_3166_2": "GB-SWA",
+   "name_long": "Swansea [Abertawe GB-ATA]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "41378308-69cc-5b0e-bb16-4300ee666d54",
+   "iso_3166_2": "GB-SWD",
+   "name_long": "Swindon",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "bf8aad31-e663-5852-8d0c-7198ea1fe568",
+   "iso_3166_2": "GB-SWK",
+   "name_long": "Southwark",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "1285bd30-0668-5f66-800a-128a2744e2c9",
+   "iso_3166_2": "GB-TAM",
+   "name_long": "Tameside",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "2838b843-f3e4-5bbc-af2d-bd3e81c1d77f",
+   "iso_3166_2": "GB-TFW",
+   "name_long": "Telford and Wrekin",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "0015b665-80af-552d-b912-d59d7e1bfc70",
+   "iso_3166_2": "GB-THR",
+   "name_long": "Thurrock",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e944744a-6f1f-50b9-b472-78b507b87db4",
+   "iso_3166_2": "GB-TOB",
+   "name_long": "Torbay",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e6566628-432f-5bf9-bfc1-a4a90df5302b",
+   "iso_3166_2": "GB-TOF",
+   "name_long": "Torfaen [Tor-faen]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "0fa7bada-9b3d-5761-b09e-67040aeda7d3",
+   "iso_3166_2": "GB-TRF",
+   "name_long": "Trafford",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "90d9e4e6-ab0c-5ec7-8455-cd4dde1ac24a",
+   "iso_3166_2": "GB-TWH",
+   "name_long": "Tower Hamlets",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "f14e078b-ea6d-5a2b-97d7-1177261cf666",
+   "iso_3166_2": "GB-VGL",
+   "name_long": "Vale of Glamorgan, The [Bro Morgannwg GB-BMG]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "08b25626-8715-5365-b624-0730f55e3f11",
+   "iso_3166_2": "GB-WAR",
+   "name_long": "Warwickshire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "e62b6441-d18c-598b-91cc-bf4d896ddd6b",
+   "iso_3166_2": "GB-WBK",
+   "name_long": "West Berkshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "c4de9b6b-ead2-5753-ab62-9fd5633a688c",
+   "iso_3166_2": "GB-WDU",
+   "name_long": "West Dunbartonshire",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "72d12f37-fa5a-5f3a-bfff-cd7ae935b720",
+   "iso_3166_2": "GB-WFT",
+   "name_long": "Waltham Forest",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "71ab90a2-d5df-524b-86e8-ce4f4fabfbe5",
+   "iso_3166_2": "GB-WGN",
+   "name_long": "Wigan",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "73565459-7bd1-50b5-8807-40d20f52d197",
+   "iso_3166_2": "GB-WIL",
+   "name_long": "Wiltshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "96b426c9-d56c-5bd2-91b9-ecb88f01bd7c",
+   "iso_3166_2": "GB-WKF",
+   "name_long": "Wakefield",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "ff326566-69f0-59d0-9b49-1feea16a6765",
+   "iso_3166_2": "GB-WLL",
+   "name_long": "Walsall",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "48b3c7f1-f40e-5a7e-91d8-330527d457ba",
+   "iso_3166_2": "GB-WLN",
+   "name_long": "West Lothian",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  },
+  {
+   "row_id": "5cfc3d47-a94c-5daa-86cb-7a41986aadcd",
+   "iso_3166_2": "GB-WLS",
+   "name_long": "Wales [Cymru GB-CYM]",
+   "country": "GB",
+   "type": "Country",
+   "parent_code": null
+  },
+  {
+   "row_id": "1c43f07b-118f-556a-b44d-ebe469694070",
+   "iso_3166_2": "GB-WLV",
+   "name_long": "Wolverhampton",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "4ced84f8-266b-535d-9232-240cbda45dce",
+   "iso_3166_2": "GB-WND",
+   "name_long": "Wandsworth",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "68d03507-3f9f-5d1c-aa3a-5ee135d7a7df",
+   "iso_3166_2": "GB-WNH",
+   "name_long": "West Northamptonshire",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "f0645dde-5734-5d6c-91c1-d39d277fd030",
+   "iso_3166_2": "GB-WNM",
+   "name_long": "Windsor and Maidenhead",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "aef4c675-8d06-5919-a0e9-58f18d577f21",
+   "iso_3166_2": "GB-WOK",
+   "name_long": "Wokingham",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "9aa3ca42-d30d-580c-91ce-8ca1482fac6a",
+   "iso_3166_2": "GB-WOR",
+   "name_long": "Worcestershire",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "b1cfbd3d-fef0-5cbe-ae87-d21dc6e142fe",
+   "iso_3166_2": "GB-WRL",
+   "name_long": "Wirral",
+   "country": "GB",
+   "type": "Metropolitan district",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "81b89fbb-1d10-5497-a71e-53015b965fe0",
+   "iso_3166_2": "GB-WRT",
+   "name_long": "Warrington",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "f8098f26-6fab-56af-ae3d-24a45c241fa4",
+   "iso_3166_2": "GB-WRX",
+   "name_long": "Wrexham [Wrecsam GB-WRC]",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-WLS"
+  },
+  {
+   "row_id": "54063d39-0dde-5577-97c1-709321eb0e59",
+   "iso_3166_2": "GB-WSM",
+   "name_long": "Westminster",
+   "country": "GB",
+   "type": "London borough",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "d1fd3df6-0f8a-5bc3-8147-d89c6f87f28a",
+   "iso_3166_2": "GB-WSX",
+   "name_long": "West Sussex",
+   "country": "GB",
+   "type": "Two-tier county",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "4488f1b6-e478-57d9-8312-6983d0b6d617",
+   "iso_3166_2": "GB-YOR",
+   "name_long": "York",
+   "country": "GB",
+   "type": "Unitary authority",
+   "parent_code": "GB-ENG"
+  },
+  {
+   "row_id": "911065d9-b357-5e6d-a8d5-4d012062b73e",
+   "iso_3166_2": "GB-ZET",
+   "name_long": "Shetland Islands",
+   "country": "GB",
+   "type": "Council area",
+   "parent_code": "GB-SCT"
+  }
+ ],
+ "province": [
+  {
+   "row_id": "a6d48c64-a485-5733-98b9-b6c713b69020",
+   "iso_3166_2": "ES-A",
+   "name_long": "Alicante",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-VC"
+  },
+  {
+   "row_id": "fc595177-cc31-54d1-b6b6-173784442a4a",
+   "iso_3166_2": "ES-AB",
+   "name_long": "Albacete",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CM"
+  },
+  {
+   "row_id": "d2fb6908-ea53-5a26-a122-a3ffd28b64d4",
+   "iso_3166_2": "ES-AL",
+   "name_long": "Almería",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "ae206c19-d0cc-5947-8f39-87b6d22a4a44",
+   "iso_3166_2": "ES-AV",
+   "name_long": "Ávila",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "305e478c-4f6b-5f8c-9500-557b3c18e236",
+   "iso_3166_2": "ES-B",
+   "name_long": "Barcelona [Barcelona]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CT"
+  },
+  {
+   "row_id": "9297bf7b-8916-5f56-8bba-90a8401582dc",
+   "iso_3166_2": "ES-BA",
+   "name_long": "Badajoz",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-EX"
+  },
+  {
+   "row_id": "e0f0147f-9cf6-5cd1-b04d-e4de4df35ba0",
+   "iso_3166_2": "ES-BI",
+   "name_long": "Bizkaia",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-PV"
+  },
+  {
+   "row_id": "be9d6dcf-fee6-501e-9438-cdb5e92d4961",
+   "iso_3166_2": "ES-BU",
+   "name_long": "Burgos",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "00d07bed-eef6-5808-a288-c59b8c53e2d0",
+   "iso_3166_2": "ES-C",
+   "name_long": "A Coruña [La Coruña]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-GA"
+  },
+  {
+   "row_id": "dcfe5c21-a809-5109-9d31-9a51e2c07944",
+   "iso_3166_2": "ES-CA",
+   "name_long": "Cádiz",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "896b9f52-21bf-5236-9868-cbb88e6e2b12",
+   "iso_3166_2": "ES-CC",
+   "name_long": "Cáceres",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-EX"
+  },
+  {
+   "row_id": "e1fc79d1-0d20-5637-b912-a747ef7a259a",
+   "iso_3166_2": "ES-CO",
+   "name_long": "Córdoba",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "59965b57-c848-5309-a0bf-4b76dc06dace",
+   "iso_3166_2": "ES-CR",
+   "name_long": "Ciudad Real",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CM"
+  },
+  {
+   "row_id": "131c7e1d-4819-5a8b-aee4-d0bd26f2e8d3",
+   "iso_3166_2": "ES-CS",
+   "name_long": "Castellón",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-VC"
+  },
+  {
+   "row_id": "1d5c7894-1116-5642-a070-99995b69f051",
+   "iso_3166_2": "ES-CU",
+   "name_long": "Cuenca",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CM"
+  },
+  {
+   "row_id": "36df76d1-1e28-5e97-9928-fb5658534473",
+   "iso_3166_2": "ES-GC",
+   "name_long": "Las Palmas",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CN"
+  },
+  {
+   "row_id": "64170388-fb6a-5915-b3d1-9bd75a0c11ab",
+   "iso_3166_2": "ES-GI",
+   "name_long": "Girona [Gerona]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CT"
+  },
+  {
+   "row_id": "1bad4a54-2975-5e97-9de4-ad660d9b571f",
+   "iso_3166_2": "ES-GR",
+   "name_long": "Granada",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "612b9044-4fe2-5ee9-a009-0c8ed9b21d14",
+   "iso_3166_2": "ES-GU",
+   "name_long": "Guadalajara",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CM"
+  },
+  {
+   "row_id": "fbc2a7ce-2caa-5526-8267-8ce206256578",
+   "iso_3166_2": "ES-H",
+   "name_long": "Huelva",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "30af567a-e401-50d8-86fd-c6a29ecde603",
+   "iso_3166_2": "ES-HU",
+   "name_long": "Huesca",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AR"
+  },
+  {
+   "row_id": "9e5ea76e-0fa4-530e-84f3-6788e572b888",
+   "iso_3166_2": "ES-J",
+   "name_long": "Jaén",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "6573ce99-811c-5204-8a3d-3539f5134dd8",
+   "iso_3166_2": "ES-L",
+   "name_long": "Lleida [Lérida]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CT"
+  },
+  {
+   "row_id": "d06e4720-eee8-50e5-b7e7-bce3e8020674",
+   "iso_3166_2": "ES-LE",
+   "name_long": "León",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "975dca92-95f7-5c09-8d78-0631b42fe65b",
+   "iso_3166_2": "ES-LO",
+   "name_long": "La Rioja",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-RI"
+  },
+  {
+   "row_id": "4020610a-3fa6-5c7c-af09-b7c000348d17",
+   "iso_3166_2": "ES-LU",
+   "name_long": "Lugo [Lugo]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-GA"
+  },
+  {
+   "row_id": "fb7339e6-7a30-56cd-88e7-59819f099c3e",
+   "iso_3166_2": "ES-M",
+   "name_long": "Madrid",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-MD"
+  },
+  {
+   "row_id": "eccce8dc-cda7-51f9-8cf9-cdefe9855a42",
+   "iso_3166_2": "ES-MA",
+   "name_long": "Málaga",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "4f922039-4fd8-5e4c-9580-5efbb91ed84b",
+   "iso_3166_2": "ES-MU",
+   "name_long": "Murcia",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-MC"
+  },
+  {
+   "row_id": "6a685df1-d505-5721-b24a-287e71e29b4e",
+   "iso_3166_2": "ES-NA",
+   "name_long": "Navarra",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-NC"
+  },
+  {
+   "row_id": "b11af4a8-1a68-587a-bd68-8e6ad1a1490d",
+   "iso_3166_2": "ES-O",
+   "name_long": "Asturias",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AS"
+  },
+  {
+   "row_id": "566cff5d-d666-5d51-b788-6481fcd4bb18",
+   "iso_3166_2": "ES-OR",
+   "name_long": "Ourense [Orense]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-GA"
+  },
+  {
+   "row_id": "54217f11-9523-5d8b-b2cf-e6238a73cf50",
+   "iso_3166_2": "ES-P",
+   "name_long": "Palencia",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "5b1a7085-a667-513a-9969-2ff772a25c46",
+   "iso_3166_2": "ES-PM",
+   "name_long": "Illes Balears [Islas Baleares]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-IB"
+  },
+  {
+   "row_id": "48afefb4-850c-5695-8504-1273024a69b7",
+   "iso_3166_2": "ES-PO",
+   "name_long": "Pontevedra [Pontevedra]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-GA"
+  },
+  {
+   "row_id": "359caab0-8a67-5e38-8315-d0e9d6792684",
+   "iso_3166_2": "ES-S",
+   "name_long": "Cantabria",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CB"
+  },
+  {
+   "row_id": "c781922a-4104-5556-9599-b0faf86c096a",
+   "iso_3166_2": "ES-SA",
+   "name_long": "Salamanca",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "849141b9-b121-5887-8228-91e911244215",
+   "iso_3166_2": "ES-SE",
+   "name_long": "Sevilla",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AN"
+  },
+  {
+   "row_id": "4dcbb683-12ff-5a55-868c-c971f86dc671",
+   "iso_3166_2": "ES-SG",
+   "name_long": "Segovia",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "da8c6ca3-ab24-574a-b1c8-d7adbf057097",
+   "iso_3166_2": "ES-SO",
+   "name_long": "Soria",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "e1eaac0c-b240-5708-baaa-72deb9af65cc",
+   "iso_3166_2": "ES-SS",
+   "name_long": "Gipuzkoa",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-PV"
+  },
+  {
+   "row_id": "296dc8f2-e527-52b1-961a-5898f2f2ee2f",
+   "iso_3166_2": "ES-T",
+   "name_long": "Tarragona [Tarragona]",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CT"
+  },
+  {
+   "row_id": "bcc1e017-85bd-5b72-91ea-9bd9ab10d362",
+   "iso_3166_2": "ES-TE",
+   "name_long": "Teruel",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AR"
+  },
+  {
+   "row_id": "47bf5d27-bc69-5c2c-8cf4-188d6f4ee02a",
+   "iso_3166_2": "ES-TF",
+   "name_long": "Santa Cruz de Tenerife",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CN"
+  },
+  {
+   "row_id": "a136a2a0-ce91-5849-bb39-d8a552abb921",
+   "iso_3166_2": "ES-TO",
+   "name_long": "Toledo",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CM"
+  },
+  {
+   "row_id": "ab84187b-2579-5441-8398-6bb9ee85b73b",
+   "iso_3166_2": "ES-V",
+   "name_long": "Valencia",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-VC"
+  },
+  {
+   "row_id": "da071353-45c4-5be0-9195-fad22df341fd",
+   "iso_3166_2": "ES-VA",
+   "name_long": "Valladolid",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "823dccec-cf67-505d-a872-c54c01b5d9a8",
+   "iso_3166_2": "ES-VI",
+   "name_long": "Álava",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-PV"
+  },
+  {
+   "row_id": "70fe511c-ce61-51e0-afb1-72ca16112a61",
+   "iso_3166_2": "ES-Z",
+   "name_long": "Zaragoza",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-AR"
+  },
+  {
+   "row_id": "3f6a7406-bcae-576d-8e06-70bbd9a3d00b",
+   "iso_3166_2": "ES-ZA",
+   "name_long": "Zamora",
+   "country": "ES",
+   "type": "Province",
+   "parent_code": "ES-CL"
+  },
+  {
+   "row_id": "edf22454-9ec3-511f-8ab1-f655162e5123",
+   "iso_3166_2": "MA-AOU",
+   "name_long": "Aousserd (EH)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-12"
+  },
+  {
+   "row_id": "e39cab46-c58b-59f6-a524-708f9dec44c2",
+   "iso_3166_2": "MA-ASZ",
+   "name_long": "Assa-Zag (EH-partial)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-10"
+  },
+  {
+   "row_id": "021166e4-52e3-5f3d-9a50-9f1a58a7c544",
+   "iso_3166_2": "MA-AZI",
+   "name_long": "Azilal",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-05"
+  },
+  {
+   "row_id": "1f9e2447-ae91-5e1b-8444-b48977196f7f",
+   "iso_3166_2": "MA-BEM",
+   "name_long": "Béni Mellal",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-05"
+  },
+  {
+   "row_id": "126576a7-0435-56c4-b2ad-d322977c29d1",
+   "iso_3166_2": "MA-BER",
+   "name_long": "Berkane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "4eaaa5a8-3e60-5f1b-8274-c27a2f040fc3",
+   "iso_3166_2": "MA-BES",
+   "name_long": "Benslimane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "e8e48a52-51e3-51ff-9e91-88bd44b34211",
+   "iso_3166_2": "MA-BOD",
+   "name_long": "Boujdour (EH)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-11"
+  },
+  {
+   "row_id": "b8e1e590-dadf-59ff-89ae-1cf5f6735cdc",
+   "iso_3166_2": "MA-BOM",
+   "name_long": "Boulemane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "d30a5523-c3e7-5983-8446-a61ec7b93781",
+   "iso_3166_2": "MA-BRR",
+   "name_long": "Berrechid",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "c9fb7d0c-d98a-5119-9f96-8223fcf174d6",
+   "iso_3166_2": "MA-CHE",
+   "name_long": "Chefchaouen",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "a8e63260-fce0-59ca-9f3d-49a90f1a0523",
+   "iso_3166_2": "MA-CHI",
+   "name_long": "Chichaoua",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "61b0b709-17aa-5794-b810-b8b3eda74492",
+   "iso_3166_2": "MA-CHT",
+   "name_long": "Chtouka-Ait Baha",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "2fc31686-8876-558a-a6ac-9179ee8e6bcf",
+   "iso_3166_2": "MA-DRI",
+   "name_long": "Driouch",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "6c227e68-836d-58a6-aac4-76ae8ba7211a",
+   "iso_3166_2": "MA-ERR",
+   "name_long": "Errachidia",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-08"
+  },
+  {
+   "row_id": "0a02e9d9-07b1-5fbd-a38b-9daaae242f2a",
+   "iso_3166_2": "MA-ESI",
+   "name_long": "Essaouira",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "749c10ed-9024-56bc-b7d5-4602c995c116",
+   "iso_3166_2": "MA-ESM",
+   "name_long": "Es-Semara (EH-partial)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-11"
+  },
+  {
+   "row_id": "93acc9bd-7dc4-5447-a94f-8fed9aaf860d",
+   "iso_3166_2": "MA-FAH",
+   "name_long": "Fahs-Anjra",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "62f84dc0-3dc6-51ff-a618-0ca59a0ed530",
+   "iso_3166_2": "MA-FIG",
+   "name_long": "Figuig",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "309155d0-a21b-5bbe-9478-59560a6a3c0b",
+   "iso_3166_2": "MA-FQH",
+   "name_long": "Fquih Ben Salah",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-05"
+  },
+  {
+   "row_id": "ba3a1aa7-2501-547b-b473-e61ac39d3689",
+   "iso_3166_2": "MA-GUE",
+   "name_long": "Guelmim",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-10"
+  },
+  {
+   "row_id": "a99a9875-a4a5-52ad-a3ca-f30a1b1a0660",
+   "iso_3166_2": "MA-GUF",
+   "name_long": "Guercif",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "11a2d789-d4aa-528f-b330-65c56d0cfce2",
+   "iso_3166_2": "MA-HAJ",
+   "name_long": "El Hajeb",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "faa7ca54-7bef-5cb1-9fbe-a3ff448d5117",
+   "iso_3166_2": "MA-HAO",
+   "name_long": "Al Haouz",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "62638860-0ca5-5f64-915f-c70c2431bb1c",
+   "iso_3166_2": "MA-HOC",
+   "name_long": "Al Hoceïma",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "0dc38386-d3fc-55f0-bf4d-ad62a6bd259d",
+   "iso_3166_2": "MA-IFR",
+   "name_long": "Ifrane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "24ba2653-c44d-55ab-a912-77181f9c8020",
+   "iso_3166_2": "MA-JDI",
+   "name_long": "El Jadida",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "401e029f-8d62-5a03-8c15-15a89eaeb8ee",
+   "iso_3166_2": "MA-JRA",
+   "name_long": "Jerada",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "7c961103-7ab1-5929-b7d3-ed668c3d3140",
+   "iso_3166_2": "MA-KEN",
+   "name_long": "Kénitra",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "bd5b0bd3-d12e-57a1-a6c5-36b870475b69",
+   "iso_3166_2": "MA-KES",
+   "name_long": "El Kelâa des Sraghna",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "b0f74590-2f29-5b84-a27f-7fc6f30fac1f",
+   "iso_3166_2": "MA-KHE",
+   "name_long": "Khémisset",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "bc6f1379-5373-5fe8-8e56-668afc0e0581",
+   "iso_3166_2": "MA-KHN",
+   "name_long": "Khénifra",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-05"
+  },
+  {
+   "row_id": "abf957eb-c667-5e41-9dfa-006d424e9654",
+   "iso_3166_2": "MA-KHO",
+   "name_long": "Khouribga",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-05"
+  },
+  {
+   "row_id": "63a5fa8f-bc50-52e8-a182-b3af9e13a474",
+   "iso_3166_2": "MA-LAA",
+   "name_long": "Laâyoune (EH)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-11"
+  },
+  {
+   "row_id": "07a8bbb5-3684-595f-9162-c97df4c1e29f",
+   "iso_3166_2": "MA-LAR",
+   "name_long": "Larache",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "4cb3ed1e-00fd-5d9a-93ae-608b3fa45754",
+   "iso_3166_2": "MA-MED",
+   "name_long": "Médiouna",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "8a86ceaf-28a5-56da-a6ab-d61b3dc10bc2",
+   "iso_3166_2": "MA-MID",
+   "name_long": "Midelt",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-08"
+  },
+  {
+   "row_id": "280b036d-0f05-5f42-b444-9523fe2c8a64",
+   "iso_3166_2": "MA-MOU",
+   "name_long": "Moulay Yacoub",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "6e1ac34d-c746-50ab-a22f-b1c5a6022a63",
+   "iso_3166_2": "MA-NAD",
+   "name_long": "Nador",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "86ad433d-e79e-5120-ad9f-abc91e91e0ed",
+   "iso_3166_2": "MA-NOU",
+   "name_long": "Nouaceur",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "0dd544b7-398f-507a-83b0-4eaa947224c3",
+   "iso_3166_2": "MA-OUA",
+   "name_long": "Ouarzazate",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-08"
+  },
+  {
+   "row_id": "82b78c5e-604e-5a94-847e-398a4919354a",
+   "iso_3166_2": "MA-OUD",
+   "name_long": "Oued Ed-Dahab (EH)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-12"
+  },
+  {
+   "row_id": "e28170fd-7629-5e22-9a3c-ae7c0479794b",
+   "iso_3166_2": "MA-OUZ",
+   "name_long": "Ouezzane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "8e5c0e1c-0a1e-539f-8c6a-38a8e73c2f17",
+   "iso_3166_2": "MA-REH",
+   "name_long": "Rehamna",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "fad73b06-3474-5dd6-b413-6c370ed574c4",
+   "iso_3166_2": "MA-SAF",
+   "name_long": "Safi",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "d50d4561-58e6-57ec-8a7e-f7cad2016353",
+   "iso_3166_2": "MA-SEF",
+   "name_long": "Sefrou",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "125d4856-5768-5334-bf82-37140e03377e",
+   "iso_3166_2": "MA-SET",
+   "name_long": "Settat",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "2a85754e-8876-56f2-a48f-49ba2bfd7e76",
+   "iso_3166_2": "MA-SIB",
+   "name_long": "Sidi Bennour",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-06"
+  },
+  {
+   "row_id": "84005ad9-31aa-5491-92f0-e8f4bdc332ed",
+   "iso_3166_2": "MA-SIF",
+   "name_long": "Sidi Ifni",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-10"
+  },
+  {
+   "row_id": "79e3f79b-1d28-562e-95c5-e86db3c9888a",
+   "iso_3166_2": "MA-SIK",
+   "name_long": "Sidi Kacem",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "0e3088cc-37e1-5ce0-a083-733124a8d7d9",
+   "iso_3166_2": "MA-SIL",
+   "name_long": "Sidi Slimane",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-04"
+  },
+  {
+   "row_id": "9543db05-688b-5b18-9dcc-7dc05d4c10c6",
+   "iso_3166_2": "MA-TAF",
+   "name_long": "Tarfaya (EH-partial)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-11"
+  },
+  {
+   "row_id": "2b9238e6-9d1c-5b72-a484-08dfa9740321",
+   "iso_3166_2": "MA-TAI",
+   "name_long": "Taourirt",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-02"
+  },
+  {
+   "row_id": "b349bf0b-e602-5c31-8e89-6f9de05364f3",
+   "iso_3166_2": "MA-TAO",
+   "name_long": "Taounate",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "37b958f9-0d31-598c-82bd-bc248a9c28af",
+   "iso_3166_2": "MA-TAR",
+   "name_long": "Taroudannt",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-09"
+  },
+  {
+   "row_id": "2e9070b8-4eb7-5a52-84ff-f87c27771f48",
+   "iso_3166_2": "MA-TAT",
+   "name_long": "Tata",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-09"
+  },
+  {
+   "row_id": "2cbe57b2-13dd-5b02-af37-4acf20e1c57c",
+   "iso_3166_2": "MA-TAZ",
+   "name_long": "Taza",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-03"
+  },
+  {
+   "row_id": "72598302-836b-5d6b-b211-d7cca8367a17",
+   "iso_3166_2": "MA-TET",
+   "name_long": "Tétouan",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-01"
+  },
+  {
+   "row_id": "60000cbc-17f8-5dd1-869a-983b95be0c4a",
+   "iso_3166_2": "MA-TIN",
+   "name_long": "Tinghir",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-08"
+  },
+  {
+   "row_id": "7eb302f9-fd21-595c-a4ee-a0db2ae2c5e3",
+   "iso_3166_2": "MA-TIZ",
+   "name_long": "Tiznit",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-09"
+  },
+  {
+   "row_id": "9785b643-6506-5501-8a9f-33af2afb08d8",
+   "iso_3166_2": "MA-TNT",
+   "name_long": "Tan-Tan (EH-partial)",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-10"
+  },
+  {
+   "row_id": "8a996e82-5b8e-52f6-a398-065c7c156f32",
+   "iso_3166_2": "MA-YUS",
+   "name_long": "Youssoufia",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-07"
+  },
+  {
+   "row_id": "bc96673b-7bad-5f40-ac18-5cedd4096fb7",
+   "iso_3166_2": "MA-ZAG",
+   "name_long": "Zagora",
+   "country": "MA",
+   "type": "Province",
+   "parent_code": "MA-08"
+  },
+  {
+   "row_id": "ed50a550-1b7a-53f8-9c36-1e6be7f8de14",
+   "iso_3166_2": "GB-NIR",
+   "name_long": "Northern Ireland",
+   "country": "GB",
+   "type": "Province",
+   "parent_code": null
+  }
+ ],
+ "xlink_country_currency": [
+  {
+   "country": "ES",
+   "currency": "EUR"
+  },
+  {
+   "country": "FR",
+   "currency": "EUR"
+  },
+  {
+   "country": "MA",
+   "currency": "MAD"
+  },
+  {
+   "country": "PT",
+   "currency": "EUR"
+  },
+  {
+   "country": "GB",
+   "currency": "GBP"
+  }
+ ],
+ "xlink_country_language": [
+  {
+   "country": "ES",
+   "language": "es"
+  },
+  {
+   "country": "FR",
+   "language": "fr"
+  },
+  {
+   "country": "MA",
+   "language": "ar"
+  },
+  {
+   "country": "MA",
+   "language": "fr"
+  },
+  {
+   "country": "PT",
+   "language": "pt"
+  },
+  {
+   "country": "GB",
+   "language": "en"
+  }
+ ]
+}

@@ -9,25 +9,6 @@
   }
  },
  "catalogs": {
-  "SOURCE_FREQUENCY": {
-   "dominio": "D0 · Operación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "canonical_entity.access_frequency_code"
-   ],
-   "desc": "Frecuencia de refresco/acceso de una entidad canónica.",
-   "values": {
-    "REAL_TIME": "Refresco en tiempo real / continuo.",
-    "HOURLY": "Refresco horario.",
-    "DAILY": "Refresco diario.",
-    "WEEKLY": "Refresco semanal.",
-    "MONTHLY": "Refresco mensual.",
-    "RARELY": "Refresco esporádico / bajo demanda."
-   },
-   "category": "TIME",
-   "canonical_accelerator": "METADATA"
-  },
   "LIFECYCLE_STATE": {
    "dominio": "D0 · Estados / ciclo de vida",
    "tipo_valor": "CERRADO",
@@ -63,21 +44,6 @@
     "DEFINITION_QUALITY": "Evaluación de calidad de la definición."
    },
    "nota": "EN CUARENTENA: el founder no tiene claro su encaje. No usar hasta resolver. La FK de evaluación en canonical_entity apunta a assessment_pattern (assessment_code), no a este catálogo.",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA"
-  },
-  "MAPPING_CONDITION_KIND": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "mapping_condition.condition_kind_code"
-   ],
-   "desc": "Tipo de condición de un mapping.",
-   "values": {
-    "JOIN": "Unión entre source entities (multi-source).",
-    "FILTER": "Filtro WHERE sobre el origen."
-   },
    "category": "TYPE",
    "canonical_accelerator": "METADATA"
   },
@@ -179,6 +145,718 @@
     "canonical_relation.cardinality_code",
     "business_term_related.cardinality_code"
    ]
+  },
+  "DATE_FORMAT": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TIME",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_type_domain.date_format_code"
+   ],
+   "desc": "Formato canónico de fecha (orden de componentes) para presentación/parseo i18n. El valor almacenado es agnóstico (ISO).",
+   "values": {
+    "YMD": "Año-Mes-Día (ISO 8601, p.ej. 2026-07-07).",
+    "DMY": "Día-Mes-Año (p.ej. 07/07/2026).",
+    "MDY": "Mes-Día-Año (p.ej. 07/07/2026, convención US)."
+   }
+  },
+  "DECIMAL_FORMAT": {
+   "dominio": "D0 · Catálogos de datos (D1)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_type_domain.decimal_format_code"
+   ],
+   "desc": "Formato decimal (separador decimal y de miles) para presentación/parseo i18n. El valor almacenado es agnóstico.",
+   "values": {
+    "DOT_COMMA": "Decimal '.' y miles ',' (p.ej. 1,234.56 — convención US/UK).",
+    "COMMA_DOT": "Decimal ',' y miles '.' (p.ej. 1.234,56 — convención ES/EU).",
+    "COMMA_SPACE": "Decimal ',' y miles espacio (p.ej. 1 234,56 — convención FR).",
+    "DOT_NONE": "Decimal '.' sin separador de miles (p.ej. 1234.56)."
+   }
+  },
+  "DQ_DIMENSION": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_type_domain_validation.dq_dimension_code",
+    "dq_dimension_to_iso_characteristic.dimension_code"
+   ],
+   "desc": "Dimensión de calidad de datos (DAMA-DMBOK). Clasifica el tipo de validación/regla DQ que se compila desde el metamodelo.",
+   "values": {
+    "COMPLETENESS": "Completitud: presencia de todos los valores requeridos (obligatoriedad).",
+    "VALIDITY": "Validez: el valor se ajusta a formato/dominio/patrón definido (regex, rango, catálogo).",
+    "ACCURACY": "Exactitud: el valor representa correctamente el valor real del concepto.",
+    "CONSISTENCY": "Consistencia: ausencia de contradicciones dentro del dato y con el resto del contexto.",
+    "UNIQUENESS": "Unicidad: el dato no está duplicado; una entidad del mundo real se representa una vez.",
+    "TIMELINESS": "Actualidad: el valor está vigente/actualizado para su contexto de uso."
+   }
+  },
+  "ISO_CHARACTERISTIC": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dq_dimension_to_iso_characteristic.iso_characteristic_code"
+   ],
+   "desc": "Característica de calidad de datos según ISO/IEC 25012 (perspectiva inherente: aplica al dato en sí).",
+   "values": {
+    "ACCURACY": "Grado en que el dato representa correctamente el valor real (incluye exactitud sintáctica y semántica).",
+    "COMPLETENESS": "Grado en que el dato tiene valores para todos los atributos necesarios.",
+    "CONSISTENCY": "Grado en que el dato está libre de contradicciones y es coherente con su contexto.",
+    "CREDIBILITY": "Grado en que el dato se considera cierto y creíble por los usuarios.",
+    "CURRENTNESS": "Grado en que el dato tiene valores vigentes para su contexto de uso.",
+    "PRECISION": "Grado en que el dato tiene la precisión requerida (dígitos/decimales).",
+    "CONSISTENCY_SEMANTIC": "Coherencia semántica del valor respecto a las reglas de negocio del dominio."
+   }
+  },
+  "TEMPORAL_HIERARCHY_TYPE": {
+   "dominio": "D6 · Jerarquía temporal",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "temporal_hierarchy.hierarchy_type_code"
+   ],
+   "desc": "Tipo de roll-up de una jerarquía temporal.",
+   "values": {
+    "STRICT": "Roll-up estricto y anidado (calendario natural).",
+    "PARALLEL": "Jerarquía paralela sobre el mismo día (ISO 8601).",
+    "PARALLEL_CONFIG": "Jerarquía paralela configurable por compañía/jurisdicción (fiscal)."
+   },
+   "category": "TIME",
+   "canonical_accelerator": "METADATA"
+  },
+  "ROLLUP_KIND": {
+   "dominio": "D6 · Jerarquía temporal",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "temporal_level.rollup_kind_code"
+   ],
+   "desc": "Naturaleza del roll-up de un nivel temporal.",
+   "values": {
+    "STRICT": "Nivel anidado en el árbol estricto.",
+    "SUBDAY": "Nivel sub-día (franja horaria, hora)."
+   },
+   "category": "TIME",
+   "canonical_accelerator": "METADATA"
+  },
+  "TEMPORAL_REPRESENTATION_KIND": {
+   "dominio": "D6 · Jerarquía temporal",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "temporal_representation.representation_kind_code"
+   ],
+   "desc": "Naturaleza de una representación temporal.",
+   "values": {
+    "CALENDAR": "Calendario natural (ene-dic).",
+    "ISO_WEEK": "Semana ISO 8601.",
+    "FISCAL": "Ejercicio fiscal configurable (start month por representación)."
+   },
+   "category": "TIME",
+   "canonical_accelerator": "METADATA"
+  },
+  "GEO_LEVEL": {
+   "dominio": "D6 · Jerarquía geográfica",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Nivel geográfico de un miembro polimórfico (país/región/provincia/localidad).",
+   "usado_en": [
+    "commercial_member.geo_level_code",
+    "tax_jurisdiction_geo.geo_level_code"
+   ],
+   "values": {
+    "COUNTRY": "País (ISO 3166-1).",
+    "REGION": "Región / CCAA (ISO 3166-2).",
+    "PROVINCE": "Provincia (ISO 3166-2).",
+    "LOCALITY": "Localidad / municipio (INE)."
+   }
+  },
+  "BUSINESS_UNIT_KIND": {
+   "dominio": "D · Organización",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Clase de unidad organizativa.",
+   "usado_en": [
+    "business_unit.business_unit_kind_code"
+   ],
+   "values": {
+    "C_LEVEL": "Nivel ejecutivo (CEO, CFO…), raíz del negocio de datos.",
+    "DIVISION": "División.",
+    "AREA": "Área funcional.",
+    "DEPARTMENT": "Departamento.",
+    "TEAM": "Equipo."
+   }
+  },
+  "GOVERNANCE_TOPOLOGY": {
+   "dominio": "D · Organización",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Topología de gobierno del dato de una unidad (decisión de diseño).",
+   "usado_en": [
+    "business_unit.topology_code"
+   ],
+   "values": {
+    "CENTRALIZED": "Gobierno centralizado.",
+    "FEDERATED": "Gobierno federado.",
+    "HYBRID": "Híbrido (centro + federación).",
+    "DELEGATED": "Delegado a la unidad."
+   }
+  },
+  "MATURITY_LEVEL": {
+   "dominio": "D · Evaluación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "STATE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Niveles de resultado de una evaluación de MADUREZ (usado como level_reference_catalog de un assessment_pattern de tipo MATURITY).",
+   "usado_en": [
+    "assessment_pattern_threshold.level_code (patrón MATURITY)"
+   ],
+   "values": {
+    "INITIAL": "Inicial / ad-hoc.",
+    "MANAGED": "Gestionado.",
+    "DEFINED": "Definido.",
+    "QUANTITATIVELY_MANAGED": "Gestionado cuantitativamente.",
+    "OPTIMIZING": "Optimizado."
+   }
+  },
+  "BUSINESS_ROLE_PROFILE": {
+   "dominio": "D · Gobierno",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "ROLE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Perfiles de gobierno del dato asignables a cualquier objeto gobernable.",
+   "usado_en": [
+    "governance_role_assignment.role_profile_code"
+   ],
+   "values": {
+    "DATA_OWNER": "Responsable último (accountable). 1 por objeto.",
+    "DATA_STEWARD": "Gestor operativo de la calidad y definición. N por objeto.",
+    "DATA_CUSTODIAN": "Custodio técnico (almacenamiento/acceso).",
+    "DATA_CONSUMER": "Consumidor autorizado del dato."
+   }
+  },
+  "FREQUENCY": {
+   "dominio": "D0 · Operación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_entity.access_frequency_code",
+    "business_process.frequency_code"
+   ],
+   "desc": "Frecuencia genérica (de proceso, de fuente, de acceso…). Reutilizable.",
+   "values": {
+    "REAL_TIME": "Refresco en tiempo real / continuo.",
+    "HOURLY": "Refresco horario.",
+    "DAILY": "Refresco diario.",
+    "WEEKLY": "Refresco semanal.",
+    "MONTHLY": "Refresco mensual.",
+    "RARELY": "Refresco esporádico / bajo demanda."
+   },
+   "category": "TIME",
+   "canonical_accelerator": "METADATA"
+  },
+  "WORKFLOW_SCOPE": {
+   "dominio": "D0 · D07 Patrones de workflow",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Nivel al que aplica un paso del workflow.",
+   "usado_en": [
+    "workflow_pattern_step.scope_level_code"
+   ],
+   "values": {
+    "ENTITY": "Circuito de entidad canónica (ingest→transform→dq→load→kpi).",
+    "TERM": "Nivel término de negocio (DQ y jerarquía KPI del término).",
+    "PROCESS": "Nivel proceso (DQ y KPI agregados del proceso)."
+   }
+  },
+  "RUNNER_TYPE": {
+   "dominio": "D0 · D07 Patrones de workflow",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Tipo de runner DataOps que ejecuta un paso (1:1 step↔runner).",
+   "usado_en": [
+    "workflow_pattern_step.runner_type_code"
+   ],
+   "values": {
+    "RUNNER_INGEST": "Ingesta de datos (entidad).",
+    "RUNNER_TRANSFORM": "Transformación (entidad).",
+    "RUNNER_DQ": "Calidad de datos de entidad.",
+    "RUNNER_LOAD_CANONICAL": "Carga a la capa canónica (entidad).",
+    "RUNNER_KPI": "Cálculo de KPI de entidad.",
+    "RUNNER_DQ_TERM": "Calidad de datos a nivel término.",
+    "RUNNER_KPI_HIERARCHY": "KPI jerárquico a nivel término.",
+    "RUNNER_DQ_PROCESS": "Calidad de datos agregada a nivel proceso.",
+    "RUNNER_KPI_PROCESS": "KPI agregado a nivel proceso."
+   }
+  },
+  "WORKFLOW_PURPOSE": {
+   "dominio": "D0 · D07 Patrones de workflow",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Propósito del patrón de workflow completo.",
+   "usado_en": [
+    "workflow_pattern.purpose_code"
+   ],
+   "values": {
+    "INGESTION_VALIDATION": "Ingesta + validación + carga canónica.",
+    "KPI_COMPUTATION": "Cálculo de KPIs.",
+    "CERTIFICATION": "Certificación de datos.",
+    "CUSTOM": "Personalizado."
+   }
+  },
+  "SOURCE_SYSTEM_KIND": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Naturaleza del sistema origen: define a qué me conecto.",
+   "values": {
+    "DATABASE": "Servidor de base de datos.",
+    "API": "Servidor que expone APIs.",
+    "STREAM": "Cluster de streaming (topics).",
+    "FILESYSTEM": "Servidor de ficheros (SFTP/S3/local).",
+    "WEBHOOK": "Publicación push de eventos."
+   }
+  },
+  "CONTAINER_KIND": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Nivel de la jerarquía de contención dentro del sistema.",
+   "values": {
+    "CATALOG": "Catálogo (Unity/motor).",
+    "DATABASE": "Base de datos.",
+    "SCHEMA": "Esquema.",
+    "NAMESPACE": "Namespace lógico.",
+    "DIRECTORY": "Directorio de ficheros."
+   }
+  },
+  "SOURCE_ENTITY_KIND": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Tipo de entidad capturable en origen.",
+   "values": {
+    "TABLE": "Tabla.",
+    "VIEW": "Vista.",
+    "MATERIALIZED_VIEW": "Vista materializada.",
+    "FILE": "Fichero.",
+    "SHEET": "Hoja de cálculo.",
+    "TOPIC": "Topic de streaming.",
+    "ENDPOINT": "Endpoint de API."
+   }
+  },
+  "SCOPE_REASON": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Motivo auditable de inclusión/exclusión de una entidad en el alcance de carga.",
+   "values": {
+    "REQUIRED": "Requerida por una canónica.",
+    "NO_VALUE": "Sin valor de negocio.",
+    "DEPRECATED": "Obsoleta en origen.",
+    "TECHNICAL": "Tabla técnica/sistema.",
+    "DUPLICATE": "Duplicada."
+   }
+  },
+  "CAPTURE_MODE": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Modo de descarga de una tabla origen.",
+   "values": {
+    "FULL": "Carga completa.",
+    "INCREMENTAL": "Incremental por watermark.",
+    "CDC": "Change Data Capture."
+   }
+  },
+  "LANDING_STRATEGY": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Estrategia de aterrizaje en captura.",
+   "values": {
+    "COPY_TO_LANDING": "Copia a landing.",
+    "READ_IN_PLACE": "Lectura in situ.",
+    "COPY_AND_KEEP_REFERENCE": "Copia y referencia."
+   }
+  },
+  "CDC_MECHANISM": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Mecanismo de captura de cambios.",
+   "values": {
+    "LOG": "Log-based nativo.",
+    "TRIGGER": "Trigger.",
+    "TIMESTAMP": "Columna de timestamp."
+   }
+  },
+  "EXTRACTION_FILTER_MODE": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Momento del filtro de extracción.",
+   "values": {
+    "INITIAL": "Carga inicial/histórica.",
+    "INCREMENTAL": "Día a día."
+   }
+  },
+  "EXPRESSION_DIALECT": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Dialecto de una expresión declarativa.",
+   "values": {
+    "SQL_SPARK": "SQL Spark.",
+    "REGEX": "Expresión regular.",
+    "JSONPATH": "JSONPath."
+   }
+  },
+  "OBJECT_SCOPE": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Ámbito de lectura del metadato de descubrimiento.",
+   "values": {
+    "SERVER": "A nivel servidor (fase 0: enumerar databases).",
+    "DATABASE": "Dentro de cada database (patrón común)."
+   }
+  },
+  "DISCOVERY_OBJECT_KIND": {
+   "dominio": "D3 · Fuentes",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Objeto de metadato que la plantilla de descubrimiento lee.",
+   "values": {
+    "DATABASES": "Enumeración de bases de datos.",
+    "SCHEMAS": "Esquemas/namespaces.",
+    "TABLES": "Tablas y vistas.",
+    "COLUMNS": "Columnas y tipos.",
+    "PRIMARY_KEYS": "Claves primarias.",
+    "FOREIGN_KEYS": "Claves foráneas.",
+    "INDEXES": "Índices.",
+    "PARTITIONS": "Particionamiento nativo.",
+    "COMMENTS": "Documentación embebida.",
+    "DB_PROPERTIES": "Propiedades de la database (charset/collation)."
+   }
+  },
+  "TECHNOLOGY_CATEGORY": {
+   "dominio": "COMMON_STRUCTURE",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "desc": "Categoría de tecnología de fuente/destino.",
+   "values": {
+    "RDBMS": "Base de datos relacional.",
+    "NOSQL": "Base de datos NoSQL.",
+    "FILE": "Sistema de ficheros.",
+    "API": "Servicio API.",
+    "STREAM": "Streaming.",
+    "LAKEHOUSE": "Lakehouse/Delta."
+   }
+  },
+  "TRANSFORMATION_ROLE": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "ROLE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "transformation.role_code"
+   ],
+   "desc": "Rol de una transformación en la carga de una entidad canónica.",
+   "values": {
+    "PRINCIPAL": "Carga por defecto desde la golden source; inserta la fila.",
+    "ENRICHMENT": "Completa atributos sobre la fila ya cargada; merge por PK canónica."
+   }
+  },
+  "OPERATOR": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "transformation_filter.operator_code"
+   ],
+   "desc": "Operador de comparación de un filtro declarativo (campo·operador·valor), AND-eados.",
+   "values": {
+    "EQ": "Igual (=).",
+    "NE": "Distinto (<>).",
+    "GT": "Mayor (>).",
+    "GE": "Mayor o igual (>=).",
+    "LT": "Menor (<).",
+    "LE": "Menor o igual (<=).",
+    "IN": "Pertenece a lista.",
+    "NOT_IN": "No pertenece a lista.",
+    "LIKE": "Coincide patrón.",
+    "NOT_LIKE": "No coincide patrón.",
+    "BETWEEN": "En rango [a,b].",
+    "IS_NULL": "Es nulo.",
+    "IS_NOT_NULL": "No es nulo."
+   }
+  },
+  "JOIN_TYPE": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "transformation_join.join_type_code"
+   ],
+   "desc": "Tipo de JOIN declarativo.",
+   "values": {
+    "INNER": "Solo coincidencias en ambos.",
+    "LEFT": "Todas las del origen + coincidencias.",
+    "RIGHT": "Todas las de la unida + coincidencias.",
+    "FULL": "Todas de ambos."
+   }
+  },
+  "COMBINE_MODE": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "match_rule_set.combine_mode_code"
+   ],
+   "desc": "Cómo se combinan las reglas del match set.",
+   "values": {
+    "FIRST_MATCH": "Primera regla que casa gana.",
+    "BEST_SCORE": "Mayor puntuación agregada.",
+    "ALL": "Deben casar todas."
+   }
+  },
+  "MATCH_FUNCTION": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "match_rule_condition.match_function_code"
+   ],
+   "desc": "Función de comparación de una condición de match.",
+   "values": {
+    "EXACT": "Igualdad exacta.",
+    "EXACT_NORMALIZED": "Igualdad tras normalizar.",
+    "JARO_WINKLER": "Similitud Jaro-Winkler.",
+    "LEVENSHTEIN": "Distancia de edición.",
+    "SOUNDEX": "Fonética Soundex.",
+    "METAPHONE": "Fonética Metaphone."
+   }
+  },
+  "RULE_NATURE": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "match_rule.nature_code"
+   ],
+   "desc": "Naturaleza de la regla de match.",
+   "values": {
+    "DETERMINISTIC": "Condición dura (sin peso).",
+    "PROBABILISTIC": "Ponderada por score."
+   }
+  },
+  "IDENTITY_MODE": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "canonical_entity_bk_lookup_config.identity_mode_code"
+   ],
+   "desc": "Cómo se produce el id canónico de la entidad.",
+   "values": {
+    "BK_HASH": "sha2(BK) determinista (derivado).",
+    "MDM_SURROGATE": "Surrogate nuevo por match.",
+    "RDM_STANDARD": "Código estándar externo (ISO).",
+    "INHERITED": "No tiene identidad propia; hereda el master del padre por FK (sin xref)."
+   }
+  },
+  "ON_MISS": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "canonical_entity_bk_lookup_config.on_miss_code"
+   ],
+   "desc": "Qué hacer cuando el valor/entidad no existe en la resolución.",
+   "values": {
+    "CREATE": "Crea nuevo (MDM).",
+    "REMEDIATE": "A remediación, no crea (RDM).",
+    "NONE": "No aplica (BK_HASH)."
+   }
+  },
+  "AGGREGATE_FUNCTION": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "transformation_field.aggregate_function_code"
+   ],
+   "desc": "Función de agregación de un campo en una transformación con GROUP BY.",
+   "values": {
+    "SUM": "Suma.",
+    "COUNT": "Conteo.",
+    "COUNT_DISTINCT": "Conteo distinto.",
+    "AVG": "Media.",
+    "MIN": "Mínimo.",
+    "MAX": "Máximo."
+   }
+  },
+  "FILTER_STAGE": {
+   "dominio": "D0 · Transformación (D4)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "transformation_filter.filter_stage_code"
+   ],
+   "desc": "Etapa en la que aplica el filtro respecto a la agregación.",
+   "values": {
+    "WHERE": "Antes de agrupar (sobre filas).",
+    "HAVING": "Después de agrupar (sobre agregados)."
+   }
+  },
+  "MATCH_CARDINALITY": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "match_rule_condition.cardinality_code"
+   ],
+   "desc": "Cuantificador de una condición sobre filas de un satélite 1:N.",
+   "values": {
+    "ANY": "Casa si existe alguna fila que casa (EXISTS).",
+    "ALL": "Casan todas las filas."
+   }
+  },
+  "SURVIVORSHIP_STRATEGY": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "survivorship_rule.survivorship_strategy_code"
+   ],
+   "desc": "Cómo se fija el valor del maestro para un atributo canónico.",
+   "values": {
+    "SOURCE_OF_RECORD": "Gana una fuente designada.",
+    "MANUAL": "Lo fija un steward.",
+    "MOST_RECENT": "El valor más reciente.",
+    "MOST_COMPLETE": "El no nulo/más completo.",
+    "MOST_FREQUENT": "El que más fuentes coinciden."
+   }
+  },
+  "SURROGATE_STRATEGY": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "canonical_entity_bk_lookup_config.surrogate_strategy_code"
+   ],
+   "desc": "Cómo se genera el master_id surrogate en MDM.",
+   "values": {
+    "SEQUENCE": "Secuencia numérica.",
+    "UUID": "UUID."
+   }
+  },
+  "IMPL_KIND": {
+   "dominio": "D0 · Identidad / LOAD_CANONICAL",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "match_function_impl.impl_kind_code"
+   ],
+   "desc": "Cómo se implementa una función de match.",
+   "values": {
+    "NATIVE": "Builtin del motor.",
+    "COMPOSED": "Expresión sobre primitivas.",
+    "UDF": "Función/librería registrada."
+   }
+  },
+  "VIEW_KIND": {
+   "dominio": "D0 · Vistas (D5)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "canonical_view.view_kind_code"
+   ],
+   "desc": "Tipo de vista canónica.",
+   "values": {
+    "CANONICAL": "Vista de carga canónica estándar.",
+    "MATCHING": "Vista de resolución de identidad (compilada del match_rule_set).",
+    "AGGREGATION": "Vista de agregación (KPI/hecho)."
+   }
   }
  },
  "categories": [

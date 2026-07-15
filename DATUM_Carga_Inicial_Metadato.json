@@ -415,7 +415,7 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "data_type_domain_simple",
+    "code": "data_type_domain",
     "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -454,7 +454,7 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "data_type_domain_dq_rule",
+    "code": "data_type_domain_validation",
     "business_term_code": "DATA_DOMAIN",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -481,7 +481,7 @@
    },
    {
     "code": "technology",
-    "business_term_code": "METADATA",
+    "business_term_code": "TECHNOLOGY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -494,7 +494,7 @@
    },
    {
     "code": "data_type",
-    "business_term_code": "METADATA",
+    "business_term_code": "TECHNOLOGY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -507,7 +507,7 @@
    },
    {
     "code": "data_type_mapping",
-    "business_term_code": "DATA_DOMAIN",
+    "business_term_code": "TECHNOLOGY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -520,7 +520,7 @@
    },
    {
     "code": "language",
-    "business_term_code": "ISO_CODE",
+    "business_term_code": "GEO_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -533,20 +533,7 @@
    },
    {
     "code": "country",
-    "business_term_code": "ISO_CODE",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "country_subdivision",
-    "business_term_code": "ISO_CODE",
+    "business_term_code": "GEO_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -559,7 +546,7 @@
    },
    {
     "code": "currency",
-    "business_term_code": "ISO_CODE",
+    "business_term_code": "GEO_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -572,7 +559,7 @@
    },
    {
     "code": "unit_of_measure",
-    "business_term_code": "ISO_CODE",
+    "business_term_code": "GEO_STRUCTURE",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -662,8 +649,8 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "business_unit_role_assignment",
-    "business_term_code": "ORG_STRUCTURE",
+    "code": "governance_role_assignment",
+    "business_term_code": "GOVERNANCE",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -676,7 +663,7 @@
    },
    {
     "code": "business_process",
-    "business_term_code": "ORG_STRUCTURE",
+    "business_term_code": "BUSINESS_PROCESS",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -702,7 +689,7 @@
    },
    {
     "code": "business_process_term",
-    "business_term_code": "ORG_STRUCTURE",
+    "business_term_code": "BUSINESS_PROCESS",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -741,7 +728,7 @@
    },
    {
     "code": "workflow_pattern",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_PROCESS",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -754,7 +741,7 @@
    },
    {
     "code": "workflow_pattern_step",
-    "business_term_code": "METADATA",
+    "business_term_code": "BUSINESS_PROCESS",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1000,71 +987,6 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "source_system",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_entity",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_attribute",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_key",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_key_attribute",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
     "code": "source_entity_capture_config",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
@@ -1183,33 +1105,7 @@
    },
    {
     "code": "compiled_ddl",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_rule",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_rule_parameter",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_EXECUTION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1222,7 +1118,7 @@
    },
    {
     "code": "transformation_pipeline",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1235,7 +1131,7 @@
    },
    {
     "code": "transformation_pipeline_step",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1248,7 +1144,7 @@
    },
    {
     "code": "pipeline_dependency",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1261,7 +1157,7 @@
    },
    {
     "code": "masking_config",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_SECURITY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1274,59 +1170,7 @@
    },
    {
     "code": "encryption_config",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "reference_mapping_set",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "reference_mapping_set_entry",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_run",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_run_step",
-    "business_term_code": "METADATA",
+    "business_term_code": "TRANSFORMATION_SECURITY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1534,7 +1378,7 @@
    },
    {
     "code": "business_rule",
-    "business_term_code": "ORG_STRUCTURE",
+    "business_term_code": "DATA_QUALITY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -2067,162 +1911,6 @@
    },
    {
     "code": "impact_analysis",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_mapping",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_input",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_output",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_parameter_value",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_condition",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_attribute_canonical_attribute_map",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_rule_version",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_mapping_version",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "rule_attribute",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_attribute",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "rule_attribute_value",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "mapping_attribute_value",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -2805,13 +2493,559 @@
     "access_frequency_code": "RARELY",
     "physical_catalog_code": "metadato",
     "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_hierarchy",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_level",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_level_attribute",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_representation",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "temporal_representation_assignment",
+    "business_term_code": "TEMPORAL_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "continent",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "supra_zone",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "region",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "province",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "locality",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "commercial_hierarchy",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "commercial_level",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "commercial_member",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "tax_jurisdiction",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "tax_regime",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "tax_jurisdiction_geo",
+    "business_term_code": "GEO_STRUCTURE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_system",
+    "business_term_code": "SOURCE_SYSTEM",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_container",
+    "business_term_code": "SOURCE_SYSTEM",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_key",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_key_attribute",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_relation",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_relation_attribute_map",
+    "business_term_code": "SOURCE_TABLE",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_capture",
+    "business_term_code": "SOURCE_INGESTION",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_extraction_filter",
+    "business_term_code": "SOURCE_INGESTION",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_entity_capture_attribute",
+    "business_term_code": "SOURCE_INGESTION",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_template",
+    "business_term_code": "DISCOVERY",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_template_object",
+    "business_term_code": "DISCOVERY",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_view_column",
+    "business_term_code": "DISCOVERY",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_field_mapping",
+    "business_term_code": "DISCOVERY",
+    "config_pattern_code": "SOURCE",
+    "physical_schema_code": "d03",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "OCCASIONALLY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_field",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_filter",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_variant",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "transformation_join",
+    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "match_rule_set",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "match_rule",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "match_rule_condition",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "xref",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "survivorship_rule",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "match_function_impl",
+    "business_term_code": "LOAD_CANONICAL",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "entity_count": 194,
+    "entity_count": 189,
     "display_order": 10
    },
    {
@@ -2869,7 +3103,7 @@
    {
     "code": "ORG_STRUCTURE",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": "HIERARCHY",
+    "parent_term_code": "COMMON_DATA",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -2919,7 +3153,7 @@
    {
     "code": "BUSINESS_PROCESS",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_DATA",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -2939,7 +3173,7 @@
    {
     "code": "DATA_QUALITY",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_DATA",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -2949,7 +3183,7 @@
    {
     "code": "TRANSFORMATION",
     "canonical_accelerator_code": "METADATA",
-    "parent_term_code": null,
+    "parent_term_code": "COMMON_DATA",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -2995,16 +3229,6 @@
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "display_order": 10
-   },
-   {
-    "code": "ISO_CODE",
-    "canonical_accelerator_code": "METADATA",
-    "parent_term_code": "COMMON_STRUCTURE",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 40
    },
    {
     "code": "COMMON_DATA",
@@ -3055,6 +3279,96 @@
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "display_order": 30
+   },
+   {
+    "code": "SOURCE_SYSTEM",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATA_SOURCE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 701
+   },
+   {
+    "code": "SOURCE_TABLE",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATA_SOURCE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 702
+   },
+   {
+    "code": "SOURCE_INGESTION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATA_SOURCE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 703
+   },
+   {
+    "code": "TECHNOLOGY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "COMMON_STRUCTURE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 155
+   },
+   {
+    "code": "DISCOVERY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATA_SOURCE",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 704
+   },
+   {
+    "code": "TRANSFORMATION_DEFINITION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "TRANSFORMATION",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 1101
+   },
+   {
+    "code": "TRANSFORMATION_EXECUTION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "TRANSFORMATION",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 1102
+   },
+   {
+    "code": "TRANSFORMATION_SECURITY",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "TRANSFORMATION",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 1103
+   },
+   {
+    "code": "LOAD_CANONICAL",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "TRANSFORMATION",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 1104
    }
   ],
   "delta_property": [
@@ -3192,15 +3506,6 @@
   ],
   "reference_catalog": [
    {
-    "code": "MAPPING_CONDITION_KIND",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "METADATA",
-    "is_ordered": false,
-    "min_active_values": 2,
-    "external_authority_code": null,
-    "external_standard_ref": null
-   },
-   {
     "code": "ASSESSMENT_TYPE",
     "category_code": "TYPE",
     "canonical_accelerator_code": "METADATA",
@@ -3219,7 +3524,7 @@
     "external_standard_ref": null
    },
    {
-    "code": "SOURCE_FREQUENCY",
+    "code": "FREQUENCY",
     "category_code": "TIME",
     "canonical_accelerator_code": "METADATA",
     "is_ordered": true,
@@ -3271,23 +3576,279 @@
     "min_active_values": 3,
     "external_authority_code": null,
     "external_standard_ref": null
+   },
+   {
+    "code": "TEMPORAL_HIERARCHY_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "ROLLUP_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "TEMPORAL_REPRESENTATION_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "SOURCE_SYSTEM_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "CONTAINER_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "SOURCE_ENTITY_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "SCOPE_REASON",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "CAPTURE_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "LANDING_STRATEGY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "CDC_MECHANISM",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "EXTRACTION_FILTER_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "EXPRESSION_DIALECT",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "OBJECT_SCOPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "DISCOVERY_OBJECT_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "TECHNOLOGY_CATEGORY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": null,
+    "external_standard_ref": null
+   },
+   {
+    "code": "TRANSFORMATION_ROLE",
+    "category_code": "ROLE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "OPERATOR",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 13,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "JOIN_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "COMBINE_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "MATCH_FUNCTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "RULE_NATURE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "IDENTITY_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "ON_MISS",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "AGGREGATE_FUNCTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "FILTER_STAGE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "MATCH_CARDINALITY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SURVIVORSHIP_STRATEGY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SURROGATE_STRATEGY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "IMPL_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "VIEW_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
    }
   ],
   "reference_value": [
-   {
-    "reference_catalog_code": "MAPPING_CONDITION_KIND",
-    "code": "JOIN",
-    "sort_order": 1,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "MAPPING_CONDITION_KIND",
-    "code": "FILTER",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
    {
     "reference_catalog_code": "ASSESSMENT_TYPE",
     "code": "CRITICALITY",
@@ -3359,42 +3920,42 @@
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "REAL_TIME",
     "sort_order": 1,
     "is_default": false,
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "HOURLY",
     "sort_order": 2,
     "is_default": false,
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "DAILY",
     "sort_order": 3,
     "is_default": false,
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "WEEKLY",
     "sort_order": 4,
     "is_default": false,
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "MONTHLY",
     "sort_order": 5,
     "is_default": false,
     "is_terminal": true
    },
    {
-    "reference_catalog_code": "SOURCE_FREQUENCY",
+    "reference_catalog_code": "FREQUENCY",
     "code": "RARELY",
     "sort_order": 6,
     "is_default": false,
@@ -3567,6 +4128,4243 @@
     "sort_order": 3,
     "is_default": false,
     "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "STRICT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "PARALLEL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_HIERARCHY_TYPE",
+    "code": "PARALLEL_CONFIG",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ROLLUP_KIND",
+    "code": "STRICT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ROLLUP_KIND",
+    "code": "SUBDAY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_REPRESENTATION_KIND",
+    "code": "CALENDAR",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_REPRESENTATION_KIND",
+    "code": "ISO_WEEK",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TEMPORAL_REPRESENTATION_KIND",
+    "code": "FISCAL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_SYSTEM_KIND",
+    "code": "DATABASE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_SYSTEM_KIND",
+    "code": "API",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_SYSTEM_KIND",
+    "code": "STREAM",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_SYSTEM_KIND",
+    "code": "FILESYSTEM",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_SYSTEM_KIND",
+    "code": "WEBHOOK",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTAINER_KIND",
+    "code": "CATALOG",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTAINER_KIND",
+    "code": "DATABASE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTAINER_KIND",
+    "code": "SCHEMA",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTAINER_KIND",
+    "code": "NAMESPACE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTAINER_KIND",
+    "code": "DIRECTORY",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "TABLE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "VIEW",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "MATERIALIZED_VIEW",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "FILE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "SHEET",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "TOPIC",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SOURCE_ENTITY_KIND",
+    "code": "ENDPOINT",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCOPE_REASON",
+    "code": "REQUIRED",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCOPE_REASON",
+    "code": "NO_VALUE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCOPE_REASON",
+    "code": "DEPRECATED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCOPE_REASON",
+    "code": "TECHNICAL",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCOPE_REASON",
+    "code": "DUPLICATE",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_MODE",
+    "code": "FULL",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_MODE",
+    "code": "INCREMENTAL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_MODE",
+    "code": "CDC",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_STRATEGY",
+    "code": "COPY_TO_LANDING",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_STRATEGY",
+    "code": "READ_IN_PLACE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_STRATEGY",
+    "code": "COPY_AND_KEEP_REFERENCE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_MECHANISM",
+    "code": "LOG",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_MECHANISM",
+    "code": "TRIGGER",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_MECHANISM",
+    "code": "TIMESTAMP",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXTRACTION_FILTER_MODE",
+    "code": "INITIAL",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXTRACTION_FILTER_MODE",
+    "code": "INCREMENTAL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPRESSION_DIALECT",
+    "code": "SQL_SPARK",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPRESSION_DIALECT",
+    "code": "REGEX",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPRESSION_DIALECT",
+    "code": "JSONPATH",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OBJECT_SCOPE",
+    "code": "SERVER",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OBJECT_SCOPE",
+    "code": "DATABASE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "DATABASES",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "SCHEMAS",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "TABLES",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "COLUMNS",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "PRIMARY_KEYS",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "FOREIGN_KEYS",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "INDEXES",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "PARTITIONS",
+    "sort_order": 8,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "COMMENTS",
+    "sort_order": 9,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DISCOVERY_OBJECT_KIND",
+    "code": "DB_PROPERTIES",
+    "sort_order": 10,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "RDBMS",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "NOSQL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "FILE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "API",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "STREAM",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TECHNOLOGY_CATEGORY",
+    "code": "LAKEHOUSE",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRANSFORMATION_ROLE",
+    "code": "PRINCIPAL",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRANSFORMATION_ROLE",
+    "code": "ENRICHMENT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "EQ",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "NE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "GT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "GE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "LT",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "LE",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "IN",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "NOT_IN",
+    "sort_order": 8,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "LIKE",
+    "sort_order": 9,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "NOT_LIKE",
+    "sort_order": 10,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "BETWEEN",
+    "sort_order": 11,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "IS_NULL",
+    "sort_order": 12,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "OPERATOR",
+    "code": "IS_NOT_NULL",
+    "sort_order": 13,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "JOIN_TYPE",
+    "code": "INNER",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "JOIN_TYPE",
+    "code": "LEFT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "JOIN_TYPE",
+    "code": "RIGHT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "JOIN_TYPE",
+    "code": "FULL",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "COMBINE_MODE",
+    "code": "FIRST_MATCH",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "COMBINE_MODE",
+    "code": "BEST_SCORE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "COMBINE_MODE",
+    "code": "ALL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "EXACT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "EXACT_NORMALIZED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "JARO_WINKLER",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "LEVENSHTEIN",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "SOUNDEX",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_FUNCTION",
+    "code": "METAPHONE",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_NATURE",
+    "code": "DETERMINISTIC",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_NATURE",
+    "code": "PROBABILISTIC",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IDENTITY_MODE",
+    "code": "BK_HASH",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IDENTITY_MODE",
+    "code": "MDM_SURROGATE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IDENTITY_MODE",
+    "code": "RDM_STANDARD",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ON_MISS",
+    "code": "CREATE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ON_MISS",
+    "code": "REMEDIATE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ON_MISS",
+    "code": "NONE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "SUM",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "COUNT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "COUNT_DISTINCT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "AVG",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "MIN",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "AGGREGATE_FUNCTION",
+    "code": "MAX",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FILTER_STAGE",
+    "code": "WHERE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FILTER_STAGE",
+    "code": "HAVING",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_CARDINALITY",
+    "code": "ANY",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATCH_CARDINALITY",
+    "code": "ALL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURVIVORSHIP_STRATEGY",
+    "code": "SOURCE_OF_RECORD",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURVIVORSHIP_STRATEGY",
+    "code": "MANUAL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURVIVORSHIP_STRATEGY",
+    "code": "MOST_RECENT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURVIVORSHIP_STRATEGY",
+    "code": "MOST_COMPLETE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURVIVORSHIP_STRATEGY",
+    "code": "MOST_FREQUENT",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURROGATE_STRATEGY",
+    "code": "SEQUENCE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SURROGATE_STRATEGY",
+    "code": "UUID",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IDENTITY_MODE",
+    "code": "INHERITED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IMPL_KIND",
+    "code": "NATIVE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IMPL_KIND",
+    "code": "COMPOSED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "IMPL_KIND",
+    "code": "UDF",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "VIEW_KIND",
+    "code": "CANONICAL",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "VIEW_KIND",
+    "code": "MATCHING",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "VIEW_KIND",
+    "code": "AGGREGATION",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   }
+  ],
+  "discovery_template": [
+   {
+    "technology_code": "SQL_SERVER",
+    "code": "MSSQL_DISCOVERY",
+    "has_server_catalog": true,
+    "root_container_kind_code": "DATABASE"
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "code": "PG_DISCOVERY",
+    "has_server_catalog": false,
+    "root_container_kind_code": "SCHEMA"
+   },
+   {
+    "technology_code": "MYSQL",
+    "code": "MYSQL_DISCOVERY",
+    "has_server_catalog": false,
+    "root_container_kind_code": "SCHEMA"
+   },
+   {
+    "technology_code": "ORACLE",
+    "code": "ORACLE_DISCOVERY",
+    "has_server_catalog": false,
+    "root_container_kind_code": "SCHEMA"
+   }
+  ],
+  "discovery_template_object": [
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "DATABASES",
+    "object_scope_code": "SERVER",
+    "metadata_schema": "master",
+    "catalog_view_name": "sys.databases",
+    "target_entity_code": "source_container",
+    "read_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "SCHEMAS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "INFORMATION_SCHEMA",
+    "catalog_view_name": "SCHEMATA",
+    "target_entity_code": "source_container",
+    "read_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "TABLES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "INFORMATION_SCHEMA",
+    "catalog_view_name": "TABLES",
+    "target_entity_code": "source_entity",
+    "read_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "COLUMNS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "INFORMATION_SCHEMA",
+    "catalog_view_name": "COLUMNS",
+    "target_entity_code": "source_attribute",
+    "read_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "PRIMARY_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "INFORMATION_SCHEMA",
+    "catalog_view_name": "KEY_COLUMN_USAGE + TABLE_CONSTRAINTS",
+    "target_entity_code": "source_key",
+    "read_order": 5
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "FOREIGN_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "sys",
+    "catalog_view_name": "foreign_keys + foreign_key_columns",
+    "target_entity_code": "source_relation",
+    "read_order": 6
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "INDEXES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "sys",
+    "catalog_view_name": "indexes + index_columns",
+    "target_entity_code": "source_key",
+    "read_order": 7
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "PARTITIONS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "sys",
+    "catalog_view_name": "partitions + partition_schemes",
+    "target_entity_code": "source_entity",
+    "read_order": 8
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "COMMENTS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "sys",
+    "catalog_view_name": "extended_properties",
+    "target_entity_code": "source_entity",
+    "read_order": 9
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "code": "DB_PROPERTIES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "sys",
+    "catalog_view_name": "databases",
+    "target_entity_code": "source_container",
+    "read_order": 10
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "SCHEMAS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "schemata",
+    "target_entity_code": "source_container",
+    "read_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "TABLES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "tables",
+    "target_entity_code": "source_entity",
+    "read_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "COLUMNS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "columns",
+    "target_entity_code": "source_attribute",
+    "read_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "PRIMARY_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "table_constraints + key_column_usage",
+    "target_entity_code": "source_key",
+    "read_order": 4
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "FOREIGN_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "referential_constraints + key_column_usage",
+    "target_entity_code": "source_relation",
+    "read_order": 5
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "INDEXES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "pg_catalog",
+    "catalog_view_name": "pg_indexes",
+    "target_entity_code": "source_key",
+    "read_order": 6
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "PARTITIONS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "pg_catalog",
+    "catalog_view_name": "pg_partitioned_table",
+    "target_entity_code": "source_entity",
+    "read_order": 7
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "COMMENTS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "pg_catalog",
+    "catalog_view_name": "pg_description",
+    "target_entity_code": "source_entity",
+    "read_order": 8
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "code": "DB_PROPERTIES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "pg_catalog",
+    "catalog_view_name": "pg_database",
+    "target_entity_code": "source_container",
+    "read_order": 9
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "SCHEMAS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "SCHEMATA",
+    "target_entity_code": "source_container",
+    "read_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "TABLES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "TABLES",
+    "target_entity_code": "source_entity",
+    "read_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "COLUMNS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "COLUMNS",
+    "target_entity_code": "source_attribute",
+    "read_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "PRIMARY_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "TABLE_CONSTRAINTS + KEY_COLUMN_USAGE",
+    "target_entity_code": "source_key",
+    "read_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "FOREIGN_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "REFERENTIAL_CONSTRAINTS + KEY_COLUMN_USAGE",
+    "target_entity_code": "source_relation",
+    "read_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "INDEXES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "STATISTICS",
+    "target_entity_code": "source_key",
+    "read_order": 6
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "PARTITIONS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "PARTITIONS",
+    "target_entity_code": "source_entity",
+    "read_order": 7
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "COMMENTS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "TABLES",
+    "target_entity_code": "source_entity",
+    "read_order": 8
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "code": "DB_PROPERTIES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "information_schema",
+    "catalog_view_name": "SCHEMATA",
+    "target_entity_code": "source_container",
+    "read_order": 9
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "SCHEMAS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_USERS",
+    "target_entity_code": "source_container",
+    "read_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "TABLES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_TABLES",
+    "target_entity_code": "source_entity",
+    "read_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "COLUMNS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_TAB_COLUMNS",
+    "target_entity_code": "source_attribute",
+    "read_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "PRIMARY_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_CONSTRAINTS + ALL_CONS_COLUMNS",
+    "target_entity_code": "source_key",
+    "read_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "FOREIGN_KEYS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_CONSTRAINTS + ALL_CONS_COLUMNS",
+    "target_entity_code": "source_relation",
+    "read_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "INDEXES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_INDEXES + ALL_IND_COLUMNS",
+    "target_entity_code": "source_key",
+    "read_order": 6
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "PARTITIONS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_TAB_PARTITIONS + ALL_PART_KEY_COLUMNS",
+    "target_entity_code": "source_entity",
+    "read_order": 7
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "COMMENTS",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "ALL_COL_COMMENTS + ALL_TAB_COMMENTS",
+    "target_entity_code": "source_entity",
+    "read_order": 8
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "code": "DB_PROPERTIES",
+    "object_scope_code": "DATABASE",
+    "metadata_schema": "SYS",
+    "catalog_view_name": "NLS_DATABASE_PARAMETERS",
+    "target_entity_code": "source_container",
+    "read_order": 9
+   }
+  ],
+  "discovery_view_column": [
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DATABASES",
+    "column_name": "name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DATABASES",
+    "column_name": "collation_name",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "SCHEMA_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "CATALOG_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_SCHEMA",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_TYPE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "ORDINAL_POSITION",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_TYPE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "CHARACTER_MAXIMUM_LENGTH",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUMERIC_PRECISION",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUMERIC_SCALE",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "IS_NULLABLE",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_DEFAULT",
+    "column_data_type": "",
+    "column_order": 8,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLLATION_NAME",
+    "column_data_type": "",
+    "column_order": 9,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "CHARACTER_SET_NAME",
+    "column_data_type": "",
+    "column_order": 10,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "ORDINAL_POSITION",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "parent_object_id",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "referenced_object_id",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "parent_column_id",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "referenced_column_id",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "delete_referential_action_desc",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "update_referential_action_desc",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "object_id",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "is_unique",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "column_id",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "key_ordinal",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "object_id",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "partition_number",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "major_id",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "value",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "collation_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "name",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "schema_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "catalog_name",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "table_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "table_schema",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "table_type",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "column_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "ordinal_position",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "data_type",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "character_maximum_length",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "numeric_precision",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "numeric_scale",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "is_nullable",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "column_default",
+    "column_data_type": "",
+    "column_order": 8,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "collation_name",
+    "column_data_type": "",
+    "column_order": 9,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "constraint_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "table_name",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "column_name",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "ordinal_position",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "constraint_name",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "table_name",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "unique_constraint_name",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "column_name",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "update_rule",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "delete_rule",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "indexname",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "tablename",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "indexdef",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "partrelid",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "partattrs",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "objoid",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "description",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "datname",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "encoding",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "datcollate",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "SCHEMA_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "DEFAULT_CHARACTER_SET_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "DEFAULT_COLLATION_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_SCHEMA",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_TYPE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_ROWS",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "DATA_LENGTH",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "ORDINAL_POSITION",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_TYPE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "CHARACTER_MAXIMUM_LENGTH",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUMERIC_PRECISION",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUMERIC_SCALE",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "IS_NULLABLE",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_DEFAULT",
+    "column_data_type": "",
+    "column_order": 8,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLLATION_NAME",
+    "column_data_type": "",
+    "column_order": 9,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "CHARACTER_SET_NAME",
+    "column_data_type": "",
+    "column_order": 10,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "ORDINAL_POSITION",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "REFERENCED_TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "REFERENCED_COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "UPDATE_RULE",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "DELETE_RULE",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "INDEX_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "NON_UNIQUE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "SEQ_IN_INDEX",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "PARTITION_EXPRESSION",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "PARTITION_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "TABLE_COMMENT",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "SCHEMA_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "DEFAULT_CHARACTER_SET_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "DEFAULT_COLLATION_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "column_name": "USERNAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "OWNER",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "NUM_ROWS",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "BLOCKS",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "column_name": "PARTITIONED",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "COLUMN_ID",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_TYPE",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_LENGTH",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_PRECISION",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_SCALE",
+    "column_data_type": "",
+    "column_order": 6,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NULLABLE",
+    "column_data_type": "",
+    "column_order": 7,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "DATA_DEFAULT",
+    "column_data_type": "",
+    "column_order": 8,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "CHARACTER_SET_NAME",
+    "column_data_type": "",
+    "column_order": 9,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUM_DISTINCT",
+    "column_data_type": "",
+    "column_order": 10,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "NUM_NULLS",
+    "column_data_type": "",
+    "column_order": 11,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "LOW_VALUE",
+    "column_data_type": "",
+    "column_order": 12,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "column_name": "HIGH_VALUE",
+    "column_data_type": "",
+    "column_order": 13,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "column_name": "POSITION",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "R_CONSTRAINT_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "column_name": "DELETE_RULE",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "INDEX_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "UNIQUENESS",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "COLUMN_NAME",
+    "column_data_type": "",
+    "column_order": 4,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "column_name": "COLUMN_POSITION",
+    "column_data_type": "",
+    "column_order": 5,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "PARTITIONING_TYPE",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "column_name": "PARTITION_NAME",
+    "column_data_type": "",
+    "column_order": 3,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "TABLE_NAME",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COMMENTS",
+    "column_name": "COMMENTS",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "PARAMETER",
+    "column_data_type": "",
+    "column_order": 1,
+    "column_desc": ""
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "column_name": "VALUE",
+    "column_data_type": "",
+    "column_order": 2,
+    "column_desc": ""
+   }
+  ],
+  "discovery_field_mapping": [
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DATABASES",
+    "target_field": "code",
+    "source_column_name": "name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DATABASES",
+    "target_field": "collation",
+    "source_column_name": "collation_name",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DATABASES",
+    "target_field": "container_kind_code",
+    "source_column_name": null,
+    "fixed_value": "DATABASE",
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "code",
+    "source_column_name": "SCHEMA_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "parent_container_code",
+    "source_column_name": "CATALOG_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "container_kind_code",
+    "source_column_name": null,
+    "fixed_value": "SCHEMA",
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "source_container_code",
+    "source_column_name": "TABLE_SCHEMA",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": "TABLE_TYPE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": null,
+    "fixed_value": "TABLE",
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "attribute_order",
+    "source_column_name": "ORDINAL_POSITION",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_data_type_code",
+    "source_column_name": "DATA_TYPE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_length",
+    "source_column_name": "CHARACTER_MAXIMUM_LENGTH",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_precision",
+    "source_column_name": "NUMERIC_PRECISION",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_scale",
+    "source_column_name": "NUMERIC_SCALE",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "is_nullable",
+    "source_column_name": "IS_NULLABLE",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_default",
+    "source_column_name": "COLUMN_DEFAULT",
+    "fixed_value": null,
+    "mapping_order": 8
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "collation",
+    "source_column_name": "COLLATION_NAME",
+    "fixed_value": null,
+    "mapping_order": 9
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "charset",
+    "source_column_name": "CHARACTER_SET_NAME",
+    "fixed_value": null,
+    "mapping_order": 10
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "code",
+    "source_column_name": "CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "ORDINAL_POSITION",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "key_type_code",
+    "source_column_name": null,
+    "fixed_value": "PK",
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "code",
+    "source_column_name": "name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "parent_object_id",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "reference_source_entity_code",
+    "source_column_name": "referenced_object_id",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.source_attribute_code",
+    "source_column_name": "parent_column_id",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.reference_attribute_code",
+    "source_column_name": "referenced_column_id",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_delete_action_code",
+    "source_column_name": "delete_referential_action_desc",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_update_action_code",
+    "source_column_name": "update_referential_action_desc",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "code",
+    "source_column_name": "name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_entity_code",
+    "source_column_name": "object_id",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "key_type_code",
+    "source_column_name": "is_unique",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "column_id",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "key_ordinal",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "source_entity_code",
+    "source_column_name": "object_id",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "native_partition_column",
+    "source_column_name": "partition_number",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": null,
+    "fixed_value": "true",
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "source_entity_code",
+    "source_column_name": "major_id",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "desc",
+    "source_column_name": "value",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "collation",
+    "source_column_name": "collation_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "SQL_SERVER",
+    "template_code": "MSSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "code",
+    "source_column_name": "name",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "code",
+    "source_column_name": "schema_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "parent_container_code",
+    "source_column_name": "catalog_name",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "container_kind_code",
+    "source_column_name": null,
+    "fixed_value": "SCHEMA",
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "code",
+    "source_column_name": "table_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "source_container_code",
+    "source_column_name": "table_schema",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": "table_type",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": null,
+    "fixed_value": "TABLE",
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "code",
+    "source_column_name": "column_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "attribute_order",
+    "source_column_name": "ordinal_position",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_data_type_code",
+    "source_column_name": "data_type",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_length",
+    "source_column_name": "character_maximum_length",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_precision",
+    "source_column_name": "numeric_precision",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_scale",
+    "source_column_name": "numeric_scale",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "is_nullable",
+    "source_column_name": "is_nullable",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_default",
+    "source_column_name": "column_default",
+    "fixed_value": null,
+    "mapping_order": 8
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "collation",
+    "source_column_name": "collation_name",
+    "fixed_value": null,
+    "mapping_order": 9
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "code",
+    "source_column_name": "constraint_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "table_name",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "column_name",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "ordinal_position",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "key_type_code",
+    "source_column_name": null,
+    "fixed_value": "PK",
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "code",
+    "source_column_name": "constraint_name",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "table_name",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "reference_source_entity_code",
+    "source_column_name": "unique_constraint_name",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.source_attribute_code",
+    "source_column_name": "column_name",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_update_action_code",
+    "source_column_name": "update_rule",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_delete_action_code",
+    "source_column_name": "delete_rule",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "code",
+    "source_column_name": "indexname",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_entity_code",
+    "source_column_name": "tablename",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "key_type_code",
+    "source_column_name": "indexdef",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "source_entity_code",
+    "source_column_name": "partrelid",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "native_partition_column",
+    "source_column_name": "partattrs",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": null,
+    "fixed_value": "true",
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "source_entity_code",
+    "source_column_name": "objoid",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "desc",
+    "source_column_name": "description",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "code",
+    "source_column_name": "datname",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "charset",
+    "source_column_name": "encoding",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "POSTGRESQL",
+    "template_code": "PG_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "collation",
+    "source_column_name": "datcollate",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "code",
+    "source_column_name": "SCHEMA_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "charset",
+    "source_column_name": "DEFAULT_CHARACTER_SET_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "collation",
+    "source_column_name": "DEFAULT_COLLATION_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "container_kind_code",
+    "source_column_name": null,
+    "fixed_value": "SCHEMA",
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "source_container_code",
+    "source_column_name": "TABLE_SCHEMA",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": "TABLE_TYPE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "row_count",
+    "source_column_name": "TABLE_ROWS",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "size_bytes",
+    "source_column_name": "DATA_LENGTH",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": null,
+    "fixed_value": "TABLE",
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "attribute_order",
+    "source_column_name": "ORDINAL_POSITION",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_data_type_code",
+    "source_column_name": "DATA_TYPE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_length",
+    "source_column_name": "CHARACTER_MAXIMUM_LENGTH",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_precision",
+    "source_column_name": "NUMERIC_PRECISION",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_scale",
+    "source_column_name": "NUMERIC_SCALE",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "is_nullable",
+    "source_column_name": "IS_NULLABLE",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_default",
+    "source_column_name": "COLUMN_DEFAULT",
+    "fixed_value": null,
+    "mapping_order": 8
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "collation",
+    "source_column_name": "COLLATION_NAME",
+    "fixed_value": null,
+    "mapping_order": 9
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "charset",
+    "source_column_name": "CHARACTER_SET_NAME",
+    "fixed_value": null,
+    "mapping_order": 10
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "code",
+    "source_column_name": "CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "ORDINAL_POSITION",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "key_type_code",
+    "source_column_name": null,
+    "fixed_value": "PK",
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "code",
+    "source_column_name": "CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "reference_source_entity_code",
+    "source_column_name": "REFERENCED_TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.reference_attribute_code",
+    "source_column_name": "REFERENCED_COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_update_action_code",
+    "source_column_name": "UPDATE_RULE",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_delete_action_code",
+    "source_column_name": "DELETE_RULE",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "code",
+    "source_column_name": "INDEX_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "key_type_code",
+    "source_column_name": "NON_UNIQUE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "SEQ_IN_INDEX",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "native_partition_column",
+    "source_column_name": "PARTITION_EXPRESSION",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": "PARTITION_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": null,
+    "fixed_value": "true",
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "desc",
+    "source_column_name": "TABLE_COMMENT",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "code",
+    "source_column_name": "SCHEMA_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "charset",
+    "source_column_name": "DEFAULT_CHARACTER_SET_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "MYSQL",
+    "template_code": "MYSQL_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "collation",
+    "source_column_name": "DEFAULT_COLLATION_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "code",
+    "source_column_name": "USERNAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "SCHEMAS",
+    "target_field": "container_kind_code",
+    "source_column_name": null,
+    "fixed_value": "SCHEMA",
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "source_container_code",
+    "source_column_name": "OWNER",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "row_count",
+    "source_column_name": "NUM_ROWS",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "size_bytes",
+    "source_column_name": "BLOCKS",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "has_native_partitioning",
+    "source_column_name": "PARTITIONED",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "TABLES",
+    "target_field": "entity_kind_code",
+    "source_column_name": null,
+    "fixed_value": "TABLE",
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "attribute_order",
+    "source_column_name": "COLUMN_ID",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_data_type_code",
+    "source_column_name": "DATA_TYPE",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_length",
+    "source_column_name": "DATA_LENGTH",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_precision",
+    "source_column_name": "DATA_PRECISION",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_scale",
+    "source_column_name": "DATA_SCALE",
+    "fixed_value": null,
+    "mapping_order": 6
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "is_nullable",
+    "source_column_name": "NULLABLE",
+    "fixed_value": null,
+    "mapping_order": 7
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "native_default",
+    "source_column_name": "DATA_DEFAULT",
+    "fixed_value": null,
+    "mapping_order": 8
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "charset",
+    "source_column_name": "CHARACTER_SET_NAME",
+    "fixed_value": null,
+    "mapping_order": 9
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "distinct_count",
+    "source_column_name": "NUM_DISTINCT",
+    "fixed_value": null,
+    "mapping_order": 10
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "null_count",
+    "source_column_name": "NUM_NULLS",
+    "fixed_value": null,
+    "mapping_order": 11
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "min_value",
+    "source_column_name": "LOW_VALUE",
+    "fixed_value": null,
+    "mapping_order": 12
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COLUMNS",
+    "target_field": "max_value",
+    "source_column_name": "HIGH_VALUE",
+    "fixed_value": null,
+    "mapping_order": 13
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "code",
+    "source_column_name": "CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "POSITION",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PRIMARY_KEYS",
+    "target_field": "key_type_code",
+    "source_column_name": null,
+    "fixed_value": "PK",
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "code",
+    "source_column_name": "CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "reference_source_entity_code",
+    "source_column_name": "R_CONSTRAINT_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "source_relation_attribute_map.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "FOREIGN_KEYS",
+    "target_field": "on_delete_action_code",
+    "source_column_name": "DELETE_RULE",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "code",
+    "source_column_name": "INDEX_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "key_type_code",
+    "source_column_name": "UNIQUENESS",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.source_attribute_code",
+    "source_column_name": "COLUMN_NAME",
+    "fixed_value": null,
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "INDEXES",
+    "target_field": "source_key_attribute.position_in_key",
+    "source_column_name": "COLUMN_POSITION",
+    "fixed_value": null,
+    "mapping_order": 5
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "native_partition_column",
+    "source_column_name": "PARTITIONING_TYPE",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": "PARTITION_NAME",
+    "fixed_value": null,
+    "mapping_order": 3
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "PARTITIONS",
+    "target_field": "has_native_partitioning",
+    "source_column_name": null,
+    "fixed_value": "true",
+    "mapping_order": 4
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "source_entity_code",
+    "source_column_name": "TABLE_NAME",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "COMMENTS",
+    "target_field": "desc",
+    "source_column_name": "COMMENTS",
+    "fixed_value": null,
+    "mapping_order": 2
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "code",
+    "source_column_name": "PARAMETER",
+    "fixed_value": null,
+    "mapping_order": 1
+   },
+   {
+    "technology_code": "ORACLE",
+    "template_code": "ORACLE_DISCOVERY",
+    "object_code": "DB_PROPERTIES",
+    "target_field": "charset",
+    "source_column_name": "VALUE",
+    "fixed_value": null,
+    "mapping_order": 2
+   }
+  ],
+  "match_function_impl": [
+   {
+    "match_function_code": "EXACT",
+    "impl_kind_code": "NATIVE",
+    "sql_template": "{a} = {b}",
+    "udf_ref": null
+   },
+   {
+    "match_function_code": "EXACT_NORMALIZED",
+    "impl_kind_code": "COMPOSED",
+    "sql_template": "norm({a}) = norm({b})",
+    "udf_ref": null
+   },
+   {
+    "match_function_code": "JARO_WINKLER",
+    "impl_kind_code": "UDF",
+    "sql_template": "jw({a},{b}) >= {cut}",
+    "udf_ref": "datum.udf.jaro_winkler"
+   },
+   {
+    "match_function_code": "LEVENSHTEIN",
+    "impl_kind_code": "COMPOSED",
+    "sql_template": "1 - levenshtein({a},{b})/greatest(length({a}),length({b})) >= {cut}",
+    "udf_ref": null
+   },
+   {
+    "match_function_code": "SOUNDEX",
+    "impl_kind_code": "NATIVE",
+    "sql_template": "soundex({a}) = soundex({b})",
+    "udf_ref": null
+   },
+   {
+    "match_function_code": "METAPHONE",
+    "impl_kind_code": "UDF",
+    "sql_template": "metaphone({a}) = metaphone({b})",
+    "udf_ref": "datum.udf.metaphone"
    }
   ]
  }
