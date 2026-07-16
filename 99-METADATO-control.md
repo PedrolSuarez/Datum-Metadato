@@ -1,14 +1,14 @@
 # 99 · Control de sincronización — Proyecto «DATUM metadato»
 
-**Versión:** v1.9 — Julio 2026
+**Versión:** v1.10 — Julio 2026
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
 ## Regla de oro
 La fuente de verdad es el **documento en disco**, no este registro. Nada se canoniza sin "registro oficial" del founder. Ficheros completos, nunca parches.
 
-## Estado consolidado (tras METADATO-16..33, v1.9)
-- Metamodelo: **189 entidades**, **1199 atributos**. Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33).
-- Catálogos: **51** en `DATUM_Catalogos.json`.
+## Estado consolidado (tras METADATO-16..34, v1.10)
+- Metamodelo: **171 entidades**, **1112 atributos**. Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34).
+- Catálogos: **66** en `DATUM_Catalogos.json`.
 - **Campo técnico universal `system` (TYD_SYSTEM)** en todas las entidades: encapsula ancla i18n (`row_uuid`), ciclo de vida (`lifecycle_state_code` → LIFECYCLE_STATE) y auditoría (created_at/by, updated_at/by, is_active, version). No visible en ER; en el plano físico se descompone en 8 columnas.
 - **Término BUSINESS_TERM saneado a 3 tablas** (METADATO-28): `business_term` (núcleo), `business_term_synonym`, `business_term_related`. Eliminadas 3 puentes (`source_entity_business_term`→linaje D4; `business_term_canonical_entity`→redundante con `canonical_entity.business_term_code`; `canonical_attribute_business_term`→glosario a nivel entidad). `business_term_related` remodelado como **grafo semántico de negocio** (espejo de `canonical_relation` en D2): FK `business_term_code`(identifying)+`reference_business_term_code`, `code` discriminador (N arcos por par), `cardinality_code`→**CARDINALITY** (catálogo reutilizado). FK dependientes con `fk_composite`+`is_identifying`+RESTRICT; FK a catálogo metadata-first; `is_visible_er` de las FK identificativas corregido. Sin cambios de `.tsx` (el visualizador ya soportaba estos campos). **Catálogos saneados 16→10** (METADATO-28f): eliminados 6 huérfanos de la remodelación de CANONICAL_ENTITY (RELATION_KIND, RELATION_END_ROLE, CONSTRAINT_TYPE, MATERIALIZATION_MODE, EXPRESSION_ROLE, CARDINALITY viejo); CARDINALITY_REL→CARDINALITY.
 - **Término CANONICAL_ENTITY reestructurado a 7 tablas** (METADATO-23..26): `canonical_entity`, `canonical_attribute`, `canonical_key`, `canonical_key_attribute`, `canonical_entity_constraint`, `canonical_relation`, `canonical_relation_attribute_map`.
@@ -44,10 +44,19 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 ## Código de runner (plataforma, NO metadato) guardado en el Project
 `runner/compile_transformation.py` (compilador de carga), `runner/compile_match_view.py` (compilador de match), `runner/datum_match_udfs.py` (UDF norm/jw/metaphone), `runner/README_runner.md`, `runner/README_match_runner.md`. Regla de oro: cambiar comportamiento = cambiar metadato, no tocar este código.
 
+### Ejecución + saneamiento integral D3 (METADATO-34) — 171 entidades / 66 catálogos
+- **Término ORCHESTRATION** (hijo de TRANSFORMATION): ejecución = **Compilación** (al cambiar metadato → `compiled_ddl` con hash de invalidación) + **Orquestación** (el runner ejecuta lo VIGENTE, no compila). Movidas `workflow_pattern`/`_step` (+is_gate, +schedule_override) y `compiled_ddl`; nueva **`runner_capability`** (contrato por RUNNER_TYPE, espejo de match_function_impl). `business_process` += trigger/schedule. Eliminadas `transformation_pipeline`/`_step`/`pipeline_dependency` (resuelto el pendiente M-33). Catálogos QUERY_STATUS/DDL_KIND/WRITE_SEMANTICS/TRIGGER_KIND; sembrados RUNNER_TYPE/WORKFLOW_SCOPE/WORKFLOW_PURPOSE. Vista canónica = AST (concatenación de nodos); serializador universal dirigido por metadato.
+- **Fusión de identidad en `canonical_entity`**: += identity_mode/surrogate_strategy/on_miss + ubicación física de la xref (FK compuesta a physical_schema; `<entidad>_xref` en staging.<negocio>). Eliminadas `canonical_entity_bk_lookup_config`, `canonical_entity_bk_alias`, `canonical_entity_business_process`. BK_HASH también lleva xref; satélites INHERITED; match_rule_set = detección (solo MDM).
+- **Captura (SOURCE_INGESTION)**: eliminado remanente `source_entity_capture_config`; `source_entity_capture` enriquecida por modo (FULL/INCREMENTAL/CDC/**STREAMING**) + `capture_role_code` en el hijo. Catálogos FULL_RELOAD_STRATEGY, CDC_DELETE_HANDLING, LANDING_FORMAT, CAPTURE_ATTRIBUTE_ROLE, STREAM_MESSAGE_FORMAT, STREAM_START_POSITION.
+- **Data contracts → término `SOURCE_CONTRACT`** (UNE 0078, hijo de DATA_SOURCE): SLA tipado (operador+valor+unidad) + breach_action + enganche a DQ (dq_dimension); nueva `source_data_contract_entity` (alcance/esquema). Catálogos CONTRACT_STATUS, SLA_TYPE, SLA_UNIT, BREACH_ACTION, SCHEMA_STABILITY.
+- **Discovery = un proceso del orquestador** (BU Gobierno/Arquitectura, término DATA_SOURCE): INGEST catálogo vía `discovery_template*` → TRANSFORM a `source_*`. Eliminadas source_discovery_config/detected_type_domain/runner_discover; a **Observabilidad** run/sampling/profile/rule_evaluation/drift-finding; `discovery_rule` como añadido. DQ de fuentes = **estructural** (sin PK/FK/índice/particionar), derivada + `object_assessment`; índices = `source_key` con key_type (PK/UN/UI).
+- **Limpieza D3/D+G+runners**: eliminadas `runner_ingest_managed`/`streaming`, `source_entity_canonical_entity_hint`, `source_attribute_quality_hint`, `golden_source` (fuente autoritativa derivada de transformation.PRINCIPAL + xref.is_golden + survivorship).
+- Presentación: las entidades reorganizadas salen de la vista por dominio (domain=''); solo aparecen por acelerador.
+
 ## Aceleradores incorporados
 | Acelerador | Estado | Notas |
 |---|---|---|
-| Metadato (METADATA) | ACTIVO | el metamodelo mismo; **189 entidades** |
+| Metadato (METADATA) | ACTIVO | el metamodelo mismo; **171 entidades** |
 | Observabilidad (OBSERVABILITY) | REGISTRADO (0 entidades) | catálogo físico `observability`; recibe `run`/`run_step` (M-33) |
 | Financiero (FINANCE) | REGISTRADO (0 entidades) | catálogo físico `business` |
 | RRHH (HR) | REGISTRADO (0 entidades) | — |
@@ -63,7 +72,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **unit_of_measure en CUARENTENA**: revisar si debe existir como tabla.
 - **Limpieza D3 en seed** (remanente de M-31): 16 filas `seed.canonical_entity` nombradas-solo sin entidad en el modelo (source_connection*, source_entity_database/file/api_endpoint/stream_topic/webhook/excel_workbook, source_api_endpoint_parameter/graphql_query/soap_operation, source_archive_container, source_entity_relation, source_entity_partition_strategy, multi_record). Sanear en una vuelta D3.
 - **i18n del término BUSINESS_TERM** (business_term_related: nombres de arco por SHORT; synonym) — pendiente de poblar.
-- **Generalizar formato-documento y ficha** al resto de términos y a las 189 entidades; poblar canonical_key/canonical_relation reales.
+- **Generalizar formato-documento y ficha** al resto de términos y a las 171 entidades; poblar canonical_key/canonical_relation reales.
 - **Compilador documento→DDL Databricks** + cargador documento→datos (objetivo mayor: Control Plane cycle). Los compiladores de carga/match (M-33) son la primera pieza materializada.
 - **Sanear FK a reference_value sin refcat**: por tandas. Hecho para BUSINESS_TERM (M-28), DATA_TYPE_DOMAIN + parte de D6 (M-29), TRANSFORMATION/MATCHING (M-32/33). Pendientes: resto de D6 (on_expiration_action_code→EXPIRATION_ACTION, priority_code, frequency_code, certification_level_code→CERT_LEVEL) y el resto de términos.
 - **`rule` reutilizable en Definición**: decidir si se reintroduce un catálogo de funciones cuando el volumen de expresiones repetidas lo justifique.
@@ -87,4 +96,6 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **v1.9 (Julio 2026):** METADATO-33. Modelo de transformaciones por tipologías: Definición (join, agregación GROUP BY/HAVING derivada), Matching/identidad (nuevo término LOAD_CANONICAL: match_rule_set/rule/condition, xref, survivorship_rule, match_function_impl, config de identidad en bk_lookup_config), vistas (VIEW_KIND, compiladores genéricos), y limpieza de Ejecución (run/run_step → Observabilidad). Reverts: MASTER_TYPE/identity_owner e integración de reference_translation en xref. Código de runner guardado en `runner/`. 184→189 entidades; 38→51 catálogos.
 
 ---
-*Fin de `99-METADATO-control.md` v1.9.*
+- **v1.10 (Julio 2026):** METADATO-34. Término ORCHESTRATION (ejecución = compilación + orquestación; runner_capability; workflow_pattern consolidado, retirado transformation_pipeline*); fusión de identidad en canonical_entity (elimina bk_lookup_config/bk_alias/business_process); captura enriquecida por modo + streaming; data contracts → SOURCE_CONTRACT con SLA tipado; discovery consolidado como proceso del orquestador; limpieza D3/D+G+runners. 189→171 entidades; 51→66 catálogos.
+
+*Fin de `99-METADATO-control.md` v1.10.*

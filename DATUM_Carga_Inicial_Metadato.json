@@ -728,7 +728,7 @@
    },
    {
     "code": "workflow_pattern",
-    "business_term_code": "BUSINESS_PROCESS",
+    "business_term_code": "ORCHESTRATION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -741,7 +741,7 @@
    },
    {
     "code": "workflow_pattern_step",
-    "business_term_code": "BUSINESS_PROCESS",
+    "business_term_code": "ORCHESTRATION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -768,32 +768,6 @@
    {
     "code": "canonical_attribute",
     "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "canonical_entity_bk_alias",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "canonical_entity_bk_lookup_config",
-    "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -987,19 +961,6 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "source_entity_capture_config",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
     "code": "source_entity_partition_strategy",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
@@ -1014,7 +975,7 @@
    },
    {
     "code": "source_data_contract",
-    "business_term_code": "METADATA",
+    "business_term_code": "SOURCE_CONTRACT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1027,7 +988,7 @@
    },
    {
     "code": "source_data_contract_sla",
-    "business_term_code": "METADATA",
+    "business_term_code": "SOURCE_CONTRACT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1105,46 +1066,7 @@
    },
    {
     "code": "compiled_ddl",
-    "business_term_code": "TRANSFORMATION_EXECUTION",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_pipeline",
-    "business_term_code": "TRANSFORMATION_DEFINITION",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "transformation_pipeline_step",
-    "business_term_code": "TRANSFORMATION_DEFINITION",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "pipeline_dependency",
-    "business_term_code": "TRANSFORMATION_DEFINITION",
+    "business_term_code": "ORCHESTRATION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -2105,46 +2027,7 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "golden_source",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_entity_canonical_entity_hint",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
     "code": "source_entity_relation",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_attribute_quality_hint",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -2183,137 +2066,7 @@
     "partition_strategy_code": "NONE"
    },
    {
-    "code": "source_discovery_run",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_discovery_drift",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_discovery_config",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_discovery_sampling_result",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_attribute_profile",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "source_attribute_detected_type_domain",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
     "code": "discovery_rule",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "discovery_rule_evaluation",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "runner_discover",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "runner_ingest_managed",
-    "business_term_code": "METADATA",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "runner_ingest_streaming",
     "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
@@ -2341,19 +2094,6 @@
    {
     "code": "canonical_relation_attribute_map",
     "business_term_code": "CANONICAL_ENTITY",
-    "config_pattern_code": "DEFAULT",
-    "physical_schema_code": "metadata",
-    "is_pii": "0",
-    "is_sensitive": "0",
-    "security_classification_code": "PUBLIC",
-    "estimated_annual_volume": "",
-    "access_frequency_code": "RARELY",
-    "physical_catalog_code": "metadato",
-    "partition_strategy_code": "NONE"
-   },
-   {
-    "code": "canonical_entity_business_process",
-    "business_term_code": "METADATA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -3039,13 +2779,39 @@
     "access_frequency_code": "RARELY",
     "physical_catalog_code": "metadato",
     "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "runner_capability",
+    "business_term_code": "ORCHESTRATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_data_contract_entity",
+    "business_term_code": "SOURCE_CONTRACT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "entity_count": 189,
+    "entity_count": 171,
     "display_order": 10
    },
    {
@@ -3341,16 +3107,6 @@
     "display_order": 1101
    },
    {
-    "code": "TRANSFORMATION_EXECUTION",
-    "canonical_accelerator_code": "METADATA",
-    "parent_term_code": "TRANSFORMATION",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 1102
-   },
-   {
     "code": "TRANSFORMATION_SECURITY",
     "canonical_accelerator_code": "METADATA",
     "parent_term_code": "TRANSFORMATION",
@@ -3369,6 +3125,26 @@
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "display_order": 1104
+   },
+   {
+    "code": "ORCHESTRATION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "TRANSFORMATION",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 1104
+   },
+   {
+    "code": "SOURCE_CONTRACT",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "DATA_SOURCE",
+    "is_pii_related": false,
+    "is_regulatory": true,
+    "regulatory_reference": "UNE 0078",
+    "approved_by_committee_at": null,
+    "display_order": 350
    }
   ],
   "delta_property": [
@@ -3840,6 +3616,141 @@
    },
    {
     "code": "VIEW_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "QUERY_STATUS",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DDL_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "WRITE_SEMANTICS",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "TRIGGER_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "FULL_RELOAD_STRATEGY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "CDC_DELETE_HANDLING",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "LANDING_FORMAT",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "CAPTURE_ATTRIBUTE_ROLE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "STREAM_MESSAGE_FORMAT",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "STREAM_START_POSITION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "CONTRACT_STATUS",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SLA_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SLA_UNIT",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "BREACH_ACTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SCHEMA_STABILITY",
     "category_code": "TYPE",
     "canonical_accelerator_code": "METADATA",
     "is_ordered": true,
@@ -4979,6 +4890,559 @@
    {
     "reference_catalog_code": "VIEW_KIND",
     "code": "AGGREGATION",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_INGEST",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_TRANSFORM",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_DQ",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_LOAD_CANONICAL",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_KPI",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_DQ_TERM",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_KPI_HIERARCHY",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_DQ_PROCESS",
+    "sort_order": 8,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUNNER_TYPE",
+    "code": "RUNNER_KPI_PROCESS",
+    "sort_order": 9,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_SCOPE",
+    "code": "ENTITY",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_SCOPE",
+    "code": "TERM",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_SCOPE",
+    "code": "PROCESS",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_PURPOSE",
+    "code": "INGESTION_VALIDATION",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_PURPOSE",
+    "code": "KPI_COMPUTATION",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_PURPOSE",
+    "code": "CERTIFICATION",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WORKFLOW_PURPOSE",
+    "code": "CUSTOM",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "QUERY_STATUS",
+    "code": "VIGENTE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "QUERY_STATUS",
+    "code": "OBSOLETA",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "QUERY_STATUS",
+    "code": "PENDING_RECOMPILE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DDL_KIND",
+    "code": "CREATE_TABLE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DDL_KIND",
+    "code": "CREATE_VIEW",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DDL_KIND",
+    "code": "CREATE_MATERIALIZED_VIEW",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "APPEND",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "INSERT_MERGE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "GATE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "MASTER_XREF",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "OVERWRITE",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "WRITE_SEMANTICS",
+    "code": "CREATE",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_KIND",
+    "code": "SCHEDULE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_KIND",
+    "code": "EVENT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_KIND",
+    "code": "MANUAL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FULL_RELOAD_STRATEGY",
+    "code": "TRUNCATE_LOAD",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FULL_RELOAD_STRATEGY",
+    "code": "OVERWRITE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FULL_RELOAD_STRATEGY",
+    "code": "SNAPSHOT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_DELETE_HANDLING",
+    "code": "HARD_DELETE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_DELETE_HANDLING",
+    "code": "SOFT_DELETE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CDC_DELETE_HANDLING",
+    "code": "IGNORE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_FORMAT",
+    "code": "PARQUET",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_FORMAT",
+    "code": "DELTA",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_FORMAT",
+    "code": "CSV",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_FORMAT",
+    "code": "JSON",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "LANDING_FORMAT",
+    "code": "AVRO",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "WATERMARK",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "CDC_KEY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "CDC_SEQUENCE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "CDC_OPERATION",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "LANDING_PARTITION",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_MESSAGE_FORMAT",
+    "code": "AVRO",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_MESSAGE_FORMAT",
+    "code": "JSON",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_MESSAGE_FORMAT",
+    "code": "PROTOBUF",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_MESSAGE_FORMAT",
+    "code": "STRING",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_START_POSITION",
+    "code": "EARLIEST",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "STREAM_START_POSITION",
+    "code": "LATEST",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_MODE",
+    "code": "STREAMING",
+    "sort_order": 999,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CAPTURE_ATTRIBUTE_ROLE",
+    "code": "STREAM_KEY",
+    "sort_order": 999,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTRACT_STATUS",
+    "code": "DRAFT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTRACT_STATUS",
+    "code": "ACTIVE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CONTRACT_STATUS",
+    "code": "TERMINATED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "FRESHNESS",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "AVAILABILITY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "COMPLETENESS",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "LATENCY",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "ERROR_RATE",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "VOLUME",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_TYPE",
+    "code": "DELIVERY_PUNCTUALITY",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "SECONDS",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "MINUTES",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "HOURS",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "DAYS",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "PERCENT",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SLA_UNIT",
+    "code": "ROWS",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "BREACH_ACTION",
+    "code": "NOTIFY",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "BREACH_ACTION",
+    "code": "ESCALATE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "BREACH_ACTION",
+    "code": "QUARANTINE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "BREACH_ACTION",
+    "code": "REJECT",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "BREACH_ACTION",
+    "code": "NONE",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCHEMA_STABILITY",
+    "code": "STRICT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCHEMA_STABILITY",
+    "code": "BACKWARD_COMPATIBLE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SCHEMA_STABILITY",
+    "code": "NONE",
     "sort_order": 3,
     "is_default": false,
     "is_terminal": true
@@ -8365,6 +8829,80 @@
     "impl_kind_code": "UDF",
     "sql_template": "metaphone({a}) = metaphone({b})",
     "udf_ref": "datum.udf.metaphone"
+   }
+  ],
+  "runner_capability": [
+   {
+    "runner_type_code": "RUNNER_INGEST",
+    "reads_definition_entity": "source_entity_capture",
+    "compiled_object_type_code": "SOURCE_TABLE",
+    "compiles_view_kind_code": null,
+    "write_semantics_code": "APPEND",
+    "is_gate_capable": false
+   },
+   {
+    "runner_type_code": "RUNNER_TRANSFORM",
+    "reads_definition_entity": "transformation",
+    "compiled_object_type_code": "CANONICAL_VIEW",
+    "compiles_view_kind_code": "CANONICAL",
+    "write_semantics_code": "INSERT_MERGE",
+    "is_gate_capable": false
+   },
+   {
+    "runner_type_code": "RUNNER_DQ",
+    "reads_definition_entity": "dq_rule",
+    "compiled_object_type_code": "DQ_CHECK",
+    "compiles_view_kind_code": null,
+    "write_semantics_code": "GATE",
+    "is_gate_capable": true
+   },
+   {
+    "runner_type_code": "RUNNER_LOAD_CANONICAL",
+    "reads_definition_entity": "match_rule_set",
+    "compiled_object_type_code": "CANONICAL_VIEW",
+    "compiles_view_kind_code": "MATCHING",
+    "write_semantics_code": "MASTER_XREF",
+    "is_gate_capable": false
+   },
+   {
+    "runner_type_code": "RUNNER_KPI",
+    "reads_definition_entity": "kpi_def",
+    "compiled_object_type_code": "KPI",
+    "compiles_view_kind_code": "AGGREGATION",
+    "write_semantics_code": "OVERWRITE",
+    "is_gate_capable": false
+   },
+   {
+    "runner_type_code": "RUNNER_DQ_TERM",
+    "reads_definition_entity": "dq_rule",
+    "compiled_object_type_code": "DQ_CHECK",
+    "compiles_view_kind_code": null,
+    "write_semantics_code": "GATE",
+    "is_gate_capable": true
+   },
+   {
+    "runner_type_code": "RUNNER_KPI_HIERARCHY",
+    "reads_definition_entity": "kpi_def",
+    "compiled_object_type_code": "KPI",
+    "compiles_view_kind_code": "AGGREGATION",
+    "write_semantics_code": "OVERWRITE",
+    "is_gate_capable": false
+   },
+   {
+    "runner_type_code": "RUNNER_DQ_PROCESS",
+    "reads_definition_entity": "dq_rule",
+    "compiled_object_type_code": "DQ_CHECK",
+    "compiles_view_kind_code": null,
+    "write_semantics_code": "GATE",
+    "is_gate_capable": true
+   },
+   {
+    "runner_type_code": "RUNNER_KPI_PROCESS",
+    "reads_definition_entity": "kpi_def",
+    "compiled_object_type_code": "KPI",
+    "compiles_view_kind_code": "AGGREGATION",
+    "write_semantics_code": "OVERWRITE",
+    "is_gate_capable": false
    }
   ]
  }
