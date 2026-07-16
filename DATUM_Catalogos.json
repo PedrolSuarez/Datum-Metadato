@@ -501,7 +501,8 @@
    "values": {
     "FULL": "Carga completa.",
     "INCREMENTAL": "Incremental por watermark.",
-    "CDC": "Change Data Capture."
+    "CDC": "Change Data Capture.",
+    "STREAMING": "Consumo continuo (streaming)."
    }
   },
   "LANDING_STRATEGY": {
@@ -856,6 +857,263 @@
     "CANONICAL": "Vista de carga canónica estándar.",
     "MATCHING": "Vista de resolución de identidad (compilada del match_rule_set).",
     "AGGREGATION": "Vista de agregación (KPI/hecho)."
+   }
+  },
+  "QUERY_STATUS": {
+   "dominio": "D0 · D07 Orquestación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "compiled_ddl.query_status_code"
+   ],
+   "desc": "Estado de vigencia del artefacto compilado.",
+   "values": {
+    "VIGENTE": "Compilado al día con el metadato.",
+    "OBSOLETA": "Sustituido por una recompilación posterior.",
+    "PENDING_RECOMPILE": "El metadato cambió (hash no cuadra); pendiente de recompilar."
+   }
+  },
+  "DDL_KIND": {
+   "dominio": "D0 · D07 Orquestación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "compiled_ddl.ddl_kind_code"
+   ],
+   "desc": "Tipo de sentencia DDL compilada.",
+   "values": {
+    "CREATE_TABLE": "Crear tabla.",
+    "CREATE_VIEW": "Crear vista.",
+    "CREATE_MATERIALIZED_VIEW": "Crear vista materializada."
+   }
+  },
+  "WRITE_SEMANTICS": {
+   "dominio": "D0 · D07 Orquestación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "runner_capability.write_semantics_code"
+   ],
+   "desc": "Cómo escribe el runner el resultado.",
+   "values": {
+    "APPEND": "Añade filas (landing/ingesta).",
+    "INSERT_MERGE": "Inserta o hace MERGE por clave (transformación).",
+    "GATE": "No escribe; actúa de puerta (DQ).",
+    "MASTER_XREF": "Escribe master + xref (carga canónica/identidad).",
+    "OVERWRITE": "Reescribe el resultado (KPI/agregación).",
+    "CREATE": "Crea el objeto (DDL)."
+   }
+  },
+  "TRIGGER_KIND": {
+   "dominio": "D0 · D07 Orquestación",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "business_process.trigger_kind_code"
+   ],
+   "desc": "Cómo se dispara la ejecución de un proceso.",
+   "values": {
+    "SCHEDULE": "Por calendario (cron).",
+    "EVENT": "Por evento (llegada de datos).",
+    "MANUAL": "Manual."
+   }
+  },
+  "FULL_RELOAD_STRATEGY": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture.full_reload_strategy_code"
+   ],
+   "desc": "Estrategia de recarga en modo FULL.",
+   "values": {
+    "TRUNCATE_LOAD": "Vaciar y cargar.",
+    "OVERWRITE": "Sobrescribir.",
+    "SNAPSHOT": "Snapshot versionado."
+   }
+  },
+  "CDC_DELETE_HANDLING": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture.cdc_delete_handling_code"
+   ],
+   "desc": "Tratamiento de borrados en CDC.",
+   "values": {
+    "HARD_DELETE": "Borra físicamente.",
+    "SOFT_DELETE": "Marca como borrado.",
+    "IGNORE": "Ignora borrados."
+   }
+  },
+  "LANDING_FORMAT": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture.landing_format_code"
+   ],
+   "desc": "Formato del fichero aterrizado.",
+   "values": {
+    "PARQUET": "Parquet.",
+    "DELTA": "Delta.",
+    "CSV": "CSV.",
+    "JSON": "JSON.",
+    "AVRO": "Avro."
+   }
+  },
+  "CAPTURE_ATTRIBUTE_ROLE": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture_attribute.capture_role_code"
+   ],
+   "desc": "Rol de una columna que sostiene la captura.",
+   "values": {
+    "WATERMARK": "Marca incremental.",
+    "CDC_KEY": "Clave de cambio.",
+    "CDC_SEQUENCE": "Secuencia/LSN.",
+    "CDC_OPERATION": "Columna de operación I/U/D.",
+    "LANDING_PARTITION": "Columna de particionado del landing.",
+    "STREAM_KEY": "Clave de partición/mensaje (streaming)."
+   }
+  },
+  "STREAM_MESSAGE_FORMAT": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture.stream_message_format_code"
+   ],
+   "desc": "Serialización del mensaje en streaming.",
+   "values": {
+    "AVRO": "Avro.",
+    "JSON": "JSON.",
+    "PROTOBUF": "Protobuf.",
+    "STRING": "Texto plano."
+   }
+  },
+  "STREAM_START_POSITION": {
+   "dominio": "D3 · Captura",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_entity_capture.stream_start_position_code"
+   ],
+   "desc": "Posición inicial de lectura del flujo.",
+   "values": {
+    "EARLIEST": "Desde el principio.",
+    "LATEST": "Desde el final (solo nuevos)."
+   }
+  },
+  "CONTRACT_STATUS": {
+   "dominio": "D3 · Data contracts",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_data_contract.contract_status_code"
+   ],
+   "desc": "Estado del contrato de fuente.",
+   "values": {
+    "DRAFT": "Borrador.",
+    "ACTIVE": "Vigente.",
+    "TERMINATED": "Terminado."
+   }
+  },
+  "SLA_TYPE": {
+   "dominio": "D3 · Data contracts",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_data_contract_sla.sla_type_code"
+   ],
+   "desc": "Tipo de compromiso de nivel de servicio.",
+   "values": {
+    "FRESHNESS": "Frescura/latencia del dato.",
+    "AVAILABILITY": "Disponibilidad.",
+    "COMPLETENESS": "Completitud.",
+    "LATENCY": "Latencia de entrega.",
+    "ERROR_RATE": "Tasa de error.",
+    "VOLUME": "Volumen.",
+    "DELIVERY_PUNCTUALITY": "Puntualidad de entrega."
+   }
+  },
+  "SLA_UNIT": {
+   "dominio": "D3 · Data contracts",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_data_contract_sla.target_unit_code"
+   ],
+   "desc": "Unidad del objetivo del SLA.",
+   "values": {
+    "SECONDS": "Segundos.",
+    "MINUTES": "Minutos.",
+    "HOURS": "Horas.",
+    "DAYS": "Días.",
+    "PERCENT": "Porcentaje.",
+    "ROWS": "Filas."
+   }
+  },
+  "BREACH_ACTION": {
+   "dominio": "D3 · Data contracts",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_data_contract_sla.breach_action_code"
+   ],
+   "desc": "Acción al incumplir un SLA.",
+   "values": {
+    "NOTIFY": "Notificar.",
+    "ESCALATE": "Escalar.",
+    "QUARANTINE": "Poner en cuarentena.",
+    "REJECT": "Rechazar la carga.",
+    "NONE": "Sin acción."
+   }
+  },
+  "SCHEMA_STABILITY": {
+   "dominio": "D3 · Data contracts",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "source_data_contract_entity.schema_stability_code"
+   ],
+   "desc": "Compromiso de estabilidad de esquema.",
+   "values": {
+    "STRICT": "Sin cambios.",
+    "BACKWARD_COMPATIBLE": "Solo cambios compatibles.",
+    "NONE": "Sin compromiso."
    }
   }
  },

@@ -5,8 +5,8 @@
    "DATUM_Visualizador_Modelo.html (atributos)",
    "16 volcados de dominio (censo)"
   ],
-  "materialized_entities": 193,
-  "total_attributes": 1199,
+  "materialized_entities": 171,
+  "total_attributes": 1112,
   "note": "Nivel 1 = entidad con atributos campo-a-campo (real, del visualizador). Las entidades solo nombradas en los volcados sin atributos NO se incluyen como completas: su detalle no existe en disco. · Tablas marcadas source=derivado_del_volcado tienen atributos DERIVADOS de la descripción del volcado + convenciones del metamodelo (no extraídos del visualizador).",
   "derived_entities": 59,
   "catalog_decisions": {
@@ -1189,6 +1189,24 @@
      "catalog_ref_metadata_only": true
     },
     {
+     "name": "trigger_kind_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "TRIGGER_KIND",
+     "catalog_ref_metadata_only": true,
+     "desc": "cómo arranca el proceso (calendario/evento/manual)"
+    },
+    {
+     "name": "schedule_cron",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "cadencia del proceso (cron) si trigger=SCHEDULE"
+    },
+    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -1431,7 +1449,7 @@
    "i18n": true
   },
   "workflow_pattern": {
-   "subdomain": "BUSINESS_PROCESS",
+   "subdomain": "ORCHESTRATION",
    "type": "PATRÓN",
    "desc": "Workflow GENÉRICO reutilizable. Se define una vez; muchos procesos lo comparten. El proceso se asigna a un patrón.",
    "attributes": [
@@ -1478,10 +1496,10 @@
     }
    ],
    "domain": "",
-   "business_term": "BUSINESS_PROCESS"
+   "business_term": "ORCHESTRATION"
   },
   "workflow_pattern_step": {
-   "subdomain": "BUSINESS_PROCESS",
+   "subdomain": "ORCHESTRATION",
    "type": "PATRÓN",
    "desc": "Paso de un patrón. Cada step se equipara 1:1 con un tipo de runner DataOps (RUNNER_TYPE) que lo ejecuta.",
    "attributes": [
@@ -1554,6 +1572,22 @@
      "desc": "SLA del paso"
     },
     {
+     "name": "is_gate",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "puerta: si el paso falla, corta el circuito (p.ej. DQ)"
+    },
+    {
+     "name": "schedule_override",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "cadencia propia del paso (override del disparador del proceso)"
+    },
+    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -1562,7 +1596,7 @@
     }
    ],
    "domain": "",
-   "business_term": "BUSINESS_PROCESS"
+   "business_term": "ORCHESTRATION"
   },
   "canonical_entity": {
    "subdomain": "",
@@ -1674,6 +1708,67 @@
      "fk_target": "reference_value",
      "reference_catalog": "PARTITION_STRATEGY",
      "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "identity_mode_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "IDENTITY_MODE",
+     "catalog_ref_metadata_only": true,
+     "desc": "modo de identidad: MDM_SURROGATE | RDM_STANDARD | BK_HASH | INHERITED (satélites); null si no resuelve identidad"
+    },
+    {
+     "name": "surrogate_strategy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "SURROGATE_STRATEGY",
+     "catalog_ref_metadata_only": true,
+     "desc": "cómo se genera el master_id (solo MDM): SEQUENCE | UUID"
+    },
+    {
+     "name": "on_miss_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "ON_MISS",
+     "catalog_ref_metadata_only": true,
+     "desc": "qué hacer si no hay match: CREATE | REMEDIATE | NONE"
+    },
+    {
+     "name": "xref_physical_catalog_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "catálogo físico de la xref (columna de la FK compuesta a physical_schema)"
+    },
+    {
+     "name": "xref_physical_schema_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "physical_schema",
+     "desc": "esquema físico de la xref (staging.<negocio>); tabla = <entidad>_xref por convención",
+     "fk_composite": {
+      "target": "physical_schema",
+      "columns": [
+       {
+        "source": "xref_physical_catalog_code",
+        "target": "physical_catalog_code"
+       },
+       {
+        "source": "xref_physical_schema_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": false,
+     "is_visible_er": true
     },
     {
      "name": "system",
@@ -1821,164 +1916,6 @@
    ],
    "i18n": true,
    "domain": ""
-  },
-  "canonical_entity_bk_alias": {
-   "subdomain": "A.bis · BK hash / desanonimización",
-   "type": "DPO",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "previous_hash",
-     "tyd": "TYD_BK_HASH",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "current_hash",
-     "tyd": "TYD_BK_HASH",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "change_reason_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "previous_bk_in_clear_encrypted",
-     "tyd": "TYD_ENCRYPTED",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "current_bk_in_clear_encrypted",
-     "tyd": "TYD_ENCRYPTED",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "changed_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "i18n": true,
-   "domain": "D2"
-  },
-  "canonical_entity_bk_lookup_config": {
-   "subdomain": "A.bis · BK hash / desanonimización",
-   "type": "DPO",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "lookup_strategy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "physical_catalog_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "physical_catalog",
-     "desc": ""
-    },
-    {
-     "name": "physical_schema_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "physical_schema",
-     "desc": ""
-    },
-    {
-     "name": "physical_table_name",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "identity_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "BK_HASH | MDM_SURROGATE | RDM_STANDARD",
-     "reference_catalog": "IDENTITY_MODE",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "on_miss_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "qué hacer si no existe: CREATE | REMEDIATE | NONE",
-     "reference_catalog": "ON_MISS",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "surrogate_strategy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "cómo se genera el master_id surrogate (solo MDM)",
-     "reference_catalog": "SURROGATE_STRATEGY",
-     "catalog_ref_metadata_only": true
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "i18n": true,
-   "domain": "D2"
   },
   "canonical_key": {
    "subdomain": "",
@@ -3498,71 +3435,8 @@
    ],
    "business_term": "SOURCE_TABLE"
   },
-  "source_entity_capture_config": {
-   "subdomain": "E · Captura",
-   "type": "REF",
-   "desc": "Configuración de captura (landing strategy COPY_TO_LANDING default / READ_IN_PLACE / COPY_AND_KEEP_REFERENCE).",
-   "attributes": [
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_entity",
-     "desc": "entidad (1:1)"
-    },
-    {
-     "name": "capture_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "CAPTURE_MODE (FULL/INCREMENTAL/CDC)"
-    },
-    {
-     "name": "landing_strategy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "LANDING_STRATEGY (COPY_TO_LANDING default/READ_IN_PLACE/COPY_AND_KEEP_REFERENCE)"
-    },
-    {
-     "name": "incremental_watermark_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_attribute",
-     "desc": "SOLO si INCREMENTAL: columna de marca (fecha/secuencia)"
-    },
-    {
-     "name": "cdc_mechanism_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "SOLO si CDC: CDC_MECHANISM (LOG/TRIGGER/TIMESTAMP)"
-    },
-    {
-     "name": "schedule_cron",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cadencia de captura (cron)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D3"
-  },
   "source_data_contract": {
-   "subdomain": "K · Data contracts (UNE)",
+   "subdomain": "SOURCE_CONTRACT",
    "type": "CONTRATO",
    "desc": "Contrato formal con un sistema fuente (UNE 0078): qué se recibe, cómo, SLA, responsabilidades, cláusulas de salida, escalado.",
    "attributes": [
@@ -3588,7 +3462,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "CONTRACT_STATUS (DRAFT/ACTIVE/TERMINATED)"
+     "desc": "CONTRACT_STATUS (DRAFT/ACTIVE/TERMINATED)",
+     "reference_catalog": "CONTRACT_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "valid_from",
@@ -3622,10 +3498,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D3"
+   "domain": "",
+   "business_term": "SOURCE_CONTRACT"
   },
   "source_data_contract_sla": {
-   "subdomain": "K · Data contracts (UNE)",
+   "subdomain": "SOURCE_CONTRACT",
    "type": "CONTRATO",
    "desc": "SLA declarado del contrato de fuente (frescura, disponibilidad). La violación → observacional familia E.",
    "attributes": [
@@ -3643,23 +3520,57 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "reference_value",
-     "desc": "SLA_TYPE (FRESHNESS/AVAILABILITY)"
+     "desc": "SLA_TYPE (FRESHNESS/AVAILABILITY)",
+     "reference_catalog": "SLA_TYPE",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "target_operator_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "OPERATOR",
+     "catalog_ref_metadata_only": true,
+     "desc": "operador del objetivo (LE `<=` / GE `>=`)"
     },
     {
      "name": "target_value",
-     "tyd": "TYD_TEXT_SUMMARY",
+     "tyd": "TYD_DECIMAL",
      "mandatory": 1,
      "pk": 0,
      "fk_target": null,
-     "desc": "objetivo (p.ej. <24h, 99.5%)"
+     "desc": "valor numérico del objetivo (p.ej. 24, 99.5)"
     },
     {
-     "name": "breach_action_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
+     "name": "target_unit_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
      "pk": 0,
-     "fk_target": null,
-     "desc": "qué pasa al incumplir (→ observacional familia E)"
+     "fk_target": "reference_value",
+     "reference_catalog": "SLA_UNIT",
+     "catalog_ref_metadata_only": true,
+     "desc": "unidad del objetivo (hours/percent/rows…)"
+    },
+    {
+     "name": "breach_action_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "BREACH_ACTION",
+     "catalog_ref_metadata_only": true,
+     "desc": "acción al incumplir (notify/escalate/quarantine/reject)"
+    },
+    {
+     "name": "dq_dimension_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "DQ_DIMENSION",
+     "catalog_ref_metadata_only": true,
+     "desc": "dimensión de calidad que mide este SLA (enganche a D6; la brecha se deriva como comprobación DQ)"
     },
     {
      "name": "system",
@@ -3669,7 +3580,8 @@
      "fk_target": null
     }
    ],
-   "domain": "D3"
+   "domain": "",
+   "business_term": "SOURCE_CONTRACT"
   },
   "canonical_view": {
    "subdomain": "G · Vistas canónicas / expresión",
@@ -3998,7 +3910,7 @@
    "domain": "D2"
   },
   "compiled_ddl": {
-   "subdomain": "TRANSFORMATION_EXECUTION",
+   "subdomain": "ORCHESTRATION",
    "type": "CANÓNICA",
    "desc": "Sentencia DDL compilada y persistida (CREATE TABLE/VIEW/MATERIALIZED VIEW) para CUALQUIER objeto materializable (polimórfico por tipología: SOURCE_TABLE/CANONICAL_ENTITY/CANONICAL_VIEW/KPI…). La genera la aprobación; la ejecuta el RUNNER DDL (distinto del runner de transformación, que solo hace SELECT * FROM la vista). Estado VIGENTE/OBSOLETA/PENDING_RECOMPILE, hash del metadato fuente (invalidación), firma Ed25519. UBICACIÓN PROVISIONAL D0 (revisable al ver D6/D7).",
    "attributes": [
@@ -4024,7 +3936,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "DDL_KIND (CREATE_TABLE/CREATE_VIEW/CREATE_MATERIALIZED_VIEW)"
+     "desc": "DDL_KIND (CREATE_TABLE/CREATE_VIEW/CREATE_MATERIALIZED_VIEW)",
+     "reference_catalog": "DDL_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "compiled_ddl_text",
@@ -4040,7 +3954,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "QUERY_STATUS (VIGENTE/OBSOLETA/PENDING_RECOMPILE)"
+     "desc": "QUERY_STATUS (VIGENTE/OBSOLETA/PENDING_RECOMPILE)",
+     "reference_catalog": "QUERY_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "source_metadata_hash",
@@ -4075,175 +3991,7 @@
     }
    ],
    "domain": "",
-   "business_term": "TRANSFORMATION_EXECUTION"
-  },
-  "transformation_pipeline": {
-   "subdomain": "TRANSFORMATION_DEFINITION",
-   "type": "NÚCLEO",
-   "desc": "DAG que orquesta mappings y otros steps con dependencias. El 'en qué orden'.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "id del pipeline (DAG)"
-    },
-    {
-     "name": "business_process_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "business_process",
-     "desc": "proceso de negocio que lo opera (D1)"
-    },
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "entidad canónica destino principal (D2)"
-    },
-    {
-     "name": "schedule_cron",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "planificación"
-    },
-    {
-     "name": "approval_status_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "APPROVAL_STATUS"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "",
-   "business_term": "TRANSFORMATION_DEFINITION"
-  },
-  "transformation_pipeline_step": {
-   "subdomain": "TRANSFORMATION_DEFINITION",
-   "type": "CANÓNICA",
-   "desc": "Paso polimórfico: MAPPING/BRANCH/GATE_DQ/AUDIT/NOTIFICATION/WAIT. El GATE_DQ enlaza con reglas DQ de D6.",
-   "attributes": [
-    {
-     "name": "transformation_pipeline_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "transformation_pipeline",
-     "desc": "pipeline"
-    },
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "id del step"
-    },
-    {
-     "name": "step_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "STEP_KIND (VIEW_EXEC/BRANCH/GATE_DQ/AUDIT/NOTIFICATION/WAIT)"
-    },
-    {
-     "name": "canonical_view_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_view",
-     "desc": "si VIEW_EXEC: vista canónica (D2) a ejecutar (runner: SELECT * FROM)"
-    },
-    {
-     "name": "dq_rule_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "si GATE_DQ: regla DQ de D6 que actúa como puerta"
-    },
-    {
-     "name": "write_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "si VIEW_EXEC: WRITE_MODE de escritura al destino"
-    },
-    {
-     "name": "step_order",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "orden en el DAG"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "",
-   "business_term": "TRANSFORMATION_DEFINITION"
-  },
-  "pipeline_dependency": {
-   "subdomain": "TRANSFORMATION_DEFINITION",
-   "type": "CANÓNICA",
-   "desc": "Dependencia entre steps del pipeline.",
-   "attributes": [
-    {
-     "name": "transformation_pipeline_step_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "transformation_pipeline_step",
-     "desc": "step dependiente"
-    },
-    {
-     "name": "depends_on_step_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "transformation_pipeline_step",
-     "desc": "step prerrequisito"
-    },
-    {
-     "name": "dependency_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "DEPENDENCY_TYPE (SUCCESS/COMPLETION)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "",
-   "business_term": "TRANSFORMATION_DEFINITION"
+   "business_term": "ORCHESTRATION"
   },
   "masking_config": {
    "subdomain": "TRANSFORMATION_SECURITY",
@@ -7280,230 +7028,6 @@
    ],
    "domain": "D5"
   },
-  "golden_source": {
-   "subdomain": "D · Golden source y vínculo",
-   "type": "CANÓNICA",
-   "desc": "Fuente autoritativa designada (DATUM-24, activo) de la que el Golden Record bebe su identidad: precedence=1, máx. una por entidad crítica, ratificada por Comité. También registro histórico.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador"
-    },
-    {
-     "name": "business_term_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "business_term",
-     "desc": "entidad crítica (D1) aprovisionada (term reemplaza a critical_entity, disuelta)"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "ruta origen: sistema"
-    },
-    {
-     "name": "container_parent_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "ruta origen: contenedor padre"
-    },
-    {
-     "name": "source_container_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "ruta origen: contenedor"
-    },
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "source_entity",
-     "desc": "tabla origen autoritativa",
-     "fk_composite": {
-      "target": "source_entity",
-      "columns": [
-       {
-        "source": "source_system_code",
-        "target": "source_system_code"
-       },
-       {
-        "source": "container_parent_code",
-        "target": "container_parent_code"
-       },
-       {
-        "source": "source_container_code",
-        "target": "source_container_code"
-       },
-       {
-        "source": "source_entity_code",
-        "target": "code"
-       }
-      ]
-     },
-     "is_identifying": false,
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT"
-    },
-    {
-     "name": "is_golden_source",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "es la fuente designada activa"
-    },
-    {
-     "name": "precedence",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "precedencia (1 = golden)"
-    },
-    {
-     "name": "effective_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "inicio de vigencia (histórico)"
-    },
-    {
-     "name": "effective_until",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fin de vigencia (NULL=vigente)"
-    },
-    {
-     "name": "ratified_by_committee",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "ratificada por Comité"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_entity_canonical_entity_hint": {
-   "subdomain": "D · Golden source y vínculo",
-   "type": "REF",
-   "desc": "Sugerencia (auto-poblada por discovery) de a qué entidad canónica (D2) corresponde una source_entity. El modelador confirma.",
-   "attributes": [
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_entity",
-     "desc": "tabla origen"
-    },
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "entidad canónica sugerida"
-    },
-    {
-     "name": "confidence_score_pct",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "confianza de la sugerencia (%)"
-    },
-    {
-     "name": "is_confirmed",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "confirmado por modelador"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_attribute_quality_hint": {
-   "subdomain": "G · Calidad en origen",
-   "type": "REF",
-   "desc": "Calidad declarada en origen de un atributo (pista de calidad antes de transformar).",
-   "attributes": [
-    {
-     "name": "source_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_attribute",
-     "desc": "atributo origen"
-    },
-    {
-     "name": "quality_dimension_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "reference_value",
-     "desc": "dimensión (completitud, validez…)"
-    },
-    {
-     "name": "hint_value",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "valor/observación de la pista"
-    },
-    {
-     "name": "declared_by_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "declarado por (origen/modelador)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
   "source_entity_version": {
    "subdomain": "H · Versionado",
    "type": "CANÓNICA",
@@ -7632,390 +7156,6 @@
    "source": "derivado_del_volcado_D3",
    "domain": "D3"
   },
-  "source_discovery_run": {
-   "subdomain": "F · Discovery y drift",
-   "type": "CABECERA",
-   "desc": "Cabecera de cada ejecución de discovery (escrita por runner_discover). Híbrido metadato/run (§2).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "run_id"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "source_system",
-     "desc": "sistema descubierto"
-    },
-    {
-     "name": "started_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "inicio"
-    },
-    {
-     "name": "finished_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fin"
-    },
-    {
-     "name": "detection_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "DECLARED/INFERRED_FROM_SAMPLE/METADATA_ONLY"
-    },
-    {
-     "name": "entities_discovered",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "entidades descubiertas"
-    },
-    {
-     "name": "triggered_by_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "SCHEDULED/MANUAL"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_discovery_drift": {
-   "subdomain": "F · Discovery y drift",
-   "type": "CABECERA",
-   "desc": "Cambio estructural detectado entre runs de discovery, con workflow de aceptación (aceptar genera nueva versión SCD2).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador del drift"
-    },
-    {
-     "name": "source_discovery_run_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "source_discovery_run",
-     "desc": "run que lo detectó"
-    },
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_entity",
-     "desc": "entidad afectada"
-    },
-    {
-     "name": "drift_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "ADDED/REMOVED/TYPE_CHANGED/RENAMED"
-    },
-    {
-     "name": "severity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "severidad"
-    },
-    {
-     "name": "acceptance_status_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "PENDING/ACCEPTED/REJECTED"
-    },
-    {
-     "name": "detail",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "detalle del cambio"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_discovery_config": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "CANÓNICA",
-   "desc": "Configuración de discovery por fuente: cadencia, profundidad de profiling, auto-detección PII.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "source_system",
-     "desc": "sistema"
-    },
-    {
-     "name": "discovery_frequency_hours",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cadencia (default 24h)"
-    },
-    {
-     "name": "profiling_depth_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "BASIC/STATISTICAL/FULL"
-    },
-    {
-     "name": "pii_auto_detection",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "auto-detección PII activada"
-    },
-    {
-     "name": "is_enabled",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "discovery activo"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_discovery_sampling_result": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "REF",
-   "desc": "Resultado de muestreo de una ejecución de discovery (filas muestreadas, distribución observada).",
-   "attributes": [
-    {
-     "name": "source_discovery_run_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_discovery_run",
-     "desc": "run"
-    },
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_entity",
-     "desc": "entidad muestreada"
-    },
-    {
-     "name": "rows_sampled",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "filas muestreadas"
-    },
-    {
-     "name": "sample_strategy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "RANDOM/TOP_N/STRATIFIED"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_attribute_profile": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "CABECERA",
-   "desc": "Snapshot estadístico de un atributo (nulos, distinct, percentiles, top-N, PII auto). Resultado de profiling — híbrido (§2).",
-   "attributes": [
-    {
-     "name": "source_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_attribute",
-     "desc": "atributo"
-    },
-    {
-     "name": "profiled_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "momento del profiling"
-    },
-    {
-     "name": "null_count",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "nº de nulos"
-    },
-    {
-     "name": "distinct_count",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cardinalidad"
-    },
-    {
-     "name": "min_value",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "mínimo"
-    },
-    {
-     "name": "max_value",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "máximo"
-    },
-    {
-     "name": "top_n_values",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "valores más frecuentes"
-    },
-    {
-     "name": "pii_detected",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "PII auto-detectado"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_attribute_detected_type_domain": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "REF",
-   "desc": "Dominio de tipo semántico detectado por discovery para un atributo, con confianza (el modelador confirma).",
-   "attributes": [
-    {
-     "name": "source_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_attribute",
-     "desc": "atributo"
-    },
-    {
-     "name": "data_type_domain_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "data_type_domain",
-     "desc": "dominio semántico detectado (EMAIL, NIF…)"
-    },
-    {
-     "name": "confidence_score_pct",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "confianza (%)"
-    },
-    {
-     "name": "is_confirmed",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "confirmado por modelador"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
   "discovery_rule": {
    "subdomain": "J · Discovery completo y profiling",
    "type": "CANÓNICA",
@@ -8060,206 +7200,6 @@
      "pk": 0,
      "fk_target": null,
      "desc": "regla activa"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "discovery_rule_evaluation": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "REF",
-   "desc": "Evaluación de una discovery_rule sobre un atributo en un run (match y score).",
-   "attributes": [
-    {
-     "name": "discovery_rule_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "discovery_rule",
-     "desc": "regla evaluada"
-    },
-    {
-     "name": "source_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_attribute",
-     "desc": "atributo evaluado"
-    },
-    {
-     "name": "source_discovery_run_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_discovery_run",
-     "desc": "run"
-    },
-    {
-     "name": "matched",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "la regla hizo match"
-    },
-    {
-     "name": "score_pct",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "score del match (%)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "runner_discover": {
-   "subdomain": "Runners",
-   "type": "CANÓNICA",
-   "desc": "Runner de discovery: lee config/credenciales y escribe source_entity/_attribute, drift, versiones, sampling, profile. Cadencia 24h default.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador del runner"
-    },
-    {
-     "name": "runner_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "tipo de runner"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_system",
-     "desc": "sistema sobre el que opera"
-    },
-    {
-     "name": "schedule_cron",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cadencia (cron)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "runner_ingest_managed": {
-   "subdomain": "Runners",
-   "type": "CANÓNICA",
-   "desc": "Runner de ingesta gestionada (batch): lee capture config y escribe en landing + eventos observacionales.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador del runner"
-    },
-    {
-     "name": "runner_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "tipo de runner"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_system",
-     "desc": "sistema sobre el que opera"
-    },
-    {
-     "name": "schedule_cron",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cadencia (cron)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "runner_ingest_streaming": {
-   "subdomain": "Runners",
-   "type": "CANÓNICA",
-   "desc": "Runner de ingesta streaming: análogo a managed para STREAM_TOPIC.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador del runner"
-    },
-    {
-     "name": "runner_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "tipo de runner"
-    },
-    {
-     "name": "source_system_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_system",
-     "desc": "sistema sobre el que opera"
-    },
-    {
-     "name": "schedule_cron",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cadencia (cron)"
     },
     {
      "name": "system",
@@ -8445,47 +7385,6 @@
    ],
    "source": "derivado_del_volcado_D2",
    "domain": "",
-   "i18n": true
-  },
-  "canonical_entity_business_process": {
-   "subdomain": "E · Consumo desde organización (D1→D2)",
-   "type": "REF",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "business_process_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "business_process",
-     "desc": ""
-    },
-    {
-     "name": "role_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D2",
-   "domain": "D2",
    "i18n": true
   },
   "canonical_entity_version": {
@@ -10590,6 +9489,145 @@
      "catalog_ref_metadata_only": true
     },
     {
+     "name": "schedule_cron",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "cadencia de captura de esta entidad (cron)"
+    },
+    {
+     "name": "schedule_timezone",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "zona horaria del cron"
+    },
+    {
+     "name": "full_reload_strategy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "FULL_RELOAD_STRATEGY",
+     "catalog_ref_metadata_only": true,
+     "desc": "SOLO FULL: cómo se recarga (truncate+load / overwrite / snapshot)"
+    },
+    {
+     "name": "watermark_operator_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "OPERATOR",
+     "catalog_ref_metadata_only": true,
+     "desc": "SOLO INCREMENTAL: comparación de la marca (GT `>` / GE `>=`)"
+    },
+    {
+     "name": "cdc_delete_handling_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "CDC_DELETE_HANDLING",
+     "catalog_ref_metadata_only": true,
+     "desc": "SOLO CDC: tratamiento de borrados (hard/soft/ignore)"
+    },
+    {
+     "name": "cdc_initial_snapshot",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "SOLO CDC: hacer snapshot inicial antes de leer el flujo de cambios"
+    },
+    {
+     "name": "landing_format_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "LANDING_FORMAT",
+     "catalog_ref_metadata_only": true,
+     "desc": "SI COPY_TO_LANDING: formato del fichero aterrizado (parquet/delta/csv/json/avro)"
+    },
+    {
+     "name": "landing_physical_catalog_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "catálogo físico del landing (columna de la FK compuesta a physical_schema)"
+    },
+    {
+     "name": "landing_physical_schema_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "physical_schema",
+     "desc": "esquema físico donde aterriza (staging/raw.<negocio>)",
+     "is_visible_er": true,
+     "fk_composite": {
+      "target": "physical_schema",
+      "columns": [
+       {
+        "source": "landing_physical_catalog_code",
+        "target": "physical_catalog_code"
+       },
+       {
+        "source": "landing_physical_schema_code",
+        "target": "code"
+       }
+      ]
+     },
+     "is_identifying": false
+    },
+    {
+     "name": "stream_message_format_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "STREAM_MESSAGE_FORMAT",
+     "catalog_ref_metadata_only": true,
+     "desc": "SOLO STREAMING: serialización del mensaje (avro/json/protobuf/string)"
+    },
+    {
+     "name": "stream_start_position_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "STREAM_START_POSITION",
+     "catalog_ref_metadata_only": true,
+     "desc": "SOLO STREAMING: desde dónde arranca (earliest/latest); el offset actual es observabilidad"
+    },
+    {
+     "name": "stream_trigger_interval",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "SOLO STREAMING: intervalo de micro-batch (p.ej. \"5 seconds\") o \"continuous\""
+    },
+    {
+     "name": "stream_consumer_group",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "SOLO STREAMING: consumer group"
+    },
+    {
+     "name": "stream_schema_registry_subject",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "SOLO STREAMING: subject en el schema registry (el endpoint del registry es del source_system)"
+    },
+    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -10806,6 +9844,16 @@
      "pk": 0,
      "fk_target": null,
      "desc": "orden (p.ej. watermark/clave compuesta)"
+    },
+    {
+     "name": "capture_role_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "CAPTURE_ATTRIBUTE_ROLE",
+     "catalog_ref_metadata_only": true,
+     "desc": "rol de la columna en la captura: WATERMARK / CDC_KEY / CDC_SEQUENCE / CDC_OPERATION / LANDING_PARTITION"
     },
     {
      "name": "system",
@@ -12284,6 +11332,203 @@
      "pk": 0,
      "fk_target": null,
      "desc": ""
+    }
+   ]
+  },
+  "runner_capability": {
+   "subdomain": "ORCHESTRATION",
+   "type": "ORQUESTACIÓN",
+   "desc": "Contrato por tipo de runner: qué definición lee el compilador, qué object_type/vista compila y cómo escribe el runner al ejecutar. Espejo de match_function_impl. Hace el runner genérico y dirigido por metadato; añadir una capacidad = 1 fila aquí + su compilador.",
+   "attributes": [
+    {
+     "name": "runner_type_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "reference_value",
+     "reference_catalog": "RUNNER_TYPE",
+     "catalog_ref_metadata_only": true,
+     "desc": "tipo de runner (1:1 con el step)"
+    },
+    {
+     "name": "reads_definition_entity",
+     "tyd": "TYD_NAME",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "entidad-definición que lee el compilador (transformation, match_rule_set, dq_rule, kpi_def, source_entity_capture…)"
+    },
+    {
+     "name": "compiled_object_type_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "object_type",
+     "desc": "object_type del artefacto compilado (CANONICAL_VIEW/SOURCE_TABLE/DQ_CHECK/KPI…)"
+    },
+    {
+     "name": "compiles_view_kind_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "VIEW_KIND",
+     "catalog_ref_metadata_only": true,
+     "desc": "view_kind que compila, si el artefacto es vista (null si no)"
+    },
+    {
+     "name": "write_semantics_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "WRITE_SEMANTICS",
+     "catalog_ref_metadata_only": true,
+     "desc": "cómo escribe el runner al ejecutar"
+    },
+    {
+     "name": "is_gate_capable",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "puede actuar de puerta (DQ)"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ],
+   "domain": "",
+   "business_term": "ORCHESTRATION"
+  },
+  "source_data_contract_entity": {
+   "subdomain": "SOURCE_CONTRACT",
+   "type": "CONTRATO",
+   "desc": "Alcance del contrato: qué tabla origen cubre y sus expectativas (estabilidad de esquema, volumen, calendario de entrega).",
+   "domain": "",
+   "business_term": "SOURCE_CONTRACT",
+   "attributes": [
+    {
+     "name": "source_data_contract_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "source_data_contract",
+     "desc": "contrato (dependencia)",
+     "is_identifying": true,
+     "on_delete": "RESTRICT",
+     "on_update": "RESTRICT",
+     "fk_composite": {
+      "target": "source_data_contract",
+      "columns": [
+       {
+        "source": "source_data_contract_code",
+        "target": "code"
+       }
+      ]
+     }
+    },
+    {
+     "name": "source_system_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null,
+     "desc": "(PK propagada de source_entity)"
+    },
+    {
+     "name": "container_parent_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null,
+     "desc": "(PK propagada)"
+    },
+    {
+     "name": "source_container_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null,
+     "desc": "(PK propagada)"
+    },
+    {
+     "name": "source_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "source_entity",
+     "is_visible_er": true,
+     "desc": "tabla origen cubierta por el contrato",
+     "is_identifying": true,
+     "on_delete": "RESTRICT",
+     "on_update": "RESTRICT",
+     "fk_composite": {
+      "target": "source_entity",
+      "columns": [
+       {
+        "source": "source_system_code",
+        "target": "source_system_code"
+       },
+       {
+        "source": "container_parent_code",
+        "target": "container_parent_code"
+       },
+       {
+        "source": "source_container_code",
+        "target": "source_container_code"
+       },
+       {
+        "source": "source_entity_code",
+        "target": "code"
+       }
+      ]
+     }
+    },
+    {
+     "name": "schema_stability_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "SCHEMA_STABILITY",
+     "catalog_ref_metadata_only": true,
+     "desc": "compromiso de esquema (strict/backward-compatible/none)"
+    },
+    {
+     "name": "expected_min_rows",
+     "tyd": "TYD_INT",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "volumen mínimo esperado por entrega"
+    },
+    {
+     "name": "expected_max_rows",
+     "tyd": "TYD_INT",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "volumen máximo esperado por entrega"
+    },
+    {
+     "name": "delivery_schedule_cron",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "calendario de entrega comprometido (cron)"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
     }
    ]
   }
