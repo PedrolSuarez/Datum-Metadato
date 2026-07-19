@@ -1115,6 +1115,108 @@
     "BACKWARD_COMPATIBLE": "Solo cambios compatibles.",
     "NONE": "Sin compromiso."
    }
+  },
+  "DQ_ON_FAIL": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dq_check_type.on_fail_default_code"
+   ],
+   "desc": "Resultado de flujo ante el fallo de una comprobación DQ. El motor lo resuelve por derivación; nunca lanza error de ejecución (todo se registra).",
+   "values": {
+    "AUTO_REMEDIATE": "El motor corrige la fila inline desde metadato (valor por defecto, normalización, survivorship) y continúa; deja incidente WARNING.",
+    "REJECT": "Corte controlado del dato: la fila no avanza y se registra incidente ERROR. Es el is_gate compilado del step (no es caída de ejecución).",
+    "QUARANTINE": "No auto-corregible y no fatal: a dq_quarantine_policy para revisión del steward (etiquetado por severidad).",
+    "FLAG": "Señal de calidad: registra el veredicto (Observabilidad) y deja pasar."
+   }
+  },
+  "DQ_SEVERITY": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dq_check_type.default_severity_code",
+    "dq_quarantine_policy (etiqueta de la fila en cuarentena)"
+   ],
+   "desc": "Severidad del incidente DQ registrado. La autocorrección deja WARNING (no ERROR); el rechazo deja ERROR. La cuarentena guarda ambos, distinguidos por severidad.",
+   "values": {
+    "INFO": "Señal informativa (medición/agregado); no compromete la carga.",
+    "WARNING": "Incidente no bloqueante: el dato continúa (posible autocorrección), pero queda registrado y trazable.",
+    "ERROR": "Incidente bloqueante: el dato no avanza (rechazo controlado)."
+   }
+  },
+  "RULE_KIND": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "business_rule.rule_kind_code"
+   ],
+   "desc": "Naturaleza de una regla de negocio declarada (no derivable de estructura).",
+   "values": {
+    "TARGET": "Objetivo de negocio (p.ej. venta > 1M).",
+    "THRESHOLD": "Umbral de alerta.",
+    "SLA": "Compromiso de nivel de servicio (frescura/disponibilidad/latencia).",
+    "VALUE": "Valor esperado (p.ej. ROI)."
+   }
+  },
+  "MATURITY_DIMENSION": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "PROPUESTO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "business_rule.maturity_dimension_code"
+   ],
+   "desc": "Dimensión de MADUREZ del dato a la que aporta una regla de negocio al cumplirse (distinta de la dimensión de calidad DAMA). VALORES PROPUESTOS — ajustables.",
+   "values": {
+    "GOVERNANCE": "El dato está gobernado (propiedad, políticas).",
+    "RELIABILITY": "Fiabilidad/disponibilidad (SLA).",
+    "PERFORMANCE": "Cumple objetivos/umbrales de negocio.",
+    "VALUE": "Genera valor de negocio (ROI).",
+    "COMPLIANCE": "Cumple normativa aplicable."
+   }
+  },
+  "EXPIRATION_ACTION": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "PROPUESTO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dq_quarantine_policy.on_expiration_action_code"
+   ],
+   "desc": "Qué hacer con un registro en cuarentena cuando vence max_quarantine_days sin resolución. VALORES PROPUESTOS — ajustables.",
+   "values": {
+    "DISCARD": "Descartar el dato en cuarentena (no se carga).",
+    "ESCALATE": "Escalar a un responsable para decisión manual.",
+    "ARCHIVE": "Archivar el registro caducado para auditoría y sacarlo de la cola.",
+    "AUTO_DISMISS": "Descartar el incidente y dejar pasar el dato (sujeto a requires_dpo_approval_for_dismiss si PII)."
+   }
+  },
+  "DQ_PHASE": {
+   "dominio": "D6 · Calidad de datos",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dq_check_type.execution_phase_code"
+   ],
+   "desc": "Fase del pipeline en la que se ejecuta la comprobación DQ, y por tanto qué runner la ejecuta. Flujo: fuente→LANDING (ingesta) → STAGING (transformación+calidad) → COMMON (carga de lo validado).",
+   "values": {
+    "PRE_INGEST": "En la ingesta (fuente→landing): frescura y estructural de fuente. Runner RUNNER_INGEST.",
+    "PRE_WRITE": "Fila a fila durante la transformación (landing→staging), antes de escribir: formato, obligatoriedad, estructura. Runner RUNNER_TRANSFORM.",
+    "POST_WRITE": "Sobre el conjunto ya escrito en staging: unicidad, integridad referencial, completitud. Puerta que corta la promoción a common. Runner RUNNER_DQ/_TERM."
+   }
   }
  },
  "categories": [
@@ -1143,4 +1245,4 @@
    "sort_order": 60
   }
  ]
-}
+}

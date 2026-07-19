@@ -47,22 +47,29 @@
     "assigned_schema_code": "storage"
    },
    {
-    "code": "COMMON",
+    "code": "STAGING",
     "sort_order": 5,
+    "bucket_uri_location": "s3://staging",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "code": "COMMON",
+    "sort_order": 6,
     "bucket_uri_location": "s3://common",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
    {
     "code": "BUSINESS",
-    "sort_order": 6,
+    "sort_order": 7,
     "bucket_uri_location": "s3://business",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
    {
     "code": "NEGOCIO",
-    "sort_order": 7,
+    "sort_order": 8,
     "bucket_uri_location": "s3://negocio",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
@@ -1105,7 +1112,7 @@
    },
    {
     "code": "dq_quarantine_policy",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_QUALITY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1196,7 +1203,7 @@
    },
    {
     "code": "dq_dimension_to_iso_characteristic",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_QUALITY",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -2805,13 +2812,26 @@
     "access_frequency_code": "RARELY",
     "physical_catalog_code": "metadato",
     "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_check_type",
+    "business_term_code": "DATA_QUALITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "entity_count": 171,
+    "entity_count": 172,
     "display_order": 10
    },
    {
@@ -3755,6 +3775,105 @@
     "canonical_accelerator_code": "METADATA",
     "is_ordered": true,
     "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_DIMENSION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 6,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "ISO_CHARACTERISTIC",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 7,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_ON_FAIL",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_SEVERITY",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "WORKFLOW_SCOPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "RUNNER_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 9,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "WORKFLOW_PURPOSE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "RULE_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "MATURITY_DIMENSION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 5,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "EXPIRATION_ACTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_PHASE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 3,
     "external_authority_code": "INTERNAL",
     "external_standard_ref": null
    }
@@ -5443,6 +5562,258 @@
    {
     "reference_catalog_code": "SCHEMA_STABILITY",
     "code": "NONE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "COMPLETENESS",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "VALIDITY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "ACCURACY",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "CONSISTENCY",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "UNIQUENESS",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_DIMENSION",
+    "code": "TIMELINESS",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "ACCURACY",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "COMPLETENESS",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "CONSISTENCY",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "CREDIBILITY",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "CURRENTNESS",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "PRECISION",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "ISO_CHARACTERISTIC",
+    "code": "CONSISTENCY_SEMANTIC",
+    "sort_order": 7,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ON_FAIL",
+    "code": "AUTO_REMEDIATE",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ON_FAIL",
+    "code": "REJECT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ON_FAIL",
+    "code": "QUARANTINE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ON_FAIL",
+    "code": "FLAG",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_SEVERITY",
+    "code": "INFO",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_SEVERITY",
+    "code": "WARNING",
+    "sort_order": 2,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_SEVERITY",
+    "code": "ERROR",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_KIND",
+    "code": "TARGET",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_KIND",
+    "code": "THRESHOLD",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_KIND",
+    "code": "SLA",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RULE_KIND",
+    "code": "VALUE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATURITY_DIMENSION",
+    "code": "GOVERNANCE",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATURITY_DIMENSION",
+    "code": "RELIABILITY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATURITY_DIMENSION",
+    "code": "PERFORMANCE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATURITY_DIMENSION",
+    "code": "VALUE",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATURITY_DIMENSION",
+    "code": "COMPLIANCE",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPIRATION_ACTION",
+    "code": "DISCARD",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPIRATION_ACTION",
+    "code": "ESCALATE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPIRATION_ACTION",
+    "code": "ARCHIVE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXPIRATION_ACTION",
+    "code": "AUTO_DISMISS",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_PHASE",
+    "code": "PRE_INGEST",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_PHASE",
+    "code": "PRE_WRITE",
+    "sort_order": 2,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_PHASE",
+    "code": "POST_WRITE",
     "sort_order": 3,
     "is_default": false,
     "is_terminal": true
@@ -8850,7 +9221,7 @@
    },
    {
     "runner_type_code": "RUNNER_DQ",
-    "reads_definition_entity": "dq_rule",
+    "reads_definition_entity": "dq_check_type",
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
@@ -8874,7 +9245,7 @@
    },
    {
     "runner_type_code": "RUNNER_DQ_TERM",
-    "reads_definition_entity": "dq_rule",
+    "reads_definition_entity": "dq_check_type",
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
@@ -8890,7 +9261,7 @@
    },
    {
     "runner_type_code": "RUNNER_DQ_PROCESS",
-    "reads_definition_entity": "dq_rule",
+    "reads_definition_entity": "dq_check_type",
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
@@ -8904,6 +9275,160 @@
     "write_semantics_code": "OVERWRITE",
     "is_gate_capable": false
    }
+  ],
+  "dq_check_type": [
+   {
+    "code": "FORMAT",
+    "dq_dimension_code": "VALIDITY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "data_type_domain_validation (REGEX/SQL_SPARK)",
+    "on_fail_default_code": "REJECT",
+    "on_fail_derivation_source": "normalización del dominio (si existe → AUTO_REMEDIATE, WARNING)",
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "PRE_WRITE"
+   },
+   {
+    "code": "STRUCTURE",
+    "dq_dimension_code": "VALIDITY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "canonical_attribute + canonical_key (esquema vs definición)",
+    "on_fail_default_code": "REJECT",
+    "on_fail_derivation_source": null,
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "PRE_WRITE"
+   },
+   {
+    "code": "REFERENTIAL",
+    "dq_dimension_code": "CONSISTENCY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "canonical_relation + FK a catálogo (catalog_ref_metadata_only)",
+    "on_fail_default_code": null,
+    "on_fail_derivation_source": "canonical_entity.on_miss_code (CREATE→AUTO_REMEDIATE / REMEDIATE→QUARANTINE / NONE→REJECT)",
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "POST_WRITE"
+   },
+   {
+    "code": "MANDATORY_SIMPLE",
+    "dq_dimension_code": "COMPLETENESS",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "canonical_attribute.is_nullable",
+    "on_fail_default_code": "REJECT",
+    "on_fail_derivation_source": "canonical_attribute.column_default / generation_expression (si existe → AUTO_REMEDIATE, WARNING)",
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "PRE_WRITE"
+   },
+   {
+    "code": "MANDATORY_COMPOSITE",
+    "dq_dimension_code": "COMPLETENESS",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "data_type_domain_composite + data_type_domain_validation (dueño composite)",
+    "on_fail_default_code": "REJECT",
+    "on_fail_derivation_source": "canonical_attribute.column_default (si existe → AUTO_REMEDIATE, WARNING)",
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "PRE_WRITE"
+   },
+   {
+    "code": "UNIQUENESS",
+    "dq_dimension_code": "UNIQUENESS",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "canonical_key (key_type PK/UN)",
+    "on_fail_default_code": "REJECT",
+    "on_fail_derivation_source": "survivorship_rule / identidad MDM (si existe → AUTO_REMEDIATE, dedup)",
+    "default_severity_code": "ERROR",
+    "execution_phase_code": "POST_WRITE"
+   },
+   {
+    "code": "TERM_COMPLETENESS",
+    "dq_dimension_code": "COMPLETENESS",
+    "scope_level_code": "TERM",
+    "check_derivation_source": "derivado del término (entidades requeridas cargadas/completas)",
+    "on_fail_default_code": "FLAG",
+    "on_fail_derivation_source": null,
+    "default_severity_code": "WARNING",
+    "execution_phase_code": "POST_WRITE"
+   },
+   {
+    "code": "BUSINESS_RULE",
+    "dq_dimension_code": "CONSISTENCY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "business_rule + canonical_entity_constraint (CHECK)",
+    "on_fail_default_code": "QUARANTINE",
+    "on_fail_derivation_source": "business_rule (acción declarada; REJECT si la regla lo indica)",
+    "default_severity_code": "WARNING",
+    "execution_phase_code": "POST_WRITE"
+   },
+   {
+    "code": "FRESHNESS",
+    "dq_dimension_code": "TIMELINESS",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "source_data_contract_sla (FRESHNESS/LATENCY/VOLUME) — a consumo por source_entity",
+    "on_fail_default_code": null,
+    "on_fail_derivation_source": "source_data_contract_sla.breach_action_code (NOTIFY/ESCALATE/QUARANTINE/REJECT/NONE)",
+    "default_severity_code": "WARNING",
+    "execution_phase_code": "PRE_INGEST"
+   },
+   {
+    "code": "SOURCE_STRUCTURAL",
+    "dq_dimension_code": "VALIDITY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "source_key + source_relation → object_assessment sobre source_entity (aptitud de la fuente, no DQ de datos)",
+    "on_fail_default_code": "FLAG",
+    "on_fail_derivation_source": null,
+    "default_severity_code": "WARNING",
+    "execution_phase_code": "PRE_INGEST"
+   },
+   {
+    "code": "ACCURACY_REFERENCE",
+    "dq_dimension_code": "ACCURACY",
+    "scope_level_code": "ENTITY",
+    "check_derivation_source": "xref + IDENTITY_MODE=RDM_STANDARD (valor = referencia autoritativa)",
+    "on_fail_default_code": "QUARANTINE",
+    "on_fail_derivation_source": "survivorship_rule (si existe → AUTO_REMEDIATE, valor ganador)",
+    "default_severity_code": "WARNING",
+    "execution_phase_code": "POST_WRITE"
+   }
+  ],
+  "dq_dimension_to_iso_characteristic": [
+   {
+    "dimension_code": "COMPLETENESS",
+    "iso_characteristic_code": "COMPLETENESS"
+   },
+   {
+    "dimension_code": "VALIDITY",
+    "iso_characteristic_code": "ACCURACY"
+   },
+   {
+    "dimension_code": "VALIDITY",
+    "iso_characteristic_code": "PRECISION"
+   },
+   {
+    "dimension_code": "ACCURACY",
+    "iso_characteristic_code": "ACCURACY"
+   },
+   {
+    "dimension_code": "ACCURACY",
+    "iso_characteristic_code": "CREDIBILITY"
+   },
+   {
+    "dimension_code": "ACCURACY",
+    "iso_characteristic_code": "CONSISTENCY_SEMANTIC"
+   },
+   {
+    "dimension_code": "CONSISTENCY",
+    "iso_characteristic_code": "CONSISTENCY"
+   },
+   {
+    "dimension_code": "CONSISTENCY",
+    "iso_characteristic_code": "CONSISTENCY_SEMANTIC"
+   },
+   {
+    "dimension_code": "UNIQUENESS",
+    "iso_characteristic_code": "CONSISTENCY"
+   },
+   {
+    "dimension_code": "TIMELINESS",
+    "iso_characteristic_code": "CURRENTNESS"
+   }
   ]
  }
-}
+}
