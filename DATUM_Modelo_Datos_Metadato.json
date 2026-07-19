@@ -5,8 +5,8 @@
    "DATUM_Visualizador_Modelo.html (atributos)",
    "16 volcados de dominio (censo)"
   ],
-  "materialized_entities": 171,
-  "total_attributes": 1112,
+  "materialized_entities": 172,
+  "total_attributes": 1121,
   "note": "Nivel 1 = entidad con atributos campo-a-campo (real, del visualizador). Las entidades solo nombradas en los volcados sin atributos NO se incluyen como completas: su detalle no existe en disco. · Tablas marcadas source=derivado_del_volcado tienen atributos DERIVADOS de la descripción del volcado + convenciones del metamodelo (no extraídos del visualizador).",
   "derived_entities": 59,
   "catalog_decisions": {
@@ -4098,7 +4098,7 @@
    "business_term": "TRANSFORMATION_SECURITY"
   },
   "dq_quarantine_policy": {
-   "subdomain": "D · Remediación",
+   "subdomain": "DATA_QUALITY",
    "type": "CATÁLOGO",
    "desc": "Catálogo de política de remediación (DEFINICIÓN): max_quarantine_days, auto_escalate, on_expiration_action, requires_dpo_approval_for_dismiss si PII. La ejecución (qué se puso en cuarentena) → observabilidad.",
    "attributes": [
@@ -4132,7 +4132,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "EXPIRATION_ACTION (DISCARD/PROMOTE/NOTIFY)"
+     "desc": "EXPIRATION_ACTION (DISCARD/PROMOTE/NOTIFY)",
+     "reference_catalog": "EXPIRATION_ACTION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "requires_dpo_approval_for_dismiss",
@@ -4150,7 +4152,8 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "",
+   "business_term": "DATA_QUALITY"
   },
   "data_quality_requirement": {
    "subdomain": "UNE Q1 · Definición",
@@ -4197,7 +4200,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_implementation_plan": {
    "subdomain": "UNE Q1 · Definición",
@@ -4236,7 +4239,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_assurance_procedure": {
    "subdomain": "UNE Q3 · Definición",
@@ -4267,7 +4270,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_audit_plan": {
    "subdomain": "UNE Q3 · Definición",
@@ -4306,7 +4309,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_certification_criteria": {
    "subdomain": "UNE Q3 · Definición",
@@ -4345,7 +4348,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_evaluation_specification": {
    "subdomain": "ISO 25040 · Definición",
@@ -4384,10 +4387,10 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D8"
   },
   "dq_dimension_to_iso_characteristic": {
-   "subdomain": "ISO · Puentes",
+   "subdomain": "DATA_QUALITY",
    "type": "UNE 0081",
    "desc": "Puente de mapeo a ISO 25012 (definición pura).",
    "attributes": [
@@ -4419,7 +4422,8 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "",
+   "business_term": "DATA_QUALITY"
   },
   "accumulative_fact": {
    "subdomain": "A · Hechos acumulativos",
@@ -4584,7 +4588,7 @@
      "fk_target": null
     }
    ],
-   "domain": "D6"
+   "domain": "D7"
   },
   "kpi": {
    "subdomain": "C · KPIs",
@@ -4817,7 +4821,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "BUSINESS_RULE_KIND (TARGET/THRESHOLD/SLA/VALUE)"
+     "desc": "BUSINESS_RULE_KIND (TARGET/THRESHOLD/SLA/VALUE)",
+     "reference_catalog": "RULE_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "declared_value",
@@ -4833,7 +4839,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "SEVERITY (ERROR/WARNING) si THRESHOLD"
+     "desc": "SEVERITY (ERROR/WARNING) si THRESHOLD",
+     "reference_catalog": "DQ_SEVERITY",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "maturity_dimension_code",
@@ -4841,7 +4849,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "dimensión de madurez del dato"
+     "desc": "dimensión de madurez del dato",
+     "reference_catalog": "MATURITY_DIMENSION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -11531,6 +11541,96 @@
      "fk_target": null
     }
    ]
+  },
+  "dq_check_type": {
+   "subdomain": "DATA_QUALITY",
+   "type": "NÚCLEO",
+   "desc": "Catálogo gobernado de TIPOS de regla de calidad (no tabla de reglas). Clasifica cada familia de comprobación DQ: dimensión DAMA (→ ISO por el puente dq_dimension_to_iso_characteristic), entidad-fuente de la que el motor la COMPILA por derivación, alcance, y resultado+severidad por defecto ante fallo. Espejo de runner_capability para el motor de calidad: añadir un tipo = 1 fila + su derivación; el runner no cambia. El RUNNER_DQ lo lee y compila las comprobaciones desde estas fuentes.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null,
+     "desc": "tipo de regla de calidad (FORMAT, STRUCTURE, REFERENTIAL, MANDATORY_SIMPLE, MANDATORY_COMPOSITE, UNIQUENESS, TERM_COMPLETENESS, BUSINESS_RULE, FRESHNESS, SOURCE_STRUCTURAL, ACCURACY_REFERENCE)"
+    },
+    {
+     "name": "dq_dimension_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "DQ_DIMENSION",
+     "catalog_ref_metadata_only": true,
+     "desc": "dimensión DAMA que tipa la regla; la característica ISO 25012 se deriva por dq_dimension_to_iso_characteristic"
+    },
+    {
+     "name": "scope_level_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "WORKFLOW_SCOPE",
+     "catalog_ref_metadata_only": true,
+     "desc": "alcance de aplicación (ENTITY/TERM/PROCESS); runner RUNNER_DQ / RUNNER_DQ_TERM / RUNNER_DQ_PROCESS"
+    },
+    {
+     "name": "check_derivation_source",
+     "tyd": "TYD_NAME",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "entidad/campo del metamodelo del que el motor COMPILA la comprobación (data_type_domain_validation, canonical_key, canonical_relation, source_data_contract_sla…). No es tabla de reglas: se deriva."
+    },
+    {
+     "name": "on_fail_default_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "DQ_ON_FAIL",
+     "catalog_ref_metadata_only": true,
+     "desc": "resultado de flujo por defecto ante fallo; null si se resuelve por instancia (ver on_fail_derivation_source)"
+    },
+    {
+     "name": "on_fail_derivation_source",
+     "tyd": "TYD_NAME",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "campo que resuelve el resultado ante fallo por instancia (canonical_entity.on_miss_code, source_data_contract_sla.breach_action_code, canonical_attribute.column_default, survivorship_rule). null = usa on_fail_default_code"
+    },
+    {
+     "name": "default_severity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "DQ_SEVERITY",
+     "catalog_ref_metadata_only": true,
+     "desc": "severidad por defecto del incidente registrado (INFO/WARNING/ERROR)"
+    },
+    {
+     "name": "execution_phase_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "DQ_PHASE",
+     "catalog_ref_metadata_only": true,
+     "desc": "fase del pipeline/runner que ejecuta la comprobación (PRE_INGEST/PRE_WRITE/POST_WRITE)"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ],
+   "domain": "",
+   "business_term": "DATA_QUALITY"
   }
  }
-}
+}
