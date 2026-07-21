@@ -840,5 +840,15 @@ Con esto las 3 mecánicas quedan ejemplificadas y compilables end-to-end; replic
 
 **PENDIENTE:** replicar mapeo/lógica en las demás vistas y los 8 procesos restantes; el gate UDF (M-36) como compilador propio.
 
-*Fin de `18-METADATO-decisiones.md` v1.27.*
+### METADATO-52 — Columnas UC pre-sembradas + mapeo 1:1 (carga UC por el compilador estándar) — DECIDIDO
+
+Decisión de Pedro: (1) no depender de la 1ª corrida de discovery para las columnas de las tablas UC — sembrarlas ya marcadas; (2) aunque la copia sea 1:1, generar las transformaciones necesarias para que la carga UC use **la misma ruta que el resto** (compilador de transformaciones estándar), no un SELECT * especial. Amplía `DATUM_Carga_Observability_UC.json`; **sin cambios de modelo (311/2717/94).**
+
+- **`source_attribute` (838):** las columnas de las 72 tablas UC sembradas y marcadas con su **tipo nativo** (`native_data_type_code`), `is_nullable`, `is_primary_key`, `attribute_order`, `is_selected`. **Ya no hace falta discovery para arrancar**; `uc_discovery` queda solo para **detección de DRIFT** en re-descubrimientos (supersede el discovery-first de M-43 para las columnas).
+- **`data_type` (12):** tipos nativos Databricks (STRING, TIMESTAMP, LONG, INTEGER, DOUBLE, DECIMAL, FLOAT, BOOLEAN, DATE, STRUCT, ARRAY, MAP) bajo `technology=databricks`.
+- **`transformation_field` (838):** mapeo **1:1** (`source_expression` = columna de origen) por cada atributo canónico → la carga pasa por `compile_transformation.py` como cualquier transformación, uniforme con el resto (INSERT PRINCIPAL).
+
+**Verificado:** 0 FK colgantes (source_attribute→source_entity, native_data_type→data_type, transformation_field→transformation + canonical_attribute existente); 72/72 tablas con sus columnas; 838 mapeos correctos.
+
+*Fin de `18-METADATO-decisiones.md` v1.28.*
 
