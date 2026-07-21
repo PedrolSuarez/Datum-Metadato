@@ -1217,6 +1217,339 @@
     "PRE_WRITE": "Fila a fila durante la transformación (landing→staging), antes de escribir: formato, obligatoriedad, estructura. Runner RUNNER_TRANSFORM.",
     "POST_WRITE": "Sobre el conjunto ya escrito en staging: unicidad, integridad referencial, completitud. Puerta que corta la promoción a common. Runner RUNNER_DQ/_TERM."
    }
+  },
+  "TIME_GRAIN": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TIME",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "accumulative_fact.time_grain_code"
+   ],
+   "desc": "Grano temporal de acumulación del hecho (HORA opcional → DÍA → MES → AÑO).",
+   "values": {
+    "HOUR": "Hora (opcional).",
+    "DAY": "Día.",
+    "MONTH": "Mes.",
+    "YEAR": "Año."
+   }
+  },
+  "MATERIALIZATION_MODE": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "accumulative_fact.materialization_mode_code"
+   ],
+   "desc": "Modo de materialización de un hecho según volumen+consumo.",
+   "values": {
+    "TABLE": "Tabla materializada.",
+    "MATERIALIZED_VIEW": "Vista materializada.",
+    "VIEW": "Vista lógica."
+   }
+  },
+  "KPI_TYPE": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "kpi.kpi_type_code"
+   ],
+   "desc": "Naturaleza del KPI.",
+   "values": {
+    "BASIC": "Agregación directa sobre el hecho.",
+    "DERIVED": "Cálculo a partir de otros KPIs."
+   }
+  },
+  "SUBJECT_KIND": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "kpi.subject_kind_code"
+   ],
+   "desc": "Sujeto que mide el KPI (DATUM-27).",
+   "values": {
+    "BUSINESS": "Negocio.",
+    "DATA_QUALITY": "Calidad del dato.",
+    "METAMODEL": "Metamodelo.",
+    "OBSERVABILITY": "Observabilidad."
+   }
+  },
+  "UNIT": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "ABIERTO",
+   "estado": "PROPUESTO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "kpi.unit_code"
+   ],
+   "desc": "Unidad de medida del KPI (valores PROPUESTO; puede diferirse a la entidad unit_of_measure en cuarentena).",
+   "values": {
+    "COUNT": "Recuento.",
+    "CURRENCY": "Importe monetario.",
+    "PERCENTAGE": "Porcentaje.",
+    "RATIO": "Ratio.",
+    "DURATION": "Duración."
+   }
+  },
+  "CERTIFICATION_TIER": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "PROPUESTO",
+   "category": "STATE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_product.certification_tier_code"
+   ],
+   "desc": "Nivel de certificación de un data product (valores PROPUESTO).",
+   "values": {
+    "RAW": "Sin curar.",
+    "CURATED": "Curado.",
+    "CERTIFIED": "Certificado."
+   }
+  },
+  "PUBLICATION_STATUS": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "STATE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_product.publication_status_code"
+   ],
+   "desc": "Estado de publicación de un data product.",
+   "values": {
+    "DRAFT": "Borrador.",
+    "PUBLISHED": "Publicado.",
+    "DEPRECATED": "Obsoleto.",
+    "RETIRED": "Retirado."
+   }
+  },
+  "PERSPECTIVE": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "ABIERTO",
+   "estado": "PROPUESTO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "data_product_fact.perspective_code"
+   ],
+   "desc": "Perspectiva analítica de un hecho dentro de un data product (valores PROPUESTO).",
+   "values": {
+    "CORE": "Hecho central del producto.",
+    "COMPLEMENTARY": "Hecho complementario.",
+    "REFERENCE": "Hecho de referencia."
+   }
+  },
+  "DIMENSION_KIND": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dimension.dimension_kind_code"
+   ],
+   "desc": "Naturaleza de la dimensión analítica.",
+   "values": {
+    "CLASSIC": "Estrella: sobre catálogo simple o MDM plano (un nivel).",
+    "SNOWFLAKE": "Copo: sobre una jerarquía existente (N niveles)."
+   }
+  },
+  "DERIVATION_MODE": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "dimension.derivation_mode_code"
+   ],
+   "desc": "Cómo se obtienen ejes y niveles de la dimensión.",
+   "values": {
+    "INFERRED": "Derivados del origen (catálogo o jerarquía) — sin duplicar.",
+    "EXPLICIT": "Declarados a mano (dimensión a medida)."
+   }
+  },
+  "FACT_KIND": {
+   "dominio": "D0 · Analítica (D7)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "category": "TYPE",
+   "canonical_accelerator": "METADATA",
+   "usado_en": [
+    "accumulative_fact.fact_kind_code"
+   ],
+   "desc": "Tipo de tabla de hechos (Kimball).",
+   "values": {
+    "TRANSACTIONAL": "Un hecho por evento.",
+    "PERIODIC_SNAPSHOT": "Fotografía fechada periódica (evolución en el tiempo).",
+    "ACCUMULATING_SNAPSHOT": "Fila que se actualiza a lo largo de un ciclo."
+   }
+  },
+  "EXECUTION_LEVEL": {
+   "dominio": "OBS · Ejecución",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "run.execution_level_code",
+    "run_step.execution_level_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "WORKFLOW": "Nivel de corrida completa (run).",
+    "STEP": "Paso lógico del workflow.",
+    "RUNNER": "Ejecución de un runner concreto (run_step).",
+    "TASK": "Sub-tarea atómica dentro de un runner."
+   }
+  },
+  "RUN_STATUS": {
+   "dominio": "OBS · Ejecución",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "run.run_status_code",
+    "run_step.run_status_code",
+    "source_discovery_run.run_status_code",
+    "dq_governance_execution.result_status_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "RUNNING": "En ejecución.",
+    "COMPLETED": "Completado sin excepciones.",
+    "COMPLETED_WITH_WARNINGS": "Completado con avisos (DATUM nunca da error de ejecución, M-35).",
+    "COMPLETED_WITH_ERRORS": "Completado con errores registrados (autocontenido).",
+    "ERROR": "Fallo de infraestructura (no existe Databricks/cluster…)."
+   }
+  },
+  "TRIGGER_TYPE": {
+   "dominio": "OBS · Ejecución",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "run.trigger_type_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "SCHEDULED": "Disparo por planificación (schedule_cron).",
+    "MANUAL": "Disparo manual.",
+    "EVENT": "Disparo por evento.",
+    "REPROCESS": "Reproceso de un rango histórico."
+   }
+  },
+  "DQ_VERDICT": {
+   "dominio": "OBS · Calidad (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "run_step.crossing_result_code",
+    "dq_run_result.verdict_code",
+    "dq_column_incident.verdict_code",
+    "discovery_rule_evaluation.crossing_result_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "PASS": "La comprobación pasa.",
+    "WARNING": "Aviso (severidad WARNING).",
+    "ERROR": "Fallo (severidad ERROR)."
+   }
+  },
+  "DQ_ACTION": {
+   "dominio": "OBS · Calidad (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "dq_column_incident.action_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "CAST": "Casteo aplicado (TRY_CAST OK).",
+    "DEFAULT_APPLIED": "Default aplicado por obligatoriedad (null de origen).",
+    "NORMALIZED": "Valor normalizado por el dominio TYD.",
+    "REJECTED": "Valor rechazado (null por cast fallido / sin default)."
+   }
+  },
+  "DQ_INCIDENT_STATUS": {
+   "dominio": "OBS · Calidad (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "dq_incident.incident_status_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "OPEN": "Abierto.",
+    "ASSIGNED": "Asignado a un responsable.",
+    "IN_PROGRESS": "En resolución.",
+    "RESOLVED": "Resuelto.",
+    "CLOSED": "Cerrado.",
+    "DISMISSED": "Descartado (no procede)."
+   }
+  },
+  "DQ_GOVERNANCE_KIND": {
+   "dominio": "OBS · Calidad (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "dq_governance_execution.governance_kind_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "AUDIT": "Ejecución de un plan de auditoría (dq_audit_plan).",
+    "CERTIFICATION": "Ejecución de criterios de certificación (dq_certification_criteria).",
+    "ASSURANCE": "Ejecución de un procedimiento de aseguramiento (dq_assurance_procedure).",
+    "EVALUATION": "Ejecución de una especificación de evaluación (dq_evaluation_specification)."
+   }
+  },
+  "DRIFT_TYPE": {
+   "dominio": "OBS · Discovery (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "source_discovery_drift.drift_type_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "COLUMN_ADDED": "Columna añadida en la fuente.",
+    "COLUMN_REMOVED": "Columna eliminada.",
+    "TYPE_CHANGED": "Cambio de tipo.",
+    "NULLABILITY_CHANGED": "Cambio de nulabilidad.",
+    "RENAMED": "Renombrado.",
+    "KEY_CHANGED": "Cambio de clave/índice."
+   }
+  },
+  "DRIFT_STATUS": {
+   "dominio": "OBS · Discovery (observación)",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "source_discovery_drift.drift_status_code"
+   ],
+   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+   "canonical_accelerator": "OBSERVABILITY",
+   "values": {
+    "DETECTED": "Detectado, sin disposición.",
+    "PENDING_REVIEW": "Pendiente de revisión.",
+    "ACCEPTED": "Aceptado (→ source_entity_version).",
+    "REJECTED": "Rechazado."
+   }
   }
  },
  "categories": [
@@ -1245,4 +1578,4 @@
    "sort_order": 60
   }
  ]
-}
+}
