@@ -6,7 +6,7 @@
    "16 volcados de dominio (censo)"
   ],
   "materialized_entities": 311,
-  "total_attributes": 2712,
+  "total_attributes": 2714,
   "note": "Nivel 1 = entidad con atributos campo-a-campo (real, del visualizador). Las entidades solo nombradas en los volcados sin atributos NO se incluyen como completas: su detalle no existe en disco. · Tablas marcadas source=derivado_del_volcado tienen atributos DERIVADOS de la descripción del volcado + convenciones del metamodelo (no extraídos del visualizador).",
   "derived_entities": 59,
   "catalog_decisions": {
@@ -1769,6 +1769,24 @@
      },
      "is_identifying": false,
      "is_visible_er": true
+    },
+    {
+     "name": "retention_policy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "RETENTION_POLICY",
+     "catalog_ref_metadata_only": true,
+     "desc": "política de retención de la tabla persistente (null = sin política declarada); p.ej. AUDIT_7Y para copias de auditoría que deben sobrevivir a la ventana de la fuente"
+    },
+    {
+     "name": "is_append_only",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "true = tabla inmutable append-only (auditoría: nunca UPDATE/DELETE)"
     },
     {
      "name": "system",

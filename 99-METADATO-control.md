@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.17 — Julio 2026
+**Versión:** v1.18 — Julio 2026
 
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
@@ -14,11 +14,11 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 
 
 
-## Estado consolidado (tras METADATO-16..41, v1.17)
+## Estado consolidado (tras METADATO-16..42, v1.18)
 
-- Metamodelo: **311 entidades**, **2712 atributos**. Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
+- Metamodelo: **311 entidades**, **2714 atributos** (M-42: canonical_entity += retention_policy_code/is_append_only). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
 
-- Catálogos: **92** en `DATUM_Catalogos.json` (+9 OBSERVABILITY, M-41).
+- Catálogos: **93** en `DATUM_Catalogos.json` (+9 OBSERVABILITY M-41; +RETENTION_POLICY M-42).
 
 - **Campo técnico universal `system` (TYD_SYSTEM)** en todas las entidades: encapsula ancla i18n (`row_uuid`), ciclo de vida (`lifecycle_state_code` → LIFECYCLE_STATE) y auditoría (created_at/by, updated_at/by, is_active, version). No visible en ER; en el plano físico se descompone en 8 columnas.
 
@@ -167,6 +167,12 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **Bloque 3 — Unity Catalog (72):** UNITY_CATALOG + 8 hojas (access/billing/compute/lakeflow/query/**information_schema (47)**/data_quality_monitoring/data_classification). Nativas: nombres saneados `uc_*`, PK natural compuesta, catálogo físico `system`.
 - **Pendiente:** i18n atributos/entidades bloques 2–3; catalogización de enums STRING; revisión/poda de UC_INFORMATION_SCHEMA; PK compuesta vs. única en A–I; canonical_key/relation reales.
 
+### Ingesta de auditoría UC→observabilidad + retención (METADATO-42) — 311 / 2714 / 93
+- **Refina M-41.** UC (Databricks system tables) retiene 365 días; DATUM persiste copia propia que sobrevive. Dos capas: `system.*` = fuente efímera; las 72 `uc_*` = copia persistente en **`observability.uc`**, `retention_policy_code=AUDIT_7Y`, `is_append_only`.
+- **Metamodelo:** `canonical_entity` += `retention_policy_code` (→**RETENTION_POLICY** {SOURCE_DEFAULT/OPERATIONAL_90D/OPERATIONAL_1Y/AUDIT_5Y/AUDIT_7Y/PERMANENT}) + `is_append_only`. +1 catálogo, +2 atributos.
+- **Carga** (`DATUM_Carga_Observability_UC.json`): source_system databricks_system + 8 containers + 72 source_entity + 72 capture + 72 transformation PRINCIPAL + 2 business_process. **INCREMENTAL por watermark (25 logs de evento) / FULL-SNAPSHOT (47 information_schema)**. Flujo system.* → LANDING → STAGING (DQ) → observability.uc. source_attribute + watermark por DISCOVERY (auto-observado en source_discovery_run).
+- **Pendiente:** poblar source_attribute (discovery); capture_attribute WATERMARK; transformation_field si no es SELECT * puro.
+
 ## Aceleradores incorporados
 
 | Acelerador | Estado | Notas |
@@ -177,7 +183,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 | Calidad (DATA_QUALITY) | ACTIVO | circuito ingesta→calidad cerrado (M-35); motor de reglas derivadas + generador `compile_dq_checks.py` + visor «DQ rules» |
 
-| Observabilidad (OBSERVABILITY) | ACTIVO | **133 entidades** / 21 términos; ejecución (run/run_step) + discovery-obs + DQ-obs + snapshot + funcional DATUM A–I (auditoría/GDPR/incidentes/FinOps/lifecycle/madurez/MDM) + **72 tablas Unity Catalog** (UNITY_CATALOG). Físico `observability` (process/quality/audit) + `system` (M-41) |
+| Observabilidad (OBSERVABILITY) | ACTIVO | **133 entidades** / 21 términos; ejecución (run/run_step) + discovery-obs + DQ-obs + snapshot + funcional DATUM A–I (auditoría/GDPR/incidentes/FinOps/lifecycle/madurez/MDM) + **72 tablas Unity Catalog** (UNITY_CATALOG). Físico `observability` (process/quality/audit + esquema `uc` persistente) ; UC ingerido desde `system.*` (fuente 365d) → `observability.uc` (retención AUDIT_7Y, append-only), ingesta incremental/snapshot (M-42) |
 
 | Financiero (FINANCE) | REGISTRADO (0 entidades) | catálogo físico `business` |
 
@@ -276,5 +282,5 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 - **v1.17 (Julio 2026):** METADATO-41. Materialización del acelerador **OBSERVABILITY** (REGISTRADO 0 → ACTIVO 133 entidades / 21 términos) en 3 bloques: núcleo reasignado M-33..40 (14, +9 catálogos), funcional DATUM A–I (47), Unity Catalog nativo (72, +catálogo físico `system`). 178→311 entidades; 1161→2712 atributos; 83→92 catálogos.
 
-*Fin de `99-METADATO-control.md` v1.17.*
+- **v1.18 (Julio 2026):** METADATO-42. Ingesta de auditoría UC→observabilidad + retención (refina M-41): `canonical_entity` += retention_policy_code/is_append_only + catálogo RETENTION_POLICY; las 72 uc_* reubicadas a `observability.uc` (AUDIT_7Y, append-only); carga de ingesta `DATUM_Carga_Observability_UC.json` (system.* → observability.uc, incremental/snapshot, source_attribute+watermark por discovery). 2712→2714 atributos; 92→93 catálogos.\n\n*Fin de `99-METADATO-control.md` v1.18.*
 
