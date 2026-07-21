@@ -1550,6 +1550,24 @@
     "ACCEPTED": "Aceptado (→ source_entity_version).",
     "REJECTED": "Rechazado."
    }
+  },
+  "RETENTION_POLICY": {
+   "dominio": "OBS · Retención",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_entity.retention_policy_code"
+   ],
+   "canonical_accelerator": "OBSERVABILITY",
+   "desc": "Política de retención de una tabla persistente. La copia de auditoría de UC en observability retiene AUDIT_7Y, sobreviviendo a la ventana de 365 días de la fuente. Registrado METADATO-42.",
+   "values": {
+    "SOURCE_DEFAULT": "Retención por defecto de la fuente (p.ej. 365 días de las system tables de Databricks).",
+    "OPERATIONAL_90D": "Operacional, 90 días.",
+    "OPERATIONAL_1Y": "Operacional, 1 año.",
+    "AUDIT_5Y": "Auditoría, 5 años (inmutable).",
+    "AUDIT_7Y": "Auditoría, 7 años (inmutable).",
+    "PERMANENT": "Retención permanente (no se purga)."
+   }
   }
  },
  "categories": [

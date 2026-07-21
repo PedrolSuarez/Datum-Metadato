@@ -711,5 +711,21 @@ Se **materializa** el acelerador `OBSERVABILITY` (hasta ahora `REGISTRADO` con 0
 
 **PENDIENTES abiertos (M-41):** i18n a nivel **atributo** de las 133 y de **entidad** de las 119 de los bloques 2–3 (solo las 14 del bloque 1 traducidas); **catalogización** de los estados/severidades/tipos que quedaron como STRING (INCIDENT_SEVERITY, CONSENT_STATUS, DSR_STATUS, LIFECYCLE_PHASE…); **revisión/poda de `UC_INFORMATION_SCHEMA` (47 vistas de catálogo Databricks)** — muy homogéneas, valorar dejarlas como referencia; decidir **PK compuesta vs. única** en A–I; poblar `canonical_key`/`canonical_relation` reales; FK compuestas a `source_entity` en discovery-obs (pasada D3 pendiente); `object_type` += EXECUTION_RUN/DQ_OBSERVATION/UC si se necesita para hooks polimórficos.
 
-*Fin de `18-METADATO-decisiones.md` v1.17.*
+### METADATO-42 — Ingesta de auditoría UC→observabilidad: persistencia más allá de 365 días + retención (refina M-41) — DECIDIDO
+
+Refina M-41. Las system tables de Databricks (Unity Catalog) retienen solo **365 días**; para auditoría, DATUM persiste una copia propia que sobrevive a esa ventana. Se separan las dos capas que M-41 fundía: `system.*` = **fuente efímera** (read-only, 365d); las 72 `uc_*` = **copia persistente propiedad de DATUM** en `observability`, retención AUDIT_7Y, append-only/inmutable. **Modelo 311 entidades / 2712→2714 atributos / 92→93 catálogos.**
+
+**(A) Metamodelo (retención).** `canonical_entity` += `retention_policy_code` (→**RETENTION_POLICY**, nullable, metadata-first) + `is_append_only` (TYD_BOOLEAN). Catálogo nuevo **RETENTION_POLICY** {SOURCE_DEFAULT, OPERATIONAL_90D, OPERATIONAL_1Y, AUDIT_5Y, AUDIT_7Y, PERMANENT} (CONFIRMADO). Retención = propiedad universal de cualquier tabla canónica.
+
+**(B) Reubicación.** Las 72 `uc_*` pasan de catálogo físico `system` a **`observability`.`uc`** (esquema nuevo), con `retention_policy_code=AUDIT_7Y` e `is_append_only=1`. El catálogo físico `system` queda como ubicación de la **fuente**, no del dato persistente.
+
+**(C) Carga de ingesta** (fichero propio `DATUM_Carga_Observability_UC.json`, patrón PLANTILLA — cada acelerador añade su bloque de carga): `technology` databricks (LAKEHOUSE) + `source_system` `databricks_system` (kind DATABASE) + 8 `source_container` (los esquemas UC) + 72 `source_entity` + 72 `source_entity_capture` + 72 `transformation` PRINCIPAL + 2 `business_process` (uc_audit_ingest, SCHEDULE diario 03:00; uc_discovery, semanal). **Captura: INCREMENTAL por watermark (OPERATOR GT sobre event_time/start_time/usage_start_time/…) para los 25 logs de evento; FULL/SNAPSHOT fechado para las 47 `information_schema`** (estado-actual, sin marca temporal → se historiza por snapshot). Flujo `system.*` → LANDING (source.fuente_database, DELTA) → STAGING (gate DQ) → `observability.uc` (persistente, inmutable). `source_attribute` y la designación de la columna watermark (`source_entity_capture_attribute` role=WATERMARK) se pueblan por **DISCOVERY** (business_process uc_discovery), cuya corrida se **auto-observa** en `source_discovery_run`/`source_attribute_profile` — recursión limpia: la observabilidad observa su propia ingesta. `watermark_columns[]` documenta la columna prevista por tabla.
+
+**Autogestión ("desde ahí gestionar todo").** Una vez la tabla es canónica de DATUM hereda DQ, linaje, retención/lifecycle (LIFECYCLE_OPS: `archive_execution`/`recertification_execution`/`lifecycle_phase_transition`), i18n y analítica; cada corrida de ingesta se observa en `run`/`run_step`, su calidad en `dq_run_result`. La observabilidad se vuelve autoalimentada.
+
+**Verificado:** carga íntegra (0 FK colgantes: transformation→uc_* canónico, capture/transformation→source_entity, source_entity→container; valores de catálogo válidos; landing físico válido); 72/72 uc_* reubicadas con retención AUDIT_7Y. Modelo **311 / 2714 / 93**.
+
+**PENDIENTES abiertos (M-42):** poblar `source_attribute` vía discovery (o hand-seed si se prescinde de discovery); designar `capture_attribute` WATERMARK tras discovery; `transformation_field` 1:1 si la copia no es SELECT * puro; recordatorio operativo de la ventana de 365d de la fuente (la ingesta debe correr con holgura); política de purga/lifecycle de la copia AUDIT_7Y.
+
+*Fin de `18-METADATO-decisiones.md` v1.18.*
 
