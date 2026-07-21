@@ -850,5 +850,18 @@ Decisión de Pedro: (1) no depender de la 1ª corrida de discovery para las colu
 
 **Verificado:** 0 FK colgantes (source_attribute→source_entity, native_data_type→data_type, transformation_field→transformation + canonical_attribute existente); 72/72 tablas con sus columnas; 838 mapeos correctos.
 
-*Fin de `18-METADATO-decisiones.md` v1.28.*
+### METADATO-53 — Capa analítica del acelerador OBSERVABILITY (subject_kind=OBSERVABILITY) — DECIDIDO
+
+Se siembra la capa analítica D7/ANALYTICS **sobre los datos de observabilidad** (mismo patrón que M-40 para el metamodelo), para consumo por cualquier usuario DATUM. Solo seed analítico; **sin cambios de modelo ni catálogos (311/2717/94).**
+
+- **Dimensiones (+7):** `DIM_CANONICAL_ENTITY`, `DIM_BUSINESS_PROCESS`, `DIM_RUNNER_TYPE`, `DIM_SEVERITY`, `DIM_SOURCE_SYSTEM`, `DIM_PRINCIPAL` (expl.), `DIM_COST_CENTER` (expl.); reutiliza `DIM_SNAPSHOT_DATE`/`DIM_ACCELERATOR`/`DIM_DQ_DIMENSION` de M-40. Inferidas del metadato (catálogo/entidad).
+- **6 hechos** PERIODIC_SNAPSHOT · grano DÍA · VIEW (18 medidas, 18 fact_dimension): `FACT_OBS_EXECUTION` (run), `FACT_OBS_QUALITY` (dq_run_result), `FACT_OBS_ACCESS` (access_event), `FACT_OBS_COST` (uc_billing_usage), `FACT_OBS_INCIDENT` (incident), `FACT_OBS_INGESTION` (source_discovery_run).
+- **14 KPIs** (10 básicos + 4 derivados con `kpi_dependency`): básicos runs/failed/records/dq_checks/dq_failed/accesses/cost/open_incidents/mttr/drift; derivados `KPI_OBS_SUCCESS_RATE`, `KPI_OBS_DQ_PASS_RATE`, `KPI_OBS_COST_PER_ENTITY`, `KPI_OBS_TRUST_SCORE` (compuesto calidad+incidencia+drift).
+- **5 data products publicados** (`data_product`+`_fact`+`_dimension`): `DP_PLATFORM_HEALTH` (CERTIFIED), `DP_DATA_QUALITY_SCORECARD` (CERTIFIED), `DP_ACCESS_AUDIT` (CERTIFIED), `DP_FINOPS_CHARGEBACK` (CURATED), `DP_INGESTION_MONITOR` (CURATED); todos PUBLISHED.
+
+**Verificado:** 0 FK colgantes (fact_dimension→dimension, kpi→fact/measure, kpi_dependency, data_product_fact/dimension); `subject_kind=OBSERVABILITY`; unidades/tiers/perspectivas válidas.
+
+**PENDIENTE:** compilar las vistas de agregación de los 6 hechos y las expresiones de los 4 KPIs derivados (mismo runner analítico de M-40).
+
+*Fin de `18-METADATO-decisiones.md` v1.29.*
 
