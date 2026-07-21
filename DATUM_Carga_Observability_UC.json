@@ -9,6 +9,8 @@
    "source_entity",
    "source_entity_capture",
    "business_process",
+   "workflow_pattern",
+   "workflow_pattern_step",
    "transformation"
   ],
   "nota_discovery": "source_attribute y la designación de la columna watermark (source_entity_capture_attribute role=WATERMARK) se pueblan por DISCOVERY (business_process uc_discovery), cuya corrida se auto-observa en source_discovery_run/source_attribute_profile. watermark_columns[] documenta la columna prevista por tabla.",
@@ -92,8 +94,11 @@
    "source_entity": 72,
    "source_entity_capture": 72,
    "transformation": 72,
-   "business_process": 2
-  }
+   "business_process": 2,
+   "workflow_pattern": 2,
+   "workflow_pattern_step": 5
+  },
+  "nota_orquestacion": "uc_discovery_pattern (INGEST→TRANSFORM) puebla source_* en la 1ª corrida (auto-observada en source_discovery_run); uc_audit_ingest_pattern (CAPTURE→DQ_GATE(gate)→WRITE) ingiere system.* → observability.uc. Discovery-first: ejecutable sin sembrar source_attribute a mano."
  },
  "load": {
   "technology": [
@@ -3300,7 +3305,7 @@
     "code": "uc_audit_ingest",
     "parent_process_code": "",
     "business_unit_code": "",
-    "workflow_pattern_code": "",
+    "workflow_pattern_code": "uc_audit_ingest_pattern",
     "frequency_code": "DAILY",
     "trigger_kind_code": "SCHEDULE",
     "schedule_cron": "0 3 * * *",
@@ -3310,7 +3315,7 @@
     "code": "uc_discovery",
     "parent_process_code": "",
     "business_unit_code": "",
-    "workflow_pattern_code": "",
+    "workflow_pattern_code": "uc_discovery_pattern",
     "frequency_code": "WEEKLY",
     "trigger_kind_code": "SCHEDULE",
     "schedule_cron": "0 2 * * 1",
@@ -4252,6 +4257,89 @@
     "business_process_code": "uc_audit_ingest",
     "execution_order": "1",
     "is_distinct": "0",
+    "system": ""
+   }
+  ],
+  "workflow_pattern": [
+   {
+    "code": "uc_discovery_pattern",
+    "purpose_code": "INGESTION_VALIDATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "uc_audit_ingest_pattern",
+    "purpose_code": "INGESTION_VALIDATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   }
+  ],
+  "workflow_pattern_step": [
+   {
+    "workflow_pattern_code": "uc_discovery_pattern",
+    "code": "DISCOVER_INGEST",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_INGEST",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "uc_discovery_pattern",
+    "code": "DISCOVER_MAP",
+    "sequence_order": "2",
+    "runner_type_code": "RUNNER_TRANSFORM",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "uc_audit_ingest_pattern",
+    "code": "CAPTURE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_INGEST",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "uc_audit_ingest_pattern",
+    "code": "DQ_GATE",
+    "sequence_order": "2",
+    "runner_type_code": "RUNNER_DQ",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "1",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "uc_audit_ingest_pattern",
+    "code": "WRITE",
+    "sequence_order": "3",
+    "runner_type_code": "RUNNER_TRANSFORM",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
     "system": ""
    }
   ]

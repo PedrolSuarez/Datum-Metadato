@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.18 — Julio 2026
+**Versión:** v1.19 — Julio 2026
 
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
@@ -14,7 +14,7 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 
 
 
-## Estado consolidado (tras METADATO-16..42, v1.18)
+## Estado consolidado (tras METADATO-16..43, v1.19)
 
 - Metamodelo: **311 entidades**, **2714 atributos** (M-42: canonical_entity += retention_policy_code/is_append_only). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
 
@@ -172,6 +172,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **Metamodelo:** `canonical_entity` += `retention_policy_code` (→**RETENTION_POLICY** {SOURCE_DEFAULT/OPERATIONAL_90D/OPERATIONAL_1Y/AUDIT_5Y/AUDIT_7Y/PERMANENT}) + `is_append_only`. +1 catálogo, +2 atributos.
 - **Carga** (`DATUM_Carga_Observability_UC.json`): source_system databricks_system + 8 containers + 72 source_entity + 72 capture + 72 transformation PRINCIPAL + 2 business_process. **INCREMENTAL por watermark (25 logs de evento) / FULL-SNAPSHOT (47 information_schema)**. Flujo system.* → LANDING → STAGING (DQ) → observability.uc. source_attribute + watermark por DISCOVERY (auto-observado en source_discovery_run).
 - **Pendiente:** poblar source_attribute (discovery); capture_attribute WATERMARK; transformation_field si no es SELECT * puro.
+- **M-43 (orquestación ejecutable):** sembrados `workflow_pattern` (uc_discovery_pattern, uc_audit_ingest_pattern) + 5 steps (INGEST/DQ_GATE/WRITE) y enganchados los business_process. Discovery-first: la 1ª corrida (uc_discovery) auto-puebla source_attribute/tipos/watermark. Control-plane completo y ejecutable.
 
 ## Aceleradores incorporados
 
@@ -282,5 +283,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 - **v1.17 (Julio 2026):** METADATO-41. Materialización del acelerador **OBSERVABILITY** (REGISTRADO 0 → ACTIVO 133 entidades / 21 términos) en 3 bloques: núcleo reasignado M-33..40 (14, +9 catálogos), funcional DATUM A–I (47), Unity Catalog nativo (72, +catálogo físico `system`). 178→311 entidades; 1161→2712 atributos; 83→92 catálogos.
 
-- **v1.18 (Julio 2026):** METADATO-42. Ingesta de auditoría UC→observabilidad + retención (refina M-41): `canonical_entity` += retention_policy_code/is_append_only + catálogo RETENTION_POLICY; las 72 uc_* reubicadas a `observability.uc` (AUDIT_7Y, append-only); carga de ingesta `DATUM_Carga_Observability_UC.json` (system.* → observability.uc, incremental/snapshot, source_attribute+watermark por discovery). 2712→2714 atributos; 92→93 catálogos.\n\n*Fin de `99-METADATO-control.md` v1.18.*
+- **v1.18 (Julio 2026):** METADATO-42. Ingesta de auditoría UC→observabilidad + retención (refina M-41): `canonical_entity` += retention_policy_code/is_append_only + catálogo RETENTION_POLICY; las 72 uc_* reubicadas a `observability.uc` (AUDIT_7Y, append-only); carga de ingesta `DATUM_Carga_Observability_UC.json` (system.* → observability.uc, incremental/snapshot, source_attribute+watermark por discovery). 2712→2714 atributos; 92→93 catálogos.\n\n- **v1.19 (Julio 2026):** METADATO-43. Orquestación de la ingesta UC lista para ejecutar (discovery-first): +2 workflow_pattern +5 steps enganchados a los business_process, en DATUM_Carga_Observability_UC.json. Sin cambios de modelo (311/2714/93). La 1ª corrida de discovery auto-puebla source_attribute/tipos/watermark.
+
+*Fin de `99-METADATO-control.md` v1.19.*
 

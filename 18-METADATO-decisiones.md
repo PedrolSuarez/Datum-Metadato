@@ -727,5 +727,21 @@ Refina M-41. Las system tables de Databricks (Unity Catalog) retienen solo **365
 
 **PENDIENTES abiertos (M-42):** poblar `source_attribute` vía discovery (o hand-seed si se prescinde de discovery); designar `capture_attribute` WATERMARK tras discovery; `transformation_field` 1:1 si la copia no es SELECT * puro; recordatorio operativo de la ventana de 365d de la fuente (la ingesta debe correr con holgura); política de purga/lifecycle de la copia AUDIT_7Y.
 
-*Fin de `18-METADATO-decisiones.md` v1.18.*
+### METADATO-43 — Orquestación de la ingesta UC lista para ejecutar (discovery-first) — DECIDIDO
+
+Completa el bootstrap **ejecutable** de M-42: faltaba la orquestación (el `business_process` apuntaba a un `workflow_pattern` vacío). Solo datos de carga (control-plane) en `DATUM_Carga_Observability_UC.json`; **sin cambios de modelo ni catálogos (311/2714/93).**
+
+- **`workflow_pattern` (2):** `uc_discovery_pattern` (INGEST→TRANSFORM: lee el catálogo Databricks y mapea a `source_*`) y `uc_audit_ingest_pattern` (CAPTURE→DQ_GATE(gate)→WRITE: `system.*`→LANDING→STAGING/DQ→`observability.uc`). purpose=INGESTION_VALIDATION, automated.
+- **`workflow_pattern_step` (5):** DISCOVER_INGEST/DISCOVER_MAP; CAPTURE/DQ_GATE(`is_gate`)/WRITE, con `runner_type` RUNNER_INGEST/RUNNER_DQ/RUNNER_TRANSFORM (todos con `runner_capability`, M-34), scope ENTITY.
+- **`business_process` enganchados:** uc_discovery→uc_discovery_pattern; uc_audit_ingest→uc_audit_ingest_pattern.
+
+**Discovery-first:** la 1ª corrida es `uc_discovery`, que auto-puebla `source_attribute` + tipos nativos + la columna watermark (`source_entity_capture_attribute` role=WATERMARK) y se auto-observa en `source_discovery_run`/`source_attribute_profile`; después `uc_audit_ingest` ingiere. No hace falta sembrar a mano las 838 columnas ni los `data_type`.
+
+**Ejecutable:** el control-plane queda completo; el runner de plataforma (apuntado a un Databricks real) arranca sin metadato faltante. (No hay runtime Databricks en esta sesión: se prepara el bootstrap, no se lanza el job.)
+
+**Verificado:** 2 patrones + 5 steps; runners con capability; business_process→pattern resueltos (0 colgantes).
+
+**PENDIENTE:** 1ª corrida de discovery real para materializar `source_attribute`; ajustar watermark/particionado tras el profiling.
+
+*Fin de `18-METADATO-decisiones.md` v1.19.*
 
