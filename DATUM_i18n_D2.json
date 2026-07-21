@@ -2,7 +2,7 @@
  "_meta": {
   "scope": "D2",
   "criterio": "SHORT=rótulo UI · SUMMARY=qué es (1-2 frases) · FUNCTIONAL=detalle completo",
-  "entities": 27,
+  "entities": 41,
   "attributes": 207,
   "languages": [
    "es",
@@ -10,7 +10,7 @@
    "fr",
    "pt"
   ],
-  "estado": "D2 i18n COMPLETO: 27 entidades + 3 text_field_kind + todos los atributos (SHORT/SUMMARY/FUNCTIONAL, 4 idiomas)"
+  "estado": "D2 i18n COMPLETO: 27 entidades + 3 text_field_kind + todos los atributos (SHORT/SUMMARY/FUNCTIONAL, 4 idiomas) · +14 entidades OBSERVABILITY (nivel entidad SHORT/SUMMARY/FUNCTIONAL; atributos pendientes)"
  },
  "i18n": {
   "f96787833a8d01e7": {
@@ -5677,6 +5677,342 @@
      "en": "Composite audit field recording the author and date of the row's creation and last modification. It is present by rule in every table of the model.",
      "fr": "Champ d'audit composite enregistrant l'auteur et la date de création et de dernière modification de la ligne. Il est présent par règle dans toutes les tables du modèle.",
      "pt": "Campo composto de auditoria que regista o autor e a data de criação e última modificação da linha. Está presente por norma em todas as tabelas do modelo."
+    }
+   }
+  },
+  "3efb4d4cfef14fda": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "run",
+   "texts": {
+    "SHORT": {
+     "es": "Corrida",
+     "en": "Run",
+     "fr": "Exécution",
+     "pt": "Execução"
+    },
+    "SUMMARY": {
+     "es": "Traza de ejecución a nivel workflow: cabecera de una corrida completa disparada por un proceso de negocio.",
+     "en": "Workflow-level execution trace: header of a full run triggered by a business process.",
+     "fr": "Trace d'exécution au niveau workflow : en-tête d'une exécution complète déclenchée par un processus métier.",
+     "pt": "Traço de execução ao nível workflow: cabeçalho de uma execução completa disparada por um processo de negócio."
+    },
+    "FUNCTIONAL": {
+     "es": "Raíz del árbol de ejecución del orquestador. Reasignada desde Transformación (M-33): la ejecución no es metadato sino observación. Registra volúmenes y estado autocontenido (DATUM nunca da error de ejecución). De ella cuelgan los runs de discovery, calidad y snapshot.",
+     "en": "Root of the orchestrator execution tree. Reassigned from Transformation (M-33): execution is observation, not metadata. Records volumes and self-contained status (DATUM never raises an execution error). Discovery, quality and snapshot runs hang off it.",
+     "fr": "Racine de l'arbre d'exécution de l'orchestrateur. Réaffectée depuis Transformation (M-33) : l'exécution est de l'observation, pas des métadonnées. Enregistre volumes et statut autonome. Les exécutions de découverte, qualité et snapshot en dépendent.",
+     "pt": "Raiz da árvore de execução do orquestrador. Reatribuída a partir de Transformação (M-33): a execução é observação, não metadados. Regista volumes e estado autocontido. Dela dependem as execuções de descoberta, qualidade e snapshot."
+    }
+   }
+  },
+  "bfc630e5acb5f058": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "run_step",
+   "texts": {
+    "SHORT": {
+     "es": "Paso de corrida",
+     "en": "Run step",
+     "fr": "Étape d'exécution",
+     "pt": "Passo de execução"
+    },
+    "SUMMARY": {
+     "es": "Traza de ejecución de un paso (runner) dentro de una corrida. 1:1 con el paso del patrón de workflow.",
+     "en": "Execution trace of a step (runner) within a run. 1:1 with the workflow pattern step.",
+     "fr": "Trace d'exécution d'une étape (runner) au sein d'une exécution. 1:1 avec l'étape du patron de workflow.",
+     "pt": "Traço de execução de um passo (runner) dentro de uma execução. 1:1 com o passo do padrão de workflow."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de la corrida (PK propagada). El runner_type distingue la naturaleza (ingesta/transformación/calidad/carga/KPI/publicación). Reasignada desde Transformación (M-33).",
+     "en": "Weak dependent of the run (propagated PK). runner_type tells the nature (ingest/transform/quality/load/KPI/publish). Reassigned from Transformation (M-33).",
+     "fr": "Dépendante faible de l'exécution (PK propagée). runner_type indique la nature (ingestion/transformation/qualité/chargement/KPI/publication). Réaffectée depuis Transformation (M-33).",
+     "pt": "Dependente fraca da execução (PK propagada). runner_type indica a natureza (ingestão/transformação/qualidade/carga/KPI/publicação). Reatribuída a partir de Transformação (M-33)."
+    }
+   }
+  },
+  "5698c7cbf2882282": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "source_discovery_run",
+   "texts": {
+    "SHORT": {
+     "es": "Corrida de descubrimiento",
+     "en": "Discovery run",
+     "fr": "Exécution de découverte",
+     "pt": "Execução de descoberta"
+    },
+    "SUMMARY": {
+     "es": "Corrida de descubrimiento de fuentes: observa el proceso del orquestador que lee el catálogo de la fuente y lo mapea a las tablas source_*.",
+     "en": "Source discovery run: observes the orchestrator process that reads the source catalog and maps it to the source_* tables.",
+     "fr": "Exécution de découverte des sources : observe le processus de l'orchestrateur qui lit le catalogue source et le mappe vers les tables source_*.",
+     "pt": "Execução de descoberta de fontes: observa o processo do orquestrador que lê o catálogo da fonte e o mapeia para as tabelas source_*."
+    },
+    "FUNCTIONAL": {
+     "es": "El discovery es un proceso del orquestador (M-34): corre como un run. Reasignada desde Fuente de datos: la ejecución del discovery no es metadato, es observación.",
+     "en": "Discovery is an orchestrator process (M-34): it runs as a run. Reassigned from Data Source: discovery execution is observation, not metadata.",
+     "fr": "La découverte est un processus de l'orchestrateur (M-34) : elle s'exécute comme un run. Réaffectée depuis Source de données.",
+     "pt": "A descoberta é um processo do orquestrador (M-34): corre como um run. Reatribuída a partir de Fonte de dados."
+    }
+   }
+  },
+  "f2233ddb50e0b2fb": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "source_discovery_sampling_result",
+   "texts": {
+    "SHORT": {
+     "es": "Resultado de muestreo",
+     "en": "Sampling result",
+     "fr": "Résultat d'échantillonnage",
+     "pt": "Resultado de amostragem"
+    },
+    "SUMMARY": {
+     "es": "Resultado de muestreo de una corrida de discovery: valores muestreados de un objeto fuente para inferir tipo y calidad estructural.",
+     "en": "Sampling result of a discovery run: sampled values of a source object to infer type and structural quality.",
+     "fr": "Résultat d'échantillonnage d'une exécution de découverte : valeurs échantillonnées d'un objet source pour inférer type et qualité structurelle.",
+     "pt": "Resultado de amostragem de uma execução de descoberta: valores amostrados de um objeto de origem para inferir tipo e qualidade estrutural."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de la corrida de discovery. Reasignada desde Fuente de datos (M-34).",
+     "en": "Weak dependent of the discovery run. Reassigned from Data Source (M-34).",
+     "fr": "Dépendante faible de l'exécution de découverte. Réaffectée depuis Source de données (M-34).",
+     "pt": "Dependente fraca da execução de descoberta. Reatribuída a partir de Fonte de dados (M-34)."
+    }
+   }
+  },
+  "9a092ebf1704e5b0": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "source_attribute_profile",
+   "texts": {
+    "SHORT": {
+     "es": "Perfil de atributo fuente",
+     "en": "Source attribute profile",
+     "fr": "Profil d'attribut source",
+     "pt": "Perfil de atributo de origem"
+    },
+    "SUMMARY": {
+     "es": "Perfilado de un atributo fuente en una corrida de discovery: nulos, cardinalidad, min/max y patrón inferido.",
+     "en": "Profiling of a source attribute in a discovery run: nulls, cardinality, min/max and inferred pattern.",
+     "fr": "Profilage d'un attribut source lors d'une découverte : valeurs nulles, cardinalité, min/max et motif inféré.",
+     "pt": "Perfilagem de um atributo de origem numa execução de descoberta: nulos, cardinalidade, min/max e padrão inferido."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de la corrida de discovery; apunta al atributo fuente. Reasignada desde Fuente de datos (M-34).",
+     "en": "Weak dependent of the discovery run; points to the source attribute. Reassigned from Data Source (M-34).",
+     "fr": "Dépendante faible de l'exécution de découverte ; pointe vers l'attribut source. Réaffectée depuis Source de données (M-34).",
+     "pt": "Dependente fraca da execução de descoberta; aponta para o atributo de origem. Reatribuída a partir de Fonte de dados (M-34)."
+    }
+   }
+  },
+  "b78ea9d635e4a4da": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "discovery_rule_evaluation",
+   "texts": {
+    "SHORT": {
+     "es": "Evaluación de regla de discovery",
+     "en": "Discovery rule evaluation",
+     "fr": "Évaluation de règle de découverte",
+     "pt": "Avaliação de regra de descoberta"
+    },
+    "SUMMARY": {
+     "es": "Evaluación de una regla de discovery durante una corrida: si la regla de enriquecimiento/detección se cumplió y con qué veredicto.",
+     "en": "Evaluation of a discovery rule during a run: whether the enrichment/detection rule held and with what verdict.",
+     "fr": "Évaluation d'une règle de découverte pendant une exécution : si la règle d'enrichissement/détection a été respectée et avec quel verdict.",
+     "pt": "Avaliação de uma regra de descoberta durante uma execução: se a regra de enriquecimento/deteção se cumpriu e com que veredicto."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de la corrida de discovery; apunta a la discovery_rule. Reasignada desde Fuente de datos (M-34).",
+     "en": "Weak dependent of the discovery run; points to the discovery_rule. Reassigned from Data Source (M-34).",
+     "fr": "Dépendante faible de l'exécution de découverte ; pointe vers la discovery_rule. Réaffectée depuis Source de données (M-34).",
+     "pt": "Dependente fraca da execução de descoberta; aponta para a discovery_rule. Reatribuída a partir de Fonte de dados (M-34)."
+    }
+   }
+  },
+  "ca6304acec327cea": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "source_discovery_drift",
+   "texts": {
+    "SHORT": {
+     "es": "Deriva de descubrimiento",
+     "en": "Discovery drift",
+     "fr": "Dérive de découverte",
+     "pt": "Deriva de descoberta"
+    },
+    "SUMMARY": {
+     "es": "Hallazgo de deriva del re-descubrimiento: diferencia de esquema entre la fuente y las source_* registradas (columna añadida/eliminada, tipo cambiado…).",
+     "en": "Drift finding on re-discovery: schema difference between the source and the registered source_* (column added/removed, type changed…).",
+     "fr": "Constat de dérive lors du re-découverte : différence de schéma entre la source et les source_* enregistrées (colonne ajoutée/supprimée, type modifié…).",
+     "pt": "Constatação de deriva no redescobrimento: diferença de esquema entre a fonte e as source_* registadas (coluna adicionada/removida, tipo alterado…)."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de la corrida de discovery; el drift ACEPTADO se materializa en source_entity_version. Reasignada desde Fuente de datos (M-34).",
+     "en": "Weak dependent of the discovery run; ACCEPTED drift is materialized into source_entity_version. Reassigned from Data Source (M-34).",
+     "fr": "Dépendante faible de l'exécution de découverte ; la dérive ACCEPTÉE est matérialisée dans source_entity_version. Réaffectée depuis Source de données (M-34).",
+     "pt": "Dependente fraca da execução de descoberta; a deriva ACEITE materializa-se em source_entity_version. Reatribuída a partir de Fonte de dados (M-34)."
+    }
+   }
+  },
+  "a90a04acce61aa5f": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_run_result",
+   "texts": {
+    "SHORT": {
+     "es": "Resultado de calidad",
+     "en": "DQ run result",
+     "fr": "Résultat de qualité",
+     "pt": "Resultado de qualidade"
+    },
+    "SUMMARY": {
+     "es": "Resultado de la ejecución de una comprobación de calidad derivada del metamodelo. Aterriza la corrida de calidad de un paso.",
+     "en": "Result of a metamodel-derived quality check execution. Lands the quality run of a step.",
+     "fr": "Résultat de l'exécution d'un contrôle qualité dérivé du métamodèle. Consigne l'exécution qualité d'une étape.",
+     "pt": "Resultado da execução de uma verificação de qualidade derivada do metamodelo. Regista a execução de qualidade de um passo."
+    },
+    "FUNCTIONAL": {
+     "es": "Las reglas DQ se derivan, no se modelan como tabla (M-35). Lleva los dos ejes: clasificación (dimensión DAMA→ISO) y remediación (on_fail/severidad).",
+     "en": "DQ rules are derived, not modeled as a table (M-35). Carries both axes: classification (DAMA dimension→ISO) and remediation (on_fail/severity).",
+     "fr": "Les règles DQ sont dérivées, non modélisées comme table (M-35). Porte les deux axes : classification (dimension DAMA→ISO) et remédiation (on_fail/sévérité).",
+     "pt": "As regras DQ são derivadas, não modeladas como tabela (M-35). Leva os dois eixos: classificação (dimensão DAMA→ISO) e remediação (on_fail/severidade)."
+    }
+   }
+  },
+  "c6f1299aab831e6b": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_column_incident",
+   "texts": {
+    "SHORT": {
+     "es": "Incidente de columna",
+     "en": "Column incident",
+     "fr": "Incident de colonne",
+     "pt": "Incidente de coluna"
+    },
+    "SUMMARY": {
+     "es": "Incidente por columna del gate PRE_WRITE (M-36): salida de la UDF por columna con veredicto {PASS/WARNING/ERROR} y acción {CAST/DEFAULT_APPLIED/NORMALIZED/REJECTED}.",
+     "en": "Per-column incident of the PRE_WRITE gate (M-36): per-column UDF output with verdict {PASS/WARNING/ERROR} and action {CAST/DEFAULT_APPLIED/NORMALIZED/REJECTED}.",
+     "fr": "Incident par colonne du gate PRE_WRITE (M-36) : sortie de l'UDF par colonne avec verdict {PASS/WARNING/ERROR} et action {CAST/DEFAULT_APPLIED/NORMALIZED/REJECTED}.",
+     "pt": "Incidente por coluna do gate PRE_WRITE (M-36): saída da UDF por coluna com veredicto {PASS/WARNING/ERROR} e ação {CAST/DEFAULT_APPLIED/NORMALIZED/REJECTED}."
+    },
+    "FUNCTIONAL": {
+     "es": "Distingue el null 'de origen' (→default, WARNING) del null 'por cast fallido' (→FORMAT, sin default). Hogar de los catálogos pendientes de M-36.",
+     "en": "Distinguishes 'source' null (→default, WARNING) from 'cast-failure' null (→FORMAT, no default). Home of the M-36 pending catalogs.",
+     "fr": "Distingue le null « d'origine » (→défaut, WARNING) du null « par cast échoué » (→FORMAT, sans défaut). Foyer des catalogues en attente de M-36.",
+     "pt": "Distingue o null 'de origem' (→default, WARNING) do null 'por cast falhado' (→FORMAT, sem default). Casa dos catálogos pendentes de M-36."
+    }
+   }
+  },
+  "23df61f86dc8db96": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_incident",
+   "texts": {
+    "SHORT": {
+     "es": "Incidente de calidad",
+     "en": "Quality incident",
+     "fr": "Incident qualité",
+     "pt": "Incidente de qualidade"
+    },
+    "SUMMARY": {
+     "es": "Incidente de calidad con ciclo de vida (detección→asignación→resolución), disparado por un resultado de calidad cuya remediación no es automática.",
+     "en": "Quality incident with a lifecycle (detection→assignment→resolution), triggered by a DQ result whose remediation is not automatic.",
+     "fr": "Incident qualité avec cycle de vie (détection→affectation→résolution), déclenché par un résultat qualité dont la remédiation n'est pas automatique.",
+     "pt": "Incidente de qualidade com ciclo de vida (deteção→atribuição→resolução), disparado por um resultado de qualidade cuja remediação não é automática."
+    },
+    "FUNCTIONAL": {
+     "es": "Reasignado a Observabilidad como registro de la ejecución del circuito de calidad (M-35).",
+     "en": "Reassigned to Observability as a record of the quality circuit execution (M-35).",
+     "fr": "Réaffecté à l'Observabilité comme enregistrement de l'exécution du circuit qualité (M-35).",
+     "pt": "Reatribuído à Observabilidade como registo da execução do circuito de qualidade (M-35)."
+    }
+   }
+  },
+  "d312878f0231545a": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_remediation_action",
+   "texts": {
+    "SHORT": {
+     "es": "Acción de remediación",
+     "en": "Remediation action",
+     "fr": "Action de remédiation",
+     "pt": "Ação de remediação"
+    },
+    "SUMMARY": {
+     "es": "Acción de remediación ejecutada sobre un incidente de calidad.",
+     "en": "Remediation action executed on a quality incident.",
+     "fr": "Action de remédiation exécutée sur un incident qualité.",
+     "pt": "Ação de remediação executada sobre um incidente de qualidade."
+    },
+    "FUNCTIONAL": {
+     "es": "Weak dependiente de dq_incident. El tipo de remediación se deriva del metamodelo (normalización TYD, default, survivorship, on_miss, breach_action).",
+     "en": "Weak dependent of dq_incident. The remediation type is derived from the metamodel (TYD normalization, default, survivorship, on_miss, breach_action).",
+     "fr": "Dépendante faible de dq_incident. Le type de remédiation est dérivé du métamodèle (normalisation TYD, défaut, survivorship, on_miss, breach_action).",
+     "pt": "Dependente fraca de dq_incident. O tipo de remediação deriva-se do metamodelo (normalização TYD, default, survivorship, on_miss, breach_action)."
+    }
+   }
+  },
+  "840eeac7deaf49f5": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_quarantine_record",
+   "texts": {
+    "SHORT": {
+     "es": "Registro en cuarentena",
+     "en": "Quarantine record",
+     "fr": "Enregistrement en quarantaine",
+     "pt": "Registo em quarentena"
+    },
+    "SUMMARY": {
+     "es": "Registro de fila puesta en cuarentena por el circuito de calidad, gobernado por una política de cuarentena.",
+     "en": "Record of a row placed in quarantine by the quality circuit, governed by a quarantine policy.",
+     "fr": "Enregistrement d'une ligne mise en quarantaine par le circuit qualité, régi par une politique de quarantaine.",
+     "pt": "Registo de uma linha colocada em quarentena pelo circuito de qualidade, regido por uma política de quarentena."
+    },
+    "FUNCTIONAL": {
+     "es": "Observa la remediación QUARANTINE (M-35). La liberación se marca al validarse o corregirse.",
+     "en": "Observes the QUARANTINE remediation (M-35). Release is flagged when validated or corrected.",
+     "fr": "Observe la remédiation QUARANTINE (M-35). La libération est marquée à validation ou correction.",
+     "pt": "Observa a remediação QUARANTINE (M-35). A libertação é marcada ao validar-se ou corrigir-se."
+    }
+   }
+  },
+  "e0c8dee408a4236d": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "dq_governance_execution",
+   "texts": {
+    "SHORT": {
+     "es": "Ejecución de gobierno de calidad",
+     "en": "DQ governance execution",
+     "fr": "Exécution de gouvernance qualité",
+     "pt": "Execução de governança de qualidade"
+    },
+    "SUMMARY": {
+     "es": "Ejecución de una definición de gobierno de calidad de D8 (plan de auditoría, criterios de certificación, procedimiento de aseguramiento o especificación de evaluación).",
+     "en": "Execution of a D8 quality-governance definition (audit plan, certification criteria, assurance procedure or evaluation specification).",
+     "fr": "Exécution d'une définition de gouvernance qualité de D8 (plan d'audit, critères de certification, procédure d'assurance ou spécification d'évaluation).",
+     "pt": "Execução de uma definição de governança de qualidade de D8 (plano de auditoria, critérios de certificação, procedimento de garantia ou especificação de avaliação)."
+    },
+    "FUNCTIONAL": {
+     "es": "Las 6 definiciones viven en D8; su EJECUCIÓN aterriza aquí (M-35). Tipada por governance_kind con FK nullable a la definición concreta.",
+     "en": "The 6 definitions live in D8; their EXECUTION lands here (M-35). Typed by governance_kind with a nullable FK to the specific definition.",
+     "fr": "Les 6 définitions vivent dans D8 ; leur EXÉCUTION atterrit ici (M-35). Typée par governance_kind avec une FK nullable vers la définition concrète.",
+     "pt": "As 6 definições vivem em D8; a sua EXECUÇÃO aterra aqui (M-35). Tipada por governance_kind com FK anulável para a definição concreta."
+    }
+   }
+  },
+  "1a3693b0dd377499": {
+   "object_type": "CANONICAL_ENTITY",
+   "code": "metamodel_snapshot_run",
+   "texts": {
+    "SHORT": {
+     "es": "Corrida de snapshot del metamodelo",
+     "en": "Metamodel snapshot run",
+     "fr": "Exécution de snapshot du métamodèle",
+     "pt": "Execução de snapshot do metamodelo"
+    },
+    "SUMMARY": {
+     "es": "Corrida del snapshot periódico del propio metamodelo (auto-observación): evaluación que lo mide con su propia analítica.",
+     "en": "Periodic snapshot run of the metamodel itself (self-observation): an evaluation that measures it with its own analytics.",
+     "fr": "Exécution du snapshot périodique du métamodèle lui-même (auto-observation) : évaluation qui le mesure avec sa propre analytique.",
+     "pt": "Execução do snapshot periódico do próprio metamodelo (auto-observação): avaliação que o mede com a sua própria analítica."
+    },
+    "FUNCTIONAL": {
+     "es": "El dato agregado aterriza en los hechos FACT_MM_* del acelerador METADATA (D7); este registro es el histórico de la CORRIDA (M-39/40). subject_kind=METAMODEL.",
+     "en": "Aggregated data lands in the FACT_MM_* facts of the METADATA accelerator (D7); this record is the RUN history (M-39/40). subject_kind=METAMODEL.",
+     "fr": "Les données agrégées atterrissent dans les faits FACT_MM_* de l'accélérateur METADATA (D7) ; cet enregistrement est l'historique de l'EXÉCUTION (M-39/40). subject_kind=METAMODEL.",
+     "pt": "Os dados agregados aterram nos factos FACT_MM_* do acelerador METADATA (D7); este registo é o histórico da EXECUÇÃO (M-39/40). subject_kind=METAMODEL."
     }
    }
   }

@@ -209,6 +209,14 @@
     "physical_name": "business",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
+   },
+   {
+    "code": "system",
+    "storage_layer_code": "OBSERVABILITY",
+    "storage_location_code": "",
+    "physical_name": "system",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
    }
   ],
   "physical_schema": [
@@ -377,6 +385,62 @@
     "physical_catalog_code": "business",
     "code": "dimension",
     "physical_name": "dimension",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "access",
+    "physical_name": "access",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "billing",
+    "physical_name": "billing",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "compute",
+    "physical_name": "compute",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "lakeflow",
+    "physical_name": "lakeflow",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "query",
+    "physical_name": "query",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "information_schema",
+    "physical_name": "information_schema",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "data_quality_monitoring",
+    "physical_name": "data_quality_monitoring",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "data_classification",
+    "physical_name": "data_classification",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    }
@@ -1216,7 +1280,7 @@
    },
    {
     "code": "accumulative_fact",
-    "business_term_code": "METADATA",
+    "business_term_code": "FACT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1229,7 +1293,7 @@
    },
    {
     "code": "accumulative_fact_dimension",
-    "business_term_code": "METADATA",
+    "business_term_code": "FACT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1242,7 +1306,7 @@
    },
    {
     "code": "dimension",
-    "business_term_code": "METADATA",
+    "business_term_code": "DIMENSION",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1255,7 +1319,7 @@
    },
    {
     "code": "kpi",
-    "business_term_code": "METADATA",
+    "business_term_code": "KPI",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1268,7 +1332,7 @@
    },
    {
     "code": "kpi_dependency",
-    "business_term_code": "METADATA",
+    "business_term_code": "KPI",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1281,7 +1345,7 @@
    },
    {
     "code": "data_product",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_PRODUCT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -1294,7 +1358,7 @@
    },
    {
     "code": "data_product_fact",
-    "business_term_code": "METADATA",
+    "business_term_code": "DATA_PRODUCT",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "metadata",
     "is_pii": "0",
@@ -2825,19 +2889,1826 @@
     "access_frequency_code": "RARELY",
     "physical_catalog_code": "metadato",
     "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "accumulative_fact_measure",
+    "business_term_code": "FACT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dimension_attribute",
+    "business_term_code": "DIMENSION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dimension_level",
+    "business_term_code": "DIMENSION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_product_dimension",
+    "business_term_code": "DATA_PRODUCT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "accumulative_fact_filter",
+    "business_term_code": "FACT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "accumulative_fact_join",
+    "business_term_code": "FACT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "run",
+    "business_term_code": "EXECUTION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "run_step",
+    "business_term_code": "EXECUTION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_run",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_sampling_result",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_attribute_profile",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "discovery_rule_evaluation",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "source_discovery_drift",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_run_result",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_column_incident",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_incident",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_remediation_action",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_quarantine_record",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_governance_execution",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "metamodel_snapshot_run",
+    "business_term_code": "METAMODEL_SNAPSHOT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "run_term",
+    "business_term_code": "EXECUTION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "run_entity",
+    "business_term_code": "EXECUTION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dq_run_failed_records",
+    "business_term_code": "DQ_OBSERVATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "access_event",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "access_event_aggregate",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "access_review_finding",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "policy_evaluation_log",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "export_event",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "anomaly_detection",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "communication_sent",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "api_call",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "ui_navigation",
+    "business_term_code": "ACCESS_AUDIT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_subject",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "consent_record",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "consent_evidence",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "consent_withdrawal",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_subject_request",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dsr_action",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dsr_response",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "data_breach",
+    "business_term_code": "PRIVACY_DPO",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "incident",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "incident_action",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "incident_post_mortem",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "alert",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "support_ticket",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "breaking_change_notification",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "external_delivery_execution",
+    "business_term_code": "INCIDENT_ALERT",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "resource_consumption",
+    "business_term_code": "FINOPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "cost_aggregate",
+    "business_term_code": "FINOPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "cost_anomaly",
+    "business_term_code": "FINOPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "budget_breach",
+    "business_term_code": "FINOPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "archive_execution",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "reactivation_request",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "lifecycle_phase_transition",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "recertification_execution",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "backup_execution",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "dr_test_execution",
+    "business_term_code": "LIFECYCLE_OPS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "process",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "maturity_assessment_execution",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "platform_health_snapshot",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "datum_internal_kpi_value",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "committee_session",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "committee_decision_execution",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "governance_initiative_transition",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "migration_milestone_transition",
+    "business_term_code": "GOVERNANCE_MATURITY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "audit",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "golden_record_fusion",
+    "business_term_code": "GOLDEN_RECORD",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "golden_record_match_decision",
+    "business_term_code": "GOLDEN_RECORD",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "golden_record_fusion_source_contribution",
+    "business_term_code": "GOLDEN_RECORD",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "quality",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "observability",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_audit",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_clean_room_events",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_inbound_network",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_outbound_network",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_assistant_events",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_table_lineage",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_access_column_lineage",
+    "business_term_code": "UC_ACCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "access",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_billing_usage",
+    "business_term_code": "UC_BILLING",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "billing",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_billing_list_prices",
+    "business_term_code": "UC_BILLING",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "billing",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_clusters",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_warehouses",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_warehouse_events",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_node_timeline",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_node_types",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_instance_pools",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_compute_instance_events",
+    "business_term_code": "UC_COMPUTE",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "compute",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_jobs",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_job_tasks",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_job_run_timeline",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_job_task_run_timeline",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_pipelines",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_lakeflow_pipeline_update_timeline",
+    "business_term_code": "UC_LAKEFLOW",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "lakeflow",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_query_history",
+    "business_term_code": "UC_QUERY",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "query",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_metastores",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_catalogs",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_schemata",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_tables",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_views",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_columns",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_volumes",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_routines",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_routine_columns",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_parameters",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_information_schema_catalog_name",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_table_constraints",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_key_column_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_referential_constraints",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_constraint_column_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_constraint_table_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_check_constraints",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_metastore_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_catalog_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_schema_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_table_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_routine_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_volume_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_connection_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_credential_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_external_location_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_storage_credential_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_column_masks",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_row_filters",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_catalog_tags",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_schema_tags",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_table_tags",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_column_tags",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_volume_tags",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_connections",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_credentials",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_external_locations",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_storage_credentials",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_shares",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_providers",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_recipients",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_recipient_tokens",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_recipient_allowed_ip_ranges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_share_recipient_privileges",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_catalog_provider_share_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_schema_share_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_information_schema_table_share_usage",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "information_schema",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_data_quality_monitoring_table_results",
+    "business_term_code": "UC_DATA_QUALITY_MONITORING",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "data_quality_monitoring",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
+   },
+   {
+    "code": "uc_data_classification_results",
+    "business_term_code": "UC_DATA_CLASSIFICATION",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "data_classification",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "INTERNAL",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "DAILY",
+    "physical_catalog_code": "system",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "entity_count": 172,
+    "entity_count": 178,
     "display_order": 10
    },
    {
     "code": "OBSERVABILITY",
     "accelerator_version": "1.0.0",
-    "entity_count": 0,
+    "entity_count": 133,
     "display_order": 20
    },
    {
@@ -3165,6 +5036,266 @@
     "regulatory_reference": "UNE 0078",
     "approved_by_committee_at": null,
     "display_order": 350
+   },
+   {
+    "code": "ANALYTICS",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 120
+   },
+   {
+    "code": "FACT",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "ANALYTICS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "DIMENSION",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "ANALYTICS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "KPI",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "ANALYTICS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 30
+   },
+   {
+    "code": "DATA_PRODUCT",
+    "canonical_accelerator_code": "METADATA",
+    "parent_term_code": "ANALYTICS",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 40
+   },
+   {
+    "code": "OBSERVABILITY",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "EXECUTION",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
+    "code": "DISCOVERY_OBSERVATION",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 20
+   },
+   {
+    "code": "DQ_OBSERVATION",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 30
+   },
+   {
+    "code": "METAMODEL_SNAPSHOT",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 40
+   },
+   {
+    "code": "ACCESS_AUDIT",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": true,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 50
+   },
+   {
+    "code": "PRIVACY_DPO",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": true,
+    "is_regulatory": true,
+    "regulatory_reference": "RGPD/GDPR",
+    "approved_by_committee_at": null,
+    "display_order": 60
+   },
+   {
+    "code": "INCIDENT_ALERT",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 70
+   },
+   {
+    "code": "FINOPS",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 80
+   },
+   {
+    "code": "LIFECYCLE_OPS",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 90
+   },
+   {
+    "code": "GOVERNANCE_MATURITY",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 100
+   },
+   {
+    "code": "GOLDEN_RECORD",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 110
+   },
+   {
+    "code": "UNITY_CATALOG",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "OBSERVABILITY",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 200
+   },
+   {
+    "code": "UC_ACCESS",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 210
+   },
+   {
+    "code": "UC_BILLING",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 220
+   },
+   {
+    "code": "UC_COMPUTE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 230
+   },
+   {
+    "code": "UC_LAKEFLOW",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 240
+   },
+   {
+    "code": "UC_QUERY",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 250
+   },
+   {
+    "code": "UC_INFORMATION_SCHEMA",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 260
+   },
+   {
+    "code": "UC_DATA_QUALITY_MONITORING",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 270
+   },
+   {
+    "code": "UC_DATA_CLASSIFICATION",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": "UNITY_CATALOG",
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 280
    }
   ],
   "delta_property": [
@@ -3874,6 +6005,186 @@
     "canonical_accelerator_code": "METADATA",
     "is_ordered": true,
     "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "TIME_GRAIN",
+    "category_code": "TIME",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "MATERIALIZATION_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "KPI_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "SUBJECT_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "UNIT",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 5,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "CERTIFICATION_TIER",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "PUBLICATION_STATUS",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "PERSPECTIVE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DIMENSION_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DERIVATION_MODE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 2,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "FACT_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "METADATA",
+    "is_ordered": false,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "EXECUTION_LEVEL",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "RUN_STATUS",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 5,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "TRIGGER_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_VERDICT",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 3,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_ACTION",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_INCIDENT_STATUS",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 6,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DQ_GOVERNANCE_KIND",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 4,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DRIFT_TYPE",
+    "category_code": "TYPE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 6,
+    "external_authority_code": "INTERNAL",
+    "external_standard_ref": null
+   },
+   {
+    "code": "DRIFT_STATUS",
+    "category_code": "STATE",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "is_ordered": true,
+    "min_active_values": 4,
     "external_authority_code": "INTERNAL",
     "external_standard_ref": null
    }
@@ -5815,6 +8126,531 @@
     "reference_catalog_code": "DQ_PHASE",
     "code": "POST_WRITE",
     "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATERIALIZATION_MODE",
+    "code": "TABLE",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATERIALIZATION_MODE",
+    "code": "MATERIALIZED_VIEW",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "MATERIALIZATION_MODE",
+    "code": "VIEW",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "KPI_TYPE",
+    "code": "BASIC",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "KPI_TYPE",
+    "code": "DERIVED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SUBJECT_KIND",
+    "code": "BUSINESS",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SUBJECT_KIND",
+    "code": "DATA_QUALITY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SUBJECT_KIND",
+    "code": "METAMODEL",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "SUBJECT_KIND",
+    "code": "OBSERVABILITY",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "UNIT",
+    "code": "COUNT",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "UNIT",
+    "code": "CURRENCY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "UNIT",
+    "code": "PERCENTAGE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "UNIT",
+    "code": "RATIO",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "UNIT",
+    "code": "DURATION",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CERTIFICATION_TIER",
+    "code": "RAW",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CERTIFICATION_TIER",
+    "code": "CURATED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "CERTIFICATION_TIER",
+    "code": "CERTIFIED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PUBLICATION_STATUS",
+    "code": "DRAFT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PUBLICATION_STATUS",
+    "code": "PUBLISHED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PUBLICATION_STATUS",
+    "code": "DEPRECATED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PUBLICATION_STATUS",
+    "code": "RETIRED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PERSPECTIVE",
+    "code": "CORE",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PERSPECTIVE",
+    "code": "COMPLEMENTARY",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "PERSPECTIVE",
+    "code": "REFERENCE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DIMENSION_KIND",
+    "code": "CLASSIC",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DIMENSION_KIND",
+    "code": "SNOWFLAKE",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DERIVATION_MODE",
+    "code": "INFERRED",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DERIVATION_MODE",
+    "code": "EXPLICIT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TIME_GRAIN",
+    "code": "HOUR",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TIME_GRAIN",
+    "code": "DAY",
+    "sort_order": 2,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TIME_GRAIN",
+    "code": "MONTH",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TIME_GRAIN",
+    "code": "YEAR",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FACT_KIND",
+    "code": "TRANSACTIONAL",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FACT_KIND",
+    "code": "PERIODIC_SNAPSHOT",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "FACT_KIND",
+    "code": "ACCUMULATING_SNAPSHOT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXECUTION_LEVEL",
+    "code": "WORKFLOW",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXECUTION_LEVEL",
+    "code": "STEP",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXECUTION_LEVEL",
+    "code": "RUNNER",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "EXECUTION_LEVEL",
+    "code": "TASK",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUN_STATUS",
+    "code": "RUNNING",
+    "sort_order": 1,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUN_STATUS",
+    "code": "COMPLETED",
+    "sort_order": 2,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUN_STATUS",
+    "code": "COMPLETED_WITH_WARNINGS",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUN_STATUS",
+    "code": "COMPLETED_WITH_ERRORS",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "RUN_STATUS",
+    "code": "ERROR",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_TYPE",
+    "code": "SCHEDULED",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_TYPE",
+    "code": "MANUAL",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_TYPE",
+    "code": "EVENT",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "TRIGGER_TYPE",
+    "code": "REPROCESS",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_VERDICT",
+    "code": "PASS",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_VERDICT",
+    "code": "WARNING",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_VERDICT",
+    "code": "ERROR",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ACTION",
+    "code": "CAST",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ACTION",
+    "code": "DEFAULT_APPLIED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ACTION",
+    "code": "NORMALIZED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_ACTION",
+    "code": "REJECTED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "OPEN",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "ASSIGNED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "IN_PROGRESS",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "RESOLVED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "CLOSED",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_INCIDENT_STATUS",
+    "code": "DISMISSED",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_GOVERNANCE_KIND",
+    "code": "AUDIT",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_GOVERNANCE_KIND",
+    "code": "CERTIFICATION",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_GOVERNANCE_KIND",
+    "code": "ASSURANCE",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DQ_GOVERNANCE_KIND",
+    "code": "EVALUATION",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "COLUMN_ADDED",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "COLUMN_REMOVED",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "TYPE_CHANGED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "NULLABILITY_CHANGED",
+    "sort_order": 4,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "RENAMED",
+    "sort_order": 5,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_TYPE",
+    "code": "KEY_CHANGED",
+    "sort_order": 6,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_STATUS",
+    "code": "DETECTED",
+    "sort_order": 1,
+    "is_default": true,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_STATUS",
+    "code": "PENDING_REVIEW",
+    "sort_order": 2,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_STATUS",
+    "code": "ACCEPTED",
+    "sort_order": 3,
+    "is_default": false,
+    "is_terminal": true
+   },
+   {
+    "reference_catalog_code": "DRIFT_STATUS",
+    "code": "REJECTED",
+    "sort_order": 4,
     "is_default": false,
     "is_terminal": true
    }
@@ -9429,6 +12265,327 @@
     "dimension_code": "TIMELINESS",
     "iso_characteristic_code": "CURRENTNESS"
    }
+  ],
+  "object_type": [
+   {
+    "code": "CANONICAL_ENTITY"
+   },
+   {
+    "code": "ACCUMULATIVE_FACT"
+   },
+   {
+    "code": "DIMENSION"
+   },
+   {
+    "code": "KPI"
+   },
+   {
+    "code": "DATA_PRODUCT"
+   },
+   {
+    "code": "DQ_CHECK"
+   },
+   {
+    "code": "REFERENCE_CATALOG"
+   },
+   {
+    "code": "BUSINESS_TERM"
+   }
+  ],
+  "dimension": [
+   {
+    "code": "DIM_ACCELERATOR",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_accelerator",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_TERM",
+    "dimension_kind_code": "SNOWFLAKE",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "business_term",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_ENTITY_TYPE",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_entity",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_DQ_DIMENSION",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "REFERENCE_CATALOG",
+    "source_object_row_uuid": "DQ_DIMENSION",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_SNAPSHOT_DATE",
+    "dimension_kind_code": "SNOWFLAKE",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "temporal_hierarchy",
+    "business_view_code": null
+   }
+  ],
+  "accumulative_fact": [
+   {
+    "code": "FACT_MM_ENTITY",
+    "business_term_code": "CANONICAL_ENTITY",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_entity",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_MM_ATTRIBUTE",
+    "business_term_code": "CANONICAL_ENTITY",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_attribute",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_MM_CATALOG",
+    "business_term_code": "DATA_CATALOG",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "reference_catalog",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_MM_QUALITY",
+    "business_term_code": "DATA_QUALITY",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_entity",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   }
+  ],
+  "accumulative_fact_measure": [
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "code": "N_ENTITIES",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "code": "N_ATTRIBUTES",
+    "aggregate_function_code": "SUM",
+    "source_expression": "attribute_count",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "code": "N_FK_ENTITY",
+    "aggregate_function_code": "SUM",
+    "source_expression": "fk_entity_count",
+    "measure_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "code": "N_WEAK",
+    "aggregate_function_code": "SUM",
+    "source_expression": "is_weak",
+    "measure_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ATTRIBUTE",
+    "code": "N_ATTRIBUTES",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "code": "N_CATALOGS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "code": "N_VALUES",
+    "aggregate_function_code": "SUM",
+    "source_expression": "value_count",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_QUALITY",
+    "code": "N_EXCEPTIONS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "is_exception",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_QUALITY",
+    "code": "N_CHECKS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 2
+   }
+  ],
+  "accumulative_fact_dimension": [
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "dimension_code": "DIM_TERM",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "dimension_code": "DIM_ENTITY_TYPE",
+    "dimension_level_code": null,
+    "dimension_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_QUALITY",
+    "dimension_code": "DIM_DQ_DIMENSION",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_MM_QUALITY",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   }
+  ],
+  "kpi": [
+   {
+    "code": "KPI_MM_ENTITIES",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "fact_measure_code": "N_ENTITIES",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_MM_ATTRIBUTES",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": "FACT_MM_ENTITY",
+    "fact_measure_code": "N_ATTRIBUTES",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_MM_AVG_ATTR",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "RATIO"
+   },
+   {
+    "code": "KPI_MM_CATALOGS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "fact_measure_code": "N_CATALOGS",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_MM_CATALOG_VALUES",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": "FACT_MM_CATALOG",
+    "fact_measure_code": "N_VALUES",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_MM_DQ_EXCEPTIONS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": "FACT_MM_QUALITY",
+    "fact_measure_code": "N_EXCEPTIONS",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_MM_FK_MDF_PCT",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "PERCENTAGE"
+   },
+   {
+    "code": "KPI_MM_TERMED_PCT",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "METAMODEL",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "PERCENTAGE"
+   }
+  ],
+  "kpi_dependency": [
+   {
+    "kpi_code": "KPI_MM_AVG_ATTR",
+    "depends_on_kpi_code": "KPI_MM_ATTRIBUTES",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_MM_AVG_ATTR",
+    "depends_on_kpi_code": "KPI_MM_ENTITIES",
+    "dependency_order": 2
+   },
+   {
+    "kpi_code": "KPI_MM_FK_MDF_PCT",
+    "depends_on_kpi_code": "KPI_MM_ENTITIES",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_MM_TERMED_PCT",
+    "depends_on_kpi_code": "KPI_MM_ENTITIES",
+    "dependency_order": 1
+   }
   ]
  }
-}
+}
