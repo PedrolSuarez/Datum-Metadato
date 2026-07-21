@@ -1,0 +1,354 @@
+{
+ "_meta": {
+  "titulo": "DATUM · Carga de procesos de derivación de la observabilidad (METADATO-49)",
+  "proposito": "Los 9 procesos programados (DERIVED_SCHEDULED) que alimentan la observabilidad nativa de DATUM que NO es telemetría directa del runner. Esqueleto de orquestación (business_process + workflow_pattern + step); la lógica de cómputo (umbrales, agregaciones) es el detalle por proceso.",
+  "mapa": [
+   {
+    "proceso": "obs_dq_incident",
+    "produce": "dq_incident",
+    "runner": "RUNNER_DQ",
+    "cadencia": "REAL_TIME",
+    "lee": "dq_run_result (fallidos sin auto-remediar)"
+   },
+   {
+    "proceso": "obs_incident",
+    "produce": "incident",
+    "runner": "RUNNER_KPI",
+    "cadencia": "HOURLY",
+    "lee": "run_step(ERROR) + dq_incident"
+   },
+   {
+    "proceso": "obs_alert",
+    "produce": "alert",
+    "runner": "RUNNER_KPI",
+    "cadencia": "HOURLY",
+    "lee": "run_step, dq_run_result, cost_anomaly"
+   },
+   {
+    "proceso": "obs_cost_anomaly",
+    "produce": "cost_anomaly",
+    "runner": "RUNNER_KPI",
+    "cadencia": "DAILY",
+    "lee": "uc_billing_usage"
+   },
+   {
+    "proceso": "obs_budget_breach",
+    "produce": "budget_breach",
+    "runner": "RUNNER_KPI",
+    "cadencia": "DAILY",
+    "lee": "uc_billing_usage + presupuesto"
+   },
+   {
+    "proceso": "obs_metamodel_snapshot_run",
+    "produce": "metamodel_snapshot_run",
+    "runner": "RUNNER_KPI",
+    "cadencia": "WEEKLY",
+    "lee": "el propio metamodelo"
+   },
+   {
+    "proceso": "obs_platform_health_snapshot",
+    "produce": "platform_health_snapshot",
+    "runner": "RUNNER_KPI",
+    "cadencia": "DAILY",
+    "lee": "run/run_step + dq_run_result"
+   },
+   {
+    "proceso": "obs_datum_internal_kpi_value",
+    "produce": "datum_internal_kpi_value",
+    "runner": "RUNNER_KPI",
+    "cadencia": "DAILY",
+    "lee": "telemetría agregada"
+   },
+   {
+    "proceso": "obs_anomaly_detection",
+    "produce": "anomaly_detection",
+    "runner": "RUNNER_KPI",
+    "cadencia": "DAILY",
+    "lee": "access_event (vista sobre uc_access_audit)"
+   }
+  ],
+  "recuento": {
+   "business_process": 9,
+   "workflow_pattern": 9,
+   "workflow_pattern_step": 9
+  }
+ },
+ "load": {
+  "business_process": [
+   {
+    "code": "obs_dq_incident",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_dq_incident_pattern",
+    "frequency_code": "REAL_TIME",
+    "trigger_kind_code": "EVENT",
+    "schedule_cron": "",
+    "system": ""
+   },
+   {
+    "code": "obs_incident",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_incident_pattern",
+    "frequency_code": "HOURLY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 * * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_alert",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_alert_pattern",
+    "frequency_code": "HOURLY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 * * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_cost_anomaly",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_cost_anomaly_pattern",
+    "frequency_code": "DAILY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 4 * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_budget_breach",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_budget_breach_pattern",
+    "frequency_code": "DAILY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 4 * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_metamodel_snapshot_run",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_metamodel_snapshot_run_pattern",
+    "frequency_code": "WEEKLY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 5 1,15 * *",
+    "system": ""
+   },
+   {
+    "code": "obs_platform_health_snapshot",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_platform_health_snapshot_pattern",
+    "frequency_code": "DAILY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 6 * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_datum_internal_kpi_value",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_datum_internal_kpi_value_pattern",
+    "frequency_code": "DAILY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 6 * * *",
+    "system": ""
+   },
+   {
+    "code": "obs_anomaly_detection",
+    "parent_process_code": "",
+    "business_unit_code": "",
+    "workflow_pattern_code": "obs_anomaly_detection_pattern",
+    "frequency_code": "DAILY",
+    "trigger_kind_code": "SCHEDULE",
+    "schedule_cron": "0 4 * * *",
+    "system": ""
+   }
+  ],
+  "workflow_pattern": [
+   {
+    "code": "obs_dq_incident_pattern",
+    "purpose_code": "CUSTOM",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_incident_pattern",
+    "purpose_code": "CUSTOM",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_alert_pattern",
+    "purpose_code": "CUSTOM",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_cost_anomaly_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_budget_breach_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_metamodel_snapshot_run_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_platform_health_snapshot_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_datum_internal_kpi_value_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   },
+   {
+    "code": "obs_anomaly_detection_pattern",
+    "purpose_code": "KPI_COMPUTATION",
+    "is_automated": "1",
+    "sla_total_minutes": "",
+    "system": ""
+   }
+  ],
+  "workflow_pattern_step": [
+   {
+    "workflow_pattern_code": "obs_dq_incident_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_DQ",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_incident_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "PROCESS",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_alert_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "PROCESS",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_cost_anomaly_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_budget_breach_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_metamodel_snapshot_run_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "PROCESS",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_platform_health_snapshot_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "PROCESS",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_datum_internal_kpi_value_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "PROCESS",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   },
+   {
+    "workflow_pattern_code": "obs_anomaly_detection_pattern",
+    "code": "COMPUTE",
+    "sequence_order": "1",
+    "runner_type_code": "RUNNER_KPI",
+    "scope_level_code": "ENTITY",
+    "is_optional": "0",
+    "is_parallel_with_previous": "0",
+    "sla_minutes": "",
+    "is_gate": "0",
+    "schedule_override": "",
+    "system": ""
+   }
+  ]
+ }
+}

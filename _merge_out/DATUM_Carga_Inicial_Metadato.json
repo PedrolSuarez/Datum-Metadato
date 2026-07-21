@@ -209,6 +209,14 @@
     "physical_name": "business",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
+   },
+   {
+    "code": "system",
+    "storage_layer_code": "OBSERVABILITY",
+    "storage_location_code": "",
+    "physical_name": "system",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
    }
   ],
   "physical_schema": [
@@ -377,6 +385,62 @@
     "physical_catalog_code": "business",
     "code": "dimension",
     "physical_name": "dimension",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "access",
+    "physical_name": "access",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "billing",
+    "physical_name": "billing",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "compute",
+    "physical_name": "compute",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "lakeflow",
+    "physical_name": "lakeflow",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "query",
+    "physical_name": "query",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "information_schema",
+    "physical_name": "information_schema",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "data_quality_monitoring",
+    "physical_name": "data_quality_monitoring",
+    "assigned_catalog_code": "databricks",
+    "assigned_schema_code": "storage"
+   },
+   {
+    "physical_catalog_code": "system",
+    "code": "data_classification",
+    "physical_name": "data_classification",
     "assigned_catalog_code": "databricks",
     "assigned_schema_code": "storage"
    },
@@ -2922,10 +2986,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "run_step",
@@ -2938,10 +2999,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_run",
@@ -2954,10 +3012,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_sampling_result",
@@ -2970,10 +3025,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_attribute_profile",
@@ -2986,10 +3038,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "discovery_rule_evaluation",
@@ -3002,10 +3051,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "source_discovery_drift",
@@ -3018,10 +3064,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_run_result",
@@ -3034,10 +3077,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_column_incident",
@@ -3050,10 +3090,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "GATE_UDF"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_incident",
@@ -3066,10 +3103,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "0",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_remediation_action",
@@ -3082,10 +3116,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_quarantine_record",
@@ -3098,10 +3129,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "0",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_governance_execution",
@@ -3114,10 +3142,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "metamodel_snapshot_run",
@@ -3130,10 +3155,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "run_term",
@@ -3146,10 +3168,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "run_entity",
@@ -3162,10 +3181,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dq_run_failed_records",
@@ -3178,10 +3194,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "access_event",
@@ -3194,11 +3207,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "",
-    "is_append_only": "",
-    "population_mode_code": "UC_VIEW",
-    "derived_from_entity": "uc_access_audit"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "access_event_aggregate",
@@ -3211,11 +3220,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "",
-    "is_append_only": "",
-    "population_mode_code": "UC_VIEW",
-    "derived_from_entity": "uc_access_audit"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "access_review_finding",
@@ -3228,10 +3233,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "policy_evaluation_log",
@@ -3244,10 +3246,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "export_event",
@@ -3260,10 +3259,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "anomaly_detection",
@@ -3276,10 +3272,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "communication_sent",
@@ -3292,10 +3285,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "api_call",
@@ -3308,10 +3298,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "ui_navigation",
@@ -3324,10 +3311,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_subject",
@@ -3340,10 +3324,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "consent_record",
@@ -3356,10 +3337,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "consent_evidence",
@@ -3372,10 +3350,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "consent_withdrawal",
@@ -3388,10 +3363,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_subject_request",
@@ -3404,10 +3376,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dsr_action",
@@ -3420,10 +3389,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dsr_response",
@@ -3436,10 +3402,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "data_breach",
@@ -3452,10 +3415,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "incident",
@@ -3468,10 +3428,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "0",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "incident_action",
@@ -3484,10 +3441,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "incident_post_mortem",
@@ -3500,10 +3454,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "alert",
@@ -3516,10 +3467,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "0",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "support_ticket",
@@ -3532,10 +3480,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "breaking_change_notification",
@@ -3548,10 +3493,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "external_delivery_execution",
@@ -3564,10 +3506,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "resource_consumption",
@@ -3580,11 +3519,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "",
-    "is_append_only": "",
-    "population_mode_code": "UC_VIEW",
-    "derived_from_entity": "uc_billing_usage"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "cost_aggregate",
@@ -3597,11 +3532,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "",
-    "is_append_only": "",
-    "population_mode_code": "UC_VIEW",
-    "derived_from_entity": "uc_billing_usage"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "cost_anomaly",
@@ -3614,11 +3545,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED",
-    "derived_from_entity": "uc_billing_usage"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "budget_breach",
@@ -3631,11 +3558,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "OPERATIONAL_1Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED",
-    "derived_from_entity": "uc_billing_usage"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "archive_execution",
@@ -3648,10 +3571,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "reactivation_request",
@@ -3664,10 +3584,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "lifecycle_phase_transition",
@@ -3680,10 +3597,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "recertification_execution",
@@ -3696,10 +3610,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "backup_execution",
@@ -3712,10 +3623,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "dr_test_execution",
@@ -3728,10 +3636,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "maturity_assessment_execution",
@@ -3744,10 +3649,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "platform_health_snapshot",
@@ -3760,10 +3662,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "datum_internal_kpi_value",
@@ -3776,10 +3675,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "DERIVED_SCHEDULED"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "committee_session",
@@ -3792,10 +3688,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "0",
-    "population_mode_code": "APP_TRANSACTION"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "committee_decision_execution",
@@ -3808,10 +3701,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "governance_initiative_transition",
@@ -3824,10 +3714,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "migration_milestone_transition",
@@ -3840,10 +3727,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_5Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "golden_record_fusion",
@@ -3856,10 +3740,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "golden_record_match_decision",
@@ -3872,10 +3753,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "golden_record_fusion_source_contribution",
@@ -3888,10 +3766,7 @@
     "estimated_annual_volume": "",
     "access_frequency_code": "DAILY",
     "physical_catalog_code": "observability",
-    "partition_strategy_code": "NONE",
-    "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "RUNNER_TELEMETRY"
+    "partition_strategy_code": "NONE"
    },
    {
     "code": "uc_access_audit",
@@ -3906,8 +3781,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_clean_room_events",
@@ -3922,8 +3796,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_inbound_network",
@@ -3938,8 +3811,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_outbound_network",
@@ -3954,8 +3826,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_assistant_events",
@@ -3970,8 +3841,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_table_lineage",
@@ -3986,8 +3856,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_access_column_lineage",
@@ -4002,8 +3871,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_billing_usage",
@@ -4018,8 +3886,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_billing_list_prices",
@@ -4034,8 +3901,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_clusters",
@@ -4050,8 +3916,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_warehouses",
@@ -4066,8 +3931,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_warehouse_events",
@@ -4082,8 +3946,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_node_timeline",
@@ -4098,8 +3961,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_node_types",
@@ -4114,8 +3976,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_instance_pools",
@@ -4130,8 +3991,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_compute_instance_events",
@@ -4146,8 +4006,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_jobs",
@@ -4162,8 +4021,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_job_tasks",
@@ -4178,8 +4036,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_job_run_timeline",
@@ -4194,8 +4051,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_job_task_run_timeline",
@@ -4210,8 +4066,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_pipelines",
@@ -4226,8 +4081,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_lakeflow_pipeline_update_timeline",
@@ -4242,8 +4096,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_query_history",
@@ -4258,12 +4111,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_metastores",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4274,12 +4126,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_catalogs",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4290,12 +4141,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_schemata",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4306,12 +4156,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_tables",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4322,12 +4171,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_views",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4338,12 +4186,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_columns",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4354,12 +4201,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_volumes",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4370,12 +4216,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_routines",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4386,12 +4231,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_routine_columns",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4402,12 +4246,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_parameters",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4418,12 +4261,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_information_schema_catalog_name",
-    "business_term_code": "IS_OBJECTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4434,12 +4276,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_table_constraints",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4450,12 +4291,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_key_column_usage",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4466,12 +4306,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_referential_constraints",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4482,12 +4321,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_constraint_column_usage",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4498,12 +4336,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_constraint_table_usage",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4514,12 +4351,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_check_constraints",
-    "business_term_code": "IS_CONSTRAINTS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4530,12 +4366,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_metastore_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4546,12 +4381,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_catalog_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4562,12 +4396,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_schema_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4578,12 +4411,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_table_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4594,12 +4426,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_routine_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4610,12 +4441,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_volume_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4626,12 +4456,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_connection_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4642,12 +4471,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_credential_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4658,12 +4486,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_external_location_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4674,12 +4501,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_storage_credential_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4690,12 +4516,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_column_masks",
-    "business_term_code": "IS_SECURITY",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4706,12 +4531,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_row_filters",
-    "business_term_code": "IS_SECURITY",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4722,12 +4546,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_catalog_tags",
-    "business_term_code": "IS_TAGS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4738,12 +4561,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_schema_tags",
-    "business_term_code": "IS_TAGS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4754,12 +4576,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_table_tags",
-    "business_term_code": "IS_TAGS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4770,12 +4591,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_column_tags",
-    "business_term_code": "IS_TAGS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4786,12 +4606,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_volume_tags",
-    "business_term_code": "IS_TAGS",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4802,12 +4621,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_connections",
-    "business_term_code": "IS_EXTERNAL",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4818,12 +4636,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_credentials",
-    "business_term_code": "IS_EXTERNAL",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4834,12 +4651,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_external_locations",
-    "business_term_code": "IS_EXTERNAL",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4850,12 +4666,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_storage_credentials",
-    "business_term_code": "IS_EXTERNAL",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4866,12 +4681,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_shares",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4882,12 +4696,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_providers",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4898,12 +4711,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_recipients",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4914,12 +4726,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_recipient_tokens",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4930,12 +4741,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_recipient_allowed_ip_ranges",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4946,12 +4756,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_share_recipient_privileges",
-    "business_term_code": "IS_PRIVILEGES",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4962,12 +4771,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_catalog_provider_share_usage",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4978,12 +4786,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_schema_share_usage",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -4994,12 +4801,11 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_information_schema_table_share_usage",
-    "business_term_code": "IS_SHARING",
+    "business_term_code": "UC_INFORMATION_SCHEMA",
     "config_pattern_code": "DEFAULT",
     "physical_schema_code": "uc",
     "is_pii": "0",
@@ -5010,8 +4816,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_data_quality_monitoring_table_results",
@@ -5026,8 +4831,7 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
    },
    {
     "code": "uc_data_classification_results",
@@ -5042,15 +4846,27 @@
     "physical_catalog_code": "observability",
     "partition_strategy_code": "NONE",
     "retention_policy_code": "AUDIT_7Y",
-    "is_append_only": "1",
-    "population_mode_code": "SOURCE_INGEST"
+    "is_append_only": "1"
+   },
+   {
+    "code": "business_process_input",
+    "business_term_code": "BUSINESS_PROCESS",
+    "config_pattern_code": "DEFAULT",
+    "physical_schema_code": "metadata",
+    "is_pii": "0",
+    "is_sensitive": "0",
+    "security_classification_code": "PUBLIC",
+    "estimated_annual_volume": "",
+    "access_frequency_code": "RARELY",
+    "physical_catalog_code": "metadato",
+    "partition_strategy_code": "NONE"
    }
   ],
   "canonical_accelerator": [
    {
     "code": "METADATA",
     "accelerator_version": "1.0.0",
-    "entity_count": 178,
+    "entity_count": 179,
     "display_order": 10
    },
    {
@@ -5436,9 +5252,19 @@
     "display_order": 40
    },
    {
+    "code": "OBSERVABILITY",
+    "canonical_accelerator_code": "OBSERVABILITY",
+    "parent_term_code": null,
+    "is_pii_related": false,
+    "is_regulatory": false,
+    "regulatory_reference": null,
+    "approved_by_committee_at": null,
+    "display_order": 10
+   },
+   {
     "code": "EXECUTION",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5448,7 +5274,7 @@
    {
     "code": "DISCOVERY_OBSERVATION",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5458,7 +5284,7 @@
    {
     "code": "DQ_OBSERVATION",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5468,7 +5294,7 @@
    {
     "code": "METAMODEL_SNAPSHOT",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5478,7 +5304,7 @@
    {
     "code": "ACCESS_AUDIT",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": true,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5488,7 +5314,7 @@
    {
     "code": "PRIVACY_DPO",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": true,
     "is_regulatory": true,
     "regulatory_reference": "RGPD/GDPR",
@@ -5498,7 +5324,7 @@
    {
     "code": "INCIDENT_ALERT",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5508,7 +5334,7 @@
    {
     "code": "FINOPS",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5518,7 +5344,7 @@
    {
     "code": "LIFECYCLE_OPS",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5528,7 +5354,7 @@
    {
     "code": "GOVERNANCE_MATURITY",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5538,7 +5364,7 @@
    {
     "code": "GOLDEN_RECORD",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "DATUM",
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
@@ -5548,12 +5374,12 @@
    {
     "code": "UNITY_CATALOG",
     "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": null,
+    "parent_term_code": "OBSERVABILITY",
     "is_pii_related": false,
     "is_regulatory": false,
     "regulatory_reference": null,
     "approved_by_committee_at": null,
-    "display_order": 20
+    "display_order": 200
    },
    {
     "code": "UC_ACCESS",
@@ -5634,86 +5460,6 @@
     "regulatory_reference": null,
     "approved_by_committee_at": null,
     "display_order": 280
-   },
-   {
-    "code": "DATUM",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": null,
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 10
-   },
-   {
-    "code": "IS_OBJECTS",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 261
-   },
-   {
-    "code": "IS_CONSTRAINTS",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 262
-   },
-   {
-    "code": "IS_PRIVILEGES",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 263
-   },
-   {
-    "code": "IS_TAGS",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 264
-   },
-   {
-    "code": "IS_SECURITY",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 265
-   },
-   {
-    "code": "IS_EXTERNAL",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 266
-   },
-   {
-    "code": "IS_SHARING",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "parent_term_code": "UC_INFORMATION_SCHEMA",
-    "is_pii_related": false,
-    "is_regulatory": false,
-    "regulatory_reference": null,
-    "approved_by_committee_at": null,
-    "display_order": 267
    }
   ],
   "delta_property": [
@@ -6612,15 +6358,6 @@
     "canonical_accelerator_code": "OBSERVABILITY",
     "is_ordered": true,
     "min_active_values": 6,
-    "external_authority_code": "INTERNAL",
-    "external_standard_ref": null
-   },
-   {
-    "code": "POPULATION_MODE",
-    "category_code": "TYPE",
-    "canonical_accelerator_code": "OBSERVABILITY",
-    "is_ordered": true,
-    "min_active_values": 5,
     "external_authority_code": "INTERNAL",
     "external_standard_ref": null
    }
@@ -9128,48 +8865,6 @@
    {
     "reference_catalog_code": "RETENTION_POLICY",
     "code": "PERMANENT",
-    "sort_order": 6,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "RUNNER_TELEMETRY",
-    "sort_order": 1,
-    "is_default": true,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "GATE_UDF",
-    "sort_order": 2,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "DERIVED_SCHEDULED",
-    "sort_order": 3,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "SOURCE_INGEST",
-    "sort_order": 4,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "APP_TRANSACTION",
-    "sort_order": 5,
-    "is_default": false,
-    "is_terminal": true
-   },
-   {
-    "reference_catalog_code": "POPULATION_MODE",
-    "code": "UC_VIEW",
     "sort_order": 6,
     "is_default": false,
     "is_terminal": true
@@ -12565,8 +12260,7 @@
     "compiled_object_type_code": "SOURCE_TABLE",
     "compiles_view_kind_code": null,
     "write_semantics_code": "APPEND",
-    "is_gate_capable": false,
-    "emits_observability_entity": "source_discovery_run"
+    "is_gate_capable": false
    },
    {
     "runner_type_code": "RUNNER_TRANSFORM",
@@ -12574,8 +12268,7 @@
     "compiled_object_type_code": "CANONICAL_VIEW",
     "compiles_view_kind_code": "CANONICAL",
     "write_semantics_code": "INSERT_MERGE",
-    "is_gate_capable": false,
-    "emits_observability_entity": ""
+    "is_gate_capable": false
    },
    {
     "runner_type_code": "RUNNER_DQ",
@@ -12583,8 +12276,7 @@
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
-    "is_gate_capable": true,
-    "emits_observability_entity": "dq_run_result"
+    "is_gate_capable": true
    },
    {
     "runner_type_code": "RUNNER_LOAD_CANONICAL",
@@ -12592,8 +12284,7 @@
     "compiled_object_type_code": "CANONICAL_VIEW",
     "compiles_view_kind_code": "MATCHING",
     "write_semantics_code": "MASTER_XREF",
-    "is_gate_capable": false,
-    "emits_observability_entity": "golden_record_fusion"
+    "is_gate_capable": false
    },
    {
     "runner_type_code": "RUNNER_KPI",
@@ -12601,8 +12292,7 @@
     "compiled_object_type_code": "KPI",
     "compiles_view_kind_code": "AGGREGATION",
     "write_semantics_code": "OVERWRITE",
-    "is_gate_capable": false,
-    "emits_observability_entity": "datum_internal_kpi_value"
+    "is_gate_capable": false
    },
    {
     "runner_type_code": "RUNNER_DQ_TERM",
@@ -12610,8 +12300,7 @@
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
-    "is_gate_capable": true,
-    "emits_observability_entity": "dq_run_result"
+    "is_gate_capable": true
    },
    {
     "runner_type_code": "RUNNER_KPI_HIERARCHY",
@@ -12619,8 +12308,7 @@
     "compiled_object_type_code": "KPI",
     "compiles_view_kind_code": "AGGREGATION",
     "write_semantics_code": "OVERWRITE",
-    "is_gate_capable": false,
-    "emits_observability_entity": "datum_internal_kpi_value"
+    "is_gate_capable": false
    },
    {
     "runner_type_code": "RUNNER_DQ_PROCESS",
@@ -12628,8 +12316,7 @@
     "compiled_object_type_code": "DQ_CHECK",
     "compiles_view_kind_code": null,
     "write_semantics_code": "GATE",
-    "is_gate_capable": true,
-    "emits_observability_entity": "dq_run_result"
+    "is_gate_capable": true
    },
    {
     "runner_type_code": "RUNNER_KPI_PROCESS",
@@ -12637,8 +12324,7 @@
     "compiled_object_type_code": "KPI",
     "compiles_view_kind_code": "AGGREGATION",
     "write_semantics_code": "OVERWRITE",
-    "is_gate_capable": false,
-    "emits_observability_entity": "datum_internal_kpi_value"
+    "is_gate_capable": false
    }
   ],
   "dq_check_type": [
