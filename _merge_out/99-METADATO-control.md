@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.26 — Julio 2026
+**Versión:** v1.20 — Julio 2026
 
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
@@ -14,11 +14,11 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 
 
 
-## Estado consolidado (tras METADATO-16..50, v1.26)
+## Estado consolidado (tras METADATO-16..44, v1.20)
 
-- Metamodelo: **311 entidades**, **2717 atributos** (M-42 retención; M-47 population_mode_code + emits_observability_entity; M-48 derived_from_entity). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
+- Metamodelo: **312 entidades**, **2723 atributos** (M-42: canonical_entity += retention_policy_code/is_append_only). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
 
-- Catálogos: **94** en `DATUM_Catalogos.json` (+9 OBSERVABILITY M-41; +RETENTION_POLICY M-42; +POPULATION_MODE M-47).
+- Catálogos: **93** en `DATUM_Catalogos.json` (+9 OBSERVABILITY M-41; +RETENTION_POLICY M-42).
 
 - **Campo técnico universal `system` (TYD_SYSTEM)** en todas las entidades: encapsula ancla i18n (`row_uuid`), ciclo de vida (`lifecycle_state_code` → LIFECYCLE_STATE) y auditoría (created_at/by, updated_at/by, is_active, version). No visible en ER; en el plano físico se descompone en 8 columnas.
 
@@ -86,7 +86,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 ## Código de runner (plataforma, NO metadato) guardado en el Project
 
-`runner/compile_transformation.py` (compilador de carga), `runner/compile_match_view.py` (compilador de match), `runner/datum_match_udfs.py` (UDF norm/jw/metaphone), `runner/compile_dq_checks.py` (generador de DQ rules por entidad canónica desde el metamodelo, M-35), `runner/observability_emitter` (emisor genérico de telemetría run/run_step + dominio, dirigido por runner_capability.emits, M-50), `runner/README_runner.md`, `runner/README_match_runner.md`, `runner/README_observability_emitter.md`. Regla de oro: cambiar comportamiento = cambiar metadato, no tocar este código.
+`runner/compile_transformation.py` (compilador de carga), `runner/compile_match_view.py` (compilador de match), `runner/datum_match_udfs.py` (UDF norm/jw/metaphone), `runner/compile_dq_checks.py` (generador de DQ rules por entidad canónica desde el metamodelo, M-35), `runner/README_runner.md`, `runner/README_match_runner.md`. Regla de oro: cambiar comportamiento = cambiar metadato, no tocar este código.
 
 
 
@@ -168,18 +168,18 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **Pendiente:** i18n atributos/entidades bloques 2–3; catalogización de enums STRING; revisión/poda de UC_INFORMATION_SCHEMA; PK compuesta vs. única en A–I; canonical_key/relation reales.
 
 ### Ingesta de auditoría UC→observabilidad + retención (METADATO-42) — 311 / 2714 / 93
-- **Refina M-41.** UC (Databricks system tables) retiene 365 días; DATUM persiste copia propia que sobrevive. Dos capas: `system.*` = fuente efímera (modelada como `source_system`=databricks_system); las 72 `uc_*` = copia persistente en **`observability.uc`**, `retention_policy_code=AUDIT_7Y`, `is_append_only`. **El catálogo físico `system` que M-41 creó se retira (huérfano tras la reubicación).**
+- **Refina M-41.** UC (Databricks system tables) retiene 365 días; DATUM persiste copia propia que sobrevive. Dos capas: `system.*` = fuente efímera; las 72 `uc_*` = copia persistente en **`observability.uc`**, `retention_policy_code=AUDIT_7Y`, `is_append_only`.
 - **Metamodelo:** `canonical_entity` += `retention_policy_code` (→**RETENTION_POLICY** {SOURCE_DEFAULT/OPERATIONAL_90D/OPERATIONAL_1Y/AUDIT_5Y/AUDIT_7Y/PERMANENT}) + `is_append_only`. +1 catálogo, +2 atributos.
 - **Carga** (`DATUM_Carga_Observability_UC.json`): source_system databricks_system + 8 containers + 72 source_entity + 72 capture + 72 transformation PRINCIPAL + 2 business_process. **INCREMENTAL por watermark (25 logs de evento) / FULL-SNAPSHOT (47 information_schema)**. Flujo system.* → LANDING → STAGING (DQ) → observability.uc. source_attribute + watermark por DISCOVERY (auto-observado en source_discovery_run).
 - **Pendiente:** poblar source_attribute (discovery); capture_attribute WATERMARK; transformation_field si no es SELECT * puro.
 - **M-43 (orquestación ejecutable):** sembrados `workflow_pattern` (uc_discovery_pattern, uc_audit_ingest_pattern) + 5 steps (INGEST/DQ_GATE/WRITE) y enganchados los business_process. Discovery-first: la 1ª corrida (uc_discovery) auto-puebla source_attribute/tipos/watermark. Control-plane completo y ejecutable.
-- **M-44 (retención de toda la observabilidad):** las 133 con `retention_policy_code` — AUDIT_7Y (92: accesos/GDPR/MDM/UC), AUDIT_5Y (20: DQ/lifecycle/madurez), OPERATIONAL_1Y (21: ejecución/discovery/finops/incidentes/snapshot); `is_append_only` en 122, 11 con estado mutable.
-- **M-45 (vista):** retirado el término raíz redundante `OBSERVABILITY`; 2 términos raíz **`DATUM`** (61) y **`UNITY_CATALOG`** (72). Solo business_term.
-- **M-46 (vista):** `UC_INFORMATION_SCHEMA` (47) partido en 7 sub-términos especializados (IS_OBJECTS/CONSTRAINTS/PRIVILEGES/TAGS/SECURITY/EXTERNAL/SHARING). Solo business_term; 21→28 términos.
-- **M-47 (contrato de población):** cómo se alimenta cada tabla — catálogo POPULATION_MODE + `population_mode_code` (133) + `runner_capability.emits_observability_entity`. La nativa DATUM se EMITE (RUNNER_TELEMETRY 27 / GATE_UDF 1 / DERIVED_SCHEDULED 13 / APP_TRANSACTION 20); UC = SOURCE_INGEST 72. +2 atributos, +1 catálogo.
-- **M-48 (dedup vs UC):** las funcionales que duplican UC pasan a **vistas** (POPULATION_MODE +UC_VIEW; `canonical_entity.derived_from_entity`): access_event/access_event_aggregate←uc_access_audit, resource_consumption/cost_aggregate←uc_billing_usage; cost_anomaly/budget_breach leen uc_billing_usage. −4 tablas físicas, sin romper FKs.
-- **M-49 (procesos/UDFs):** inventario computado — a construir = **1 UDF (gate) + 9 procesos programados + 4 vistas**; el resto es telemetría de runner (27) o app (20). Definidos los 9 procesos (business_process+pattern+step) en `DATUM_Carga_Observability_Procesos.json` + doc `DATUM_Observabilidad_Procesos_UDFs.md`. Pendiente: lógica de cómputo y SELECT de vistas.
-- **M-50 (emisión de telemetría):** RUNNER_TELEMETRY se puebla con un **emisor genérico** del harness (hooks on_run/step_start/end; INSERT al abrir + MERGE al cerrar), dirigido por `runner_capability.emits`. Ni INSERT por runner ni UDF. Componente de plataforma `runner/observability_emitter` + README.
+
+### Regla de refresco de ingesta por demanda (METADATO-44) — 312 / 2723
+- **Ingesta Databricks nativo**: watermark/checkpoint del runtime; DATUM los **observa** por `uc_lakeflow_pipeline_update_timeline` (`result_state`/`period_end_time`) y `uc_access_table_lineage`. Puente `source_entity`→`transformation`→canónica; sin `pipeline_id` propio.
+- **Regla derivada** (no tabla), por `source_entity` en la demanda: **AWAIT** (in-flight) / **REFRESH-cold** / **SERVE** / **REFRESH** / **BREACH** (`breach_action`, autocontenido). `last_loaded_at` = `run`/`run_step` COMPLETED + `period_end_time`.
+- **Dedup por `source_entity`**: una actualización de pipeline sirve a N procesos; el más exigente marca el ritmo. Umbral efectivo = `min(supply, demanda)`; demanda incoherente → incidencia.
+- **Modelo**: `source_data_contract_entity` += frescura por tabla (operator/value/unit, override del contrato); nueva **`business_process_input`** (weak de business_process; PK `[business_process_code, canonical_entity_code]` + max_staleness + is_blocking) = lo que el proceso lee aguas arriba. Sin catálogos nuevos.
+- **Coordinación**: veredicto {SERVE,REFRESH,AWAIT,BREACH} → catálogo `REFRESH_DECISION` + campo en `run` se añaden en **OBSERVABILITY** (otra sesión).
 
 ## Aceleradores incorporados
 
@@ -191,7 +191,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 | Calidad (DATA_QUALITY) | ACTIVO | circuito ingesta→calidad cerrado (M-35); motor de reglas derivadas + generador `compile_dq_checks.py` + visor «DQ rules» |
 
-| Observabilidad (OBSERVABILITY) | ACTIVO | **133 entidades** / 28 términos, **2 raíz: DATUM (61) + UNITY_CATALOG (72)** (M-45); information_schema partido en 7 sub-términos (M-46); ejecución (run/run_step) + discovery-obs + DQ-obs + snapshot + funcional DATUM A–I (auditoría/GDPR/incidentes/FinOps/lifecycle/madurez/MDM) + **72 tablas Unity Catalog** (UNITY_CATALOG). Físico `observability` (process/quality/audit + esquema `uc` persistente). UC ingerido desde Databricks `system.*` (fuente 365d, modelada como `source_system`=databricks_system) → `observability.uc` (retención AUDIT_7Y, append-only), ingesta incremental/snapshot (M-42/43) |
+| Observabilidad (OBSERVABILITY) | ACTIVO | **133 entidades** / 21 términos; ejecución (run/run_step) + discovery-obs + DQ-obs + snapshot + funcional DATUM A–I (auditoría/GDPR/incidentes/FinOps/lifecycle/madurez/MDM) + **72 tablas Unity Catalog** (UNITY_CATALOG). Físico `observability` (process/quality/audit + esquema `uc` persistente) ; UC ingerido desde `system.*` (fuente 365d) → `observability.uc` (retención AUDIT_7Y, append-only), ingesta incremental/snapshot (M-42) |
 
 | Financiero (FINANCE) | REGISTRADO (0 entidades) | catálogo físico `business` |
 
@@ -292,19 +292,7 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 - **v1.18 (Julio 2026):** METADATO-42. Ingesta de auditoría UC→observabilidad + retención (refina M-41): `canonical_entity` += retention_policy_code/is_append_only + catálogo RETENTION_POLICY; las 72 uc_* reubicadas a `observability.uc` (AUDIT_7Y, append-only); carga de ingesta `DATUM_Carga_Observability_UC.json` (system.* → observability.uc, incremental/snapshot, source_attribute+watermark por discovery). 2712→2714 atributos; 92→93 catálogos.\n\n- **v1.19 (Julio 2026):** METADATO-43. Orquestación de la ingesta UC lista para ejecutar (discovery-first): +2 workflow_pattern +5 steps enganchados a los business_process, en DATUM_Carga_Observability_UC.json. Sin cambios de modelo (311/2714/93). La 1ª corrida de discovery auto-puebla source_attribute/tipos/watermark.
 
-- **v1.20 (Julio 2026):** METADATO-44. Política de retención de las 133 entidades OBSERVABILITY (AUDIT_7Y 92 / AUDIT_5Y 20 / OPERATIONAL_1Y 21; is_append_only 122, 11 mutables). Solo seed; sin cambios de modelo (311/2714/93).
+- **v1.20 (Julio 2026):** METADATO-44. Regla de refresco de ingesta por demanda (Databricks nativo: watermark/checkpoint del runtime, DATUM observa por `uc_lakeflow_*`): regla derivada por `source_entity` (AWAIT/SERVE/REFRESH/BREACH), dedup por tabla, umbral efectivo = min(supply, demanda). Modelo: +`business_process_input` (demanda de frescura por proceso) + frescura por tabla en `source_data_contract_entity`. 311→312 / 2714→2723; catálogos 93 sin cambio. `REFRESH_DECISION` + campo en `run` → OBSERVABILITY (otra sesión).
 
-- **v1.21 (Julio 2026):** METADATO-45. Vista por acelerador de OBSERVABILITY: retirado el término raíz redundante OBSERVABILITY; 2 raíz DATUM (61) + UNITY_CATALOG (72). Solo business_term; sin cambios de modelo (311/2714/93).
-
-- **v1.22 (Julio 2026):** METADATO-46. UC_INFORMATION_SCHEMA (47 tablas) partido en 7 sub-términos especializados (IS_OBJECTS 11 / IS_CONSTRAINTS 6 / IS_PRIVILEGES 11 / IS_TAGS 5 / IS_SECURITY 2 / IS_EXTERNAL 4 / IS_SHARING 8). Solo business_term; 21→28 términos OBSERVABILITY; sin cambios de modelo (311/2714/93).
-
-- **v1.23 (Julio 2026):** METADATO-47. Contrato de población de la observabilidad: catálogo POPULATION_MODE + canonical_entity.population_mode_code (clasificadas las 133) + runner_capability.emits_observability_entity. La observabilidad nativa se emite (telemetría), no se ingiere. 2714→2716 atributos; 93→94 catálogos.
-
-- **v1.24 (Julio 2026):** METADATO-48. Dedup de observabilidad vs UC: access_event/access_event_aggregate/resource_consumption/cost_aggregate → vistas sobre uc_* (POPULATION_MODE +UC_VIEW, canonical_entity +derived_from_entity); cost_anomaly/budget_breach leen uc_billing_usage. −4 tablas físicas. 2716→2717 atributos.
-
-- **v1.25 (Julio 2026):** METADATO-49. Inventario de procesos/UDFs de observabilidad (1 UDF gate + 9 procesos + 4 vistas; resto telemetría/app) y definición de los 9 procesos (business_process+pattern+step) en DATUM_Carga_Observability_Procesos.json. Doc de referencia. Sin cambios de modelo (311/2717/94).
-
-- **v1.26 (Julio 2026):** METADATO-50. Mecanismo de emisión de telemetría de runner: emisor genérico del harness (hooks de ciclo de vida, INSERT+MERGE, dirigido por runner_capability.emits), no INSERT por runner ni UDF. Componente de plataforma runner/observability_emitter + README. Sin cambios de modelo (311/2717/94).
-
-*Fin de `99-METADATO-control.md` v1.26.*
+*Fin de `99-METADATO-control.md` v1.20.*
 

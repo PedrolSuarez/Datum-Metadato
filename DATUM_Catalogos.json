@@ -1568,6 +1568,24 @@
     "AUDIT_7Y": "Auditoría, 7 años (inmutable).",
     "PERMANENT": "Retención permanente (no se purga)."
    }
+  },
+  "POPULATION_MODE": {
+   "dominio": "OBS · Población",
+   "tipo_valor": "CERRADO",
+   "estado": "CONFIRMADO",
+   "usado_en": [
+    "canonical_entity.population_mode_code"
+   ],
+   "canonical_accelerator": "OBSERVABILITY",
+   "desc": "Cómo se alimenta cada tabla de observabilidad. La nativa de DATUM se EMITE (telemetría del runner/UDF/derivación), no se ingiere; las UC se ingieren. Registrado METADATO-47.",
+   "values": {
+    "RUNNER_TELEMETRY": "El runner escribe su propia observabilidad al ejecutar (instrumentación del harness).",
+    "GATE_UDF": "Fila emitida por la UDF compilada del gate PRE_WRITE (M-36), por columna evaluada.",
+    "DERIVED_SCHEDULED": "Proceso programado de derivación/agregación (RUNNER_KPI/RUNNER_DQ o transformación desde otra tabla, p.ej. desde una uc_*).",
+    "SOURCE_INGEST": "Ingesta desde fuente externa vía source_entity_capture (las 72 tablas Unity Catalog).",
+    "APP_TRANSACTION": "Escritura transaccional de la aplicación o ingesta de un sistema externo de negocio (DPO/consentimiento, ticketing, gateway).",
+    "UC_VIEW": "Vista sobre una tabla uc_* (Unity Catalog): sin tabla física, sin ETL, sin retención propia; la definición vive en el metadato y se compila como VIEW."
+   }
   }
  },
  "categories": [

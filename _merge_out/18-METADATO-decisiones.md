@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.16 — Julio 2026
+**Versión:** v1.20 — Julio 2026
 
 **Numeración:** METADATO-n (propia del proyecto, independiente de DATUM-n de Producto).
 
@@ -717,7 +717,7 @@ Refina M-41. Las system tables de Databricks (Unity Catalog) retienen solo **365
 
 **(A) Metamodelo (retención).** `canonical_entity` += `retention_policy_code` (→**RETENTION_POLICY**, nullable, metadata-first) + `is_append_only` (TYD_BOOLEAN). Catálogo nuevo **RETENTION_POLICY** {SOURCE_DEFAULT, OPERATIONAL_90D, OPERATIONAL_1Y, AUDIT_5Y, AUDIT_7Y, PERMANENT} (CONFIRMADO). Retención = propiedad universal de cualquier tabla canónica.
 
-**(B) Reubicación.** Las 72 `uc_*` pasan de catálogo físico `system` a **`observability`.`uc`** (esquema nuevo), con `retention_policy_code=AUDIT_7Y` e `is_append_only=1`. El catálogo físico `system` que M-41 había creado para las UC se **retira** (huérfano tras la reubicación): la fuente NO se modela como physical_catalog sino vía `source_system`=`databricks_system` (carga M-42/43); physical_catalog queda solo para el almacenamiento propio de DATUM.
+**(B) Reubicación.** Las 72 `uc_*` pasan de catálogo físico `system` a **`observability`.`uc`** (esquema nuevo), con `retention_policy_code=AUDIT_7Y` e `is_append_only=1`. El catálogo físico `system` queda como ubicación de la **fuente**, no del dato persistente.
 
 **(C) Carga de ingesta** (fichero propio `DATUM_Carga_Observability_UC.json`, patrón PLANTILLA — cada acelerador añade su bloque de carga): `technology` databricks (LAKEHOUSE) + `source_system` `databricks_system` (kind DATABASE) + 8 `source_container` (los esquemas UC) + 72 `source_entity` + 72 `source_entity_capture` + 72 `transformation` PRINCIPAL + 2 `business_process` (uc_audit_ingest, SCHEDULE diario 03:00; uc_discovery, semanal). **Captura: INCREMENTAL por watermark (OPERATOR GT sobre event_time/start_time/usage_start_time/…) para los 25 logs de evento; FULL/SNAPSHOT fechado para las 47 `information_schema`** (estado-actual, sin marca temporal → se historiza por snapshot). Flujo `system.*` → LANDING (source.fuente_database, DELTA) → STAGING (gate DQ) → `observability.uc` (persistente, inmutable). `source_attribute` y la designación de la columna watermark (`source_entity_capture_attribute` role=WATERMARK) se pueblan por **DISCOVERY** (business_process uc_discovery), cuya corrida se **auto-observa** en `source_discovery_run`/`source_attribute_profile` — recursión limpia: la observabilidad observa su propia ingesta. `watermark_columns[]` documenta la columna prevista por tabla.
 
@@ -743,90 +743,30 @@ Completa el bootstrap **ejecutable** de M-42: faltaba la orquestación (el `busi
 
 **PENDIENTE:** 1ª corrida de discovery real para materializar `source_attribute`; ajustar watermark/particionado tras el profiling.
 
-### METADATO-44 — Política de retención de toda la observabilidad (extiende M-42) — DECIDIDO
+### METADATO-44 — Regla de refresco de ingesta por demanda (demand-aware) + frescura granular por tabla — DECIDIDO
 
-Extiende la retención de M-42 (hasta ahora solo las 72 UC) a **las 133 entidades del acelerador OBSERVABILITY**. Solo datos de seed (`canonical_entity.retention_policy_code` + `is_append_only`); **sin cambios de modelo ni catálogos (311/2714/93).** Esquema por naturaleza:
+Cierra el control de ingesta (qué se ha leído / incremental-CDC / cuándo refrescar una tabla usada por varios procesos). **Ingesta = Databricks nativo** (Auto Loader/DLT/Lakeflow): el watermark y el checkpoint de CDC son del runtime — DATUM **no los persiste, los observa** por `uc_lakeflow_pipeline_update_timeline` (`result_state`, `period_end_time`, selectores refresh/full_refresh/reset_checkpoint) y `uc_access_table_lineage`. El puente definición↔observación es `source_entity` → `transformation` → entidad canónica + identidad física; no hace falta `pipeline_id` propio.
 
-- **AUDIT_7Y (92)** — rastro de auditoría regulatoria: ACCESS_AUDIT (accesos), PRIVACY_DPO (GDPR/DPO), GOLDEN_RECORD (linaje MDM) y las 72 UC.
-- **AUDIT_5Y (20)** — evidencia de gobierno/calidad/ciclo de vida: DQ_OBSERVATION, LIFECYCLE_OPS, GOVERNANCE_MATURITY.
-- **OPERATIONAL_1Y (21)** — observabilidad operativa: EXECUTION, DISCOVERY_OBSERVATION, METAMODEL_SNAPSHOT, FINOPS, INCIDENT_ALERT.
+**Naturaleza:** regla **derivada** (como las DQ de M-35 y el gate de M-36) — no es tabla ni flag. La evalúa el orquestador **por `source_entity`** en el momento de la demanda; el estado que lee ya vive en Observabilidad (`run`/`run_step` + `uc_lakeflow_*`).
 
-**`is_append_only`:** 122 append-only (logs/eventos inmutables) y **11 con estado mutable** (registros con ciclo de vida que se actualiza): `access_review_finding`, `alert`, `committee_session`, `consent_record`, `data_subject`, `data_subject_request`, `dq_incident`, `dq_quarantine_record`, `incident`, `reactivation_request`, `support_ticket`.
+**Decisión (staleness), en orden:** (1) `in_flight(X)` [`run` de X en RUNNING] → **AWAIT** (engancha, no dispara otra); (2) sin carga previa → **REFRESH (cold)**; (3) `staleness = now − last_loaded_at(X)` ≤ umbral efectivo → **SERVE** (consume lo aterrizado); (4) `staleness` > umbral → **REFRESH** (dispara la actualización de la pipeline); (5) irrefrescable (sin runtime/falla) → **BREACH** (aplica `source_data_contract_sla.breach_action_code`, registra incidente; autocontenido, nunca error de ejecución). `last_loaded_at(X)` = último `run`/`run_step` COMPLETED corroborado por `period_end_time`/`result_state=COMPLETED` de su pipeline.
 
-**Verificado:** 133/133 con `retention_policy_code` válido (→RETENTION_POLICY); recuentos intactos (311/2714/93).
+**Dedup multi-proceso (la preocupación de origen):** la regla se **llavea por `source_entity`, no por proceso**. Una actualización de pipeline sirve a N consumidores; el más exigente marca el ritmo; el `AWAIT` evita el doble disparo. Un segundo proceso que pide la misma tabla reevalúa y hace SERVE sobre el mismo aterrizaje.
 
-### METADATO-45 — Reestructuración de la vista por acelerador de OBSERVABILITY: 2 términos raíz DATUM / UNITY_CATALOG — DECIDIDO
+**Umbral efectivo = `min(supply, demanda)`:** supply = FRESHNESS del contrato o su override por tabla; demanda = el `max_staleness` más estricto de los procesos que consumen esa tabla. Si `demanda < capacidad de supply` (se pide más fresco de lo que la fuente garantiza) → **incidencia de demanda incoherente** (no se promete lo imposible).
 
-Ajuste de visualización (propuesta de Pedro). Se **retira el término raíz redundante `OBSERVABILITY`** (ese nivel ya lo aporta el acelerador y no tenía entidades propias) y se crea el término raíz **`DATUM`** (observabilidad nativa), **hermano de `UNITY_CATALOG`**. Los 11 términos funcionales (EXECUTION…GOLDEN_RECORD) pasan a colgar de `DATUM`; `UNITY_CATALOG` pasa a raíz. Solo `business_term` (`parent_term_code`); **sin cambios de modelo, entidades ni catálogos (311/2714/93; OBSERVABILITY sigue con 133 entidades y 21 términos).**
+**Dos piezas de modelo (aplicadas):**
+- **`source_data_contract_entity`** += `freshness_operator_code` (→OPERATOR), `freshness_value` (TYD_DECIMAL), `freshness_unit_code` (→SLA_UNIT), todas nullable — **override de frescura por tabla**; si van null hereda el FRESHNESS del contrato (que era por `source_system`).
+- Nueva **`business_process_input`** (weak dependiente de `business_process`, término BUSINESS_PROCESS, patrón M-26): PK `[business_process_code, canonical_entity_code]` (FK identificativa a `business_process` + FK a `canonical_entity`) + `max_staleness_value`/`max_staleness_unit_code` (→SLA_UNIT) + `is_blocking`. Modela lo que un proceso **lee aguas arriba** y con qué frescura — complementa `transformation`, que modela lo que **produce**.
 
-Resultado: el acelerador OBSERVABILITY muestra **2 ramas** — `DATUM` (61 entidades: ejecución, discovery, DQ, snapshot, auditoría, GDPR, incidentes, FinOps, lifecycle, madurez, MDM) y `UNITY_CATALOG` (72 tablas Databricks). Dicotomía clara nativa-DATUM / externo-UC.
+Sin catálogos nuevos (reutiliza OPERATOR, SLA_UNIT, BREACH_ACTION). **Modelo 311→312 / 2714→2723; catálogos 93 sin cambio; `METADATA.entity_count` 178→179.**
 
-**Verificado:** 0 entidades colgaban del término `OBSERVABILITY` retirado; árbol renderiza `DATUM` + `UNITY_CATALOG` con sus hijos; recuentos intactos.
+**Coordinación con OBSERVABILITY (otra sesión):** el veredicto del refresco {SERVE, REFRESH, AWAIT, BREACH} se tipará como catálogo **REFRESH_DECISION** y su campo en el árbol `run`/`run_step` — se registra en el acelerador **OBSERVABILITY**, no aquí, para no colisionar con esa sesión.
 
-### METADATO-46 — Partición de UC_INFORMATION_SCHEMA en 7 sub-términos especializados — DECIDIDO
+**Verificado:** JSON válido; 312 entidades / 2723 atributos; FK de `business_process_input` a `business_process`/`canonical_entity` sin colgantes; reutiliza catálogos existentes. Merge construido sobre `develop` vivo con script idempotente.
 
-Ajuste de visualización (propuesta de Pedro). Las 47 tablas de `system.information_schema` (hasta ahora planas bajo `UC_INFORMATION_SCHEMA`) se agrupan en **7 sub-términos especializados**; `UC_INFORMATION_SCHEMA` pasa a **intermedio** (0 entidades directas). Solo `business_term` + etiqueta de entidad (`business_term`/`subdomain`); **sin cambios de modelo, atributos ni catálogos (311/2714/93; OBSERVABILITY 133 entidades, 28 términos).**
+**PENDIENTES (M-44):** i18n de `business_process_input`; catálogo/campo `REFRESH_DECISION` en OBSERVABILITY (otra sesión); 1ª ejecución real para validar la regla contra `uc_lakeflow_*`.
 
-- **IS_OBJECTS (11)** — objetos del catálogo: metastores, catalogs, schemata, tables, views, columns, volumes, routines, routine_columns, parameters, information_schema_catalog_name.
-- **IS_CONSTRAINTS (6)** — restricciones: table_constraints, key_column_usage, referential_constraints, constraint_column_usage, constraint_table_usage, check_constraints.
-- **IS_PRIVILEGES (11)** — grants (`*_privileges`).
-- **IS_TAGS (5)** — etiquetas (`*_tags`).
-- **IS_SECURITY (2)** — column_masks, row_filters.
-- **IS_EXTERNAL (4)** — conectividad: connections, credentials, external_locations, storage_credentials.
-- **IS_SHARING (8)** — Delta Sharing: shares, providers, recipients, recipient_tokens, recipient_allowed_ip_ranges, catalog_provider_share_usage, schema_share_usage, table_share_usage.
 
-**Verificado:** 47/47 clasificadas; `UC_INFORMATION_SCHEMA` sin entidades directas; recuentos intactos.
-
-### METADATO-47 — Contrato de población de la observabilidad (cómo se alimenta cada tabla) — DECIDIDO
-
-La observabilidad **nativa de DATUM se EMITE** (telemetría de write-time), no se ingiere como UC. Se modela el contrato metadata-first ("cambiar comportamiento = cambiar metadato"). **Modelo 2714→2716 atributos; catálogos 93→94.**
-
-- **Catálogo `POPULATION_MODE`** {RUNNER_TELEMETRY, GATE_UDF, DERIVED_SCHEDULED, SOURCE_INGEST, APP_TRANSACTION} (CONFIRMADO).
-- **`canonical_entity` += `population_mode_code`** (→POPULATION_MODE, nullable, metadata-first): etiqueta cómo se alimenta cada tabla.
-- **`runner_capability` += `emits_observability_entity`** (FK→canonical_entity, nullable): qué observabilidad emite cada runner.
-
-**Clasificación de las 133:** **RUNNER_TELEMETRY (27)** — el runner emite al ejecutar: run/run_step/run_term/run_entity, los 5 discovery-obs, dq_run_result/dq_run_failed_records, los 3 golden_record, y los logs de lifecycle/gobierno. **GATE_UDF (1)** — `dq_column_incident` (UDF del gate PRE_WRITE). **DERIVED_SCHEDULED (13)** — proceso programado o transformación desde otra tabla: dq_incident, incident, alert, cost_aggregate/anomaly, budget_breach, metamodel_snapshot_run, platform_health_snapshot, datum_internal_kpi_value, access_event(_aggregate), anomaly_detection. **SOURCE_INGEST (72)** — las UC (ingesta M-42/43). **APP_TRANSACTION (20)** — DPO/consentimiento, tickets, gateway (data_subject, consent_*, dsr_*, data_breach, support_ticket, api_call, ui_navigation, export_event…).
-
-**`emits_observability_entity`:** RUNNER_DQ/_TERM/_PROCESS→dq_run_result; RUNNER_LOAD_CANONICAL→golden_record_fusion; RUNNER_INGEST→source_discovery_run; RUNNER_KPI/_HIERARCHY/_PROCESS→datum_internal_kpi_value. (run/run_step son telemetría universal del harness, no de un runner_type concreto.)
-
-**Verificado:** 133/133 con `population_mode_code` válido; `emits` resuelven a entidades existentes; recuentos 311/2716/94.
-
-**PENDIENTES abiertos (M-47):** definir los `business_process`/`transformation` concretos de los DERIVED_SCHEDULED y las transformaciones `uc_*`→funcional (p.ej. `access_event`←`uc_access_audit`, `resource_consumption`←`uc_billing_usage`); resolver el **solape** `access_event`/`uc_access_audit` (¿vista sobre la UC o copia derivada?); mapear el emit de los runners a nivel N:M si un runner emite varias (hoy 1:1, el principal).
-
-### METADATO-48 — Dedup de observabilidad redundante con UC: vistas sobre uc_* (menos tablas) — DECIDIDO
-
-El acceso al dato pasa **solo por Databricks/UC** (decisión de Pedro): las tablas funcionales que duplican UC dejan de ser copias mantenidas y pasan a **VISTAS sobre las `uc_*`** (sin tabla física, sin ETL, sin retención propia). **`POPULATION_MODE` += `UC_VIEW`; `canonical_entity` += `derived_from_entity`** (FK→canonical_entity). **Modelo 2716→2717 atributos** (catálogos 94; POPULATION_MODE gana un valor).
-
-- **Vistas (UC_VIEW):** `access_event` ← `uc_access_audit` (sigue siendo el **hub**; sus 3 dependientes `api_call`/`export_event`/`policy_evaluation_log` apuntan a la vista, sin reparentar); `access_event_aggregate` ← `uc_access_audit`; `resource_consumption` ← `uc_billing_usage`; `cost_aggregate` ← `uc_billing_usage`. Retención limpiada (heredan de la `uc_*` de origen).
-- **Procesos que leen UC** (DERIVED_SCHEDULED, sin copia cruda propia): `cost_anomaly`, `budget_breach` ← `uc_billing_usage` (necesitan lógica de umbral/tendencia, no son una vista).
-
-Resultado: **−4 tablas físicas y sus procesos**, sin romper FKs ni perder cobertura. Las entidades siguen en el modelo (definen la forma de la vista); su materialización física es VIEW sobre la `uc_*`.
-
-**Verificado:** `access_event` intacta como entidad (FKs entrantes OK); `derived_from_entity` resuelve a `uc_*` existentes; 311/2717/94.
-
-**PENDIENTE:** compilar las `canonical_view` reales (SELECT/agregación sobre `uc_*`).
-
-### METADATO-49 — Inventario y definición de los procesos/UDFs de la observabilidad — DECIDIDO
-
-Se computa desde el contrato de población (M-47/48) la lista concreta de procesos/UDFs a gestionar — **no son 61, son pocos** — y se definen los esqueletos de orquestación. Solo datos de carga; **sin cambios de modelo (311/2717/94).**
-
-**Inventario (133 tablas):** RUNNER_TELEMETRY 27 (harness, nada nuevo) · GATE_UDF 1 (`dq_column_incident`, la UDF del gate M-36) · **DERIVED_SCHEDULED 9 (procesos a definir)** · UC_VIEW 4 (vistas M-48, falta compilar SELECT) · SOURCE_INGEST 72 (ingesta UC, hecha M-42/43) · APP_TRANSACTION 20 (las escribe la app/externos, no es pipeline DATUM). **Total a construir: 1 UDF + 9 procesos + 4 vistas.**
-
-**Los 9 procesos definidos** (fichero `DATUM_Carga_Observability_Procesos.json`: 9 `business_process` + 9 `workflow_pattern` + 9 `workflow_pattern_step`): `obs_dq_incident` (RUNNER_DQ, evento ← dq_run_result), `obs_incident` (RUNNER_KPI, horaria ← run_step ERROR + dq_incident), `obs_alert` (RUNNER_KPI, horaria), `obs_cost_anomaly` / `obs_budget_breach` (RUNNER_KPI, diaria ← uc_billing_usage), `obs_metamodel_snapshot_run` (RUNNER_KPI, quincenal ← metamodelo, M-40), `obs_platform_health_snapshot` / `obs_datum_internal_kpi_value` (RUNNER_KPI, diaria), `obs_anomaly_detection` (RUNNER_KPI, diaria ← access_event). Cada uno con su pattern + step (runner con `runner_capability`); 0 FK colgantes.
-
-**Documento de referencia:** `DATUM_Observabilidad_Procesos_UDFs.md` (mapa completo A-UDF / B-procesos / C-vistas / D-telemetría de runner / E-app).
-
-**PENDIENTE:** la **lógica de cómputo** por proceso (umbrales de anomalía/presupuesto, agregaciones) y el **SELECT de las 4 vistas** (passthrough/agregación sobre uc_*) — es el detalle de cada uno, sobre el esqueleto ya definido. La instrumentación de emisión del harness (telemetría) es transversal, una vez.
-
-### METADATO-50 — Mecanismo de emisión de la telemetría de runner (emisor genérico, plataforma) — DECIDIDO
-
-Aclaración de implementación de la observabilidad **RUNNER_TELEMETRY** (M-47): cómo se pueblan `run`/`run_step`/`run_term`/`run_entity` + la telemetría de dominio. **Sin cambios de modelo (311/2717/94)**; solo doctrina + componente de plataforma.
-
-- **Ni INSERT por runner ni UDF.** Un INSERT por runner duplica código; una UDF es para transformación por-fila (el gate `dq_column_incident`), no para logging de ciclo de vida.
-- **Emisor genérico en el harness**, invocado en hooks de ciclo de vida (`on_run_start`→INSERT `run`; `on_step_start`→INSERT `run_step`; `on_step_end`→MERGE `run_step` + `run_term`/`run_entity`; `on_run_end`→MERGE `run`). Todos los runners lo heredan; ninguno escribe su propio INSERT.
-- **Dirigido por metadato:** `run`/`run_step` = telemetría universal del harness; la de dominio la resuelve `runner_capability.emits_observability_entity`. Añadir runner/observabilidad = 1 fila, no código.
-- **Semántica:** INSERT al abrir + MERGE al cerrar (append inmutable; coherente con RUNNER_TELEMETRY + is_append_only); autocontenido (M-35: nunca rompe el circuito).
-- **Home:** `runner/observability_emitter` — código de plataforma (como compile_transformation.py), escrito una vez. README `README_observability_emitter.md`.
-
-*Fin de `18-METADATO-decisiones.md` v1.26.*
+*Fin de `18-METADATO-decisiones.md` v1.20.*
 

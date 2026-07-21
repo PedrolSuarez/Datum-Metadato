@@ -5,8 +5,8 @@
    "DATUM_Visualizador_Modelo.html (atributos)",
    "16 volcados de dominio (censo)"
   ],
-  "materialized_entities": 311,
-  "total_attributes": 2717,
+  "materialized_entities": 312,
+  "total_attributes": 2723,
   "note": "Nivel 1 = entidad con atributos campo-a-campo (real, del visualizador). Las entidades solo nombradas en los volcados sin atributos NO se incluyen como completas: su detalle no existe en disco. · Tablas marcadas source=derivado_del_volcado tienen atributos DERIVADOS de la descripción del volcado + convenciones del metamodelo (no extraídos del visualizador).",
   "derived_entities": 59,
   "catalog_decisions": {
@@ -1787,27 +1787,6 @@
      "pk": 0,
      "fk_target": null,
      "desc": "true = tabla inmutable append-only (auditoría: nunca UPDATE/DELETE)"
-    },
-    {
-     "name": "population_mode_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "POPULATION_MODE",
-     "catalog_ref_metadata_only": true,
-     "desc": "cómo se alimenta la tabla (RUNNER_TELEMETRY/GATE_UDF/DERIVED_SCHEDULED/SOURCE_INGEST/APP_TRANSACTION); relevante en observabilidad"
-    },
-    {
-     "name": "derived_from_entity",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "entidad de la que deriva (vista/proceso); p.ej. una uc_* de origen. null = no deriva de otra tabla",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
     },
     {
      "name": "system",
@@ -11618,17 +11597,6 @@
      "desc": "puede actuar de puerta (DQ)"
     },
     {
-     "name": "emits_observability_entity",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "entidad de observabilidad que este runner EMITE como telemetría (null = no emite observabilidad propia)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -11756,6 +11724,34 @@
      "pk": 0,
      "fk_target": null,
      "desc": "calendario de entrega comprometido (cron)"
+    },
+    {
+     "name": "freshness_operator_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "OPERATOR",
+     "catalog_ref_metadata_only": true,
+     "desc": "override de frescura por tabla: operador (catalogo OPERATOR); si null hereda el FRESHNESS del contrato"
+    },
+    {
+     "name": "freshness_value",
+     "tyd": "TYD_DECIMAL",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "override de frescura por tabla: valor umbral (si null hereda del contrato)"
+    },
+    {
+     "name": "freshness_unit_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "SLA_UNIT",
+     "catalog_ref_metadata_only": true,
+     "desc": "override de frescura por tabla: unidad (catalogo SLA_UNIT)"
     },
     {
      "name": "system",
@@ -21924,7 +21920,7 @@
    "i18n": false
   },
   "uc_information_schema_metastores": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.metastores] Describe el metastore actual.",
    "attributes": [
@@ -22074,11 +22070,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_catalogs": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.catalogs] Describe los catálogos.",
    "attributes": [
@@ -22148,11 +22144,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_schemata": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.schemata] Describe los esquemas de cada catálogo.",
    "attributes": [
@@ -22233,11 +22229,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_tables": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.tables] Describe tablas y vistas del catálogo (owner, created_by, last_altered…).",
    "attributes": [
@@ -22374,11 +22370,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_views": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.views] Información específica de las vistas.",
    "attributes": [
@@ -22459,11 +22455,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_columns": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.columns] Describe las columnas de tablas y vistas — clave para recrear estructuras.",
    "attributes": [
@@ -22744,11 +22740,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_volumes": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.volumes] Describe los volúmenes del catálogo.",
    "attributes": [
@@ -22853,11 +22849,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_routines": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.routines] Describe rutinas (funciones).",
    "attributes": [
@@ -23146,11 +23142,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_routine_columns": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.routine_columns] Columnas resultado de funciones table-valued.",
    "attributes": [
@@ -23311,11 +23307,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_parameters": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.parameters] Parámetros de las rutinas.",
    "attributes": [
@@ -23500,11 +23496,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_information_schema_catalog_name": {
-   "subdomain": "IS_OBJECTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.information_schema_catalog_name] Nombre del catálogo de este information_schema.",
    "attributes": [
@@ -23526,11 +23522,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_OBJECTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_table_constraints": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.table_constraints] Metadatos de PK/FK del catálogo.",
    "attributes": [
@@ -23635,11 +23631,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_key_column_usage": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.key_column_usage] Columnas de constraints PK/FK.",
    "attributes": [
@@ -23728,11 +23724,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_referential_constraints": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.referential_constraints] Constraints referenciales (FK).",
    "attributes": [
@@ -23824,11 +23820,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_constraint_column_usage": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.constraint_column_usage] Constraints que referencian columnas.",
    "attributes": [
@@ -23904,11 +23900,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_constraint_table_usage": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.constraint_table_usage] Constraints que referencian tablas.",
    "attributes": [
@@ -23976,11 +23972,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_check_constraints": {
-   "subdomain": "IS_CONSTRAINTS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.check_constraints] Reservado para uso futuro.",
    "attributes": [
@@ -24037,11 +24033,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_CONSTRAINTS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_metastore_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.metastore_privileges] Privilegios sobre el metastore.",
    "attributes": [
@@ -24103,11 +24099,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_catalog_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.catalog_privileges] Privilegios sobre catálogos.",
    "attributes": [
@@ -24172,11 +24168,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_schema_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.schema_privileges] Privilegios sobre esquemas.",
    "attributes": [
@@ -24249,11 +24245,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_table_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.table_privileges] Privilegios sobre tablas y vistas.",
    "attributes": [
@@ -24334,11 +24330,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_routine_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.routine_privileges] Privilegios sobre rutinas.",
    "attributes": [
@@ -24443,11 +24439,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_volume_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.volume_privileges] Privilegios sobre volúmenes.",
    "attributes": [
@@ -24528,11 +24524,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_connection_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.connection_privileges] Privilegios sobre conexiones foráneas.",
    "attributes": [
@@ -24597,11 +24593,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_credential_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.credential_privileges] Privilegios sobre credenciales.",
    "attributes": [
@@ -24666,11 +24662,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_external_location_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.external_location_privileges] Privilegios sobre external locations.",
    "attributes": [
@@ -24735,11 +24731,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_storage_credential_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.storage_credential_privileges] [Deprecated] Privilegios sobre storage credentials.",
    "attributes": [
@@ -24804,11 +24800,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_column_masks": {
-   "subdomain": "IS_SECURITY",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.column_masks] Máscaras de columna en el catálogo.",
    "attributes": [
@@ -24892,11 +24888,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SECURITY",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_row_filters": {
-   "subdomain": "IS_SECURITY",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.row_filters] Filtros de fila (RLS) en tablas.",
    "attributes": [
@@ -24972,11 +24968,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SECURITY",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_catalog_tags": {
-   "subdomain": "IS_TAGS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.catalog_tags] Tags aplicados a catálogos.",
    "attributes": [
@@ -25017,11 +25013,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_TAGS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_schema_tags": {
-   "subdomain": "IS_TAGS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.schema_tags] Tags de esquema.",
    "attributes": [
@@ -25070,11 +25066,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_TAGS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_table_tags": {
-   "subdomain": "IS_TAGS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.table_tags] Tags de tabla.",
    "attributes": [
@@ -25131,11 +25127,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_TAGS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_column_tags": {
-   "subdomain": "IS_TAGS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.column_tags] Tags de columna.",
    "attributes": [
@@ -25200,11 +25196,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_TAGS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_volume_tags": {
-   "subdomain": "IS_TAGS",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.volume_tags] Tags de volumen.",
    "attributes": [
@@ -25261,11 +25257,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_TAGS",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_connections": {
-   "subdomain": "IS_EXTERNAL",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.connections] Conexiones foráneas.",
    "attributes": [
@@ -25367,11 +25363,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_EXTERNAL",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_credentials": {
-   "subdomain": "IS_EXTERNAL",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.credentials] Credenciales.",
    "attributes": [
@@ -25481,11 +25477,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_EXTERNAL",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_external_locations": {
-   "subdomain": "IS_EXTERNAL",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.external_locations] External locations.",
    "attributes": [
@@ -25590,11 +25586,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_EXTERNAL",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_storage_credentials": {
-   "subdomain": "IS_EXTERNAL",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.storage_credentials] [Deprecated] Storage credentials.",
    "attributes": [
@@ -25696,11 +25692,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_EXTERNAL",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_shares": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.shares] Describe los shares.",
    "attributes": [
@@ -25770,11 +25766,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_providers": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.providers] Describe los providers.",
    "attributes": [
@@ -25892,11 +25888,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_recipients": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.recipients] Describe los recipients.",
    "attributes": [
@@ -26006,11 +26002,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_recipient_tokens": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.recipient_tokens] Tokens de recipients.",
    "attributes": [
@@ -26091,11 +26087,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_recipient_allowed_ip_ranges": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.recipient_allowed_ip_ranges] Rangos IP permitidos por recipient.",
    "attributes": [
@@ -26128,11 +26124,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_share_recipient_privileges": {
-   "subdomain": "IS_PRIVILEGES",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.share_recipient_privileges] Recipients con acceso a shares.",
    "attributes": [
@@ -26192,11 +26188,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_PRIVILEGES",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_catalog_provider_share_usage": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.catalog_provider_share_usage] Share de provider montado en catálogos.",
    "attributes": [
@@ -26240,11 +26236,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_schema_share_usage": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.schema_share_usage] Esquemas referenciados en shares.",
    "attributes": [
@@ -26304,11 +26300,11 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_information_schema_table_share_usage": {
-   "subdomain": "IS_SHARING",
+   "subdomain": "UC_INFORMATION_SCHEMA",
    "type": "UNITY_CATALOG",
    "desc": "[system.information_schema.table_share_usage] Tablas referenciadas en shares.",
    "attributes": [
@@ -26408,7 +26404,7 @@
     }
    ],
    "domain": "",
-   "business_term": "IS_SHARING",
+   "business_term": "UC_INFORMATION_SCHEMA",
    "i18n": false
   },
   "uc_data_quality_monitoring_table_results": {
@@ -26652,6 +26648,77 @@
    "domain": "",
    "business_term": "UC_DATA_CLASSIFICATION",
    "i18n": false
+  },
+  "business_process_input": {
+   "subdomain": "BUSINESS_PROCESS",
+   "type": "MDM meta",
+   "desc": "Entrada aguas arriba de un proceso: entidad canonica que LEE (no produce) y frescura maxima que necesita de ella. Alimenta la regla de refresco por demanda (umbral efectivo = min(demanda, supply)).",
+   "attributes": [
+    {
+     "name": "business_process_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "business_process",
+     "desc": "proceso consumidor (dependencia)",
+     "is_identifying": true,
+     "on_delete": "RESTRICT",
+     "on_update": "RESTRICT",
+     "fk_composite": {
+      "target": "business_process",
+      "columns": [
+       {
+        "source": "business_process_code",
+        "target": "code"
+       }
+      ]
+     }
+    },
+    {
+     "name": "canonical_entity_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "canonical_entity",
+     "is_visible_er": true,
+     "desc": "entidad canonica que el proceso lee aguas arriba"
+    },
+    {
+     "name": "max_staleness_value",
+     "tyd": "TYD_DECIMAL",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "frescura maxima aceptable para este proceso (nullable = sin demanda propia; hereda supply)"
+    },
+    {
+     "name": "max_staleness_unit_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "SLA_UNIT",
+     "catalog_ref_metadata_only": true,
+     "desc": "unidad de max_staleness (catalogo SLA_UNIT)"
+    },
+    {
+     "name": "is_blocking",
+     "tyd": "TYD_BOOLEAN",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "si stale e irrefrescable: bloquea el proceso (1) o sirve last-known (0=defecto)"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ],
+   "domain": "",
+   "business_term": "BUSINESS_PROCESS"
   }
  }
 }

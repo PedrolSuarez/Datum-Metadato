@@ -1,0 +1,2 @@
+- **v1.20 (Julio 2026):** METADATO-44. Regla de refresco de ingesta por demanda (Databricks nativo: watermark/checkpoint del runtime, DATUM observa por `uc_lakeflow_*`): regla derivada por `source_entity` (AWAIT/SERVE/REFRESH/BREACH), dedup por tabla, umbral efectivo = min(supply, demanda). Modelo: +`business_process_input` (demanda de frescura por proceso) + frescura por tabla en `source_data_contract_entity`. 311→312 / 2714→2723; catálogos 93 sin cambio. `REFRESH_DECISION` + campo en `run` → OBSERVABILITY (otra sesión).
+
