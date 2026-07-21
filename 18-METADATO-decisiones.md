@@ -828,5 +828,17 @@ Aclaración de implementación de la observabilidad **RUNNER_TELEMETRY** (M-47):
 - **Semántica:** INSERT al abrir + MERGE al cerrar (append inmutable; coherente con RUNNER_TELEMETRY + is_append_only); autocontenido (M-35: nunca rompe el circuito).
 - **Home:** `runner/observability_emitter` — código de plataforma (como compile_transformation.py), escrito una vez. README `README_observability_emitter.md`.
 
-*Fin de `18-METADATO-decisiones.md` v1.26.*
+### METADATO-51 — Vertical de ejemplo end-to-end: emisor + vista UC + proceso de derivación — DECIDIDO
+
+Se implementa una **vertical completa** como plantilla de las 3 mecánicas de población de la observabilidad. Código de **plataforma** en `runner/` (NO metadato). Sin cambios de modelo (311/2717/94).
+
+- **`runner/observability_emitter.py`** — emisor genérico de **RUNNER_TELEMETRY**: hooks `on_run_start`/`on_step_start`/`on_step_end`/`on_run_end` (INSERT al abrir + MERGE al cerrar) para `run`/`run_step`, y `emit_domain` que resuelve la telemetría de dominio por `runner_capability.emits_observability_entity`. Nombres físicos (`observability.process.run`) y columnas leídos del metadato; ningún runner escribe su propio INSERT. Dry-run verificado (traza de una corrida = 5 sentencias).
+- **`runner/compile_uc_views.py`** — compila las 4 **UC_VIEW** a `CREATE OR REPLACE VIEW` sobre su `derived_from_entity`: `access_event` con mapeo real de columnas sobre `uc_access_audit` (canal constante DATABRICKS, M-48), `access_event_aggregate`/`cost_aggregate` con GROUP BY, `resource_consumption` passthrough.
+- **`runner/compile_obs_cost_anomaly.py`** — proceso **DERIVED_SCHEDULED** `obs_cost_anomaly`: anomalía de coste por **línea base móvil (media + kσ, 30d)** sobre `uc_billing_usage` → `cost_anomaly`, con severidad por magnitud. Ejemplo-plantilla de la lógica de cómputo.
+
+Con esto las 3 mecánicas quedan ejemplificadas y compilables end-to-end; replicar el resto = clonar el patrón + su mapeo/lógica. **Verificado:** los 3 scripts ejecutan y emiten SQL válido.
+
+**PENDIENTE:** replicar mapeo/lógica en las demás vistas y los 8 procesos restantes; el gate UDF (M-36) como compilador propio.
+
+*Fin de `18-METADATO-decisiones.md` v1.27.*
 
