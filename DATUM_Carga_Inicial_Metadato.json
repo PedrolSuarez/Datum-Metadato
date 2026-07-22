@@ -12861,6 +12861,62 @@
     "source_object_type_code": "CANONICAL_ENTITY",
     "source_object_row_uuid": "temporal_hierarchy",
     "business_view_code": null
+   },
+   {
+    "code": "DIM_CANONICAL_ENTITY",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "canonical_entity",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_BUSINESS_PROCESS",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "business_process",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_RUNNER_TYPE",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "REFERENCE_CATALOG",
+    "source_object_row_uuid": "RUNNER_TYPE",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_SEVERITY",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "REFERENCE_CATALOG",
+    "source_object_row_uuid": "DQ_SEVERITY",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_SOURCE_SYSTEM",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "INFERRED",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "source_system",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_PRINCIPAL",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "EXPLICIT",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "access_event",
+    "business_view_code": null
+   },
+   {
+    "code": "DIM_COST_CENTER",
+    "dimension_kind_code": "CLASSIC",
+    "derivation_mode_code": "EXPLICIT",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "uc_billing_usage",
+    "business_view_code": null
    }
   ],
   "accumulative_fact": [
@@ -12899,6 +12955,66 @@
     "business_term_code": "DATA_QUALITY",
     "source_object_type_code": "CANONICAL_ENTITY",
     "source_object_row_uuid": "canonical_entity",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_EXECUTION",
+    "business_term_code": "EXECUTION",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "run",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_QUALITY",
+    "business_term_code": "DQ_OBSERVATION",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "dq_run_result",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_ACCESS",
+    "business_term_code": "ACCESS_AUDIT",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "access_event",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_COST",
+    "business_term_code": "FINOPS",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "uc_billing_usage",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_INCIDENT",
+    "business_term_code": "INCIDENT_ALERT",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "incident",
+    "fact_kind_code": "PERIODIC_SNAPSHOT",
+    "time_grain_code": "DAY",
+    "materialization_mode_code": "VIEW",
+    "aggregation_view_code": null
+   },
+   {
+    "code": "FACT_OBS_INGESTION",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "source_object_type_code": "CANONICAL_ENTITY",
+    "source_object_row_uuid": "source_discovery_run",
     "fact_kind_code": "PERIODIC_SNAPSHOT",
     "time_grain_code": "DAY",
     "materialization_mode_code": "VIEW",
@@ -12968,6 +13084,132 @@
     "aggregate_function_code": "COUNT",
     "source_expression": "",
     "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "code": "N_RUNS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "code": "N_FAILED",
+    "aggregate_function_code": "SUM",
+    "source_expression": "is_failed",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "code": "N_WARN",
+    "aggregate_function_code": "SUM",
+    "source_expression": "is_warning",
+    "measure_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "code": "RECORDS",
+    "aggregate_function_code": "SUM",
+    "source_expression": "records_processed",
+    "measure_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "code": "DURATION_AVG",
+    "aggregate_function_code": "AVG",
+    "source_expression": "duration_seconds",
+    "measure_order": 5
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "code": "N_CHECKS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "code": "N_PASSED",
+    "aggregate_function_code": "SUM",
+    "source_expression": "records_passed",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "code": "N_FAILED",
+    "aggregate_function_code": "SUM",
+    "source_expression": "records_failed",
+    "measure_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "code": "N_EVALUATED",
+    "aggregate_function_code": "SUM",
+    "source_expression": "records_evaluated",
+    "measure_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "code": "N_ACCESSES",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "code": "N_PRINCIPALS",
+    "aggregate_function_code": "COUNT_DISTINCT",
+    "source_expression": "principal_id",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "code": "TOTAL_USAGE",
+    "aggregate_function_code": "SUM",
+    "source_expression": "usage_quantity",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "code": "N_ANOMALIES",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "code": "N_INCIDENTS",
+    "aggregate_function_code": "COUNT",
+    "source_expression": "",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "code": "N_OPEN",
+    "aggregate_function_code": "SUM",
+    "source_expression": "is_open",
+    "measure_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "code": "TTR_AVG",
+    "aggregate_function_code": "AVG",
+    "source_expression": "ttr_seconds",
+    "measure_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "code": "N_INGESTED",
+    "aggregate_function_code": "SUM",
+    "source_expression": "objects_discovered",
+    "measure_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "code": "N_DRIFT",
+    "aggregate_function_code": "SUM",
+    "source_expression": "drift_findings",
+    "measure_order": 2
    }
   ],
   "accumulative_fact_dimension": [
@@ -13016,6 +13258,114 @@
    {
     "accumulative_fact_code": "FACT_MM_QUALITY",
     "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "dimension_code": "DIM_BUSINESS_PROCESS",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "dimension_code": "DIM_RUNNER_TYPE",
+    "dimension_level_code": null,
+    "dimension_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_level_code": null,
+    "dimension_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "dimension_code": "DIM_CANONICAL_ENTITY",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "dimension_code": "DIM_DQ_DIMENSION",
+    "dimension_level_code": null,
+    "dimension_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "dimension_code": "DIM_SEVERITY",
+    "dimension_level_code": null,
+    "dimension_order": 4
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "dimension_code": "DIM_PRINCIPAL",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "dimension_code": "DIM_CANONICAL_ENTITY",
+    "dimension_level_code": null,
+    "dimension_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "dimension_code": "DIM_COST_CENTER",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_level_code": null,
+    "dimension_order": 3
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "dimension_code": "DIM_SEVERITY",
+    "dimension_level_code": null,
+    "dimension_order": 2
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_level_code": null,
+    "dimension_order": 1
+   },
+   {
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "dimension_code": "DIM_SOURCE_SYSTEM",
     "dimension_level_code": null,
     "dimension_order": 2
    }
@@ -13092,6 +13442,132 @@
     "fact_measure_code": null,
     "calculation_view_code": null,
     "unit_code": "PERCENTAGE"
+   },
+   {
+    "code": "KPI_OBS_RUNS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "fact_measure_code": "N_RUNS",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_FAILED_RUNS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "fact_measure_code": "N_FAILED",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_RECORDS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "fact_measure_code": "RECORDS",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_DQ_CHECKS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "fact_measure_code": "N_CHECKS",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_DQ_FAILED",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "fact_measure_code": "N_FAILED",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_ACCESSES",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "fact_measure_code": "N_ACCESSES",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_COST",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "fact_measure_code": "TOTAL_USAGE",
+    "calculation_view_code": null,
+    "unit_code": "CURRENCY"
+   },
+   {
+    "code": "KPI_OBS_OPEN_INCIDENTS",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "fact_measure_code": "N_OPEN",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_MTTR",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "fact_measure_code": "TTR_AVG",
+    "calculation_view_code": null,
+    "unit_code": "DURATION"
+   },
+   {
+    "code": "KPI_OBS_DRIFT",
+    "kpi_type_code": "BASIC",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "fact_measure_code": "N_DRIFT",
+    "calculation_view_code": null,
+    "unit_code": "COUNT"
+   },
+   {
+    "code": "KPI_OBS_SUCCESS_RATE",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "PERCENTAGE"
+   },
+   {
+    "code": "KPI_OBS_DQ_PASS_RATE",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "PERCENTAGE"
+   },
+   {
+    "code": "KPI_OBS_COST_PER_ENTITY",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "RATIO"
+   },
+   {
+    "code": "KPI_OBS_TRUST_SCORE",
+    "kpi_type_code": "DERIVED",
+    "subject_kind_code": "OBSERVABILITY",
+    "accumulative_fact_code": null,
+    "fact_measure_code": null,
+    "calculation_view_code": null,
+    "unit_code": "RATIO"
    }
   ],
   "kpi_dependency": [
@@ -13114,6 +13590,224 @@
     "kpi_code": "KPI_MM_TERMED_PCT",
     "depends_on_kpi_code": "KPI_MM_ENTITIES",
     "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_OBS_SUCCESS_RATE",
+    "depends_on_kpi_code": "KPI_OBS_RUNS",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_OBS_SUCCESS_RATE",
+    "depends_on_kpi_code": "KPI_OBS_FAILED_RUNS",
+    "dependency_order": 2
+   },
+   {
+    "kpi_code": "KPI_OBS_DQ_PASS_RATE",
+    "depends_on_kpi_code": "KPI_OBS_DQ_CHECKS",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_OBS_DQ_PASS_RATE",
+    "depends_on_kpi_code": "KPI_OBS_DQ_FAILED",
+    "dependency_order": 2
+   },
+   {
+    "kpi_code": "KPI_OBS_COST_PER_ENTITY",
+    "depends_on_kpi_code": "KPI_OBS_COST",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_OBS_COST_PER_ENTITY",
+    "depends_on_kpi_code": "KPI_OBS_RECORDS",
+    "dependency_order": 2
+   },
+   {
+    "kpi_code": "KPI_OBS_TRUST_SCORE",
+    "depends_on_kpi_code": "KPI_OBS_DQ_PASS_RATE",
+    "dependency_order": 1
+   },
+   {
+    "kpi_code": "KPI_OBS_TRUST_SCORE",
+    "depends_on_kpi_code": "KPI_OBS_OPEN_INCIDENTS",
+    "dependency_order": 2
+   },
+   {
+    "kpi_code": "KPI_OBS_TRUST_SCORE",
+    "depends_on_kpi_code": "KPI_OBS_DRIFT",
+    "dependency_order": 3
+   }
+  ],
+  "data_product": [
+   {
+    "code": "DP_PLATFORM_HEALTH",
+    "business_term_code": "EXECUTION",
+    "certification_tier_code": "CERTIFIED",
+    "publication_status_code": "PUBLISHED",
+    "system": ""
+   },
+   {
+    "code": "DP_DATA_QUALITY_SCORECARD",
+    "business_term_code": "DQ_OBSERVATION",
+    "certification_tier_code": "CERTIFIED",
+    "publication_status_code": "PUBLISHED",
+    "system": ""
+   },
+   {
+    "code": "DP_ACCESS_AUDIT",
+    "business_term_code": "ACCESS_AUDIT",
+    "certification_tier_code": "CERTIFIED",
+    "publication_status_code": "PUBLISHED",
+    "system": ""
+   },
+   {
+    "code": "DP_FINOPS_CHARGEBACK",
+    "business_term_code": "FINOPS",
+    "certification_tier_code": "CURATED",
+    "publication_status_code": "PUBLISHED",
+    "system": ""
+   },
+   {
+    "code": "DP_INGESTION_MONITOR",
+    "business_term_code": "DISCOVERY_OBSERVATION",
+    "certification_tier_code": "CURATED",
+    "publication_status_code": "PUBLISHED",
+    "system": ""
+   }
+  ],
+  "data_product_fact": [
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "accumulative_fact_code": "FACT_OBS_INCIDENT",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "perspective_code": "COMPLEMENTARY",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_DATA_QUALITY_SCORECARD",
+    "accumulative_fact_code": "FACT_OBS_QUALITY",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_ACCESS_AUDIT",
+    "accumulative_fact_code": "FACT_OBS_ACCESS",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_FINOPS_CHARGEBACK",
+    "accumulative_fact_code": "FACT_OBS_COST",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_INGESTION_MONITOR",
+    "accumulative_fact_code": "FACT_OBS_INGESTION",
+    "perspective_code": "CORE",
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_INGESTION_MONITOR",
+    "accumulative_fact_code": "FACT_OBS_EXECUTION",
+    "perspective_code": "COMPLEMENTARY",
+    "system": ""
+   }
+  ],
+  "data_product_dimension": [
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_order": 1,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_order": 2,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_PLATFORM_HEALTH",
+    "dimension_code": "DIM_BUSINESS_PROCESS",
+    "dimension_order": 3,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_DATA_QUALITY_SCORECARD",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_order": 1,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_DATA_QUALITY_SCORECARD",
+    "dimension_code": "DIM_CANONICAL_ENTITY",
+    "dimension_order": 2,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_DATA_QUALITY_SCORECARD",
+    "dimension_code": "DIM_DQ_DIMENSION",
+    "dimension_order": 3,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_ACCESS_AUDIT",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_order": 1,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_ACCESS_AUDIT",
+    "dimension_code": "DIM_PRINCIPAL",
+    "dimension_order": 2,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_ACCESS_AUDIT",
+    "dimension_code": "DIM_CANONICAL_ENTITY",
+    "dimension_order": 3,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_FINOPS_CHARGEBACK",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_order": 1,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_FINOPS_CHARGEBACK",
+    "dimension_code": "DIM_COST_CENTER",
+    "dimension_order": 2,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_FINOPS_CHARGEBACK",
+    "dimension_code": "DIM_ACCELERATOR",
+    "dimension_order": 3,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_INGESTION_MONITOR",
+    "dimension_code": "DIM_SNAPSHOT_DATE",
+    "dimension_order": 1,
+    "system": ""
+   },
+   {
+    "data_product_code": "DP_INGESTION_MONITOR",
+    "dimension_code": "DIM_SOURCE_SYSTEM",
+    "dimension_order": 2,
+    "system": ""
    }
   ]
  }

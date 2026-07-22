@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.27 — Julio 2026
+**Versión:** v1.29 — Julio 2026
 
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
@@ -14,7 +14,7 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 
 
 
-## Estado consolidado (tras METADATO-16..51, v1.27)
+## Estado consolidado (tras METADATO-16..53, v1.29)
 
 - Metamodelo: **311 entidades**, **2717 atributos** (M-42 retención; M-47 population_mode_code + emits_observability_entity; M-48 derived_from_entity). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39).
 
@@ -181,6 +181,8 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **M-49 (procesos/UDFs):** inventario computado — a construir = **1 UDF (gate) + 9 procesos programados + 4 vistas**; el resto es telemetría de runner (27) o app (20). Definidos los 9 procesos (business_process+pattern+step) en `DATUM_Carga_Observability_Procesos.json` + doc `DATUM_Observabilidad_Procesos_UDFs.md`. Pendiente: lógica de cómputo y SELECT de vistas.
 - **M-50 (emisión de telemetría):** RUNNER_TELEMETRY se puebla con un **emisor genérico** del harness (hooks on_run/step_start/end; INSERT al abrir + MERGE al cerrar), dirigido por `runner_capability.emits`. Ni INSERT por runner ni UDF. Componente de plataforma `runner/observability_emitter` + README.
 - **M-51 (vertical ejemplo):** implementadas 3 piezas de plataforma end-to-end — `observability_emitter.py` (run/run_step+dominio), `compile_uc_views.py` (access_event y las 4 UC_VIEW), `compile_obs_cost_anomaly.py` (proceso de derivación). Plantilla para replicar el resto.
+- **M-52 (carga UC completa):** sembrados 838 `source_attribute` (columnas UC con tipo nativo) + 12 `data_type` Databricks + 838 `transformation_field` 1:1. La carga UC ya no depende de discovery (solo drift) y usa el compilador de transformaciones estándar.
+- **M-53 (capa analítica OBS):** capa analítica del acelerador (subject_kind=OBSERVABILITY): +7 dimensiones, 6 hechos (EXECUTION/QUALITY/ACCESS/COST/INCIDENT/INGESTION) con 18 medidas, 14 KPIs (10 básicos + 4 derivados), 5 data products publicados (platform_health, dq_scorecard, access_audit, finops_chargeback, ingestion_monitor). Solo seed analítico.
 
 ## Aceleradores incorporados
 
@@ -309,5 +311,9 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 - **v1.27 (Julio 2026):** METADATO-51. Vertical de ejemplo end-to-end (código de plataforma en runner/): observability_emitter.py (telemetría run/run_step+dominio), compile_uc_views.py (access_event + las 4 UC_VIEW), compile_obs_cost_anomaly.py (proceso de derivación). Sin cambios de modelo (311/2717/94).
 
-*Fin de `99-METADATO-control.md` v1.27.*
+- **v1.28 (Julio 2026):** METADATO-52. Columnas UC pre-sembradas (838 source_attribute + 12 data_type Databricks) + mapeo 1:1 (838 transformation_field) en DATUM_Carga_Observability_UC.json. La carga UC deja de depender de discovery (solo drift) y usa compile_transformation.py estándar. Sin cambios de modelo (311/2717/94).
+
+- **v1.29 (Julio 2026):** METADATO-53. Capa analítica del acelerador OBSERVABILITY (subject_kind=OBSERVABILITY): +7 dimensiones, 6 hechos PERIODIC_SNAPSHOT, 14 KPIs (10 básicos+4 derivados), 5 data products publicados. Solo seed analítico; sin cambios de modelo (311/2717/94).
+
+*Fin de `99-METADATO-control.md` v1.29.*
 
