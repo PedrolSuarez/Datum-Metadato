@@ -51,7 +51,7 @@
     "STANDARD_AUTHORITY": {
       "dominio": "D0 · Catálogos de datos (D1)",
       "tipo_valor": "CERRADO",
-      "estado": "ACTIVE",
+      "estado": "CONFIRMADO",
       "usado_en": [
         "reference_catalog.external_authority_code"
       ],
@@ -318,24 +318,6 @@
         "FEDERATED": "Gobierno federado.",
         "HYBRID": "Híbrido (centro + federación).",
         "DELEGATED": "Delegado a la unidad."
-      }
-    },
-    "MATURITY_LEVEL": {
-      "dominio": "D · Evaluación",
-      "tipo_valor": "CERRADO",
-      "estado": "CONFIRMADO",
-      "category": "LEVEL",
-      "canonical_accelerator": "METADATA",
-      "desc": "Niveles de resultado de una evaluación de MADUREZ (usado como level_reference_catalog de un assessment_pattern de tipo MATURITY).",
-      "usado_en": [
-        "assessment_pattern_threshold.level_code (patrón MATURITY)"
-      ],
-      "values": {
-        "INITIAL": "Inicial / ad-hoc.",
-        "MANAGED": "Gestionado.",
-        "DEFINED": "Definido.",
-        "QUANTITATIVELY_MANAGED": "Gestionado cuantitativamente.",
-        "OPTIMIZING": "Optimizado."
       }
     },
     "BUSINESS_ROLE_PROFILE": {
@@ -1171,7 +1153,7 @@
     "MATURITY_DIMENSION": {
       "dominio": "D6 · Calidad de datos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "DIMENSION",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1190,7 +1172,7 @@
     "EXPIRATION_ACTION": {
       "dominio": "D6 · Calidad de datos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "ACTION",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1288,7 +1270,7 @@
     "UNIT": {
       "dominio": "D0 · Analítica (D7)",
       "tipo_valor": "ABIERTO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1306,7 +1288,7 @@
     "CERTIFICATION_TIER": {
       "dominio": "D0 · Analítica (D7)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "LEVEL",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1339,7 +1321,7 @@
     "PERSPECTIVE": {
       "dominio": "D0 · Analítica (D7)",
       "tipo_valor": "ABIERTO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "DIMENSION",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1567,7 +1549,7 @@
     "MATURITY_FRAMEWORK": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1582,7 +1564,7 @@
     "DATA_CRITICALITY": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "LEVEL",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1601,7 +1583,7 @@
     "SCORING_METHOD": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "MODE",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1617,7 +1599,7 @@
     "ANSWER_SCALE": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1633,7 +1615,7 @@
     "LEVEL_SCALE": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "LEVEL",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1650,7 +1632,7 @@
     "DOCUMENT_TYPE": {
       "dominio": "D14 · Documentación",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1669,7 +1651,7 @@
     "STORAGE_KIND": {
       "dominio": "D14 · Documentación",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1686,7 +1668,7 @@
     "LINK_KIND": {
       "dominio": "D14 · Documentación",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1703,7 +1685,7 @@
     "OWNERSHIP_ROLE": {
       "dominio": "D14 · Documentación",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "ROLE",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1720,7 +1702,7 @@
     "ADDON_MARKETPLACE": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1737,7 +1719,7 @@
     "RENDER_MODE": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "MODE",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1752,7 +1734,7 @@
     "FUNCTIONALITY_KIND": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1771,7 +1753,7 @@
     "SLOT_KIND": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1790,7 +1772,7 @@
     "UI_CONTROL": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1810,7 +1792,7 @@
     "UI_ACTION": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "ACTION",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1829,7 +1811,7 @@
     "THEME": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1845,7 +1827,7 @@
     "SUPPORT_TIER": {
       "dominio": "D10 · UX",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "LEVEL",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1862,7 +1844,7 @@
     "RECIPIENT_KIND": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1878,7 +1860,7 @@
     "EXPOSURE_CHANNEL": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1894,7 +1876,7 @@
     "APPROVAL_STATUS": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "STATUS",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1913,7 +1895,7 @@
     "API_STYLE": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1928,7 +1910,7 @@
     "PUSH_ENDPOINT": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1944,7 +1926,7 @@
     "OUTPUT_FORMAT": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "FORMAT",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1961,7 +1943,7 @@
     "SHARE_PLATFORM": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1976,7 +1958,7 @@
     "ACCESS_LEVEL": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "LEVEL",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -1991,7 +1973,7 @@
     "LISTING_MODE": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "MODE",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -2007,7 +1989,7 @@
     "TRANSFER_JURISDICTION": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -2023,7 +2005,7 @@
     "SECTORAL_TEMPLATE": {
       "dominio": "D9 · Exposición",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -2042,7 +2024,7 @@
     "INCIDENT_TYPE": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [
@@ -2061,7 +2043,7 @@
     "SCOPE_KIND": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2076,7 +2058,7 @@
     "SAFEGUARD": {
       "dominio": "D0 · Gobierno (D8)",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2090,7 +2072,7 @@
     "ENCRYPTION_ALGORITHM": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2102,25 +2084,10 @@
         "TDE": "Transparent Data Encryption."
       }
     },
-    "VERSION_STATUS": {
-      "dominio": "D0 · Catálogos",
-      "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
-      "category": "STATUS",
-      "canonical_accelerator": "METADATA",
-      "usado_en": [],
-      "desc": "Catálogo saneado en M-60.",
-      "values": {
-        "DRAFT": "Borrador.",
-        "PUBLISHED": "Publicada.",
-        "DEPRECATED": "Obsoleta.",
-        "RETIRED": "Retirada."
-      }
-    },
     "OPERAND_KIND": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2135,7 +2102,7 @@
     "LIFECYCLE_PHASE": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "STATUS",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2149,7 +2116,7 @@
     "MASKING_METHOD": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "MODE",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2164,7 +2131,7 @@
     "LOGICAL_TYPE": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2181,7 +2148,7 @@
     "UI_CONTEXT": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2199,7 +2166,7 @@
     "EXPRESSION_TYPE": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2216,7 +2183,7 @@
     "DATA_LAYER": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2230,7 +2197,7 @@
     "CHANGE_KIND": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2247,7 +2214,7 @@
     "NODE_KIND": {
       "dominio": "D0 · Catálogos",
       "tipo_valor": "CERRADO",
-      "estado": "PROPUESTO",
+      "estado": "CONFIRMADO",
       "category": "KIND",
       "canonical_accelerator": "METADATA",
       "usado_en": [],
@@ -2258,6 +2225,24 @@
         "FUNCTION": "Función.",
         "COLUMN_REF": "Referencia a columna.",
         "LITERAL": "Literal."
+      }
+    },
+    "GDPR_PARTY_ROLE": {
+      "dominio": "D08 · Exposición / Acuerdos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ROLE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "external_organization.gdpr_role_code"
+      ],
+      "desc": "Rol de una organización externa frente al RGPD en cesiones y encargos.",
+      "values": {
+        "CONTROLLER": "Responsable del tratamiento.",
+        "PROCESSOR": "Encargado del tratamiento.",
+        "JOINT_CONTROLLER": "Corresponsable del tratamiento.",
+        "RECIPIENT": "Cesionario / destinatario de la cesión.",
+        "SUB_PROCESSOR": "Subencargado del tratamiento."
       }
     }
   },

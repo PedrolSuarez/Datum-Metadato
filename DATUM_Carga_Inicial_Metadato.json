@@ -975,19 +975,6 @@
         "partition_strategy_code": "NONE"
       },
       {
-        "code": "source_entity_partition_strategy",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
         "code": "source_data_contract",
         "business_term_code": "SOURCE_CONTRACT",
         "config_pattern_code": "DEFAULT",
@@ -1015,7 +1002,7 @@
       },
       {
         "code": "canonical_view",
-        "business_term_code": "METADATA",
+        "business_term_code": "VIEWS",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1028,7 +1015,7 @@
       },
       {
         "code": "expression",
-        "business_term_code": "METADATA",
+        "business_term_code": "VIEWS",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1041,7 +1028,7 @@
       },
       {
         "code": "expression_node",
-        "business_term_code": "METADATA",
+        "business_term_code": "VIEWS",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1054,7 +1041,7 @@
       },
       {
         "code": "expression_operand",
-        "business_term_code": "METADATA",
+        "business_term_code": "VIEWS",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1067,7 +1054,7 @@
       },
       {
         "code": "function_catalog",
-        "business_term_code": "METADATA",
+        "business_term_code": "VIEWS",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1690,201 +1677,6 @@
         "partition_strategy_code": "NONE"
       },
       {
-        "code": "source_connection",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_connection_credential",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_connection_token_state",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_database",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_file",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_api_endpoint",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_api_endpoint_parameter",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_api_graphql_query",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_api_soap_operation",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_stream_topic",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_webhook",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_excel_workbook",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_archive_container",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "multi_record",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "source_entity_relation",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
         "code": "canonical_relation",
         "business_term_code": "CANONICAL_ENTITY",
         "config_pattern_code": "DEFAULT",
@@ -1912,7 +1704,7 @@
       },
       {
         "code": "canonical_model_change",
-        "business_term_code": "METADATA",
+        "business_term_code": "VERSIONING",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -1926,32 +1718,6 @@
       {
         "code": "canonical_accelerator",
         "business_term_code": "ACCELERATOR",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "canonical_entity_attribute",
-        "business_term_code": "METADATA",
-        "config_pattern_code": "DEFAULT",
-        "physical_schema_code": "metadata",
-        "is_pii": "0",
-        "is_sensitive": "0",
-        "security_classification_code": "PUBLIC",
-        "estimated_annual_volume": "",
-        "access_frequency_code": "RARELY",
-        "physical_catalog_code": "metadato",
-        "partition_strategy_code": "NONE"
-      },
-      {
-        "code": "canonical_attribute_attribute",
-        "business_term_code": "METADATA",
         "config_pattern_code": "DEFAULT",
         "physical_schema_code": "metadata",
         "is_pii": "0",
@@ -4775,6 +4541,19 @@
         "access_frequency_code": "RARELY",
         "physical_catalog_code": "metadato",
         "partition_strategy_code": "NONE"
+      },
+      {
+        "code": "external_organization",
+        "business_term_code": "DATA_AGREEMENTS",
+        "config_pattern_code": "DEFAULT",
+        "physical_schema_code": "metadata",
+        "is_pii": "0",
+        "is_sensitive": "0",
+        "security_classification_code": "PUBLIC",
+        "estimated_annual_volume": "",
+        "access_frequency_code": "RARELY",
+        "physical_catalog_code": "metadato",
+        "partition_strategy_code": "NONE"
       }
     ],
     "canonical_accelerator": [
@@ -5629,7 +5408,7 @@
       {
         "code": "DATA_AGREEMENTS",
         "canonical_accelerator_code": "METADATA",
-        "parent_term_code": "GOVERNANCE",
+        "parent_term_code": "EXPOSURE",
         "is_pii_related": true,
         "is_regulatory": true,
         "regulatory_reference": "RGPD/GDPR",
@@ -5655,6 +5434,16 @@
         "regulatory_reference": null,
         "approved_by_committee_at": null,
         "display_order": 50
+      },
+      {
+        "code": "VIEWS",
+        "canonical_accelerator_code": "METADATA",
+        "parent_term_code": "COMMON_DATA",
+        "is_pii_related": false,
+        "is_regulatory": false,
+        "regulatory_reference": null,
+        "approved_by_committee_at": null,
+        "display_order": 40
       }
     ],
     "delta_property": [
@@ -6857,15 +6646,6 @@
         "external_standard_ref": null
       },
       {
-        "code": "VERSION_STATUS",
-        "category_code": "STATUS",
-        "canonical_accelerator_code": "METADATA",
-        "is_ordered": false,
-        "min_active_values": 1,
-        "external_authority_code": null,
-        "external_standard_ref": null
-      },
-      {
         "code": "DATE_FORMAT",
         "category_code": "FORMAT",
         "canonical_accelerator_code": "METADATA",
@@ -6998,6 +6778,15 @@
         "is_ordered": false,
         "min_active_values": 1,
         "external_authority_code": null,
+        "external_standard_ref": null
+      },
+      {
+        "code": "GDPR_PARTY_ROLE",
+        "category_code": "ROLE",
+        "canonical_accelerator_code": "METADATA",
+        "is_ordered": false,
+        "min_active_values": 3,
+        "external_authority_code": "RGPD/GDPR",
         "external_standard_ref": null
       }
     ],
@@ -10370,34 +10159,6 @@
         "is_terminal": true
       },
       {
-        "reference_catalog_code": "VERSION_STATUS",
-        "code": "DRAFT",
-        "sort_order": 1,
-        "is_default": true,
-        "is_terminal": true
-      },
-      {
-        "reference_catalog_code": "VERSION_STATUS",
-        "code": "PUBLISHED",
-        "sort_order": 2,
-        "is_default": false,
-        "is_terminal": true
-      },
-      {
-        "reference_catalog_code": "VERSION_STATUS",
-        "code": "DEPRECATED",
-        "sort_order": 3,
-        "is_default": false,
-        "is_terminal": true
-      },
-      {
-        "reference_catalog_code": "VERSION_STATUS",
-        "code": "RETIRED",
-        "sort_order": 4,
-        "is_default": false,
-        "is_terminal": true
-      },
-      {
         "reference_catalog_code": "DATE_FORMAT",
         "code": "YMD",
         "sort_order": 1,
@@ -10870,6 +10631,41 @@
         "reference_catalog_code": "CARDINALITY",
         "code": "1:1",
         "sort_order": 4,
+        "is_default": false,
+        "is_terminal": true
+      },
+      {
+        "reference_catalog_code": "GDPR_PARTY_ROLE",
+        "code": "CONTROLLER",
+        "sort_order": 1,
+        "is_default": false,
+        "is_terminal": true
+      },
+      {
+        "reference_catalog_code": "GDPR_PARTY_ROLE",
+        "code": "PROCESSOR",
+        "sort_order": 2,
+        "is_default": false,
+        "is_terminal": true
+      },
+      {
+        "reference_catalog_code": "GDPR_PARTY_ROLE",
+        "code": "JOINT_CONTROLLER",
+        "sort_order": 3,
+        "is_default": false,
+        "is_terminal": true
+      },
+      {
+        "reference_catalog_code": "GDPR_PARTY_ROLE",
+        "code": "RECIPIENT",
+        "sort_order": 4,
+        "is_default": false,
+        "is_terminal": true
+      },
+      {
+        "reference_catalog_code": "GDPR_PARTY_ROLE",
+        "code": "SUB_PROCESSOR",
+        "sort_order": 5,
         "is_default": false,
         "is_terminal": true
       }
