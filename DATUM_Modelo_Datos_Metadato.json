@@ -5,8 +5,8 @@
    "DATUM_Visualizador_Modelo.html (atributos)",
    "16 volcados de dominio (censo)"
   ],
-  "materialized_entities": 311,
-  "total_attributes": 2717,
+  "materialized_entities": 291,
+  "total_attributes": 2608,
   "note": "Nivel 1 = entidad con atributos campo-a-campo (real, del visualizador). Las entidades solo nombradas en los volcados sin atributos NO se incluyen como completas: su detalle no existe en disco. · Tablas marcadas source=derivado_del_volcado tienen atributos DERIVADOS de la descripción del volcado + convenciones del metamodelo (no extraídos del visualizador).",
   "derived_entities": 59,
   "catalog_decisions": {
@@ -1775,10 +1775,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "RETENTION_POLICY",
-     "catalog_ref_metadata_only": true,
-     "desc": "política de retención de la tabla persistente (null = sin política declarada); p.ej. AUDIT_7Y para copias de auditoría que deben sobrevivir a la ventana de la fuente"
+     "fk_target": "lifecycle_policy",
+     "desc": "política de retención (FK a lifecycle_policy — tier paramétrico)"
     },
     {
      "name": "is_append_only",
@@ -2132,7 +2130,7 @@
    "domain": ""
   },
   "object_version": {
-   "subdomain": "D06 · Versión y aprobación",
+   "subdomain": "VERSIONING",
    "type": "FACETA TRANSVERSAL",
    "desc": "Versionado único de TODO el metadato (sustituye las ~12 *_version dispersas). Anclaje polimórfico (object_row_uuid+object_type). Reubicada de D0→D8 (DATUM-49 cerrada opción A).Transversal (movida de D8→D0): aplica a CUALQUIER objeto gobernado, anclaje polimórfico.",
    "attributes": [
@@ -2166,7 +2164,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "PUBLICATION_STATUS / APPROVAL_STATUS"
+     "desc": "PUBLICATION_STATUS / APPROVAL_STATUS",
+     "reference_catalog": "VERSION_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_current",
@@ -2200,10 +2200,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D0"
+   "domain": "",
+   "business_term": "VERSIONING"
   },
   "object_approval": {
-   "subdomain": "D06 · Versión y aprobación",
+   "subdomain": "VERSIONING",
    "type": "FACETA TRANSVERSAL",
    "desc": "Aprobación/workflow único para cualquier objeto gobernado. Anclaje polimórfico (object_row_uuid+object_type). Reubicada de D0→D8 (DATUM-49 cerrada opción A).Transversal (movida de D8→D0): aplica a CUALQUIER objeto gobernado, anclaje polimórfico.",
    "attributes": [
@@ -2229,7 +2230,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "APPROVAL_STATUS (PENDING/APPROVED/REJECTED/WITHDRAWN)"
+     "desc": "APPROVAL_STATUS (PENDING/APPROVED/REJECTED/WITHDRAWN)",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "requested_at",
@@ -2252,7 +2255,7 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "reference_value",
+     "fk_target": "governance_role",
      "desc": "GOVERNANCE_ROLE que aprueba"
     },
     {
@@ -2271,12 +2274,13 @@
      "fk_target": null
     }
    ],
-   "domain": "D0"
+   "domain": "",
+   "business_term": "VERSIONING"
   },
   "object_assessment": {
-   "subdomain": "K · Facetas genéricas y motor de evaluación (DATUM-49/50)",
-   "type": "FACETA + CABECERA",
-   "desc": "Cabecera del acto de evaluación (de cualquier tipo) de un objeto: patrón aplicado, tipo, fecha, próxima fecha, total_score, nivel derivado del umbral, is_current. Anclaje polimórfico.",
+   "subdomain": "GOVERNANCE_MATURITY",
+   "type": "ACTO DE EVALUACIÓN (único)",
+   "desc": "Acto único de evaluación (cualquier tipo) de un objeto: patrón aplicado, tipo, fecha, próxima fecha, total_score, nivel derivado del umbral, is_current, nivel objetivo, evaluador y evidencia. Anclaje polimórfico. Reasignado a Observabilidad (M-54): absorbe maturity_assessment_execution y dq_governance_execution; para DQ el score sale de la vista de checks derivados (dq_run_result).",
    "attributes": [
     {
      "name": "object_row_uuid",
@@ -2327,12 +2331,22 @@
      "desc": "score total almacenado (suma ponderada)"
     },
     {
-     "name": "level_code",
+     "name": "level_scale_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "nivel derivado del umbral del patrón (p.ej. DATA_CRITICALITY)"
+     "desc": "LEVEL_SCALE: escala de los niveles de este acto (autodescriptivo).",
+     "reference_catalog": "LEVEL_SCALE",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "level_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "nivel alcanzado, valor dentro de level_scale_code (DQ)."
     },
     {
      "name": "is_current",
@@ -2343,6 +2357,30 @@
      "desc": "última evaluación vigente del objeto"
     },
     {
+     "name": "target_level_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "nivel objetivo, valor dentro de level_scale_code (DQ)."
+    },
+    {
+     "name": "assessor_ref",
+     "tyd": "TYD_STRING",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "evaluador responsable (referencia). Absorbe maturity_assessment_execution.assessor_id (M-54)."
+    },
+    {
+     "name": "evidence_ref",
+     "tyd": "TYD_STRING",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "referencia a la evidencia del acto. Absorbe maturity_assessment_execution.evidence_ref (M-54)."
+    },
+    {
      "name": "system",
      "tyd": "TYD_SYSTEM",
      "mandatory": 1,
@@ -2350,10 +2388,12 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "GOVERNANCE_MATURITY",
+   "i18n": false
   },
   "assessment_pattern": {
-   "subdomain": "K · Facetas genéricas y motor de evaluación (DATUM-49/50)",
+   "subdomain": "ASSESSMENT_ENGINE",
    "type": "NÚCLEO MOTOR",
    "desc": "Plantilla de evaluación reutilizable y GENÉRICA (motor de evaluación de CUALQUIER tipo: assessment_type = CRITICALITY/MATURITY/RISK/COMPLIANCE/…). Atada a UN object_type. Define el cuestionario; los umbrales mapean score→nivel del catálogo propio del tipo.",
    "attributes": [
@@ -2379,15 +2419,19 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "ASSESSMENT_TYPE: QUÉ evalúa el patrón (CRITICALITY/MATURITY/RISK/COMPLIANCE/DEFINITION_QUALITY/…). El motor es GENÉRICO, no solo criticidad."
+     "desc": "ASSESSMENT_TYPE: QUÉ evalúa el patrón (CRITICALITY/MATURITY/RISK/COMPLIANCE/DEFINITION_QUALITY/…). El motor es GENÉRICO, no solo criticidad.",
+     "reference_catalog": "ASSESSMENT_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
-     "name": "level_reference_catalog_code",
+     "name": "level_scale_code",
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "reference_catalog",
-     "desc": "catálogo de NIVELES de resultado según el tipo (DATA_CRITICALITY / MATURITY_LEVEL / RISK_LEVEL…)"
+     "fk_target": "reference_value",
+     "desc": "LEVEL_SCALE: escala de niveles del patrón (según su tipo). Metadata-first.",
+     "reference_catalog": "LEVEL_SCALE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "scoring_method_code",
@@ -2395,7 +2439,29 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "método de cálculo (WEIGHTED_SUM por defecto)"
+     "desc": "método de cálculo (WEIGHTED_SUM por defecto)",
+     "reference_catalog": "SCORING_METHOD",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "framework_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "desc": "MATURITY_FRAMEWORK: marco de madurez (DAMA/CMMI); solo patrones MATURITY. Absorbe maturity_assessment_execution.framework (M-54).",
+     "reference_catalog": "MATURITY_FRAMEWORK",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "dimension_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "desc": "MATURITY_DIMENSION: dimensión evaluada; solo patrones MATURITY. Absorbe maturity_assessment_execution.dimension (M-54).",
+     "reference_catalog": "MATURITY_DIMENSION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -2405,10 +2471,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "ASSESSMENT_ENGINE"
   },
   "assessment_question": {
-   "subdomain": "K · Facetas genéricas y motor de evaluación (DATUM-49/50)",
+   "subdomain": "ASSESSMENT_ENGINE",
    "type": "CANÓNICA",
    "desc": "Pregunta ponderada de un patrón (weight). El enunciado es i18n. Relación 1:N desde el patrón.",
    "attributes": [
@@ -2450,7 +2517,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "escala de respuesta (p.ej. 0-5, SI/NO)"
+     "desc": "escala de respuesta (p.ej. 0-5, SI/NO)",
+     "reference_catalog": "ANSWER_SCALE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_mandatory",
@@ -2468,10 +2537,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "ASSESSMENT_ENGINE"
   },
   "assessment_pattern_threshold": {
-   "subdomain": "K · Facetas genéricas y motor de evaluación (DATUM-49/50)",
+   "subdomain": "ASSESSMENT_ENGINE",
    "type": "CANÓNICA",
    "desc": "Umbral score→nivel configurable por patrón: rango [score_from,score_to] → level_code del catálogo de niveles del TIPO de evaluación (criticidad/madurez/riesgo…), no solo DATA_CRITICALITY.",
    "attributes": [
@@ -2508,12 +2578,22 @@
      "desc": "límite superior del rango"
     },
     {
-     "name": "level_code",
+     "name": "level_scale_code",
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "nivel asignado al rango (DATA_CRITICALITY u otro)"
+     "desc": "LEVEL_SCALE: escala del nivel asignado (autodescriptivo).",
+     "reference_catalog": "LEVEL_SCALE",
+     "catalog_ref_metadata_only": true
+    },
+    {
+     "name": "level_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "valor de nivel dentro de level_scale_code (dinámico; integridad por DQ)."
     },
     {
      "name": "system",
@@ -2523,10 +2603,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "ASSESSMENT_ENGINE"
   },
   "object_assessment_answer": {
-   "subdomain": "K · Facetas genéricas y motor de evaluación (DATUM-49/50)",
+   "subdomain": "GOVERNANCE_MATURITY",
    "type": "CANÓNICA",
    "desc": "Respuesta por pregunta dentro de un acto: raw_score + weighted_score cacheado (raw×weight). 1:N desde la cabecera object_assessment.",
    "attributes": [
@@ -2578,7 +2659,9 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "GOVERNANCE_MATURITY",
+   "i18n": false
   },
   "config_pattern": {
    "subdomain": "",
@@ -3691,7 +3774,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "DATA_LAYER",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "write_mode_code",
@@ -3699,7 +3784,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "WRITE_SEMANTICS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "approval_status_code",
@@ -3707,7 +3794,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -3755,7 +3844,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "EXPRESSION_TYPE"
+     "desc": "EXPRESSION_TYPE",
+     "reference_catalog": "EXPRESSION_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "root_node_code",
@@ -3810,7 +3901,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "NODE_KIND (LOGICAL_OP/COMPARISON/FUNCTION/COLUMN_REF/LITERAL)"
+     "desc": "NODE_KIND (LOGICAL_OP/COMPARISON/FUNCTION/COLUMN_REF/LITERAL)",
+     "reference_catalog": "NODE_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "operator_code",
@@ -3818,7 +3911,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "OPERATOR (AND/OR/NOT/=/>/</IN/LIKE…) si aplica"
+     "desc": "OPERATOR (AND/OR/NOT/=/>/</IN/LIKE…) si aplica",
+     "reference_catalog": "OPERATOR",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "function_code",
@@ -3873,7 +3968,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "OPERAND_KIND (COLUMN_SOURCE/COLUMN_CANONICAL/LITERAL/FUNCTION_RESULT)"
+     "desc": "OPERAND_KIND (COLUMN_SOURCE/COLUMN_CANONICAL/LITERAL/FUNCTION_RESULT)",
+     "reference_catalog": "OPERAND_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "source_attribute_code",
@@ -3936,7 +4033,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "tipo de retorno"
+     "desc": "tipo de retorno",
+     "reference_catalog": "LOGICAL_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -4051,7 +4150,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "MASKING_METHOD (HASH/PARTIAL/NULLIFY/TOKENIZE)"
+     "desc": "MASKING_METHOD (HASH/PARTIAL/NULLIFY/TOKENIZE)",
+     "reference_catalog": "MASKING_METHOD",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "dpo_approval_status_code",
@@ -4059,7 +4160,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "aprobación DPO (requerida)"
+     "desc": "aprobación DPO (requerida)",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "applies_from",
@@ -4099,7 +4202,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "ENCRYPTION_ALGORITHM"
+     "desc": "ENCRYPTION_ALGORITHM",
+     "reference_catalog": "ENCRYPTION_ALGORITHM",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "key_reference",
@@ -4115,7 +4220,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "aprobación DPO"
+     "desc": "aprobación DPO",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "ciso_approval_status_code",
@@ -4123,7 +4230,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "aprobación CISO"
+     "desc": "aprobación CISO",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -4193,240 +4302,6 @@
    ],
    "domain": "",
    "business_term": "DATA_QUALITY"
-  },
-  "data_quality_requirement": {
-   "subdomain": "UNE Q1 · Definición",
-   "type": "UNE 0079",
-   "desc": "Requisito de calidad declarado (Q1 Trazabilidad): el 'qué debería cumplirse'.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "requisito (UNE 0079 Q1)"
-    },
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "entidad sobre la que aplica"
-    },
-    {
-     "name": "requirement_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "el qué debe cumplirse"
-    },
-    {
-     "name": "priority_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "prioridad"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "dq_implementation_plan": {
-   "subdomain": "UNE Q1 · Definición",
-   "type": "UNE 0079",
-   "desc": "DEFINICIÓN del plan de implementación (UNE 0079 Q1). Su EJECUCIÓN/cumplimiento → acelerador de observabilidad (OBS_DQ_PLAN_PERFORMANCE).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "plan (cumplimiento→OBS_DQ_PLAN_PERFORMANCE)"
-    },
-    {
-     "name": "data_quality_requirement_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "data_quality_requirement",
-     "desc": "requisito"
-    },
-    {
-     "name": "target_date",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fecha objetivo"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "dq_assurance_procedure": {
-   "subdomain": "UNE Q3 · Definición",
-   "type": "UNE 0079",
-   "desc": "Procedimiento de aseguramiento (la receta de cómo asegurar).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "procedimiento (UNE 0079 Q3)"
-    },
-    {
-     "name": "procedure_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "cómo asegurar"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "dq_audit_plan": {
-   "subdomain": "UNE Q3 · Definición",
-   "type": "UNE 0079",
-   "desc": "DEFINICIÓN del plan de auditoría (UNE 0079 Q3: qué, frecuencia). La auditoría EJECUTADA → observabilidad (OBS_DQ_AUDIT_EXECUTION).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "plan auditoría (ejecución→OBS_DQ_AUDIT_EXECUTION)"
-    },
-    {
-     "name": "frequency_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "frecuencia"
-    },
-    {
-     "name": "dq_assurance_procedure_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "dq_assurance_procedure",
-     "desc": "procedimiento"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "dq_certification_criteria": {
-   "subdomain": "UNE Q3 · Definición",
-   "type": "UNE 0079",
-   "desc": "DEFINICIÓN: umbrales BRONZE/SILVER/GOLD/PLATINUM. El acto de certificación emitido → observabilidad (OBS_DQ_CERTIFICATION).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "criterio"
-    },
-    {
-     "name": "certification_level_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "CERT_LEVEL (BRONZE/SILVER/GOLD/PLATINUM)"
-    },
-    {
-     "name": "min_score_pct",
-     "tyd": "TYD_DECIMAL",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "umbral % (acto emitido→OBS_DQ_CERTIFICATION)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "dq_evaluation_specification": {
-   "subdomain": "ISO 25040 · Definición",
-   "type": "UNE 0081",
-   "desc": "DEFINICIÓN del proceso de evaluación (ISO 25040). La evaluación EJECUTADA → observabilidad.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "spec evaluación (ISO 25040; ejecución→observacional)"
-    },
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_entity",
-     "desc": "objeto evaluado"
-    },
-    {
-     "name": "method_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "método"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
   },
   "dq_dimension_to_iso_characteristic": {
    "subdomain": "DATA_QUALITY",
@@ -5077,7 +4952,7 @@
    "domain": ""
   },
   "data_exposure": {
-   "subdomain": "A · Exposición",
+   "subdomain": "EXPOSURE_CORE",
    "type": "NÚCLEO",
    "desc": "CONTROL de qué data product (D7) sale fuera del negocio propietario. Núcleo = data_product × DESTINATARIO (INTERNAL/REGULATORY/EXTERNAL) × MECANISMO (API/DIRECT_ACCESS/PUSH). Autorizada por el OWNER del dato (DATUM-44). Un mismo DP puede tener N exposiciones (distintos destinatarios/mecanismos).",
    "attributes": [
@@ -5103,7 +4978,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RECIPIENT_KIND (INTERNAL/REGULATORY/EXTERNAL)"
+     "desc": "RECIPIENT_KIND (INTERNAL/REGULATORY/EXTERNAL)",
+     "reference_catalog": "RECIPIENT_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "mechanism_code",
@@ -5111,7 +4988,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "EXPOSURE_MECHANISM (API/DIRECT_ACCESS/PUSH)"
+     "desc": "EXPOSURE_MECHANISM (API/DIRECT_ACCESS/PUSH)",
+     "reference_catalog": "EXPOSURE_CHANNEL",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "owner_business_unit_code",
@@ -5127,7 +5006,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "APPROVAL_STATUS (autorización del owner)"
+     "desc": "APPROVAL_STATUS (autorización del owner)",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -5137,10 +5018,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_CORE"
   },
   "exposure_consumer": {
-   "subdomain": "A · Exposición",
+   "subdomain": "EXPOSURE_CORE",
    "type": "CANÓNICA",
    "desc": "Consumidor de una exposición (aterriza data_product_consumer de D7 + consumer_data_contract de D3). Su acceso/permiso = SHARING que materializa el data_access_grant de D8. Resultado autorizado (≠ la solicitud).",
    "attributes": [
@@ -5157,8 +5039,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 1,
-     "fk_target": "reference_value",
-     "desc": "principal consumidor (mapea a principal de D8)"
+     "fk_target": null,
+     "desc": "principal consumidor (mapea a principal de D8) (referencia a principal del IdM; no catálogo)."
     },
     {
      "name": "access_grant_ref",
@@ -5200,10 +5082,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_CORE"
   },
   "exposure_api_config": {
-   "subdomain": "B · Config por mecanismo",
+   "subdomain": "EXPOSURE_MECHANISM",
    "type": "CANÓNICA",
    "desc": "Config del mecanismo API: parámetros, cuotas/rate-limit, versionado. El schema de respuesta NO se redefine: la OpenAPI es instancia de la canonical_view (D2) auto-generada. Masking PII campo a campo.",
    "attributes": [
@@ -5229,7 +5112,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "API_STYLE (REST/GRAPHQL)"
+     "desc": "API_STYLE (REST/GRAPHQL)",
+     "reference_catalog": "API_STYLE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "rate_limit_per_min",
@@ -5263,10 +5148,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_MECHANISM"
   },
   "exposure_push_config": {
-   "subdomain": "B · Config por mecanismo",
+   "subdomain": "EXPOSURE_MECHANISM",
    "type": "CANÓNICA",
    "desc": "Config del mecanismo PUSH (entrega asíncrona): endpoint (SFTP/Blob/PushAPI), schedule (cron + plazo regulatorio), formato.",
    "attributes": [
@@ -5284,7 +5170,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "PUSH_ENDPOINT (SFTP/BLOB/PUSH_API)"
+     "desc": "PUSH_ENDPOINT (SFTP/BLOB/PUSH_API)",
+     "reference_catalog": "PUSH_ENDPOINT",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "endpoint_ref",
@@ -5308,7 +5196,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "formato de salida"
+     "desc": "formato de salida",
+     "reference_catalog": "OUTPUT_FORMAT",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -5318,10 +5208,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_MECHANISM"
   },
   "exposure_direct_config": {
-   "subdomain": "B · Config por mecanismo",
+   "subdomain": "EXPOSURE_MECHANISM",
    "type": "CANÓNICA",
    "desc": "Config del mecanismo ACCESO DIRECTO: grant/share sobre la tabla/vista visible (Delta/Unity share). El consumidor consulta con su herramienta.",
    "attributes": [
@@ -5347,7 +5238,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "DELTA_SHARE/UNITY_SHARE…"
+     "desc": "DELTA_SHARE/UNITY_SHARE…",
+     "reference_catalog": "SHARE_PLATFORM",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "grant_level_code",
@@ -5355,7 +5248,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "nivel de grant (READ)"
+     "desc": "nivel de grant (READ)",
+     "reference_catalog": "ACCESS_LEVEL",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -5365,10 +5260,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_MECHANISM"
   },
   "marketplace_listing": {
-   "subdomain": "C · Marketplace",
+   "subdomain": "EXPOSURE_MARKETPLACE",
    "type": "CANÓNICA",
    "desc": "Escaparate: data product publicado. Modo INTERNAL/EXTERNAL/BOTH + T&C. La parte VISUAL de la exposición.",
    "attributes": [
@@ -5394,7 +5290,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "LISTING_MODE (INTERNAL/EXTERNAL/BOTH)"
+     "desc": "LISTING_MODE (INTERNAL/EXTERNAL/BOTH)",
+     "reference_catalog": "LISTING_MODE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "terms_document_code",
@@ -5412,10 +5310,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_MARKETPLACE"
   },
   "marketplace_request": {
-   "subdomain": "C · Marketplace",
+   "subdomain": "EXPOSURE_MARKETPLACE",
    "type": "CANÓNICA",
    "desc": "Flujo: solicitud del consumidor → APROBACIÓN del OWNER del dato (DATUM-44) → genera la data_exposure + exposure_consumer. Workflow (≠ el consumidor resultante).",
    "attributes": [
@@ -5440,8 +5339,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "quién solicita"
+     "fk_target": null,
+     "desc": "quién solicita (referencia a principal del IdM; no catálogo)."
     },
     {
      "name": "owner_approval_status_code",
@@ -5449,7 +5348,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "APPROVAL_STATUS del OWNER (DATUM-44)"
+     "desc": "APPROVAL_STATUS del OWNER (DATUM-44)",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "generated_exposure_code",
@@ -5475,10 +5376,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_MARKETPLACE"
   },
   "exposure_compliance": {
-   "subdomain": "D · Cumplimiento",
+   "subdomain": "EXPOSURE_COMPLIANCE",
    "type": "CANÓNICA",
    "desc": "Cuelga CONDICIONAL cuando destinatario REGULATORY/EXTERNAL: base legal GDPR, jurisdicción del receptor, plantilla sectorial (AEAT/SEPA/FHIR/BIAN/ACORD/EDI → vínculo a governed_document D14), retención en destino, propagación del derecho de borrado.",
    "attributes": [
@@ -5495,8 +5397,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "base legal GDPR"
+     "fk_target": "legal_basis",
+     "desc": "base legal GDPR (FK a entidad legal_basis)."
     },
     {
      "name": "recipient_jurisdiction_code",
@@ -5504,7 +5406,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "jurisdicción del receptor"
+     "desc": "jurisdicción del receptor",
+     "reference_catalog": "TRANSFER_JURISDICTION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "sectoral_template_code",
@@ -5512,7 +5416,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "plantilla sectorial (AEAT/SEPA/FHIR/BIAN/ACORD/EDI)"
+     "desc": "plantilla sectorial (AEAT/SEPA/FHIR/BIAN/ACORD/EDI)",
+     "reference_catalog": "SECTORAL_TEMPLATE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "retention_in_destination",
@@ -5538,10 +5444,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D9"
+   "domain": "",
+   "business_term": "EXPOSURE_COMPLIANCE"
   },
   "governance_role": {
-   "subdomain": "B · Roles y RBAC",
+   "subdomain": "RBAC",
    "type": "CATÁLOGO",
    "desc": "Catálogo de roles de gobierno con SCOPE ESTRUCTURAL (NO gestiona personas, que vienen del IdM). owner→su BU; steward→los procesos de negocio que opera (perfil por proceso)→sus términos; negocio→todos sus owners. Eje 1 de acceso (scope estructural). Las personas y su pertenencia llegan del IdM; enforcement en UC.",
    "attributes": [
@@ -5559,7 +5466,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "SCOPE_KIND (BUSINESS / BUSINESS_UNIT / BUSINESS_PROCESS / OWNER_SET): qué porción del modelo ve"
+     "desc": "SCOPE_KIND (BUSINESS / BUSINESS_UNIT / BUSINESS_PROCESS / OWNER_SET): qué porción del modelo ve",
+     "reference_catalog": "SCOPE_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_builtin",
@@ -5585,214 +5494,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
-  },
-  "data_access_grant": {
-   "subdomain": "C · Access Grants",
-   "type": "NÚCLEO",
-   "desc": "Concesión de grano variable (dominio/DP/entidad/atributo). Vigencia acotada (valid_from/to). Se materializa en exposición (D9). Regla de oro: acceso no-owner exige consentimiento del Owner.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "concesión"
-    },
-    {
-     "name": "governance_role_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "governance_role",
-     "desc": "rol al que se concede (scope estructural)"
-    },
-    {
-     "name": "grant_object_row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "(polimórfico)",
-     "desc": "objeto: dominio/data_product/entidad/atributo"
-    },
-    {
-     "name": "grant_object_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "object_type",
-     "desc": "grano del grant"
-    },
-    {
-     "name": "access_level_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "ACCESS_LEVEL (READ/WRITE)"
-    },
-    {
-     "name": "valid_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "vigencia desde"
-    },
-    {
-     "name": "valid_to",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "vigencia hasta (acotada)"
-    },
-    {
-     "name": "decision_note",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "es DECISIÓN de gobierno (autorización); el ENFORCEMENT lo hace UC"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "data_access_grant_condition": {
-   "subdomain": "C · Access Grants",
-   "type": "ABAC",
-   "desc": "Condición ABAC opcional del grant.",
-   "attributes": [
-    {
-     "name": "data_access_grant_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "data_access_grant",
-     "desc": "grant"
-    },
-    {
-     "name": "access_policy_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "access_policy",
-     "desc": "política ABAC aplicada"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "data_access_grant_approval": {
-   "subdomain": "C · Access Grants",
-   "type": "CANÓNICA",
-   "desc": "Workflow de aprobación: PENDING/APPROVED/REJECTED/WITHDRAWN.",
-   "attributes": [
-    {
-     "name": "data_access_grant_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "data_access_grant",
-     "desc": "grant"
-    },
-    {
-     "name": "approval_status_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "PENDING/APPROVED/REJECTED/WITHDRAWN"
-    },
-    {
-     "name": "approved_by_role_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "governance_role",
-     "desc": "quién aprueba (owner del dato, DATUM-44)"
-    },
-    {
-     "name": "decided_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fecha"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
-  },
-  "effective_permission_cache": {
-   "subdomain": "C · Access Grants",
-   "type": "DERIVADO",
-   "desc": "Vista derivada pre-calculada (RBAC+grants+ABAC+grupos) para consulta O(1) por el runner. Se recalcula tras cualquier cambio.",
-   "attributes": [
-    {
-     "name": "principal_ref",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "principal (referencia IdM, no gestionado aquí)"
-    },
-    {
-     "name": "grant_object_row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "(polimórfico)",
-     "desc": "objeto"
-    },
-    {
-     "name": "access_level_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "nivel efectivo resuelto"
-    },
-    {
-     "name": "computed_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "recalculada (vista derivada O(1) para el runner)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "RBAC"
   },
   "access_policy": {
-   "subdomain": "J · Políticas ABAC",
+   "subdomain": "ABAC",
    "type": "ABAC/ReBAC",
    "desc": "Política ABAC/ReBAC declarativa. Punto de extensión de la Capa 3 de accesibilidad (visibilidad jerárquica acumulativa, hueco abierto).",
    "attributes": [
@@ -5852,10 +5558,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "ABAC"
   },
   "access_policy_target": {
-   "subdomain": "J · Políticas ABAC",
+   "subdomain": "ABAC",
    "type": "CANÓNICA",
    "desc": "Target de la política ABAC.",
    "attributes": [
@@ -5891,10 +5598,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "ABAC"
   },
   "data_access_review": {
-   "subdomain": "D · Audit (config)",
+   "subdomain": "CONSENT",
    "type": "REF",
    "desc": "Configuración de revisión de accesos (los eventos → familia C observacional).",
    "attributes": [
@@ -5912,7 +5620,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "frecuencia"
+     "desc": "frecuencia",
+     "reference_catalog": "FREQUENCY",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "scope_text",
@@ -5930,10 +5640,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "CONSENT"
   },
   "legal_basis": {
-   "subdomain": "E · Bases legales",
+   "subdomain": "GDPR_DPO",
    "type": "GDPR Art.6",
    "desc": "6 bases legales: CONSENT, CONTRACT, LEGAL_OBLIGATION, VITAL_INTERESTS, PUBLIC_INTEREST, LEGITIMATE_INTERESTS.",
    "attributes": [
@@ -5969,10 +5680,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "GDPR_DPO"
   },
   "processing_purpose": {
-   "subdomain": "E · Bases legales",
+   "subdomain": "GDPR_DPO",
    "type": "GDPR",
    "desc": "Propósito de tratamiento (MARKETING, ANALYTICS, OPERATIONAL). N:M con base legal (is_primary_basis).",
    "attributes": [
@@ -6008,10 +5720,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "GDPR_DPO"
   },
   "processing_activity_record": {
-   "subdomain": "I · ROPA",
+   "subdomain": "GDPR_DPO",
    "type": "GDPR Art.30",
    "desc": "ROPA/RAT: registro de actividades de tratamiento, exigible por el regulador. (Brechas reales → familia E).",
    "attributes": [
@@ -6071,73 +5784,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
-  },
-  "data_sharing_request": {
-   "subdomain": "G18 · Sharing interno",
-   "type": "NÚCLEO",
-   "desc": "Workflow de sharing cross-domain entre Data Owners del mismo cliente (DATUM-29 regla de oro). requires_purpose_declaration. Grant resultante con vigencia acotada.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "solicitud de sharing cross-domain"
-    },
-    {
-     "name": "from_owner_role_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "governance_role",
-     "desc": "owner origen (DATUM-44)"
-    },
-    {
-     "name": "to_business_unit_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "business_unit",
-     "desc": "unidad consumidora"
-    },
-    {
-     "name": "shared_object_row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "(polimórfico)",
-     "desc": "dato compartido"
-    },
-    {
-     "name": "shared_object_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "object_type",
-     "desc": "tipo"
-    },
-    {
-     "name": "approval_status_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "workflow (regla de oro DATUM-29: autoriza el owner)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "GDPR_DPO"
   },
   "data_sharing_agreement": {
-   "subdomain": "H · Cesiones y encargos",
+   "subdomain": "DATA_AGREEMENTS",
    "type": "GDPR",
    "desc": "Cesión controller-controller. Vinculado a external_organization.",
    "attributes": [
@@ -6154,8 +5805,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "organización externa"
+     "fk_target": null,
+     "desc": "organización externa (referencia a organización externa; master data no modelado aún)."
     },
     {
      "name": "legal_basis_code",
@@ -6189,10 +5840,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "DATA_AGREEMENTS"
   },
   "data_processing_agreement": {
-   "subdomain": "H · Cesiones y encargos",
+   "subdomain": "DATA_AGREEMENTS",
    "type": "GDPR",
    "desc": "Encargo controller-processor (DPA).",
    "attributes": [
@@ -6209,8 +5861,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "encargado"
+     "fk_target": null,
+     "desc": "encargado (referencia a organización externa; master data no modelado aún)."
     },
     {
      "name": "safeguards_text",
@@ -6236,10 +5888,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "DATA_AGREEMENTS"
   },
   "international_data_transfer": {
-   "subdomain": "H · Cesiones y encargos",
+   "subdomain": "DATA_AGREEMENTS",
    "type": "GDPR",
    "desc": "Transferencia internacional con safeguards (SCC/BCR).",
    "attributes": [
@@ -6256,8 +5909,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "país destino"
+     "fk_target": "country",
+     "desc": "país destino (FK a country)"
     },
     {
      "name": "safeguard_code",
@@ -6265,7 +5918,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "SAFEGUARD (SCC/BCR/ADEQUACY)"
+     "desc": "SAFEGUARD (SCC/BCR/ADEQUACY)",
+     "reference_catalog": "SAFEGUARD",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "governed_document_code",
@@ -6283,49 +5938,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D8"
-  },
-  "incident_type_definition": {
-   "subdomain": "G3 · Incidentes",
-   "type": "DEFINICIÓN",
-   "desc": "Definición de tipo de incidente + severity_sla + workflow (las brechas reales → familia E).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "tipo de incidente"
-    },
-    {
-     "name": "severity_sla_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "severidad + SLA"
-    },
-    {
-     "name": "workflow_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "workflow (las brechas reales → observabilidad)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D8"
+   "domain": "",
+   "business_term": "DATA_AGREEMENTS"
   },
   "governed_document": {
-   "subdomain": "Documentación gobernada",
+   "subdomain": "DOCUMENTATION",
    "type": "NÚCLEO",
    "desc": "Documento gobernado (gobierna, no almacena: vive en Git/SharePoint/Notion/Blob…). 12 tipos (DATA_PRODUCT_CARD, ADR, RUNBOOK…). is_auto_generated + storage_kind=GENERATED_FROM_METAMODEL → render on-the-fly (vista canónica DATUM-26/30). requires_periodic_review.",
    "attributes": [
@@ -6343,7 +5960,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "DOCUMENT_TYPE (DATA_PRODUCT_CARD/ADR/RUNBOOK/DPA/ROPA/POLICY/SECTORAL_TEMPLATE…)"
+     "desc": "DOCUMENT_TYPE (DATA_PRODUCT_CARD/ADR/RUNBOOK/DPA/ROPA/POLICY/SECTORAL_TEMPLATE…)",
+     "reference_catalog": "DOCUMENT_TYPE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "title",
@@ -6359,7 +5978,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "STORAGE_KIND: EXTERNAL_DMS (puntero al gestor documental) / GENERATED_FROM_METAMODEL (render on-the-fly)"
+     "desc": "STORAGE_KIND: EXTERNAL_DMS (puntero al gestor documental) / GENERATED_FROM_METAMODEL (render on-the-fly)",
+     "reference_catalog": "STORAGE_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "external_uri",
@@ -6409,10 +6030,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D14"
+   "domain": "",
+   "business_term": "DOCUMENTATION"
   },
   "governed_document_link": {
-   "subdomain": "Documentación gobernada",
+   "subdomain": "DOCUMENTATION",
    "type": "CANÓNICA",
    "desc": "Vínculos polimórficos cross-dominio (DOCUMENTS_DATA_PRODUCT/KPI/CANONICAL_ENTITY/PROCESS/POLICY/INCIDENT…). Un doc → N vínculos, 1 is_primary.",
    "attributes": [
@@ -6446,7 +6068,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "LINK_KIND (DOCUMENTS/REFERENCES/SUPERSEDES…)"
+     "desc": "LINK_KIND (DOCUMENTS/REFERENCES/SUPERSEDES…)",
+     "reference_catalog": "LINK_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_primary",
@@ -6464,10 +6088,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D14"
+   "domain": "",
+   "business_term": "DOCUMENTATION"
   },
   "governed_document_owner": {
-   "subdomain": "Documentación gobernada",
+   "subdomain": "DOCUMENTATION",
    "type": "CANÓNICA",
    "desc": "Ownership polimórfico (principal/stakeholder/governance_role). Roles: PRIMARY_OWNER/REVIEWER/CONTRIBUTOR/APPROVER.",
    "attributes": [
@@ -6501,7 +6126,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "OWNERSHIP_ROLE (PRIMARY_OWNER/REVIEWER/CONTRIBUTOR/APPROVER)"
+     "desc": "OWNERSHIP_ROLE (PRIMARY_OWNER/REVIEWER/CONTRIBUTOR/APPROVER)",
+     "reference_catalog": "OWNERSHIP_ROLE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -6511,7 +6138,8 @@
      "fk_target": null
     }
    ],
-   "domain": "D14"
+   "domain": "",
+   "business_term": "DOCUMENTATION"
   },
   "data_type_domain_ui_control": {
    "subdomain": "",
@@ -6532,7 +6160,9 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "reference_value",
-     "desc": "UI_CONTEXT (EDIT/SEARCH/VIEW/FILTER/EXPORT/LIST/DETAIL — catálogo abierto)"
+     "desc": "UI_CONTEXT (EDIT/SEARCH/VIEW/FILTER/EXPORT/LIST/DETAIL — catálogo abierto)",
+     "reference_catalog": "UI_CONTEXT",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "ui_control_code",
@@ -6540,7 +6170,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "UI_CONTROL (DATEPICKER/DROPDOWN/INPUT/TEXTAREA/TOGGLE/RANGE/FK_SELECTOR/…)"
+     "desc": "UI_CONTROL (DATEPICKER/DROPDOWN/INPUT/TEXTAREA/TOGGLE/RANGE/FK_SELECTOR/…)",
+     "reference_catalog": "UI_CONTROL",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_overridable",
@@ -6561,7 +6193,7 @@
    "domain": ""
   },
   "ui_module": {
-   "subdomain": "A · Módulos y pantallas",
+   "subdomain": "UX_SCREENS",
    "type": "NÚCLEO",
    "desc": "7 módulos (Gobierno/Operativa/Configuración/Catálogo/Cuadros de mando/Marketplace/Soporte). requires_addon (Marketplace exige ADDON_MARKETPLACE, G31).",
    "attributes": [
@@ -6587,7 +6219,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "addon requerido (Marketplace→ADDON_MARKETPLACE)"
+     "desc": "addon requerido (Marketplace→ADDON_MARKETPLACE)",
+     "reference_catalog": "ADDON_MARKETPLACE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "display_order",
@@ -6605,10 +6239,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_SCREENS"
   },
   "ui_screen": {
-   "subdomain": "A · Módulos y pantallas",
+   "subdomain": "UX_SCREENS",
    "type": "NÚCLEO",
    "desc": "Pantalla (patrón aplicado): vincula funcionalidad+patrón+entidad/término y rellena ranuras con default derivado + override. Modo GENERATED vs CUSTOM_CODED.",
    "attributes": [
@@ -6658,7 +6293,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "RENDER_MODE (GENERATED/CUSTOM_CODED)"
+     "desc": "RENDER_MODE (GENERATED/CUSTOM_CODED)",
+     "reference_catalog": "RENDER_MODE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "title",
@@ -6676,10 +6313,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_SCREENS"
   },
   "ui_screen_breadcrumb_definition": {
-   "subdomain": "A · Módulos y pantallas",
+   "subdomain": "UX_SCREENS",
    "type": "REF",
    "desc": "Breadcrumbs declarativos.",
    "attributes": [
@@ -6723,10 +6361,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_SCREENS"
   },
   "presentation_pattern": {
-   "subdomain": "E · Motor generativo (DATUM-30)",
+   "subdomain": "UX_GENERATIVE",
    "type": "NÚCLEO (DATUM-30)",
    "desc": "Catálogo gobernado de primera clase, desacoplado de la funcionalidad. Una funcionalidad admite varios patrones (listar→tabla/tarjetas/kanban; jerarquía→árbol/cascada/breadcrumb). Plantilla con ranuras (no almacena contenido: reside en el metadato). Los 11 exploradores = patrones de 'navegar jerarquía'.",
    "attributes": [
@@ -6744,7 +6383,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "funcionalidad que sirve (LIST/HIERARCHY/EDIT/DETAIL…); una funcionalidad admite varios patrones"
+     "desc": "funcionalidad que sirve (LIST/HIERARCHY/EDIT/DETAIL…); una funcionalidad admite varios patrones",
+     "reference_catalog": "FUNCTIONALITY_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "description_ref",
@@ -6770,10 +6411,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_GENERATIVE"
   },
   "pattern_slot": {
-   "subdomain": "E · Motor generativo (DATUM-30)",
+   "subdomain": "UX_GENERATIVE",
    "type": "CANÓNICA",
    "desc": "Ranuras que define un presentation_pattern (un formulario/tabla tiene ranuras: FIELD/SECTION/ACTION/FILTER/COLUMN…). El patrón es plantilla con ranuras; no almacena contenido.",
    "attributes": [
@@ -6799,7 +6441,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "SLOT_KIND (FIELD/SECTION/ACTION/FILTER/COLUMN/HEADER…)"
+     "desc": "SLOT_KIND (FIELD/SECTION/ACTION/FILTER/COLUMN/HEADER…)",
+     "reference_catalog": "SLOT_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_required",
@@ -6825,10 +6469,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_GENERATIVE"
   },
   "ui_screen_slot_binding": {
-   "subdomain": "E · Motor generativo (DATUM-30)",
+   "subdomain": "UX_GENERATIVE",
    "type": "CANÓNICA",
    "desc": "Relleno de cada ranura de una pantalla: DERIVADO del canonical_attribute (el control lo dicta el TYD vía data_type_domain_ui_control de D0) + OVERRIDE del cliente (ocultar/reordenar/cambiar control/etiqueta). Esto es lo que \\",
    "attributes": [
@@ -6862,7 +6507,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "override del control por defecto del TYD"
+     "desc": "override del control por defecto del TYD",
+     "reference_catalog": "UI_CONTROL",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_hidden",
@@ -6896,10 +6543,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_GENERATIVE"
   },
   "ui_role_permission": {
-   "subdomain": "B · Permisos UI (RBAC)",
+   "subdomain": "UX_PERMISSIONS",
    "type": "RBAC",
    "desc": "Rol × módulo/pantalla × acción (VIEW/CREATE/EDIT/DELETE/APPROVE/EXPORT/EXECUTE_WORKFLOW/COMMENT), deny override, vínculo a policy_exception G19. Coherencia con D8: si no ves la entidad, no ves la pantalla.",
    "attributes": [
@@ -6933,7 +6581,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "UI_ACTION (VIEW/CREATE/EDIT/DELETE/APPROVE/EXPORT/EXECUTE_WORKFLOW/COMMENT)"
+     "desc": "UI_ACTION (VIEW/CREATE/EDIT/DELETE/APPROVE/EXPORT/EXECUTE_WORKFLOW/COMMENT)",
+     "reference_catalog": "UI_ACTION",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "system",
@@ -6943,10 +6593,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_PERMISSIONS"
   },
   "ui_role_permission_set": {
-   "subdomain": "B · Permisos UI (RBAC)",
+   "subdomain": "UX_PERMISSIONS",
    "type": "REF",
    "desc": "Conjunto de permisos UI.",
    "attributes": [
@@ -6982,10 +6633,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_PERMISSIONS"
   },
   "client_branding": {
-   "subdomain": "C · Branding e i18n",
+   "subdomain": "UX_BRANDING",
    "type": "REF",
    "desc": "Logo/colores/tema del cliente.",
    "attributes": [
@@ -7027,7 +6679,9 @@
      "mandatory": 0,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "THEME (LIGHT/DARK/AUTO)"
+     "desc": "THEME (LIGHT/DARK/AUTO)",
+     "reference_catalog": "THEME",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_client_modified",
@@ -7045,10 +6699,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_BRANDING"
   },
   "support_module_config": {
-   "subdomain": "D · Soporte/Ticketing",
+   "subdomain": "UX_SUPPORT",
    "type": "REF",
    "desc": "Tier, canales, CSM. Tickets → observacional en Control Plane (excepción de ubicación).",
    "attributes": [
@@ -7066,7 +6721,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": "tier de soporte"
+     "desc": "tier de soporte",
+     "reference_catalog": "SUPPORT_TIER",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "channels_text",
@@ -7092,10 +6749,11 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
+   "domain": "",
+   "business_term": "UX_SUPPORT"
   },
   "support_ticket_category": {
-   "subdomain": "D · Soporte/Ticketing",
+   "subdomain": "UX_SUPPORT",
    "type": "REF",
    "desc": "Categoría de ticket de soporte.",
    "attributes": [
@@ -7131,309 +6789,8 @@
      "fk_target": null
     }
    ],
-   "domain": "D10"
-  },
-  "lineage_view_definition": {
-   "subdomain": "Vistas canónicas declarativas",
-   "type": "VISTA (núcleo)",
-   "desc": "DATUM-26 pata 1. El núcleo de D5: define una vista de linaje (ancla + proyección: qué recorrer, qué orientación). 'Linaje funcional del KPI X', 'end-to-end del data product Z'. NO almacena arcos: proyecta el grafo ya declarado en D2/D3/D4/D7/D8/D9.",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "definición de vista de linaje"
-    },
-    {
-     "name": "anchor_object_row_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "(polimórfico)",
-     "desc": "nodo ancla desde el que se recorre (KPI/entidad/data_product/atributo…)"
-    },
-    {
-     "name": "anchor_object_type_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "object_type",
-     "desc": "tipo del ancla"
-    },
-    {
-     "name": "direction_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "LINEAGE_DIRECTION (UPSTREAM/DOWNSTREAM/BOTH)"
-    },
-    {
-     "name": "max_depth",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "profundidad máxima de recorrido (NULL=sin límite)"
-    },
-    {
-     "name": "scope_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "qué recorrer (filtro de dominios/tipos). NO almacena arcos: proyecta el grafo ya declarado en D2/D3/D4/D7/D8/D9"
-    },
-    {
-     "name": "rendered_view_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "canonical_view",
-     "desc": "se materializa como vista (target LINEAGE) sobre el grafo declarado"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D5"
-  },
-  "impact_analysis": {
-   "subdomain": "Vistas canónicas declarativas",
-   "type": "VISTA",
-   "desc": "Vista especializada aguas abajo: 'qué se ve afectado si cambio/retiro X'. Presentación con propósito (pre-breaking-change).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "análisis de impacto"
-    },
-    {
-     "name": "lineage_view_definition_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "lineage_view_definition",
-     "desc": "vista de linaje base (aguas abajo)"
-    },
-    {
-     "name": "change_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "CHANGE_KIND (MODIFY/RETIRE/DEPRECATE) que se simula"
-    },
-    {
-     "name": "purpose_text",
-     "tyd": "TYD_TEXT_SUMMARY",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "propósito (pre-breaking-change: qué se ve afectado si cambio/retiro X)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "domain": "D5"
-  },
-  "source_entity_version": {
-   "subdomain": "H · Versionado",
-   "type": "CANÓNICA",
-   "desc": "Versión SCD2 de una source_entity (cambios estructurales aceptados generan nueva versión).",
-   "attributes": [
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_entity",
-     "desc": "entidad"
-    },
-    {
-     "name": "version_label",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "etiqueta de versión"
-    },
-    {
-     "name": "effective_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "inicio de vigencia"
-    },
-    {
-     "name": "effective_until",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fin (NULL=vigente)"
-    },
-    {
-     "name": "is_current",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "vigente"
-    },
-    {
-     "name": "change_reason",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "motivo del cambio (drift aceptado)"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "source_attribute_version": {
-   "subdomain": "H · Versionado",
-   "type": "CANÓNICA",
-   "desc": "Versión SCD2 de un source_attribute.",
-   "attributes": [
-    {
-     "name": "source_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_attribute",
-     "desc": "atributo"
-    },
-    {
-     "name": "version_label",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "etiqueta de versión"
-    },
-    {
-     "name": "effective_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "inicio"
-    },
-    {
-     "name": "effective_until",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "fin (NULL=vigente)"
-    },
-    {
-     "name": "is_current",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "vigente"
-    },
-    {
-     "name": "change_reason",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "motivo"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
-  },
-  "discovery_rule": {
-   "subdomain": "J · Discovery completo y profiling",
-   "type": "CANÓNICA",
-   "desc": "Regla de discovery: patrón que detecta un dominio semántico o característica (p.ej. regex de email, rango de fecha).",
-   "attributes": [
-    {
-     "name": "code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "identificador de la regla"
-    },
-    {
-     "name": "rule_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "desc": "REGEX/RANGE/DICTIONARY/STATISTICAL"
-    },
-    {
-     "name": "target_data_type_domain_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "data_type_domain",
-     "desc": "dominio que detecta"
-    },
-    {
-     "name": "rule_expression",
-     "tyd": "TYD_EXPRESSION",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "patrón/expresión de detección"
-    },
-    {
-     "name": "is_enabled",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "regla activa"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D3",
-   "domain": "D3"
+   "domain": "",
+   "business_term": "UX_SUPPORT"
   },
   "canonical_relation": {
    "subdomain": "",
@@ -7610,136 +6967,6 @@
    "domain": "",
    "i18n": true
   },
-  "canonical_entity_version": {
-   "subdomain": "F · Versionado del modelo",
-   "type": "CANÓNICA",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_entity",
-     "desc": ""
-    },
-    {
-     "name": "version_label",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "effective_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "effective_until",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "is_current",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "change_reason",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D2",
-   "domain": "D2",
-   "i18n": true
-  },
-  "canonical_attribute_version": {
-   "subdomain": "F · Versionado del modelo",
-   "type": "CANÓNICA",
-   "desc": "",
-   "attributes": [
-    {
-     "name": "canonical_attribute_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "canonical_attribute",
-     "desc": ""
-    },
-    {
-     "name": "version_label",
-     "tyd": "TYD_NAME",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "effective_from",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "effective_until",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "is_current",
-     "tyd": "TYD_BOOLEAN",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "change_reason",
-     "tyd": "TYD_NAME",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": ""
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null
-    }
-   ],
-   "source": "derivado_del_volcado_D2",
-   "domain": "D2",
-   "i18n": true
-  },
   "canonical_model_change": {
    "subdomain": "F · Versionado del modelo",
    "type": "CANÓNICA",
@@ -7759,7 +6986,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "CHANGE_KIND",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "target_entity_code",
@@ -7961,7 +7190,7 @@
    "i18n": true
   },
   "lifecycle_policy": {
-   "subdomain": "G2 · Lifecycle",
+   "subdomain": "LIFECYCLE",
    "type": "CANÓNICA",
    "desc": "",
    "attributes": [
@@ -8014,11 +7243,12 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
-   "i18n": true
+   "domain": "",
+   "i18n": true,
+   "business_term": "LIFECYCLE"
   },
   "lifecycle_phase_approval_rule": {
-   "subdomain": "G2 · Lifecycle",
+   "subdomain": "LIFECYCLE",
    "type": "REF",
    "desc": "",
    "attributes": [
@@ -8036,7 +7266,9 @@
      "mandatory": 1,
      "pk": 1,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "LIFECYCLE_PHASE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "approver_role_code",
@@ -8044,7 +7276,9 @@
      "mandatory": 1,
      "pk": 0,
      "fk_target": "reference_value",
-     "desc": ""
+     "desc": "",
+     "reference_catalog": "BUSINESS_ROLE_PROFILE",
+     "catalog_ref_metadata_only": true
     },
     {
      "name": "is_mandatory",
@@ -8063,8 +7297,9 @@
     }
    ],
    "source": "derivado_del_volcado_D2",
-   "domain": "D2",
-   "i18n": true
+   "domain": "",
+   "i18n": true,
+   "business_term": "LIFECYCLE"
   },
   "storage_layer": {
    "domain": "",
@@ -8987,7 +8222,7 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 1,
-     "fk_target": null,
+     "fk_target": "reference_value",
      "reference_catalog": "GEO_LEVEL",
      "catalog_ref_metadata_only": true,
      "desc": "nivel del miembro (COUNTRY/REGION/PROVINCE/LOCALITY)"
@@ -9124,7 +8359,7 @@
      "tyd": "TYD_CODE",
      "mandatory": 1,
      "pk": 1,
-     "fk_target": null,
+     "fk_target": "reference_value",
      "reference_catalog": "GEO_LEVEL",
      "catalog_ref_metadata_only": true,
      "desc": "nivel de la geo anclada (COUNTRY/REGION/PROVINCE/LOCALITY)"
@@ -9139,8 +8374,8 @@
    ]
   },
   "governance_role_assignment": {
-   "subdomain": "GOVERNANCE",
-   "domain": "D-GOV",
+   "subdomain": "RBAC",
+   "domain": "",
    "type": "REL",
    "desc": "Asignación polimórfica de un perfil de gobierno (OWNER/STEWARD/CONSUMER) a CUALQUIER objeto gobernable (unidad, dominio, término, entidad, producto). El perfil viene del IdP del cliente; DATUM solo sabe que el rol está asignado, no la persona. Integridad por DQ. Regla: 1 OWNER + N STEWARD por objeto.",
    "attributes": [
@@ -9201,7 +8436,8 @@
      "pk": 0,
      "fk_target": null
     }
-   ]
+   ],
+   "business_term": "RBAC"
   },
   "source_container": {
    "subdomain": "SOURCE_SYSTEM",
@@ -13036,93 +12272,6 @@
    "business_term": "DISCOVERY_OBSERVATION",
    "i18n": true
   },
-  "discovery_rule_evaluation": {
-   "subdomain": "DISCOVERY_OBSERVATION",
-   "type": "DEPENDIENTE",
-   "desc": "Evaluación de una discovery_rule durante una corrida de discovery: si la regla de enriquecimiento/detección se cumplió y con qué resultado. Weak dependiente de source_discovery_run; apunta a la discovery_rule. Reasignada desde DATA_SOURCE (M-34).",
-   "attributes": [
-    {
-     "name": "discovery_run_id",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": "source_discovery_run",
-     "desc": "corrida de discovery dueña",
-     "fk_composite": {
-      "target": "source_discovery_run",
-      "columns": [
-       {
-        "source": "discovery_run_id",
-        "target": "discovery_run_id"
-       }
-      ]
-     },
-     "is_identifying": true,
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "evaluation_id",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "id propio de la evaluación"
-    },
-    {
-     "name": "discovery_rule_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "discovery_rule",
-     "desc": "regla de discovery evaluada",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "source_entity_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "source_entity",
-     "desc": "objeto fuente sobre el que se evaluó (ref suelta D3)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "crossing_result_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "DQ_VERDICT",
-     "catalog_ref_metadata_only": true,
-     "desc": "resultado de la evaluación: PASS/WARNING/ERROR"
-    },
-    {
-     "name": "evaluated_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "momento de la evaluación"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": null
-    }
-   ],
-   "domain": "",
-   "business_term": "DISCOVERY_OBSERVATION",
-   "i18n": true
-  },
   "source_discovery_drift": {
    "subdomain": "DISCOVERY_OBSERVATION",
    "type": "DEPENDIENTE",
@@ -13217,8 +12366,8 @@
      "tyd": "TYD_CODE",
      "mandatory": 0,
      "pk": 0,
-     "fk_target": "source_entity_version",
-     "desc": "versión de fuente que absorbió el drift aceptado",
+     "fk_target": "object_version",
+     "desc": "versión de fuente que absorbió el drift aceptado (repuntado a object_version, M-61)",
      "on_delete": "RESTRICT",
      "on_update": "RESTRICT",
      "is_visible_er": true
@@ -13882,141 +13031,6 @@
      "pk": 0,
      "fk_target": null,
      "desc": "momento de liberación"
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": null
-    }
-   ],
-   "domain": "",
-   "business_term": "DQ_OBSERVATION",
-   "i18n": true
-  },
-  "dq_governance_execution": {
-   "subdomain": "DQ_OBSERVATION",
-   "type": "REGISTRO",
-   "desc": "Ejecución de una definición de gobierno de calidad de D8 (plan de auditoría, criterios de certificación, procedimiento de aseguramiento o especificación de evaluación). Reasignada a Observabilidad (M-35): las 6 definiciones viven en D8; su EJECUCIÓN aterriza aquí. Tipada por governance_kind; FK nullable a la definición concreta según el tipo.",
-   "attributes": [
-    {
-     "name": "governance_execution_id",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "id propio de la ejecución de gobierno"
-    },
-    {
-     "name": "governance_kind_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "DQ_GOVERNANCE_KIND",
-     "catalog_ref_metadata_only": true,
-     "desc": "tipo: AUDIT/CERTIFICATION/ASSURANCE/EVALUATION"
-    },
-    {
-     "name": "run_id",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "run",
-     "desc": "run del orquestador que ejecutó la evaluación de gobierno",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "audit_plan_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "dq_audit_plan",
-     "desc": "plan de auditoría ejecutado (si kind=AUDIT)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "certification_criteria_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "dq_certification_criteria",
-     "desc": "criterios de certificación aplicados (si kind=CERTIFICATION)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "assurance_procedure_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "dq_assurance_procedure",
-     "desc": "procedimiento de aseguramiento (si kind=ASSURANCE)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "evaluation_specification_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "dq_evaluation_specification",
-     "desc": "especificación de evaluación (si kind=EVALUATION)",
-     "on_delete": "RESTRICT",
-     "on_update": "RESTRICT",
-     "is_visible_er": true
-    },
-    {
-     "name": "target_scope_level_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "WORKFLOW_SCOPE",
-     "catalog_ref_metadata_only": true,
-     "desc": "alcance evaluado (ENTITY/TERM/PROCESS)"
-    },
-    {
-     "name": "target_object_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "objeto evaluado (entidad/término/proceso)"
-    },
-    {
-     "name": "score",
-     "tyd": "TYD_DECIMAL",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "puntuación obtenida (0-100)"
-    },
-    {
-     "name": "result_status_code",
-     "tyd": "TYD_CODE",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": "reference_value",
-     "reference_catalog": "RUN_STATUS",
-     "catalog_ref_metadata_only": true,
-     "desc": "estado del resultado de la ejecución"
-    },
-    {
-     "name": "executed_at",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "momento de la ejecución"
     },
     {
      "name": "system",
@@ -17610,96 +16624,6 @@
    ],
    "domain": "",
    "business_term": "LIFECYCLE_OPS",
-   "i18n": false
-  },
-  "maturity_assessment_execution": {
-   "subdomain": "GOVERNANCE_MATURITY",
-   "type": "OBSERVACIONAL",
-   "desc": "Ejecuciones de assessment DAMA-CMMI.",
-   "attributes": [
-    {
-     "name": "maturity_assessment_uuid",
-     "tyd": "TYD_UUID",
-     "mandatory": 1,
-     "pk": 1,
-     "fk_target": null,
-     "desc": "PK de la ejecución de assessment."
-    },
-    {
-     "name": "execution_time",
-     "tyd": "TYD_TIMESTAMP",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Momento del assessment."
-    },
-    {
-     "name": "framework",
-     "tyd": "TYD_STRING",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Marco aplicado (catálogo MATURITY_FRAMEWORK: DAMA, CMMI)."
-    },
-    {
-     "name": "scope_code",
-     "tyd": "TYD_STRING",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Ámbito evaluado (unidad/dominio de gobierno)."
-    },
-    {
-     "name": "dimension",
-     "tyd": "TYD_STRING",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Dimensión DAMA evaluada (catálogo DAMA_DIMENSION)."
-    },
-    {
-     "name": "maturity_level",
-     "tyd": "TYD_INT",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Nivel de madurez alcanzado (CMMI 1-5)."
-    },
-    {
-     "name": "target_level",
-     "tyd": "TYD_INT",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Nivel objetivo definido."
-    },
-    {
-     "name": "assessor_id",
-     "tyd": "TYD_STRING",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Evaluador responsable."
-    },
-    {
-     "name": "evidence_ref",
-     "tyd": "TYD_STRING",
-     "mandatory": 0,
-     "pk": 0,
-     "fk_target": null,
-     "desc": "Referencia a la evidencia del assessment."
-    },
-    {
-     "name": "system",
-     "tyd": "TYD_SYSTEM",
-     "mandatory": 1,
-     "pk": 0,
-     "fk_target": null,
-     "desc": null
-    }
-   ],
-   "domain": "",
-   "business_term": "GOVERNANCE_MATURITY",
    "i18n": false
   },
   "platform_health_snapshot": {
@@ -26652,6 +25576,172 @@
    "domain": "",
    "business_term": "UC_DATA_CLASSIFICATION",
    "i18n": false
+  },
+  "data_access_request": {
+   "subdomain": "CONSENT",
+   "type": "NÚCLEO",
+   "domain": "",
+   "business_term": "CONSENT",
+   "desc": "Solicitud de acceso con consentimiento del owner (fusiona grant+approval+sharing_request). El owner aprueba/deniega bajo propósito y vigencia acotada; recertificación periódica (renueva/revoca). Enforcement en UC; acceso baseline por rol se deriva del grafo, no aquí.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": null,
+     "desc": "solicitud de acceso"
+    },
+    {
+     "name": "requester_role_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "governance_role",
+     "desc": "rol solicitante (scope estructural)"
+    },
+    {
+     "name": "request_object_row_uuid",
+     "tyd": "TYD_UUID",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "(polimórfico)",
+     "desc": "objeto solicitado: dominio/data_product/entidad/atributo"
+    },
+    {
+     "name": "request_object_type_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "object_type",
+     "desc": "grano del acceso"
+    },
+    {
+     "name": "access_level_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "ACCESS_LEVEL",
+     "catalog_ref_metadata_only": true,
+     "desc": "nivel (READ/WRITE)"
+    },
+    {
+     "name": "purpose_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "processing_purpose",
+     "desc": "propósito declarado (para qué) — FK a processing_purpose (RGPD)"
+    },
+    {
+     "name": "justification_text",
+     "tyd": "TYD_TEXT_SUMMARY",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "justificación (por qué)"
+    },
+    {
+     "name": "valid_from",
+     "tyd": "TYD_TIMESTAMP",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "vigencia desde"
+    },
+    {
+     "name": "valid_to",
+     "tyd": "TYD_TIMESTAMP",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "vigencia hasta (acotada)"
+    },
+    {
+     "name": "approval_status_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "APPROVAL_STATUS",
+     "catalog_ref_metadata_only": true,
+     "desc": "PENDING/APPROVED/REJECTED/WITHDRAWN/REVOKED"
+    },
+    {
+     "name": "approved_by_role_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "governance_role",
+     "desc": "quién aprueba (owner del dato)"
+    },
+    {
+     "name": "decided_at",
+     "tyd": "TYD_TIMESTAMP",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "fecha de decisión"
+    },
+    {
+     "name": "recert_frequency_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": "reference_value",
+     "reference_catalog": "FREQUENCY",
+     "catalog_ref_metadata_only": true,
+     "desc": "cadencia de recertificación"
+    },
+    {
+     "name": "next_recert_date",
+     "tyd": "TYD_DATE",
+     "mandatory": 0,
+     "pk": 0,
+     "fk_target": null,
+     "desc": "próxima recertificación (renueva/revoca)"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ]
+  },
+  "data_access_request_condition": {
+   "subdomain": "CONSENT",
+   "type": "ABAC",
+   "desc": "Condición ABAC opcional del grant.",
+   "attributes": [
+    {
+     "name": "data_access_request_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 1,
+     "fk_target": "data_access_request",
+     "desc": "solicitud"
+    },
+    {
+     "name": "access_policy_code",
+     "tyd": "TYD_CODE",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": "access_policy",
+     "desc": "política ABAC aplicada"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "mandatory": 1,
+     "pk": 0,
+     "fk_target": null
+    }
+   ],
+   "domain": "",
+   "business_term": "CONSENT"
   }
  }
 }

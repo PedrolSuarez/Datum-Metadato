@@ -1,1617 +1,2302 @@
 {
- "_meta": {
-  "title": "DATUM · Catálogos (D0) — fuente limpia, en construcción",
-  "purpose": "Catálogos de referencia (reference_catalog/reference_value) que el modelo usa. Se va poblando a medida que la limpia confirma cada uno. NO es volcado de los 181 históricos; arranca limpio.",
-  "estado": "EN_CONSTRUCCION",
-  "convencion": {
-   "tipo_valor": "CERRADO (lista fija gobernada) | NEGOCIO (valores los aporta el cliente/founder) | ABIERTO",
-   "estado": "CONFIRMADO (validado en limpia) | PENDIENTE (valores por definir) | PROPUESTO"
-  }
- },
- "catalogs": {
-  "LIFECYCLE_STATE": {
-   "dominio": "D0 · Estados / ciclo de vida",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "(cualquier tabla del metadato).lifecycle_state_code"
-   ],
-   "desc": "Estado ACTUAL del ciclo de vida de la DEFINICIÓN de una entidad (situación actual; historial en canonical_entity_version). El estado es una acción/transición del ciclo de vida.",
-   "values": {
-    "DRAFT": "En edición/modelado, aún no productiva (mientras se modifica la entidad).",
-    "IN_DEFINITION": "En definición inicial.",
-    "ACTIVE": "Publicada y vigente en producción.",
-    "DEPRECATED": "En retirada, sustituida por otra versión.",
-    "RETIRED": "Retirada definitivamente."
-   },
-   "category": "STATE",
-   "canonical_accelerator": "METADATA"
-  },
-  "ASSESSMENT_TYPE": {
-   "dominio": "D0 · Gobierno (D8)",
-   "tipo_valor": "CERRADO",
-   "estado": "CUARENTENA",
-   "usado_en": [
-    "assessment_pattern",
-    "criticality vía canonical_entity.criticality_assessment_pattern_code"
-   ],
-   "desc": "Tipos de evaluación gobernada. La criticidad es un assessment, no un valor tecleado.",
-   "values": {
-    "CRITICALITY": "Evaluación de criticidad del dato (preguntas → impacto → score → nivel).",
-    "MATURITY": "Evaluación de madurez de gobierno.",
-    "RISK": "Evaluación de riesgo.",
-    "COMPLIANCE": "Evaluación de cumplimiento.",
-    "DEFINITION_QUALITY": "Evaluación de calidad de la definición."
-   },
-   "nota": "EN CUARENTENA: el founder no tiene claro su encaje. No usar hasta resolver. La FK de evaluación en canonical_entity apunta a assessment_pattern (assessment_code), no a este catálogo.",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA"
-  },
-  "STANDARD_AUTHORITY": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "ACTIVE",
-   "usado_en": [
-    "reference_catalog.external_authority_code"
-   ],
-   "desc": "Autoridades externas que definen estándares para catálogos de referencia (p. ej. ISO define ISO 4217/3166).",
-   "values": {
-    "ISO": "International Organization for Standardization.",
-    "IETF": "Internet Engineering Task Force (RFC, BCP 47).",
-    "UN_CEFACT": "UN Centre for Trade Facilitation and Electronic Business (UN/LOCODE, unidades).",
-    "ITU": "International Telecommunication Union.",
-    "IANA": "Internet Assigned Numbers Authority.",
-    "SWIFT": "Society for Worldwide Interbank Financial Telecommunication (BIC, IBAN).",
-    "W3C": "World Wide Web Consortium.",
-    "NIST": "National Institute of Standards and Technology.",
-    "OGC": "Open Geospatial Consortium.",
-    "INTERNAL": "Autoridad interna DATUM (catálogo propio, sin estándar externo)."
-   },
-   "category": "ROLE",
-   "canonical_accelerator": "METADATA"
-  },
-  "SECURITY_CLASSIFICATION": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "canonical_entity.security_classification_code",
-    "canonical_attribute.security_classification_code"
-   ],
-   "desc": "Clasificación de seguridad del dato (entidad/atributo).",
-   "values": {
-    "PUBLIC": "Dato público, sin restricción.",
-    "INTERNAL": "Uso interno de la organización.",
-    "CONFIDENTIAL": "Confidencial; acceso restringido por necesidad.",
-    "RESTRICTED": "Máxima restricción; acceso muy limitado y auditado."
-   }
-  },
-  "KEY_TYPE": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Tipo de clave canónica (PK, única, foránea, índice).",
-   "values": {
-    "PK": "Clave primaria.",
-    "UN": "Restricción de unicidad.",
-    "IX": "Índice."
-   }
-  },
-  "REFERENTIAL_ACTION": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Acción referencial on delete/on update.",
-   "values": {
-    "CASCADE": "",
-    "RESTRICT": "",
-    "SET_NULL": "",
-    "NO_ACTION": ""
-   }
-  },
-  "PARTITION_STRATEGY": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Estrategia de particionamiento físico de la entidad (Delta).",
-   "values": {
-    "LIQUID": "Liquid Clustering (CLUSTER BY).",
-    "PARTITIONED": "Particionamiento por columnas (PARTITIONED BY).",
-    "NONE": "Sin particionamiento explícito."
-   }
-  },
-  "CARDINALITY": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Cardinalidad de una relación canónica (lado source→target).",
-   "values": {
-    "0:N": "",
-    "1:N": "",
-    "0:1": "",
-    "1:1": ""
-   },
-   "usado_en": [
-    "canonical_relation.cardinality_code",
-    "business_term_related.cardinality_code"
-   ]
-  },
-  "DATE_FORMAT": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TIME",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_type_domain.date_format_code"
-   ],
-   "desc": "Formato canónico de fecha (orden de componentes) para presentación/parseo i18n. El valor almacenado es agnóstico (ISO).",
-   "values": {
-    "YMD": "Año-Mes-Día (ISO 8601, p.ej. 2026-07-07).",
-    "DMY": "Día-Mes-Año (p.ej. 07/07/2026).",
-    "MDY": "Mes-Día-Año (p.ej. 07/07/2026, convención US)."
-   }
-  },
-  "DECIMAL_FORMAT": {
-   "dominio": "D0 · Catálogos de datos (D1)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_type_domain.decimal_format_code"
-   ],
-   "desc": "Formato decimal (separador decimal y de miles) para presentación/parseo i18n. El valor almacenado es agnóstico.",
-   "values": {
-    "DOT_COMMA": "Decimal '.' y miles ',' (p.ej. 1,234.56 — convención US/UK).",
-    "COMMA_DOT": "Decimal ',' y miles '.' (p.ej. 1.234,56 — convención ES/EU).",
-    "COMMA_SPACE": "Decimal ',' y miles espacio (p.ej. 1 234,56 — convención FR).",
-    "DOT_NONE": "Decimal '.' sin separador de miles (p.ej. 1234.56)."
-   }
-  },
-  "DQ_DIMENSION": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_type_domain_validation.dq_dimension_code",
-    "dq_dimension_to_iso_characteristic.dimension_code"
-   ],
-   "desc": "Dimensión de calidad de datos (DAMA-DMBOK). Clasifica el tipo de validación/regla DQ que se compila desde el metamodelo.",
-   "values": {
-    "COMPLETENESS": "Completitud: presencia de todos los valores requeridos (obligatoriedad).",
-    "VALIDITY": "Validez: el valor se ajusta a formato/dominio/patrón definido (regex, rango, catálogo).",
-    "ACCURACY": "Exactitud: el valor representa correctamente el valor real del concepto.",
-    "CONSISTENCY": "Consistencia: ausencia de contradicciones dentro del dato y con el resto del contexto.",
-    "UNIQUENESS": "Unicidad: el dato no está duplicado; una entidad del mundo real se representa una vez.",
-    "TIMELINESS": "Actualidad: el valor está vigente/actualizado para su contexto de uso."
-   }
-  },
-  "ISO_CHARACTERISTIC": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dq_dimension_to_iso_characteristic.iso_characteristic_code"
-   ],
-   "desc": "Característica de calidad de datos según ISO/IEC 25012 (perspectiva inherente: aplica al dato en sí).",
-   "values": {
-    "ACCURACY": "Grado en que el dato representa correctamente el valor real (incluye exactitud sintáctica y semántica).",
-    "COMPLETENESS": "Grado en que el dato tiene valores para todos los atributos necesarios.",
-    "CONSISTENCY": "Grado en que el dato está libre de contradicciones y es coherente con su contexto.",
-    "CREDIBILITY": "Grado en que el dato se considera cierto y creíble por los usuarios.",
-    "CURRENTNESS": "Grado en que el dato tiene valores vigentes para su contexto de uso.",
-    "PRECISION": "Grado en que el dato tiene la precisión requerida (dígitos/decimales).",
-    "CONSISTENCY_SEMANTIC": "Coherencia semántica del valor respecto a las reglas de negocio del dominio."
-   }
-  },
-  "TEMPORAL_HIERARCHY_TYPE": {
-   "dominio": "D6 · Jerarquía temporal",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "temporal_hierarchy.hierarchy_type_code"
-   ],
-   "desc": "Tipo de roll-up de una jerarquía temporal.",
-   "values": {
-    "STRICT": "Roll-up estricto y anidado (calendario natural).",
-    "PARALLEL": "Jerarquía paralela sobre el mismo día (ISO 8601).",
-    "PARALLEL_CONFIG": "Jerarquía paralela configurable por compañía/jurisdicción (fiscal)."
-   },
-   "category": "TIME",
-   "canonical_accelerator": "METADATA"
-  },
-  "ROLLUP_KIND": {
-   "dominio": "D6 · Jerarquía temporal",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "temporal_level.rollup_kind_code"
-   ],
-   "desc": "Naturaleza del roll-up de un nivel temporal.",
-   "values": {
-    "STRICT": "Nivel anidado en el árbol estricto.",
-    "SUBDAY": "Nivel sub-día (franja horaria, hora)."
-   },
-   "category": "TIME",
-   "canonical_accelerator": "METADATA"
-  },
-  "TEMPORAL_REPRESENTATION_KIND": {
-   "dominio": "D6 · Jerarquía temporal",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "temporal_representation.representation_kind_code"
-   ],
-   "desc": "Naturaleza de una representación temporal.",
-   "values": {
-    "CALENDAR": "Calendario natural (ene-dic).",
-    "ISO_WEEK": "Semana ISO 8601.",
-    "FISCAL": "Ejercicio fiscal configurable (start month por representación)."
-   },
-   "category": "TIME",
-   "canonical_accelerator": "METADATA"
-  },
-  "GEO_LEVEL": {
-   "dominio": "D6 · Jerarquía geográfica",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Nivel geográfico de un miembro polimórfico (país/región/provincia/localidad).",
-   "usado_en": [
-    "commercial_member.geo_level_code",
-    "tax_jurisdiction_geo.geo_level_code"
-   ],
-   "values": {
-    "COUNTRY": "País (ISO 3166-1).",
-    "REGION": "Región / CCAA (ISO 3166-2).",
-    "PROVINCE": "Provincia (ISO 3166-2).",
-    "LOCALITY": "Localidad / municipio (INE)."
-   }
-  },
-  "BUSINESS_UNIT_KIND": {
-   "dominio": "D · Organización",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Clase de unidad organizativa.",
-   "usado_en": [
-    "business_unit.business_unit_kind_code"
-   ],
-   "values": {
-    "C_LEVEL": "Nivel ejecutivo (CEO, CFO…), raíz del negocio de datos.",
-    "DIVISION": "División.",
-    "AREA": "Área funcional.",
-    "DEPARTMENT": "Departamento.",
-    "TEAM": "Equipo."
-   }
-  },
-  "GOVERNANCE_TOPOLOGY": {
-   "dominio": "D · Organización",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Topología de gobierno del dato de una unidad (decisión de diseño).",
-   "usado_en": [
-    "business_unit.topology_code"
-   ],
-   "values": {
-    "CENTRALIZED": "Gobierno centralizado.",
-    "FEDERATED": "Gobierno federado.",
-    "HYBRID": "Híbrido (centro + federación).",
-    "DELEGATED": "Delegado a la unidad."
-   }
-  },
-  "MATURITY_LEVEL": {
-   "dominio": "D · Evaluación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "STATE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Niveles de resultado de una evaluación de MADUREZ (usado como level_reference_catalog de un assessment_pattern de tipo MATURITY).",
-   "usado_en": [
-    "assessment_pattern_threshold.level_code (patrón MATURITY)"
-   ],
-   "values": {
-    "INITIAL": "Inicial / ad-hoc.",
-    "MANAGED": "Gestionado.",
-    "DEFINED": "Definido.",
-    "QUANTITATIVELY_MANAGED": "Gestionado cuantitativamente.",
-    "OPTIMIZING": "Optimizado."
-   }
-  },
-  "BUSINESS_ROLE_PROFILE": {
-   "dominio": "D · Gobierno",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "ROLE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Perfiles de gobierno del dato asignables a cualquier objeto gobernable.",
-   "usado_en": [
-    "governance_role_assignment.role_profile_code"
-   ],
-   "values": {
-    "DATA_OWNER": "Responsable último (accountable). 1 por objeto.",
-    "DATA_STEWARD": "Gestor operativo de la calidad y definición. N por objeto.",
-    "DATA_CUSTODIAN": "Custodio técnico (almacenamiento/acceso).",
-    "DATA_CONSUMER": "Consumidor autorizado del dato."
-   }
-  },
-  "FREQUENCY": {
-   "dominio": "D0 · Operación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "canonical_entity.access_frequency_code",
-    "business_process.frequency_code"
-   ],
-   "desc": "Frecuencia genérica (de proceso, de fuente, de acceso…). Reutilizable.",
-   "values": {
-    "REAL_TIME": "Refresco en tiempo real / continuo.",
-    "HOURLY": "Refresco horario.",
-    "DAILY": "Refresco diario.",
-    "WEEKLY": "Refresco semanal.",
-    "MONTHLY": "Refresco mensual.",
-    "RARELY": "Refresco esporádico / bajo demanda."
-   },
-   "category": "TIME",
-   "canonical_accelerator": "METADATA"
-  },
-  "WORKFLOW_SCOPE": {
-   "dominio": "D0 · D07 Patrones de workflow",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Nivel al que aplica un paso del workflow.",
-   "usado_en": [
-    "workflow_pattern_step.scope_level_code"
-   ],
-   "values": {
-    "ENTITY": "Circuito de entidad canónica (ingest→transform→dq→load→kpi).",
-    "TERM": "Nivel término de negocio (DQ y jerarquía KPI del término).",
-    "PROCESS": "Nivel proceso (DQ y KPI agregados del proceso)."
-   }
-  },
-  "RUNNER_TYPE": {
-   "dominio": "D0 · D07 Patrones de workflow",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Tipo de runner DataOps que ejecuta un paso (1:1 step↔runner).",
-   "usado_en": [
-    "workflow_pattern_step.runner_type_code"
-   ],
-   "values": {
-    "RUNNER_INGEST": "Ingesta de datos (entidad).",
-    "RUNNER_TRANSFORM": "Transformación (entidad).",
-    "RUNNER_DQ": "Calidad de datos de entidad.",
-    "RUNNER_LOAD_CANONICAL": "Carga a la capa canónica (entidad).",
-    "RUNNER_KPI": "Cálculo de KPI de entidad.",
-    "RUNNER_DQ_TERM": "Calidad de datos a nivel término.",
-    "RUNNER_KPI_HIERARCHY": "KPI jerárquico a nivel término.",
-    "RUNNER_DQ_PROCESS": "Calidad de datos agregada a nivel proceso.",
-    "RUNNER_KPI_PROCESS": "KPI agregado a nivel proceso."
-   }
-  },
-  "WORKFLOW_PURPOSE": {
-   "dominio": "D0 · D07 Patrones de workflow",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Propósito del patrón de workflow completo.",
-   "usado_en": [
-    "workflow_pattern.purpose_code"
-   ],
-   "values": {
-    "INGESTION_VALIDATION": "Ingesta + validación + carga canónica.",
-    "KPI_COMPUTATION": "Cálculo de KPIs.",
-    "CERTIFICATION": "Certificación de datos.",
-    "CUSTOM": "Personalizado."
-   }
-  },
-  "SOURCE_SYSTEM_KIND": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Naturaleza del sistema origen: define a qué me conecto.",
-   "values": {
-    "DATABASE": "Servidor de base de datos.",
-    "API": "Servidor que expone APIs.",
-    "STREAM": "Cluster de streaming (topics).",
-    "FILESYSTEM": "Servidor de ficheros (SFTP/S3/local).",
-    "WEBHOOK": "Publicación push de eventos."
-   }
-  },
-  "CONTAINER_KIND": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Nivel de la jerarquía de contención dentro del sistema.",
-   "values": {
-    "CATALOG": "Catálogo (Unity/motor).",
-    "DATABASE": "Base de datos.",
-    "SCHEMA": "Esquema.",
-    "NAMESPACE": "Namespace lógico.",
-    "DIRECTORY": "Directorio de ficheros."
-   }
-  },
-  "SOURCE_ENTITY_KIND": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Tipo de entidad capturable en origen.",
-   "values": {
-    "TABLE": "Tabla.",
-    "VIEW": "Vista.",
-    "MATERIALIZED_VIEW": "Vista materializada.",
-    "FILE": "Fichero.",
-    "SHEET": "Hoja de cálculo.",
-    "TOPIC": "Topic de streaming.",
-    "ENDPOINT": "Endpoint de API."
-   }
-  },
-  "SCOPE_REASON": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Motivo auditable de inclusión/exclusión de una entidad en el alcance de carga.",
-   "values": {
-    "REQUIRED": "Requerida por una canónica.",
-    "NO_VALUE": "Sin valor de negocio.",
-    "DEPRECATED": "Obsoleta en origen.",
-    "TECHNICAL": "Tabla técnica/sistema.",
-    "DUPLICATE": "Duplicada."
-   }
-  },
-  "CAPTURE_MODE": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Modo de descarga de una tabla origen.",
-   "values": {
-    "FULL": "Carga completa.",
-    "INCREMENTAL": "Incremental por watermark.",
-    "CDC": "Change Data Capture.",
-    "STREAMING": "Consumo continuo (streaming)."
-   }
-  },
-  "LANDING_STRATEGY": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Estrategia de aterrizaje en captura.",
-   "values": {
-    "COPY_TO_LANDING": "Copia a landing.",
-    "READ_IN_PLACE": "Lectura in situ.",
-    "COPY_AND_KEEP_REFERENCE": "Copia y referencia."
-   }
-  },
-  "CDC_MECHANISM": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Mecanismo de captura de cambios.",
-   "values": {
-    "LOG": "Log-based nativo.",
-    "TRIGGER": "Trigger.",
-    "TIMESTAMP": "Columna de timestamp."
-   }
-  },
-  "EXTRACTION_FILTER_MODE": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Momento del filtro de extracción.",
-   "values": {
-    "INITIAL": "Carga inicial/histórica.",
-    "INCREMENTAL": "Día a día."
-   }
-  },
-  "EXPRESSION_DIALECT": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Dialecto de una expresión declarativa.",
-   "values": {
-    "SQL_SPARK": "SQL Spark.",
-    "REGEX": "Expresión regular.",
-    "JSONPATH": "JSONPath."
-   }
-  },
-  "OBJECT_SCOPE": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Ámbito de lectura del metadato de descubrimiento.",
-   "values": {
-    "SERVER": "A nivel servidor (fase 0: enumerar databases).",
-    "DATABASE": "Dentro de cada database (patrón común)."
-   }
-  },
-  "DISCOVERY_OBJECT_KIND": {
-   "dominio": "D3 · Fuentes",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Objeto de metadato que la plantilla de descubrimiento lee.",
-   "values": {
-    "DATABASES": "Enumeración de bases de datos.",
-    "SCHEMAS": "Esquemas/namespaces.",
-    "TABLES": "Tablas y vistas.",
-    "COLUMNS": "Columnas y tipos.",
-    "PRIMARY_KEYS": "Claves primarias.",
-    "FOREIGN_KEYS": "Claves foráneas.",
-    "INDEXES": "Índices.",
-    "PARTITIONS": "Particionamiento nativo.",
-    "COMMENTS": "Documentación embebida.",
-    "DB_PROPERTIES": "Propiedades de la database (charset/collation)."
-   }
-  },
-  "TECHNOLOGY_CATEGORY": {
-   "dominio": "COMMON_STRUCTURE",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "desc": "Categoría de tecnología de fuente/destino.",
-   "values": {
-    "RDBMS": "Base de datos relacional.",
-    "NOSQL": "Base de datos NoSQL.",
-    "FILE": "Sistema de ficheros.",
-    "API": "Servicio API.",
-    "STREAM": "Streaming.",
-    "LAKEHOUSE": "Lakehouse/Delta."
-   }
-  },
-  "TRANSFORMATION_ROLE": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "ROLE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "transformation.role_code"
-   ],
-   "desc": "Rol de una transformación en la carga de una entidad canónica.",
-   "values": {
-    "PRINCIPAL": "Carga por defecto desde la golden source; inserta la fila.",
-    "ENRICHMENT": "Completa atributos sobre la fila ya cargada; merge por PK canónica."
-   }
-  },
-  "OPERATOR": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "transformation_filter.operator_code"
-   ],
-   "desc": "Operador de comparación de un filtro declarativo (campo·operador·valor), AND-eados.",
-   "values": {
-    "EQ": "Igual (=).",
-    "NE": "Distinto (<>).",
-    "GT": "Mayor (>).",
-    "GE": "Mayor o igual (>=).",
-    "LT": "Menor (<).",
-    "LE": "Menor o igual (<=).",
-    "IN": "Pertenece a lista.",
-    "NOT_IN": "No pertenece a lista.",
-    "LIKE": "Coincide patrón.",
-    "NOT_LIKE": "No coincide patrón.",
-    "BETWEEN": "En rango [a,b].",
-    "IS_NULL": "Es nulo.",
-    "IS_NOT_NULL": "No es nulo."
-   }
-  },
-  "JOIN_TYPE": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "transformation_join.join_type_code"
-   ],
-   "desc": "Tipo de JOIN declarativo.",
-   "values": {
-    "INNER": "Solo coincidencias en ambos.",
-    "LEFT": "Todas las del origen + coincidencias.",
-    "RIGHT": "Todas las de la unida + coincidencias.",
-    "FULL": "Todas de ambos."
-   }
-  },
-  "COMBINE_MODE": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "match_rule_set.combine_mode_code"
-   ],
-   "desc": "Cómo se combinan las reglas del match set.",
-   "values": {
-    "FIRST_MATCH": "Primera regla que casa gana.",
-    "BEST_SCORE": "Mayor puntuación agregada.",
-    "ALL": "Deben casar todas."
-   }
-  },
-  "MATCH_FUNCTION": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "match_rule_condition.match_function_code"
-   ],
-   "desc": "Función de comparación de una condición de match.",
-   "values": {
-    "EXACT": "Igualdad exacta.",
-    "EXACT_NORMALIZED": "Igualdad tras normalizar.",
-    "JARO_WINKLER": "Similitud Jaro-Winkler.",
-    "LEVENSHTEIN": "Distancia de edición.",
-    "SOUNDEX": "Fonética Soundex.",
-    "METAPHONE": "Fonética Metaphone."
-   }
-  },
-  "RULE_NATURE": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "match_rule.nature_code"
-   ],
-   "desc": "Naturaleza de la regla de match.",
-   "values": {
-    "DETERMINISTIC": "Condición dura (sin peso).",
-    "PROBABILISTIC": "Ponderada por score."
-   }
-  },
-  "IDENTITY_MODE": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "canonical_entity_bk_lookup_config.identity_mode_code"
-   ],
-   "desc": "Cómo se produce el id canónico de la entidad.",
-   "values": {
-    "BK_HASH": "sha2(BK) determinista (derivado).",
-    "MDM_SURROGATE": "Surrogate nuevo por match.",
-    "RDM_STANDARD": "Código estándar externo (ISO).",
-    "INHERITED": "No tiene identidad propia; hereda el master del padre por FK (sin xref)."
-   }
-  },
-  "ON_MISS": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "canonical_entity_bk_lookup_config.on_miss_code"
-   ],
-   "desc": "Qué hacer cuando el valor/entidad no existe en la resolución.",
-   "values": {
-    "CREATE": "Crea nuevo (MDM).",
-    "REMEDIATE": "A remediación, no crea (RDM).",
-    "NONE": "No aplica (BK_HASH)."
-   }
-  },
-  "AGGREGATE_FUNCTION": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "transformation_field.aggregate_function_code"
-   ],
-   "desc": "Función de agregación de un campo en una transformación con GROUP BY.",
-   "values": {
-    "SUM": "Suma.",
-    "COUNT": "Conteo.",
-    "COUNT_DISTINCT": "Conteo distinto.",
-    "AVG": "Media.",
-    "MIN": "Mínimo.",
-    "MAX": "Máximo."
-   }
-  },
-  "FILTER_STAGE": {
-   "dominio": "D0 · Transformación (D4)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "transformation_filter.filter_stage_code"
-   ],
-   "desc": "Etapa en la que aplica el filtro respecto a la agregación.",
-   "values": {
-    "WHERE": "Antes de agrupar (sobre filas).",
-    "HAVING": "Después de agrupar (sobre agregados)."
-   }
-  },
-  "MATCH_CARDINALITY": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "match_rule_condition.cardinality_code"
-   ],
-   "desc": "Cuantificador de una condición sobre filas de un satélite 1:N.",
-   "values": {
-    "ANY": "Casa si existe alguna fila que casa (EXISTS).",
-    "ALL": "Casan todas las filas."
-   }
-  },
-  "SURVIVORSHIP_STRATEGY": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "survivorship_rule.survivorship_strategy_code"
-   ],
-   "desc": "Cómo se fija el valor del maestro para un atributo canónico.",
-   "values": {
-    "SOURCE_OF_RECORD": "Gana una fuente designada.",
-    "MANUAL": "Lo fija un steward.",
-    "MOST_RECENT": "El valor más reciente.",
-    "MOST_COMPLETE": "El no nulo/más completo.",
-    "MOST_FREQUENT": "El que más fuentes coinciden."
-   }
-  },
-  "SURROGATE_STRATEGY": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "canonical_entity_bk_lookup_config.surrogate_strategy_code"
-   ],
-   "desc": "Cómo se genera el master_id surrogate en MDM.",
-   "values": {
-    "SEQUENCE": "Secuencia numérica.",
-    "UUID": "UUID."
-   }
-  },
-  "IMPL_KIND": {
-   "dominio": "D0 · Identidad / LOAD_CANONICAL",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "match_function_impl.impl_kind_code"
-   ],
-   "desc": "Cómo se implementa una función de match.",
-   "values": {
-    "NATIVE": "Builtin del motor.",
-    "COMPOSED": "Expresión sobre primitivas.",
-    "UDF": "Función/librería registrada."
-   }
-  },
-  "VIEW_KIND": {
-   "dominio": "D0 · Vistas (D5)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "canonical_view.view_kind_code"
-   ],
-   "desc": "Tipo de vista canónica.",
-   "values": {
-    "CANONICAL": "Vista de carga canónica estándar.",
-    "MATCHING": "Vista de resolución de identidad (compilada del match_rule_set).",
-    "AGGREGATION": "Vista de agregación (KPI/hecho)."
-   }
-  },
-  "QUERY_STATUS": {
-   "dominio": "D0 · D07 Orquestación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "compiled_ddl.query_status_code"
-   ],
-   "desc": "Estado de vigencia del artefacto compilado.",
-   "values": {
-    "VIGENTE": "Compilado al día con el metadato.",
-    "OBSOLETA": "Sustituido por una recompilación posterior.",
-    "PENDING_RECOMPILE": "El metadato cambió (hash no cuadra); pendiente de recompilar."
-   }
-  },
-  "DDL_KIND": {
-   "dominio": "D0 · D07 Orquestación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "compiled_ddl.ddl_kind_code"
-   ],
-   "desc": "Tipo de sentencia DDL compilada.",
-   "values": {
-    "CREATE_TABLE": "Crear tabla.",
-    "CREATE_VIEW": "Crear vista.",
-    "CREATE_MATERIALIZED_VIEW": "Crear vista materializada."
-   }
-  },
-  "WRITE_SEMANTICS": {
-   "dominio": "D0 · D07 Orquestación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "runner_capability.write_semantics_code"
-   ],
-   "desc": "Cómo escribe el runner el resultado.",
-   "values": {
-    "APPEND": "Añade filas (landing/ingesta).",
-    "INSERT_MERGE": "Inserta o hace MERGE por clave (transformación).",
-    "GATE": "No escribe; actúa de puerta (DQ).",
-    "MASTER_XREF": "Escribe master + xref (carga canónica/identidad).",
-    "OVERWRITE": "Reescribe el resultado (KPI/agregación).",
-    "CREATE": "Crea el objeto (DDL)."
-   }
-  },
-  "TRIGGER_KIND": {
-   "dominio": "D0 · D07 Orquestación",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "business_process.trigger_kind_code"
-   ],
-   "desc": "Cómo se dispara la ejecución de un proceso.",
-   "values": {
-    "SCHEDULE": "Por calendario (cron).",
-    "EVENT": "Por evento (llegada de datos).",
-    "MANUAL": "Manual."
-   }
-  },
-  "FULL_RELOAD_STRATEGY": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture.full_reload_strategy_code"
-   ],
-   "desc": "Estrategia de recarga en modo FULL.",
-   "values": {
-    "TRUNCATE_LOAD": "Vaciar y cargar.",
-    "OVERWRITE": "Sobrescribir.",
-    "SNAPSHOT": "Snapshot versionado."
-   }
-  },
-  "CDC_DELETE_HANDLING": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture.cdc_delete_handling_code"
-   ],
-   "desc": "Tratamiento de borrados en CDC.",
-   "values": {
-    "HARD_DELETE": "Borra físicamente.",
-    "SOFT_DELETE": "Marca como borrado.",
-    "IGNORE": "Ignora borrados."
-   }
-  },
-  "LANDING_FORMAT": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture.landing_format_code"
-   ],
-   "desc": "Formato del fichero aterrizado.",
-   "values": {
-    "PARQUET": "Parquet.",
-    "DELTA": "Delta.",
-    "CSV": "CSV.",
-    "JSON": "JSON.",
-    "AVRO": "Avro."
-   }
-  },
-  "CAPTURE_ATTRIBUTE_ROLE": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture_attribute.capture_role_code"
-   ],
-   "desc": "Rol de una columna que sostiene la captura.",
-   "values": {
-    "WATERMARK": "Marca incremental.",
-    "CDC_KEY": "Clave de cambio.",
-    "CDC_SEQUENCE": "Secuencia/LSN.",
-    "CDC_OPERATION": "Columna de operación I/U/D.",
-    "LANDING_PARTITION": "Columna de particionado del landing.",
-    "STREAM_KEY": "Clave de partición/mensaje (streaming)."
-   }
-  },
-  "STREAM_MESSAGE_FORMAT": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture.stream_message_format_code"
-   ],
-   "desc": "Serialización del mensaje en streaming.",
-   "values": {
-    "AVRO": "Avro.",
-    "JSON": "JSON.",
-    "PROTOBUF": "Protobuf.",
-    "STRING": "Texto plano."
-   }
-  },
-  "STREAM_START_POSITION": {
-   "dominio": "D3 · Captura",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_entity_capture.stream_start_position_code"
-   ],
-   "desc": "Posición inicial de lectura del flujo.",
-   "values": {
-    "EARLIEST": "Desde el principio.",
-    "LATEST": "Desde el final (solo nuevos)."
-   }
-  },
-  "CONTRACT_STATUS": {
-   "dominio": "D3 · Data contracts",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_data_contract.contract_status_code"
-   ],
-   "desc": "Estado del contrato de fuente.",
-   "values": {
-    "DRAFT": "Borrador.",
-    "ACTIVE": "Vigente.",
-    "TERMINATED": "Terminado."
-   }
-  },
-  "SLA_TYPE": {
-   "dominio": "D3 · Data contracts",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_data_contract_sla.sla_type_code"
-   ],
-   "desc": "Tipo de compromiso de nivel de servicio.",
-   "values": {
-    "FRESHNESS": "Frescura/latencia del dato.",
-    "AVAILABILITY": "Disponibilidad.",
-    "COMPLETENESS": "Completitud.",
-    "LATENCY": "Latencia de entrega.",
-    "ERROR_RATE": "Tasa de error.",
-    "VOLUME": "Volumen.",
-    "DELIVERY_PUNCTUALITY": "Puntualidad de entrega."
-   }
-  },
-  "SLA_UNIT": {
-   "dominio": "D3 · Data contracts",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_data_contract_sla.target_unit_code"
-   ],
-   "desc": "Unidad del objetivo del SLA.",
-   "values": {
-    "SECONDS": "Segundos.",
-    "MINUTES": "Minutos.",
-    "HOURS": "Horas.",
-    "DAYS": "Días.",
-    "PERCENT": "Porcentaje.",
-    "ROWS": "Filas."
-   }
-  },
-  "BREACH_ACTION": {
-   "dominio": "D3 · Data contracts",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_data_contract_sla.breach_action_code"
-   ],
-   "desc": "Acción al incumplir un SLA.",
-   "values": {
-    "NOTIFY": "Notificar.",
-    "ESCALATE": "Escalar.",
-    "QUARANTINE": "Poner en cuarentena.",
-    "REJECT": "Rechazar la carga.",
-    "NONE": "Sin acción."
-   }
-  },
-  "SCHEMA_STABILITY": {
-   "dominio": "D3 · Data contracts",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "source_data_contract_entity.schema_stability_code"
-   ],
-   "desc": "Compromiso de estabilidad de esquema.",
-   "values": {
-    "STRICT": "Sin cambios.",
-    "BACKWARD_COMPATIBLE": "Solo cambios compatibles.",
-    "NONE": "Sin compromiso."
-   }
-  },
-  "DQ_ON_FAIL": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dq_check_type.on_fail_default_code"
-   ],
-   "desc": "Resultado de flujo ante el fallo de una comprobación DQ. El motor lo resuelve por derivación; nunca lanza error de ejecución (todo se registra).",
-   "values": {
-    "AUTO_REMEDIATE": "El motor corrige la fila inline desde metadato (valor por defecto, normalización, survivorship) y continúa; deja incidente WARNING.",
-    "REJECT": "Corte controlado del dato: la fila no avanza y se registra incidente ERROR. Es el is_gate compilado del step (no es caída de ejecución).",
-    "QUARANTINE": "No auto-corregible y no fatal: a dq_quarantine_policy para revisión del steward (etiquetado por severidad).",
-    "FLAG": "Señal de calidad: registra el veredicto (Observabilidad) y deja pasar."
-   }
-  },
-  "DQ_SEVERITY": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dq_check_type.default_severity_code",
-    "dq_quarantine_policy (etiqueta de la fila en cuarentena)"
-   ],
-   "desc": "Severidad del incidente DQ registrado. La autocorrección deja WARNING (no ERROR); el rechazo deja ERROR. La cuarentena guarda ambos, distinguidos por severidad.",
-   "values": {
-    "INFO": "Señal informativa (medición/agregado); no compromete la carga.",
-    "WARNING": "Incidente no bloqueante: el dato continúa (posible autocorrección), pero queda registrado y trazable.",
-    "ERROR": "Incidente bloqueante: el dato no avanza (rechazo controlado)."
-   }
-  },
-  "RULE_KIND": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "business_rule.rule_kind_code"
-   ],
-   "desc": "Naturaleza de una regla de negocio declarada (no derivable de estructura).",
-   "values": {
-    "TARGET": "Objetivo de negocio (p.ej. venta > 1M).",
-    "THRESHOLD": "Umbral de alerta.",
-    "SLA": "Compromiso de nivel de servicio (frescura/disponibilidad/latencia).",
-    "VALUE": "Valor esperado (p.ej. ROI)."
-   }
-  },
-  "MATURITY_DIMENSION": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "PROPUESTO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "business_rule.maturity_dimension_code"
-   ],
-   "desc": "Dimensión de MADUREZ del dato a la que aporta una regla de negocio al cumplirse (distinta de la dimensión de calidad DAMA). VALORES PROPUESTOS — ajustables.",
-   "values": {
-    "GOVERNANCE": "El dato está gobernado (propiedad, políticas).",
-    "RELIABILITY": "Fiabilidad/disponibilidad (SLA).",
-    "PERFORMANCE": "Cumple objetivos/umbrales de negocio.",
-    "VALUE": "Genera valor de negocio (ROI).",
-    "COMPLIANCE": "Cumple normativa aplicable."
-   }
-  },
-  "EXPIRATION_ACTION": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "PROPUESTO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dq_quarantine_policy.on_expiration_action_code"
-   ],
-   "desc": "Qué hacer con un registro en cuarentena cuando vence max_quarantine_days sin resolución. VALORES PROPUESTOS — ajustables.",
-   "values": {
-    "DISCARD": "Descartar el dato en cuarentena (no se carga).",
-    "ESCALATE": "Escalar a un responsable para decisión manual.",
-    "ARCHIVE": "Archivar el registro caducado para auditoría y sacarlo de la cola.",
-    "AUTO_DISMISS": "Descartar el incidente y dejar pasar el dato (sujeto a requires_dpo_approval_for_dismiss si PII)."
-   }
-  },
-  "DQ_PHASE": {
-   "dominio": "D6 · Calidad de datos",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dq_check_type.execution_phase_code"
-   ],
-   "desc": "Fase del pipeline en la que se ejecuta la comprobación DQ, y por tanto qué runner la ejecuta. Flujo: fuente→LANDING (ingesta) → STAGING (transformación+calidad) → COMMON (carga de lo validado).",
-   "values": {
-    "PRE_INGEST": "En la ingesta (fuente→landing): frescura y estructural de fuente. Runner RUNNER_INGEST.",
-    "PRE_WRITE": "Fila a fila durante la transformación (landing→staging), antes de escribir: formato, obligatoriedad, estructura. Runner RUNNER_TRANSFORM.",
-    "POST_WRITE": "Sobre el conjunto ya escrito en staging: unicidad, integridad referencial, completitud. Puerta que corta la promoción a common. Runner RUNNER_DQ/_TERM."
-   }
-  },
-  "TIME_GRAIN": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TIME",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "accumulative_fact.time_grain_code"
-   ],
-   "desc": "Grano temporal de acumulación del hecho (HORA opcional → DÍA → MES → AÑO).",
-   "values": {
-    "HOUR": "Hora (opcional).",
-    "DAY": "Día.",
-    "MONTH": "Mes.",
-    "YEAR": "Año."
-   }
-  },
-  "MATERIALIZATION_MODE": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "accumulative_fact.materialization_mode_code"
-   ],
-   "desc": "Modo de materialización de un hecho según volumen+consumo.",
-   "values": {
-    "TABLE": "Tabla materializada.",
-    "MATERIALIZED_VIEW": "Vista materializada.",
-    "VIEW": "Vista lógica."
-   }
-  },
-  "KPI_TYPE": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "kpi.kpi_type_code"
-   ],
-   "desc": "Naturaleza del KPI.",
-   "values": {
-    "BASIC": "Agregación directa sobre el hecho.",
-    "DERIVED": "Cálculo a partir de otros KPIs."
-   }
-  },
-  "SUBJECT_KIND": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "kpi.subject_kind_code"
-   ],
-   "desc": "Sujeto que mide el KPI (DATUM-27).",
-   "values": {
-    "BUSINESS": "Negocio.",
-    "DATA_QUALITY": "Calidad del dato.",
-    "METAMODEL": "Metamodelo.",
-    "OBSERVABILITY": "Observabilidad."
-   }
-  },
-  "UNIT": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "ABIERTO",
-   "estado": "PROPUESTO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "kpi.unit_code"
-   ],
-   "desc": "Unidad de medida del KPI (valores PROPUESTO; puede diferirse a la entidad unit_of_measure en cuarentena).",
-   "values": {
-    "COUNT": "Recuento.",
-    "CURRENCY": "Importe monetario.",
-    "PERCENTAGE": "Porcentaje.",
-    "RATIO": "Ratio.",
-    "DURATION": "Duración."
-   }
-  },
-  "CERTIFICATION_TIER": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "PROPUESTO",
-   "category": "STATE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_product.certification_tier_code"
-   ],
-   "desc": "Nivel de certificación de un data product (valores PROPUESTO).",
-   "values": {
-    "RAW": "Sin curar.",
-    "CURATED": "Curado.",
-    "CERTIFIED": "Certificado."
-   }
-  },
-  "PUBLICATION_STATUS": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "STATE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_product.publication_status_code"
-   ],
-   "desc": "Estado de publicación de un data product.",
-   "values": {
-    "DRAFT": "Borrador.",
-    "PUBLISHED": "Publicado.",
-    "DEPRECATED": "Obsoleto.",
-    "RETIRED": "Retirado."
-   }
-  },
-  "PERSPECTIVE": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "ABIERTO",
-   "estado": "PROPUESTO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "data_product_fact.perspective_code"
-   ],
-   "desc": "Perspectiva analítica de un hecho dentro de un data product (valores PROPUESTO).",
-   "values": {
-    "CORE": "Hecho central del producto.",
-    "COMPLEMENTARY": "Hecho complementario.",
-    "REFERENCE": "Hecho de referencia."
-   }
-  },
-  "DIMENSION_KIND": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dimension.dimension_kind_code"
-   ],
-   "desc": "Naturaleza de la dimensión analítica.",
-   "values": {
-    "CLASSIC": "Estrella: sobre catálogo simple o MDM plano (un nivel).",
-    "SNOWFLAKE": "Copo: sobre una jerarquía existente (N niveles)."
-   }
-  },
-  "DERIVATION_MODE": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "dimension.derivation_mode_code"
-   ],
-   "desc": "Cómo se obtienen ejes y niveles de la dimensión.",
-   "values": {
-    "INFERRED": "Derivados del origen (catálogo o jerarquía) — sin duplicar.",
-    "EXPLICIT": "Declarados a mano (dimensión a medida)."
-   }
-  },
-  "FACT_KIND": {
-   "dominio": "D0 · Analítica (D7)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "category": "TYPE",
-   "canonical_accelerator": "METADATA",
-   "usado_en": [
-    "accumulative_fact.fact_kind_code"
-   ],
-   "desc": "Tipo de tabla de hechos (Kimball).",
-   "values": {
-    "TRANSACTIONAL": "Un hecho por evento.",
-    "PERIODIC_SNAPSHOT": "Fotografía fechada periódica (evolución en el tiempo).",
-    "ACCUMULATING_SNAPSHOT": "Fila que se actualiza a lo largo de un ciclo."
-   }
-  },
-  "EXECUTION_LEVEL": {
-   "dominio": "OBS · Ejecución",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "run.execution_level_code",
-    "run_step.execution_level_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "WORKFLOW": "Nivel de corrida completa (run).",
-    "STEP": "Paso lógico del workflow.",
-    "RUNNER": "Ejecución de un runner concreto (run_step).",
-    "TASK": "Sub-tarea atómica dentro de un runner."
-   }
-  },
-  "RUN_STATUS": {
-   "dominio": "OBS · Ejecución",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "run.run_status_code",
-    "run_step.run_status_code",
-    "source_discovery_run.run_status_code",
-    "dq_governance_execution.result_status_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "RUNNING": "En ejecución.",
-    "COMPLETED": "Completado sin excepciones.",
-    "COMPLETED_WITH_WARNINGS": "Completado con avisos (DATUM nunca da error de ejecución, M-35).",
-    "COMPLETED_WITH_ERRORS": "Completado con errores registrados (autocontenido).",
-    "ERROR": "Fallo de infraestructura (no existe Databricks/cluster…)."
-   }
-  },
-  "TRIGGER_TYPE": {
-   "dominio": "OBS · Ejecución",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "run.trigger_type_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "SCHEDULED": "Disparo por planificación (schedule_cron).",
-    "MANUAL": "Disparo manual.",
-    "EVENT": "Disparo por evento.",
-    "REPROCESS": "Reproceso de un rango histórico."
-   }
-  },
-  "DQ_VERDICT": {
-   "dominio": "OBS · Calidad (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "run_step.crossing_result_code",
-    "dq_run_result.verdict_code",
-    "dq_column_incident.verdict_code",
-    "discovery_rule_evaluation.crossing_result_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "PASS": "La comprobación pasa.",
-    "WARNING": "Aviso (severidad WARNING).",
-    "ERROR": "Fallo (severidad ERROR)."
-   }
-  },
-  "DQ_ACTION": {
-   "dominio": "OBS · Calidad (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "dq_column_incident.action_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "CAST": "Casteo aplicado (TRY_CAST OK).",
-    "DEFAULT_APPLIED": "Default aplicado por obligatoriedad (null de origen).",
-    "NORMALIZED": "Valor normalizado por el dominio TYD.",
-    "REJECTED": "Valor rechazado (null por cast fallido / sin default)."
-   }
-  },
-  "DQ_INCIDENT_STATUS": {
-   "dominio": "OBS · Calidad (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "dq_incident.incident_status_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "OPEN": "Abierto.",
-    "ASSIGNED": "Asignado a un responsable.",
-    "IN_PROGRESS": "En resolución.",
-    "RESOLVED": "Resuelto.",
-    "CLOSED": "Cerrado.",
-    "DISMISSED": "Descartado (no procede)."
-   }
-  },
-  "DQ_GOVERNANCE_KIND": {
-   "dominio": "OBS · Calidad (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "dq_governance_execution.governance_kind_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "AUDIT": "Ejecución de un plan de auditoría (dq_audit_plan).",
-    "CERTIFICATION": "Ejecución de criterios de certificación (dq_certification_criteria).",
-    "ASSURANCE": "Ejecución de un procedimiento de aseguramiento (dq_assurance_procedure).",
-    "EVALUATION": "Ejecución de una especificación de evaluación (dq_evaluation_specification)."
-   }
-  },
-  "DRIFT_TYPE": {
-   "dominio": "OBS · Discovery (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "source_discovery_drift.drift_type_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "COLUMN_ADDED": "Columna añadida en la fuente.",
-    "COLUMN_REMOVED": "Columna eliminada.",
-    "TYPE_CHANGED": "Cambio de tipo.",
-    "NULLABILITY_CHANGED": "Cambio de nulabilidad.",
-    "RENAMED": "Renombrado.",
-    "KEY_CHANGED": "Cambio de clave/índice."
-   }
-  },
-  "DRIFT_STATUS": {
-   "dominio": "OBS · Discovery (observación)",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "source_discovery_drift.drift_status_code"
-   ],
-   "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
-   "canonical_accelerator": "OBSERVABILITY",
-   "values": {
-    "DETECTED": "Detectado, sin disposición.",
-    "PENDING_REVIEW": "Pendiente de revisión.",
-    "ACCEPTED": "Aceptado (→ source_entity_version).",
-    "REJECTED": "Rechazado."
-   }
-  },
-  "RETENTION_POLICY": {
-   "dominio": "OBS · Retención",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "canonical_entity.retention_policy_code"
-   ],
-   "canonical_accelerator": "OBSERVABILITY",
-   "desc": "Política de retención de una tabla persistente. La copia de auditoría de UC en observability retiene AUDIT_7Y, sobreviviendo a la ventana de 365 días de la fuente. Registrado METADATO-42.",
-   "values": {
-    "SOURCE_DEFAULT": "Retención por defecto de la fuente (p.ej. 365 días de las system tables de Databricks).",
-    "OPERATIONAL_90D": "Operacional, 90 días.",
-    "OPERATIONAL_1Y": "Operacional, 1 año.",
-    "AUDIT_5Y": "Auditoría, 5 años (inmutable).",
-    "AUDIT_7Y": "Auditoría, 7 años (inmutable).",
-    "PERMANENT": "Retención permanente (no se purga)."
-   }
-  },
-  "POPULATION_MODE": {
-   "dominio": "OBS · Población",
-   "tipo_valor": "CERRADO",
-   "estado": "CONFIRMADO",
-   "usado_en": [
-    "canonical_entity.population_mode_code"
-   ],
-   "canonical_accelerator": "OBSERVABILITY",
-   "desc": "Cómo se alimenta cada tabla de observabilidad. La nativa de DATUM se EMITE (telemetría del runner/UDF/derivación), no se ingiere; las UC se ingieren. Registrado METADATO-47.",
-   "values": {
-    "RUNNER_TELEMETRY": "El runner escribe su propia observabilidad al ejecutar (instrumentación del harness).",
-    "GATE_UDF": "Fila emitida por la UDF compilada del gate PRE_WRITE (M-36), por columna evaluada.",
-    "DERIVED_SCHEDULED": "Proceso programado de derivación/agregación (RUNNER_KPI/RUNNER_DQ o transformación desde otra tabla, p.ej. desde una uc_*).",
-    "SOURCE_INGEST": "Ingesta desde fuente externa vía source_entity_capture (las 72 tablas Unity Catalog).",
-    "APP_TRANSACTION": "Escritura transaccional de la aplicación o ingesta de un sistema externo de negocio (DPO/consentimiento, ticketing, gateway).",
-    "UC_VIEW": "Vista sobre una tabla uc_* (Unity Catalog): sin tabla física, sin ETL, sin retención propia; la definición vive en el metadato y se compila como VIEW."
-   }
-  }
- },
- "categories": [
-  {
-   "code": "TYPE",
-   "sort_order": 10
-  },
-  {
-   "code": "STATE",
-   "sort_order": 20
-  },
-  {
-   "code": "SITUATION",
-   "sort_order": 30
-  },
-  {
-   "code": "REASON",
-   "sort_order": 40
-  },
-  {
-   "code": "TIME",
-   "sort_order": 50
-  },
-  {
-   "code": "ROLE",
-   "sort_order": 60
-  }
- ]
+  "_meta": {
+    "title": "DATUM · Catálogos (D0) — fuente limpia, en construcción",
+    "purpose": "Catálogos de referencia (reference_catalog/reference_value) que el modelo usa. Se va poblando a medida que la limpia confirma cada uno. NO es volcado de los 181 históricos; arranca limpio.",
+    "estado": "EN_CONSTRUCCION",
+    "convencion": {
+      "tipo_valor": "CERRADO (lista fija gobernada) | NEGOCIO (valores los aporta el cliente/founder) | ABIERTO",
+      "estado": "CONFIRMADO (validado en limpia) | PENDIENTE (valores por definir) | PROPUESTO"
+    }
+  },
+  "catalogs": {
+    "LIFECYCLE_STATE": {
+      "dominio": "D0 · Estados / ciclo de vida",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "(cualquier tabla del metadato).lifecycle_state_code"
+      ],
+      "desc": "Estado ACTUAL del ciclo de vida de la DEFINICIÓN de una entidad (situación actual; historial en canonical_entity_version). El estado es una acción/transición del ciclo de vida.",
+      "values": {
+        "DRAFT": "En edición/modelado, aún no productiva (mientras se modifica la entidad).",
+        "IN_DEFINITION": "En definición inicial.",
+        "ACTIVE": "Publicada y vigente en producción.",
+        "DEPRECATED": "En retirada, sustituida por otra versión.",
+        "RETIRED": "Retirada definitivamente."
+      },
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA"
+    },
+    "ASSESSMENT_TYPE": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "assessment_pattern",
+        "criticality vía canonical_entity.criticality_assessment_pattern_code",
+        "assessment_pattern.assessment_type_code"
+      ],
+      "desc": "Tipos de evaluación gobernada. La criticidad es un assessment, no un valor tecleado.",
+      "values": {
+        "CRITICALITY": "Evaluación de criticidad del dato (preguntas → impacto → score → nivel).",
+        "MATURITY": "Evaluación de madurez de gobierno.",
+        "RISK": "Evaluación de riesgo.",
+        "COMPLIANCE": "Evaluación de cumplimiento.",
+        "DEFINITION_QUALITY": "Evaluación de calidad de la definición."
+      },
+      "nota": "Resuelto (M-54): es el TIPO del assessment_pattern (motor genérico de evaluación). La FK de criticidad en canonical_entity apunta a assessment_pattern, no a este catálogo.",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA"
+    },
+    "STANDARD_AUTHORITY": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "ACTIVE",
+      "usado_en": [
+        "reference_catalog.external_authority_code"
+      ],
+      "desc": "Autoridades externas que definen estándares para catálogos de referencia (p. ej. ISO define ISO 4217/3166).",
+      "values": {
+        "ISO": "International Organization for Standardization.",
+        "IETF": "Internet Engineering Task Force (RFC, BCP 47).",
+        "UN_CEFACT": "UN Centre for Trade Facilitation and Electronic Business (UN/LOCODE, unidades).",
+        "ITU": "International Telecommunication Union.",
+        "IANA": "Internet Assigned Numbers Authority.",
+        "SWIFT": "Society for Worldwide Interbank Financial Telecommunication (BIC, IBAN).",
+        "W3C": "World Wide Web Consortium.",
+        "NIST": "National Institute of Standards and Technology.",
+        "OGC": "Open Geospatial Consortium.",
+        "INTERNAL": "Autoridad interna DATUM (catálogo propio, sin estándar externo)."
+      },
+      "category": "ROLE",
+      "canonical_accelerator": "METADATA"
+    },
+    "SECURITY_CLASSIFICATION": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "canonical_entity.security_classification_code",
+        "canonical_attribute.security_classification_code"
+      ],
+      "desc": "Clasificación de seguridad del dato (entidad/atributo).",
+      "values": {
+        "PUBLIC": "Dato público, sin restricción.",
+        "INTERNAL": "Uso interno de la organización.",
+        "CONFIDENTIAL": "Confidencial; acceso restringido por necesidad.",
+        "RESTRICTED": "Máxima restricción; acceso muy limitado y auditado."
+      }
+    },
+    "KEY_TYPE": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Tipo de clave canónica (PK, única, foránea, índice).",
+      "values": {
+        "PK": "Clave primaria.",
+        "UN": "Restricción de unicidad.",
+        "IX": "Índice."
+      }
+    },
+    "REFERENTIAL_ACTION": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "desc": "Acción referencial on delete/on update.",
+      "values": {
+        "CASCADE": "",
+        "RESTRICT": "",
+        "SET_NULL": "",
+        "NO_ACTION": ""
+      }
+    },
+    "PARTITION_STRATEGY": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "desc": "Estrategia de particionamiento físico de la entidad (Delta).",
+      "values": {
+        "LIQUID": "Liquid Clustering (CLUSTER BY).",
+        "PARTITIONED": "Particionamiento por columnas (PARTITIONED BY).",
+        "NONE": "Sin particionamiento explícito."
+      }
+    },
+    "CARDINALITY": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Cardinalidad de una relación canónica (lado source→target).",
+      "values": {
+        "0:N": "",
+        "1:N": "",
+        "0:1": "",
+        "1:1": ""
+      },
+      "usado_en": [
+        "canonical_relation.cardinality_code",
+        "business_term_related.cardinality_code"
+      ]
+    },
+    "DATE_FORMAT": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "FORMAT",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_type_domain.date_format_code"
+      ],
+      "desc": "Formato canónico de fecha (orden de componentes) para presentación/parseo i18n. El valor almacenado es agnóstico (ISO).",
+      "values": {
+        "YMD": "Año-Mes-Día (ISO 8601, p.ej. 2026-07-07).",
+        "DMY": "Día-Mes-Año (p.ej. 07/07/2026).",
+        "MDY": "Mes-Día-Año (p.ej. 07/07/2026, convención US)."
+      }
+    },
+    "DECIMAL_FORMAT": {
+      "dominio": "D0 · Catálogos de datos (D1)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "FORMAT",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_type_domain.decimal_format_code"
+      ],
+      "desc": "Formato decimal (separador decimal y de miles) para presentación/parseo i18n. El valor almacenado es agnóstico.",
+      "values": {
+        "DOT_COMMA": "Decimal '.' y miles ',' (p.ej. 1,234.56 — convención US/UK).",
+        "COMMA_DOT": "Decimal ',' y miles '.' (p.ej. 1.234,56 — convención ES/EU).",
+        "COMMA_SPACE": "Decimal ',' y miles espacio (p.ej. 1 234,56 — convención FR).",
+        "DOT_NONE": "Decimal '.' sin separador de miles (p.ej. 1234.56)."
+      }
+    },
+    "DQ_DIMENSION": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "DIMENSION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_type_domain_validation.dq_dimension_code",
+        "dq_dimension_to_iso_characteristic.dimension_code"
+      ],
+      "desc": "Dimensión de calidad de datos (DAMA-DMBOK). Clasifica el tipo de validación/regla DQ que se compila desde el metamodelo.",
+      "values": {
+        "COMPLETENESS": "Completitud: presencia de todos los valores requeridos (obligatoriedad).",
+        "VALIDITY": "Validez: el valor se ajusta a formato/dominio/patrón definido (regex, rango, catálogo).",
+        "ACCURACY": "Exactitud: el valor representa correctamente el valor real del concepto.",
+        "CONSISTENCY": "Consistencia: ausencia de contradicciones dentro del dato y con el resto del contexto.",
+        "UNIQUENESS": "Unicidad: el dato no está duplicado; una entidad del mundo real se representa una vez.",
+        "TIMELINESS": "Actualidad: el valor está vigente/actualizado para su contexto de uso."
+      }
+    },
+    "ISO_CHARACTERISTIC": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "DIMENSION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dq_dimension_to_iso_characteristic.iso_characteristic_code"
+      ],
+      "desc": "Característica de calidad de datos según ISO/IEC 25012 (perspectiva inherente: aplica al dato en sí).",
+      "values": {
+        "ACCURACY": "Grado en que el dato representa correctamente el valor real (incluye exactitud sintáctica y semántica).",
+        "COMPLETENESS": "Grado en que el dato tiene valores para todos los atributos necesarios.",
+        "CONSISTENCY": "Grado en que el dato está libre de contradicciones y es coherente con su contexto.",
+        "CREDIBILITY": "Grado en que el dato se considera cierto y creíble por los usuarios.",
+        "CURRENTNESS": "Grado en que el dato tiene valores vigentes para su contexto de uso.",
+        "PRECISION": "Grado en que el dato tiene la precisión requerida (dígitos/decimales).",
+        "CONSISTENCY_SEMANTIC": "Coherencia semántica del valor respecto a las reglas de negocio del dominio."
+      }
+    },
+    "TEMPORAL_HIERARCHY_TYPE": {
+      "dominio": "D6 · Jerarquía temporal",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "temporal_hierarchy.hierarchy_type_code"
+      ],
+      "desc": "Tipo de roll-up de una jerarquía temporal.",
+      "values": {
+        "STRICT": "Roll-up estricto y anidado (calendario natural).",
+        "PARALLEL": "Jerarquía paralela sobre el mismo día (ISO 8601).",
+        "PARALLEL_CONFIG": "Jerarquía paralela configurable por compañía/jurisdicción (fiscal)."
+      },
+      "category": "TIME",
+      "canonical_accelerator": "METADATA"
+    },
+    "ROLLUP_KIND": {
+      "dominio": "D6 · Jerarquía temporal",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "temporal_level.rollup_kind_code"
+      ],
+      "desc": "Naturaleza del roll-up de un nivel temporal.",
+      "values": {
+        "STRICT": "Nivel anidado en el árbol estricto.",
+        "SUBDAY": "Nivel sub-día (franja horaria, hora)."
+      },
+      "category": "TIME",
+      "canonical_accelerator": "METADATA"
+    },
+    "TEMPORAL_REPRESENTATION_KIND": {
+      "dominio": "D6 · Jerarquía temporal",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "temporal_representation.representation_kind_code"
+      ],
+      "desc": "Naturaleza de una representación temporal.",
+      "values": {
+        "CALENDAR": "Calendario natural (ene-dic).",
+        "ISO_WEEK": "Semana ISO 8601.",
+        "FISCAL": "Ejercicio fiscal configurable (start month por representación)."
+      },
+      "category": "TIME",
+      "canonical_accelerator": "METADATA"
+    },
+    "GEO_LEVEL": {
+      "dominio": "D6 · Jerarquía geográfica",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "desc": "Nivel geográfico de un miembro polimórfico (país/región/provincia/localidad).",
+      "usado_en": [
+        "commercial_member.geo_level_code",
+        "tax_jurisdiction_geo.geo_level_code"
+      ],
+      "values": {
+        "COUNTRY": "País (ISO 3166-1).",
+        "REGION": "Región / CCAA (ISO 3166-2).",
+        "PROVINCE": "Provincia (ISO 3166-2).",
+        "LOCALITY": "Localidad / municipio (INE)."
+      }
+    },
+    "BUSINESS_UNIT_KIND": {
+      "dominio": "D · Organización",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Clase de unidad organizativa.",
+      "usado_en": [
+        "business_unit.business_unit_kind_code"
+      ],
+      "values": {
+        "C_LEVEL": "Nivel ejecutivo (CEO, CFO…), raíz del negocio de datos.",
+        "DIVISION": "División.",
+        "AREA": "Área funcional.",
+        "DEPARTMENT": "Departamento.",
+        "TEAM": "Equipo."
+      }
+    },
+    "GOVERNANCE_TOPOLOGY": {
+      "dominio": "D · Organización",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Topología de gobierno del dato de una unidad (decisión de diseño).",
+      "usado_en": [
+        "business_unit.topology_code"
+      ],
+      "values": {
+        "CENTRALIZED": "Gobierno centralizado.",
+        "FEDERATED": "Gobierno federado.",
+        "HYBRID": "Híbrido (centro + federación).",
+        "DELEGATED": "Delegado a la unidad."
+      }
+    },
+    "MATURITY_LEVEL": {
+      "dominio": "D · Evaluación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "desc": "Niveles de resultado de una evaluación de MADUREZ (usado como level_reference_catalog de un assessment_pattern de tipo MATURITY).",
+      "usado_en": [
+        "assessment_pattern_threshold.level_code (patrón MATURITY)"
+      ],
+      "values": {
+        "INITIAL": "Inicial / ad-hoc.",
+        "MANAGED": "Gestionado.",
+        "DEFINED": "Definido.",
+        "QUANTITATIVELY_MANAGED": "Gestionado cuantitativamente.",
+        "OPTIMIZING": "Optimizado."
+      }
+    },
+    "BUSINESS_ROLE_PROFILE": {
+      "dominio": "D · Gobierno",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ROLE",
+      "canonical_accelerator": "METADATA",
+      "desc": "Perfiles de gobierno del dato asignables a cualquier objeto gobernable.",
+      "usado_en": [
+        "governance_role_assignment.role_profile_code"
+      ],
+      "values": {
+        "DATA_OWNER": "Responsable último (accountable). 1 por objeto.",
+        "DATA_STEWARD": "Gestor operativo de la calidad y definición. N por objeto.",
+        "DATA_CUSTODIAN": "Custodio técnico (almacenamiento/acceso).",
+        "DATA_CONSUMER": "Consumidor autorizado del dato."
+      }
+    },
+    "FREQUENCY": {
+      "dominio": "D0 · Operación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "canonical_entity.access_frequency_code",
+        "business_process.frequency_code"
+      ],
+      "desc": "Frecuencia genérica (de proceso, de fuente, de acceso…). Reutilizable.",
+      "values": {
+        "REAL_TIME": "Refresco en tiempo real / continuo.",
+        "HOURLY": "Refresco horario.",
+        "DAILY": "Refresco diario.",
+        "WEEKLY": "Refresco semanal.",
+        "MONTHLY": "Refresco mensual.",
+        "RARELY": "Refresco esporádico / bajo demanda."
+      },
+      "category": "TIME",
+      "canonical_accelerator": "METADATA"
+    },
+    "WORKFLOW_SCOPE": {
+      "dominio": "D0 · D07 Patrones de workflow",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Nivel al que aplica un paso del workflow.",
+      "usado_en": [
+        "workflow_pattern_step.scope_level_code"
+      ],
+      "values": {
+        "ENTITY": "Circuito de entidad canónica (ingest→transform→dq→load→kpi).",
+        "TERM": "Nivel término de negocio (DQ y jerarquía KPI del término).",
+        "PROCESS": "Nivel proceso (DQ y KPI agregados del proceso)."
+      }
+    },
+    "RUNNER_TYPE": {
+      "dominio": "D0 · D07 Patrones de workflow",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Tipo de runner DataOps que ejecuta un paso (1:1 step↔runner).",
+      "usado_en": [
+        "workflow_pattern_step.runner_type_code"
+      ],
+      "values": {
+        "RUNNER_INGEST": "Ingesta de datos (entidad).",
+        "RUNNER_TRANSFORM": "Transformación (entidad).",
+        "RUNNER_DQ": "Calidad de datos de entidad.",
+        "RUNNER_LOAD_CANONICAL": "Carga a la capa canónica (entidad).",
+        "RUNNER_KPI": "Cálculo de KPI de entidad.",
+        "RUNNER_DQ_TERM": "Calidad de datos a nivel término.",
+        "RUNNER_KPI_HIERARCHY": "KPI jerárquico a nivel término.",
+        "RUNNER_DQ_PROCESS": "Calidad de datos agregada a nivel proceso.",
+        "RUNNER_KPI_PROCESS": "KPI agregado a nivel proceso."
+      }
+    },
+    "WORKFLOW_PURPOSE": {
+      "dominio": "D0 · D07 Patrones de workflow",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Propósito del patrón de workflow completo.",
+      "usado_en": [
+        "workflow_pattern.purpose_code"
+      ],
+      "values": {
+        "INGESTION_VALIDATION": "Ingesta + validación + carga canónica.",
+        "KPI_COMPUTATION": "Cálculo de KPIs.",
+        "CERTIFICATION": "Certificación de datos.",
+        "CUSTOM": "Personalizado."
+      }
+    },
+    "SOURCE_SYSTEM_KIND": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Naturaleza del sistema origen: define a qué me conecto.",
+      "values": {
+        "DATABASE": "Servidor de base de datos.",
+        "API": "Servidor que expone APIs.",
+        "STREAM": "Cluster de streaming (topics).",
+        "FILESYSTEM": "Servidor de ficheros (SFTP/S3/local).",
+        "WEBHOOK": "Publicación push de eventos."
+      }
+    },
+    "CONTAINER_KIND": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Nivel de la jerarquía de contención dentro del sistema.",
+      "values": {
+        "CATALOG": "Catálogo (Unity/motor).",
+        "DATABASE": "Base de datos.",
+        "SCHEMA": "Esquema.",
+        "NAMESPACE": "Namespace lógico.",
+        "DIRECTORY": "Directorio de ficheros."
+      }
+    },
+    "SOURCE_ENTITY_KIND": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Tipo de entidad capturable en origen.",
+      "values": {
+        "TABLE": "Tabla.",
+        "VIEW": "Vista.",
+        "MATERIALIZED_VIEW": "Vista materializada.",
+        "FILE": "Fichero.",
+        "SHEET": "Hoja de cálculo.",
+        "TOPIC": "Topic de streaming.",
+        "ENDPOINT": "Endpoint de API."
+      }
+    },
+    "SCOPE_REASON": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Motivo auditable de inclusión/exclusión de una entidad en el alcance de carga.",
+      "values": {
+        "REQUIRED": "Requerida por una canónica.",
+        "NO_VALUE": "Sin valor de negocio.",
+        "DEPRECATED": "Obsoleta en origen.",
+        "TECHNICAL": "Tabla técnica/sistema.",
+        "DUPLICATE": "Duplicada."
+      }
+    },
+    "CAPTURE_MODE": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "desc": "Modo de descarga de una tabla origen.",
+      "values": {
+        "FULL": "Carga completa.",
+        "INCREMENTAL": "Incremental por watermark.",
+        "CDC": "Change Data Capture.",
+        "STREAMING": "Consumo continuo (streaming)."
+      }
+    },
+    "LANDING_STRATEGY": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "desc": "Estrategia de aterrizaje en captura.",
+      "values": {
+        "COPY_TO_LANDING": "Copia a landing.",
+        "READ_IN_PLACE": "Lectura in situ.",
+        "COPY_AND_KEEP_REFERENCE": "Copia y referencia."
+      }
+    },
+    "CDC_MECHANISM": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Mecanismo de captura de cambios.",
+      "values": {
+        "LOG": "Log-based nativo.",
+        "TRIGGER": "Trigger.",
+        "TIMESTAMP": "Columna de timestamp."
+      }
+    },
+    "EXTRACTION_FILTER_MODE": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "desc": "Momento del filtro de extracción.",
+      "values": {
+        "INITIAL": "Carga inicial/histórica.",
+        "INCREMENTAL": "Día a día."
+      }
+    },
+    "EXPRESSION_DIALECT": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Dialecto de una expresión declarativa.",
+      "values": {
+        "SQL_SPARK": "SQL Spark.",
+        "REGEX": "Expresión regular.",
+        "JSONPATH": "JSONPath."
+      }
+    },
+    "OBJECT_SCOPE": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Ámbito de lectura del metadato de descubrimiento.",
+      "values": {
+        "SERVER": "A nivel servidor (fase 0: enumerar databases).",
+        "DATABASE": "Dentro de cada database (patrón común)."
+      }
+    },
+    "DISCOVERY_OBJECT_KIND": {
+      "dominio": "D3 · Fuentes",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Objeto de metadato que la plantilla de descubrimiento lee.",
+      "values": {
+        "DATABASES": "Enumeración de bases de datos.",
+        "SCHEMAS": "Esquemas/namespaces.",
+        "TABLES": "Tablas y vistas.",
+        "COLUMNS": "Columnas y tipos.",
+        "PRIMARY_KEYS": "Claves primarias.",
+        "FOREIGN_KEYS": "Claves foráneas.",
+        "INDEXES": "Índices.",
+        "PARTITIONS": "Particionamiento nativo.",
+        "COMMENTS": "Documentación embebida.",
+        "DB_PROPERTIES": "Propiedades de la database (charset/collation)."
+      }
+    },
+    "TECHNOLOGY_CATEGORY": {
+      "dominio": "COMMON_STRUCTURE",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "desc": "Categoría de tecnología de fuente/destino.",
+      "values": {
+        "RDBMS": "Base de datos relacional.",
+        "NOSQL": "Base de datos NoSQL.",
+        "FILE": "Sistema de ficheros.",
+        "API": "Servicio API.",
+        "STREAM": "Streaming.",
+        "LAKEHOUSE": "Lakehouse/Delta."
+      }
+    },
+    "TRANSFORMATION_ROLE": {
+      "dominio": "D0 · Transformación (D4)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "transformation.role_code"
+      ],
+      "desc": "Rol de una transformación en la carga de una entidad canónica.",
+      "values": {
+        "PRINCIPAL": "Carga por defecto desde la golden source; inserta la fila.",
+        "ENRICHMENT": "Completa atributos sobre la fila ya cargada; merge por PK canónica."
+      }
+    },
+    "OPERATOR": {
+      "dominio": "D0 · Transformación (D4)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "transformation_filter.operator_code"
+      ],
+      "desc": "Operador de comparación de un filtro declarativo (campo·operador·valor), AND-eados.",
+      "values": {
+        "EQ": "Igual (=).",
+        "NE": "Distinto (<>).",
+        "GT": "Mayor (>).",
+        "GE": "Mayor o igual (>=).",
+        "LT": "Menor (<).",
+        "LE": "Menor o igual (<=).",
+        "IN": "Pertenece a lista.",
+        "NOT_IN": "No pertenece a lista.",
+        "LIKE": "Coincide patrón.",
+        "NOT_LIKE": "No coincide patrón.",
+        "BETWEEN": "En rango [a,b].",
+        "IS_NULL": "Es nulo.",
+        "IS_NOT_NULL": "No es nulo."
+      }
+    },
+    "JOIN_TYPE": {
+      "dominio": "D0 · Transformación (D4)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "transformation_join.join_type_code"
+      ],
+      "desc": "Tipo de JOIN declarativo.",
+      "values": {
+        "INNER": "Solo coincidencias en ambos.",
+        "LEFT": "Todas las del origen + coincidencias.",
+        "RIGHT": "Todas las de la unida + coincidencias.",
+        "FULL": "Todas de ambos."
+      }
+    },
+    "COMBINE_MODE": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "match_rule_set.combine_mode_code"
+      ],
+      "desc": "Cómo se combinan las reglas del match set.",
+      "values": {
+        "FIRST_MATCH": "Primera regla que casa gana.",
+        "BEST_SCORE": "Mayor puntuación agregada.",
+        "ALL": "Deben casar todas."
+      }
+    },
+    "MATCH_FUNCTION": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "match_rule_condition.match_function_code"
+      ],
+      "desc": "Función de comparación de una condición de match.",
+      "values": {
+        "EXACT": "Igualdad exacta.",
+        "EXACT_NORMALIZED": "Igualdad tras normalizar.",
+        "JARO_WINKLER": "Similitud Jaro-Winkler.",
+        "LEVENSHTEIN": "Distancia de edición.",
+        "SOUNDEX": "Fonética Soundex.",
+        "METAPHONE": "Fonética Metaphone."
+      }
+    },
+    "RULE_NATURE": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "match_rule.nature_code"
+      ],
+      "desc": "Naturaleza de la regla de match.",
+      "values": {
+        "DETERMINISTIC": "Condición dura (sin peso).",
+        "PROBABILISTIC": "Ponderada por score."
+      }
+    },
+    "IDENTITY_MODE": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "canonical_entity_bk_lookup_config.identity_mode_code"
+      ],
+      "desc": "Cómo se produce el id canónico de la entidad.",
+      "values": {
+        "BK_HASH": "sha2(BK) determinista (derivado).",
+        "MDM_SURROGATE": "Surrogate nuevo por match.",
+        "RDM_STANDARD": "Código estándar externo (ISO).",
+        "INHERITED": "No tiene identidad propia; hereda el master del padre por FK (sin xref)."
+      }
+    },
+    "ON_MISS": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "canonical_entity_bk_lookup_config.on_miss_code"
+      ],
+      "desc": "Qué hacer cuando el valor/entidad no existe en la resolución.",
+      "values": {
+        "CREATE": "Crea nuevo (MDM).",
+        "REMEDIATE": "A remediación, no crea (RDM).",
+        "NONE": "No aplica (BK_HASH)."
+      }
+    },
+    "AGGREGATE_FUNCTION": {
+      "dominio": "D0 · Transformación (D4)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "transformation_field.aggregate_function_code"
+      ],
+      "desc": "Función de agregación de un campo en una transformación con GROUP BY.",
+      "values": {
+        "SUM": "Suma.",
+        "COUNT": "Conteo.",
+        "COUNT_DISTINCT": "Conteo distinto.",
+        "AVG": "Media.",
+        "MIN": "Mínimo.",
+        "MAX": "Máximo."
+      }
+    },
+    "FILTER_STAGE": {
+      "dominio": "D0 · Transformación (D4)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "transformation_filter.filter_stage_code"
+      ],
+      "desc": "Etapa en la que aplica el filtro respecto a la agregación.",
+      "values": {
+        "WHERE": "Antes de agrupar (sobre filas).",
+        "HAVING": "Después de agrupar (sobre agregados)."
+      }
+    },
+    "MATCH_CARDINALITY": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "match_rule_condition.cardinality_code"
+      ],
+      "desc": "Cuantificador de una condición sobre filas de un satélite 1:N.",
+      "values": {
+        "ANY": "Casa si existe alguna fila que casa (EXISTS).",
+        "ALL": "Casan todas las filas."
+      }
+    },
+    "SURVIVORSHIP_STRATEGY": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "survivorship_rule.survivorship_strategy_code"
+      ],
+      "desc": "Cómo se fija el valor del maestro para un atributo canónico.",
+      "values": {
+        "SOURCE_OF_RECORD": "Gana una fuente designada.",
+        "MANUAL": "Lo fija un steward.",
+        "MOST_RECENT": "El valor más reciente.",
+        "MOST_COMPLETE": "El no nulo/más completo.",
+        "MOST_FREQUENT": "El que más fuentes coinciden."
+      }
+    },
+    "SURROGATE_STRATEGY": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "canonical_entity_bk_lookup_config.surrogate_strategy_code"
+      ],
+      "desc": "Cómo se genera el master_id surrogate en MDM.",
+      "values": {
+        "SEQUENCE": "Secuencia numérica.",
+        "UUID": "UUID."
+      }
+    },
+    "IMPL_KIND": {
+      "dominio": "D0 · Identidad / LOAD_CANONICAL",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "match_function_impl.impl_kind_code"
+      ],
+      "desc": "Cómo se implementa una función de match.",
+      "values": {
+        "NATIVE": "Builtin del motor.",
+        "COMPOSED": "Expresión sobre primitivas.",
+        "UDF": "Función/librería registrada."
+      }
+    },
+    "VIEW_KIND": {
+      "dominio": "D0 · Vistas (D5)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "canonical_view.view_kind_code"
+      ],
+      "desc": "Tipo de vista canónica.",
+      "values": {
+        "CANONICAL": "Vista de carga canónica estándar.",
+        "MATCHING": "Vista de resolución de identidad (compilada del match_rule_set).",
+        "AGGREGATION": "Vista de agregación (KPI/hecho)."
+      }
+    },
+    "QUERY_STATUS": {
+      "dominio": "D0 · D07 Orquestación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "compiled_ddl.query_status_code"
+      ],
+      "desc": "Estado de vigencia del artefacto compilado.",
+      "values": {
+        "VIGENTE": "Compilado al día con el metadato.",
+        "OBSOLETA": "Sustituido por una recompilación posterior.",
+        "PENDING_RECOMPILE": "El metadato cambió (hash no cuadra); pendiente de recompilar."
+      }
+    },
+    "DDL_KIND": {
+      "dominio": "D0 · D07 Orquestación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "compiled_ddl.ddl_kind_code"
+      ],
+      "desc": "Tipo de sentencia DDL compilada.",
+      "values": {
+        "CREATE_TABLE": "Crear tabla.",
+        "CREATE_VIEW": "Crear vista.",
+        "CREATE_MATERIALIZED_VIEW": "Crear vista materializada."
+      }
+    },
+    "WRITE_SEMANTICS": {
+      "dominio": "D0 · D07 Orquestación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "runner_capability.write_semantics_code"
+      ],
+      "desc": "Cómo escribe el runner el resultado.",
+      "values": {
+        "APPEND": "Añade filas (landing/ingesta).",
+        "INSERT_MERGE": "Inserta o hace MERGE por clave (transformación).",
+        "GATE": "No escribe; actúa de puerta (DQ).",
+        "MASTER_XREF": "Escribe master + xref (carga canónica/identidad).",
+        "OVERWRITE": "Reescribe el resultado (KPI/agregación).",
+        "CREATE": "Crea el objeto (DDL)."
+      }
+    },
+    "TRIGGER_KIND": {
+      "dominio": "D0 · D07 Orquestación",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "business_process.trigger_kind_code"
+      ],
+      "desc": "Cómo se dispara la ejecución de un proceso.",
+      "values": {
+        "SCHEDULE": "Por calendario (cron).",
+        "EVENT": "Por evento (llegada de datos).",
+        "MANUAL": "Manual."
+      }
+    },
+    "FULL_RELOAD_STRATEGY": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture.full_reload_strategy_code"
+      ],
+      "desc": "Estrategia de recarga en modo FULL.",
+      "values": {
+        "TRUNCATE_LOAD": "Vaciar y cargar.",
+        "OVERWRITE": "Sobrescribir.",
+        "SNAPSHOT": "Snapshot versionado."
+      }
+    },
+    "CDC_DELETE_HANDLING": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture.cdc_delete_handling_code"
+      ],
+      "desc": "Tratamiento de borrados en CDC.",
+      "values": {
+        "HARD_DELETE": "Borra físicamente.",
+        "SOFT_DELETE": "Marca como borrado.",
+        "IGNORE": "Ignora borrados."
+      }
+    },
+    "LANDING_FORMAT": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "FORMAT",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture.landing_format_code"
+      ],
+      "desc": "Formato del fichero aterrizado.",
+      "values": {
+        "PARQUET": "Parquet.",
+        "DELTA": "Delta.",
+        "CSV": "CSV.",
+        "JSON": "JSON.",
+        "AVRO": "Avro."
+      }
+    },
+    "CAPTURE_ATTRIBUTE_ROLE": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ROLE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture_attribute.capture_role_code"
+      ],
+      "desc": "Rol de una columna que sostiene la captura.",
+      "values": {
+        "WATERMARK": "Marca incremental.",
+        "CDC_KEY": "Clave de cambio.",
+        "CDC_SEQUENCE": "Secuencia/LSN.",
+        "CDC_OPERATION": "Columna de operación I/U/D.",
+        "LANDING_PARTITION": "Columna de particionado del landing.",
+        "STREAM_KEY": "Clave de partición/mensaje (streaming)."
+      }
+    },
+    "STREAM_MESSAGE_FORMAT": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "FORMAT",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture.stream_message_format_code"
+      ],
+      "desc": "Serialización del mensaje en streaming.",
+      "values": {
+        "AVRO": "Avro.",
+        "JSON": "JSON.",
+        "PROTOBUF": "Protobuf.",
+        "STRING": "Texto plano."
+      }
+    },
+    "STREAM_START_POSITION": {
+      "dominio": "D3 · Captura",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_entity_capture.stream_start_position_code"
+      ],
+      "desc": "Posición inicial de lectura del flujo.",
+      "values": {
+        "EARLIEST": "Desde el principio.",
+        "LATEST": "Desde el final (solo nuevos)."
+      }
+    },
+    "CONTRACT_STATUS": {
+      "dominio": "D3 · Data contracts",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_data_contract.contract_status_code"
+      ],
+      "desc": "Estado del contrato de fuente.",
+      "values": {
+        "DRAFT": "Borrador.",
+        "ACTIVE": "Vigente.",
+        "TERMINATED": "Terminado."
+      }
+    },
+    "SLA_TYPE": {
+      "dominio": "D3 · Data contracts",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_data_contract_sla.sla_type_code"
+      ],
+      "desc": "Tipo de compromiso de nivel de servicio.",
+      "values": {
+        "FRESHNESS": "Frescura/latencia del dato.",
+        "AVAILABILITY": "Disponibilidad.",
+        "COMPLETENESS": "Completitud.",
+        "LATENCY": "Latencia de entrega.",
+        "ERROR_RATE": "Tasa de error.",
+        "VOLUME": "Volumen.",
+        "DELIVERY_PUNCTUALITY": "Puntualidad de entrega."
+      }
+    },
+    "SLA_UNIT": {
+      "dominio": "D3 · Data contracts",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_data_contract_sla.target_unit_code"
+      ],
+      "desc": "Unidad del objetivo del SLA.",
+      "values": {
+        "SECONDS": "Segundos.",
+        "MINUTES": "Minutos.",
+        "HOURS": "Horas.",
+        "DAYS": "Días.",
+        "PERCENT": "Porcentaje.",
+        "ROWS": "Filas."
+      }
+    },
+    "BREACH_ACTION": {
+      "dominio": "D3 · Data contracts",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_data_contract_sla.breach_action_code"
+      ],
+      "desc": "Acción al incumplir un SLA.",
+      "values": {
+        "NOTIFY": "Notificar.",
+        "ESCALATE": "Escalar.",
+        "QUARANTINE": "Poner en cuarentena.",
+        "REJECT": "Rechazar la carga.",
+        "NONE": "Sin acción."
+      }
+    },
+    "SCHEMA_STABILITY": {
+      "dominio": "D3 · Data contracts",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "source_data_contract_entity.schema_stability_code"
+      ],
+      "desc": "Compromiso de estabilidad de esquema.",
+      "values": {
+        "STRICT": "Sin cambios.",
+        "BACKWARD_COMPATIBLE": "Solo cambios compatibles.",
+        "NONE": "Sin compromiso."
+      }
+    },
+    "DQ_ON_FAIL": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dq_check_type.on_fail_default_code"
+      ],
+      "desc": "Resultado de flujo ante el fallo de una comprobación DQ. El motor lo resuelve por derivación; nunca lanza error de ejecución (todo se registra).",
+      "values": {
+        "AUTO_REMEDIATE": "El motor corrige la fila inline desde metadato (valor por defecto, normalización, survivorship) y continúa; deja incidente WARNING.",
+        "REJECT": "Corte controlado del dato: la fila no avanza y se registra incidente ERROR. Es el is_gate compilado del step (no es caída de ejecución).",
+        "QUARANTINE": "No auto-corregible y no fatal: a dq_quarantine_policy para revisión del steward (etiquetado por severidad).",
+        "FLAG": "Señal de calidad: registra el veredicto (Observabilidad) y deja pasar."
+      }
+    },
+    "DQ_SEVERITY": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dq_check_type.default_severity_code",
+        "dq_quarantine_policy (etiqueta de la fila en cuarentena)"
+      ],
+      "desc": "Severidad del incidente DQ registrado. La autocorrección deja WARNING (no ERROR); el rechazo deja ERROR. La cuarentena guarda ambos, distinguidos por severidad.",
+      "values": {
+        "INFO": "Señal informativa (medición/agregado); no compromete la carga.",
+        "WARNING": "Incidente no bloqueante: el dato continúa (posible autocorrección), pero queda registrado y trazable.",
+        "ERROR": "Incidente bloqueante: el dato no avanza (rechazo controlado)."
+      }
+    },
+    "RULE_KIND": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "business_rule.rule_kind_code"
+      ],
+      "desc": "Naturaleza de una regla de negocio declarada (no derivable de estructura).",
+      "values": {
+        "TARGET": "Objetivo de negocio (p.ej. venta > 1M).",
+        "THRESHOLD": "Umbral de alerta.",
+        "SLA": "Compromiso de nivel de servicio (frescura/disponibilidad/latencia).",
+        "VALUE": "Valor esperado (p.ej. ROI)."
+      }
+    },
+    "MATURITY_DIMENSION": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "DIMENSION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "business_rule.maturity_dimension_code",
+        "assessment_pattern.dimension_code"
+      ],
+      "desc": "Dimensión de MADUREZ del dato a la que aporta una regla de negocio al cumplirse (distinta de la dimensión de calidad DAMA). VALORES PROPUESTOS — ajustables.",
+      "values": {
+        "GOVERNANCE": "El dato está gobernado (propiedad, políticas).",
+        "RELIABILITY": "Fiabilidad/disponibilidad (SLA).",
+        "PERFORMANCE": "Cumple objetivos/umbrales de negocio.",
+        "VALUE": "Genera valor de negocio (ROI).",
+        "COMPLIANCE": "Cumple normativa aplicable."
+      }
+    },
+    "EXPIRATION_ACTION": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dq_quarantine_policy.on_expiration_action_code"
+      ],
+      "desc": "Qué hacer con un registro en cuarentena cuando vence max_quarantine_days sin resolución. VALORES PROPUESTOS — ajustables.",
+      "values": {
+        "DISCARD": "Descartar el dato en cuarentena (no se carga).",
+        "ESCALATE": "Escalar a un responsable para decisión manual.",
+        "ARCHIVE": "Archivar el registro caducado para auditoría y sacarlo de la cola.",
+        "AUTO_DISMISS": "Descartar el incidente y dejar pasar el dato (sujeto a requires_dpo_approval_for_dismiss si PII)."
+      }
+    },
+    "DQ_PHASE": {
+      "dominio": "D6 · Calidad de datos",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dq_check_type.execution_phase_code"
+      ],
+      "desc": "Fase del pipeline en la que se ejecuta la comprobación DQ, y por tanto qué runner la ejecuta. Flujo: fuente→LANDING (ingesta) → STAGING (transformación+calidad) → COMMON (carga de lo validado).",
+      "values": {
+        "PRE_INGEST": "En la ingesta (fuente→landing): frescura y estructural de fuente. Runner RUNNER_INGEST.",
+        "PRE_WRITE": "Fila a fila durante la transformación (landing→staging), antes de escribir: formato, obligatoriedad, estructura. Runner RUNNER_TRANSFORM.",
+        "POST_WRITE": "Sobre el conjunto ya escrito en staging: unicidad, integridad referencial, completitud. Puerta que corta la promoción a common. Runner RUNNER_DQ/_TERM."
+      }
+    },
+    "TIME_GRAIN": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "TIME",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "accumulative_fact.time_grain_code"
+      ],
+      "desc": "Grano temporal de acumulación del hecho (HORA opcional → DÍA → MES → AÑO).",
+      "values": {
+        "HOUR": "Hora (opcional).",
+        "DAY": "Día.",
+        "MONTH": "Mes.",
+        "YEAR": "Año."
+      }
+    },
+    "MATERIALIZATION_MODE": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "accumulative_fact.materialization_mode_code"
+      ],
+      "desc": "Modo de materialización de un hecho según volumen+consumo.",
+      "values": {
+        "TABLE": "Tabla materializada.",
+        "MATERIALIZED_VIEW": "Vista materializada.",
+        "VIEW": "Vista lógica."
+      }
+    },
+    "KPI_TYPE": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "kpi.kpi_type_code"
+      ],
+      "desc": "Naturaleza del KPI.",
+      "values": {
+        "BASIC": "Agregación directa sobre el hecho.",
+        "DERIVED": "Cálculo a partir de otros KPIs."
+      }
+    },
+    "SUBJECT_KIND": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "kpi.subject_kind_code"
+      ],
+      "desc": "Sujeto que mide el KPI (DATUM-27).",
+      "values": {
+        "BUSINESS": "Negocio.",
+        "DATA_QUALITY": "Calidad del dato.",
+        "METAMODEL": "Metamodelo.",
+        "OBSERVABILITY": "Observabilidad."
+      }
+    },
+    "UNIT": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "ABIERTO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "kpi.unit_code"
+      ],
+      "desc": "Unidad de medida del KPI (valores PROPUESTO; puede diferirse a la entidad unit_of_measure en cuarentena).",
+      "values": {
+        "COUNT": "Recuento.",
+        "CURRENCY": "Importe monetario.",
+        "PERCENTAGE": "Porcentaje.",
+        "RATIO": "Ratio.",
+        "DURATION": "Duración."
+      }
+    },
+    "CERTIFICATION_TIER": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_product.certification_tier_code"
+      ],
+      "desc": "Nivel de certificación de un data product (valores PROPUESTO).",
+      "values": {
+        "RAW": "Sin curar.",
+        "CURATED": "Curado.",
+        "CERTIFIED": "Certificado."
+      }
+    },
+    "PUBLICATION_STATUS": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_product.publication_status_code"
+      ],
+      "desc": "Estado de publicación de un data product.",
+      "values": {
+        "DRAFT": "Borrador.",
+        "PUBLISHED": "Publicado.",
+        "DEPRECATED": "Obsoleto.",
+        "RETIRED": "Retirado."
+      }
+    },
+    "PERSPECTIVE": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "ABIERTO",
+      "estado": "PROPUESTO",
+      "category": "DIMENSION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_product_fact.perspective_code"
+      ],
+      "desc": "Perspectiva analítica de un hecho dentro de un data product (valores PROPUESTO).",
+      "values": {
+        "CORE": "Hecho central del producto.",
+        "COMPLEMENTARY": "Hecho complementario.",
+        "REFERENCE": "Hecho de referencia."
+      }
+    },
+    "DIMENSION_KIND": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "DIMENSION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dimension.dimension_kind_code"
+      ],
+      "desc": "Naturaleza de la dimensión analítica.",
+      "values": {
+        "CLASSIC": "Estrella: sobre catálogo simple o MDM plano (un nivel).",
+        "SNOWFLAKE": "Copo: sobre una jerarquía existente (N niveles)."
+      }
+    },
+    "DERIVATION_MODE": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "dimension.derivation_mode_code"
+      ],
+      "desc": "Cómo se obtienen ejes y niveles de la dimensión.",
+      "values": {
+        "INFERRED": "Derivados del origen (catálogo o jerarquía) — sin duplicar.",
+        "EXPLICIT": "Declarados a mano (dimensión a medida)."
+      }
+    },
+    "FACT_KIND": {
+      "dominio": "D0 · Analítica (D7)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "accumulative_fact.fact_kind_code"
+      ],
+      "desc": "Tipo de tabla de hechos (Kimball).",
+      "values": {
+        "TRANSACTIONAL": "Un hecho por evento.",
+        "PERIODIC_SNAPSHOT": "Fotografía fechada periódica (evolución en el tiempo).",
+        "ACCUMULATING_SNAPSHOT": "Fila que se actualiza a lo largo de un ciclo."
+      }
+    },
+    "EXECUTION_LEVEL": {
+      "dominio": "OBS · Ejecución",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "run.execution_level_code",
+        "run_step.execution_level_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "WORKFLOW": "Nivel de corrida completa (run).",
+        "STEP": "Paso lógico del workflow.",
+        "RUNNER": "Ejecución de un runner concreto (run_step).",
+        "TASK": "Sub-tarea atómica dentro de un runner."
+      },
+      "category": "LEVEL"
+    },
+    "RUN_STATUS": {
+      "dominio": "OBS · Ejecución",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "run.run_status_code",
+        "run_step.run_status_code",
+        "source_discovery_run.run_status_code",
+        "dq_governance_execution.result_status_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "RUNNING": "En ejecución.",
+        "COMPLETED": "Completado sin excepciones.",
+        "COMPLETED_WITH_WARNINGS": "Completado con avisos (DATUM nunca da error de ejecución, M-35).",
+        "COMPLETED_WITH_ERRORS": "Completado con errores registrados (autocontenido).",
+        "ERROR": "Fallo de infraestructura (no existe Databricks/cluster…)."
+      },
+      "category": "STATUS"
+    },
+    "TRIGGER_TYPE": {
+      "dominio": "OBS · Ejecución",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "run.trigger_type_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "SCHEDULED": "Disparo por planificación (schedule_cron).",
+        "MANUAL": "Disparo manual.",
+        "EVENT": "Disparo por evento.",
+        "REPROCESS": "Reproceso de un rango histórico."
+      },
+      "category": "KIND"
+    },
+    "DQ_VERDICT": {
+      "dominio": "OBS · Calidad (observación)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "run_step.crossing_result_code",
+        "dq_run_result.verdict_code",
+        "dq_column_incident.verdict_code",
+        "discovery_rule_evaluation.crossing_result_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "PASS": "La comprobación pasa.",
+        "WARNING": "Aviso (severidad WARNING).",
+        "ERROR": "Fallo (severidad ERROR)."
+      },
+      "category": "KIND"
+    },
+    "DQ_ACTION": {
+      "dominio": "OBS · Calidad (observación)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "dq_column_incident.action_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "CAST": "Casteo aplicado (TRY_CAST OK).",
+        "DEFAULT_APPLIED": "Default aplicado por obligatoriedad (null de origen).",
+        "NORMALIZED": "Valor normalizado por el dominio TYD.",
+        "REJECTED": "Valor rechazado (null por cast fallido / sin default)."
+      },
+      "category": "ACTION"
+    },
+    "DQ_INCIDENT_STATUS": {
+      "dominio": "OBS · Calidad (observación)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "dq_incident.incident_status_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "OPEN": "Abierto.",
+        "ASSIGNED": "Asignado a un responsable.",
+        "IN_PROGRESS": "En resolución.",
+        "RESOLVED": "Resuelto.",
+        "CLOSED": "Cerrado.",
+        "DISMISSED": "Descartado (no procede)."
+      },
+      "category": "STATUS"
+    },
+    "DRIFT_TYPE": {
+      "dominio": "OBS · Discovery (observación)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "source_discovery_drift.drift_type_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "COLUMN_ADDED": "Columna añadida en la fuente.",
+        "COLUMN_REMOVED": "Columna eliminada.",
+        "TYPE_CHANGED": "Cambio de tipo.",
+        "NULLABILITY_CHANGED": "Cambio de nulabilidad.",
+        "RENAMED": "Renombrado.",
+        "KEY_CHANGED": "Cambio de clave/índice."
+      },
+      "category": "KIND"
+    },
+    "DRIFT_STATUS": {
+      "dominio": "OBS · Discovery (observación)",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "source_discovery_drift.drift_status_code"
+      ],
+      "desc": "Catálogo del acelerador OBSERVABILITY. Registrado oficialmente (METADATO-41).",
+      "canonical_accelerator": "OBSERVABILITY",
+      "values": {
+        "DETECTED": "Detectado, sin disposición.",
+        "PENDING_REVIEW": "Pendiente de revisión.",
+        "ACCEPTED": "Aceptado (→ source_entity_version).",
+        "REJECTED": "Rechazado."
+      },
+      "category": "STATUS"
+    },
+    "POPULATION_MODE": {
+      "dominio": "OBS · Población",
+      "tipo_valor": "CERRADO",
+      "estado": "CONFIRMADO",
+      "usado_en": [
+        "canonical_entity.population_mode_code"
+      ],
+      "canonical_accelerator": "OBSERVABILITY",
+      "desc": "Cómo se alimenta cada tabla de observabilidad. La nativa de DATUM se EMITE (telemetría del runner/UDF/derivación), no se ingiere; las UC se ingieren. Registrado METADATO-47.",
+      "values": {
+        "RUNNER_TELEMETRY": "El runner escribe su propia observabilidad al ejecutar (instrumentación del harness).",
+        "GATE_UDF": "Fila emitida por la UDF compilada del gate PRE_WRITE (M-36), por columna evaluada.",
+        "DERIVED_SCHEDULED": "Proceso programado de derivación/agregación (RUNNER_KPI/RUNNER_DQ o transformación desde otra tabla, p.ej. desde una uc_*).",
+        "SOURCE_INGEST": "Ingesta desde fuente externa vía source_entity_capture (las 72 tablas Unity Catalog).",
+        "APP_TRANSACTION": "Escritura transaccional de la aplicación o ingesta de un sistema externo de negocio (DPO/consentimiento, ticketing, gateway).",
+        "UC_VIEW": "Vista sobre una tabla uc_* (Unity Catalog): sin tabla física, sin ETL, sin retención propia; la definición vive en el metadato y se compila como VIEW."
+      },
+      "category": "MODE"
+    },
+    "MATURITY_FRAMEWORK": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "assessment_pattern.framework_code"
+      ],
+      "desc": "Marco de evaluación de madurez (DAMA, CMMI). Absorbe maturity_assessment_execution.framework (M-54).",
+      "values": {
+        "DAMA": "Marco DAMA-DMBOK de gestión de datos.",
+        "CMMI": "Modelo CMMI de madurez de capacidades."
+      }
+    },
+    "DATA_CRITICALITY": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "assessment_pattern.level_reference_catalog_code (tipo CRITICALITY)",
+        "object_assessment.level_code",
+        "object_assessment.target_level_code"
+      ],
+      "desc": "Niveles de resultado de una evaluación de CRITICIDAD del dato (level_reference_catalog de un assessment_pattern de tipo CRITICALITY). Generado en M-54 (hueco heredado).",
+      "values": {
+        "LOW": "Criticidad baja.",
+        "MEDIUM": "Criticidad media.",
+        "HIGH": "Criticidad alta.",
+        "CRITICAL": "Crítico — máximo impacto."
+      }
+    },
+    "SCORING_METHOD": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "assessment_pattern.scoring_method_code"
+      ],
+      "desc": "Método de cálculo del score de un assessment_pattern.",
+      "values": {
+        "WEIGHTED_SUM": "Suma ponderada (raw×weight). Por defecto.",
+        "SIMPLE_AVERAGE": "Media simple de las respuestas.",
+        "MAX_SCORE": "Máximo de las respuestas."
+      }
+    },
+    "ANSWER_SCALE": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "assessment_question.answer_scale_code"
+      ],
+      "desc": "Escala de respuesta de una pregunta de assessment.",
+      "values": {
+        "BINARY": "Sí/No (0/1).",
+        "SCALE_0_5": "Escala 0 a 5.",
+        "SCALE_1_5": "Escala 1 a 5."
+      }
+    },
+    "LEVEL_SCALE": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "assessment_pattern.level_scale_code",
+        "assessment_pattern_threshold.level_scale_code",
+        "object_assessment.level_scale_code"
+      ],
+      "desc": "Escalas de niveles de resultado de un assessment, una por tipo (ASSESSMENT_TYPE). Cada valor es el código de un reference_catalog de niveles.",
+      "values": {
+        "DATA_CRITICALITY": "Escala de niveles para assessment de tipo CRITICALITY.",
+        "MATURITY_LEVEL": "Escala de niveles para assessment de tipo MATURITY."
+      }
+    },
+    "DOCUMENT_TYPE": {
+      "dominio": "D14 · Documentación",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "governed_document.document_type_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "DATA_PRODUCT_CARD": "Ficha de data product.",
+        "ADR": "Architecture Decision Record.",
+        "RUNBOOK": "Runbook operativo.",
+        "DPA": "Acuerdo de encargo (DPA).",
+        "POLICY": "Política.",
+        "REPORT": "Informe."
+      }
+    },
+    "STORAGE_KIND": {
+      "dominio": "D14 · Documentación",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "governed_document.storage_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "EXTERNAL_DMS": "Gestor documental externo (puntero).",
+        "S3": "Objeto en S3.",
+        "URL": "URL externa.",
+        "INLINE": "Contenido embebido."
+      }
+    },
+    "LINK_KIND": {
+      "dominio": "D14 · Documentación",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "governed_document_link.link_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "DOCUMENTS": "Documenta a.",
+        "REFERENCES": "Referencia a.",
+        "SUPERSEDES": "Sustituye a.",
+        "RELATED": "Relacionado con."
+      }
+    },
+    "OWNERSHIP_ROLE": {
+      "dominio": "D14 · Documentación",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "ROLE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "governed_document_owner.ownership_role_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "PRIMARY_OWNER": "Propietario principal.",
+        "REVIEWER": "Revisor.",
+        "CONTRIBUTOR": "Colaborador.",
+        "APPROVER": "Aprobador."
+      }
+    },
+    "ADDON_MARKETPLACE": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "ui_module.requires_addon_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "NONE": "Sin addon.",
+        "MARKETPLACE": "Addon Marketplace.",
+        "SUPPORT": "Addon Soporte.",
+        "ANALYTICS": "Addon Analítica."
+      }
+    },
+    "RENDER_MODE": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "ui_screen.render_mode_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "GENERATED": "Pantalla generada por patrón.",
+        "CUSTOM_CODED": "Pantalla codificada a medida."
+      }
+    },
+    "FUNCTIONALITY_KIND": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "presentation_pattern.functionality_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "LIST": "Listado.",
+        "HIERARCHY": "Jerarquía/árbol.",
+        "EDIT": "Edición.",
+        "DETAIL": "Detalle.",
+        "DASHBOARD": "Cuadro de mando.",
+        "WIZARD": "Asistente."
+      }
+    },
+    "SLOT_KIND": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "pattern_slot.slot_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "FIELD": "Campo.",
+        "SECTION": "Sección.",
+        "ACTION": "Acción.",
+        "FILTER": "Filtro.",
+        "COLUMN": "Columna.",
+        "HEADER": "Cabecera."
+      }
+    },
+    "UI_CONTROL": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "ui_screen_slot_binding.ui_control_override_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "TEXT_INPUT": "Entrada de texto.",
+        "SELECT": "Desplegable.",
+        "CHECKBOX": "Casilla.",
+        "DATE_PICKER": "Selector de fecha.",
+        "NUMBER_INPUT": "Numérico.",
+        "TEXTAREA": "Área de texto.",
+        "RADIO": "Opción única."
+      }
+    },
+    "UI_ACTION": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "ACTION",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "ui_role_permission.action_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "VIEW": "Ver.",
+        "CREATE": "Crear.",
+        "EDIT": "Editar.",
+        "DELETE": "Borrar.",
+        "APPROVE": "Aprobar.",
+        "EXPORT": "Exportar."
+      }
+    },
+    "THEME": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "client_branding.theme_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "LIGHT": "Claro.",
+        "DARK": "Oscuro.",
+        "AUTO": "Automático."
+      }
+    },
+    "SUPPORT_TIER": {
+      "dominio": "D10 · UX",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "support_module_config.support_tier_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "BASIC": "Básico.",
+        "STANDARD": "Estándar.",
+        "PREMIUM": "Premium.",
+        "ENTERPRISE": "Enterprise."
+      }
+    },
+    "RECIPIENT_KIND": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_exposure.recipient_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "INTERNAL": "Interno.",
+        "REGULATORY": "Regulador.",
+        "EXTERNAL": "Externo."
+      }
+    },
+    "EXPOSURE_CHANNEL": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_exposure.mechanism_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "API": "Vía API.",
+        "DIRECT_ACCESS": "Acceso directo (share).",
+        "PUSH": "Envío (push)."
+      }
+    },
+    "APPROVAL_STATUS": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "data_exposure.approval_status_code",
+        "marketplace_request.owner_approval_status_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "PENDING": "Pendiente.",
+        "APPROVED": "Aprobado.",
+        "REJECTED": "Rechazado.",
+        "WITHDRAWN": "Retirado.",
+        "REVOKED": "Revocado (recertificación denegada / retirada de acceso)."
+      }
+    },
+    "API_STYLE": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_api_config.api_style_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "REST": "REST.",
+        "GRAPHQL": "GraphQL."
+      }
+    },
+    "PUSH_ENDPOINT": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_push_config.endpoint_kind_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "SFTP": "SFTP.",
+        "BLOB": "Blob/almacenamiento.",
+        "PUSH_API": "API de push."
+      }
+    },
+    "OUTPUT_FORMAT": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "FORMAT",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_push_config.format_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "CSV": "CSV.",
+        "JSON": "JSON.",
+        "PARQUET": "Parquet.",
+        "AVRO": "Avro."
+      }
+    },
+    "SHARE_PLATFORM": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_direct_config.share_platform_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "DELTA_SHARE": "Delta Sharing.",
+        "UNITY_SHARE": "Unity Catalog Sharing."
+      }
+    },
+    "ACCESS_LEVEL": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "LEVEL",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_direct_config.grant_level_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "READ": "Lectura.",
+        "WRITE": "Escritura."
+      }
+    },
+    "LISTING_MODE": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "marketplace_listing.listing_mode_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "INTERNAL": "Interno.",
+        "EXTERNAL": "Externo.",
+        "BOTH": "Ambos."
+      }
+    },
+    "TRANSFER_JURISDICTION": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_compliance.recipient_jurisdiction_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "EEA": "Espacio Económico Europeo.",
+        "ADEQUATE_COUNTRY": "País con decisión de adecuación.",
+        "THIRD_COUNTRY": "Tercer país (requiere garantías)."
+      }
+    },
+    "SECTORAL_TEMPLATE": {
+      "dominio": "D9 · Exposición",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "exposure_compliance.sectoral_template_code"
+      ],
+      "desc": "Catálogo generado en M-55 (carga de catálogos faltantes de D9/D10/D14).",
+      "values": {
+        "AEAT": "AEAT.",
+        "SEPA": "SEPA.",
+        "FHIR": "FHIR (salud).",
+        "BIAN": "BIAN (banca).",
+        "ACORD": "ACORD (seguros).",
+        "EDI": "EDI."
+      }
+    },
+    "INCIDENT_TYPE": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [
+        "(a enganchar en incidentes de Observabilidad)"
+      ],
+      "desc": "Tipo de incidencia de gobierno del dato. Reemplaza a la entidad incident_type_definition (M-57). severity/workflow se resuelven en observabilidad.",
+      "values": {
+        "DATA_BREACH": "Brecha de datos personales.",
+        "PII_EXPOSURE": "Exposición indebida de PII.",
+        "DQ_FAILURE": "Fallo de calidad.",
+        "SLA_BREACH": "Incumplimiento de SLA.",
+        "ACCESS_VIOLATION": "Violación de acceso.",
+        "PIPELINE_FAILURE": "Fallo de pipeline."
+      }
+    },
+    "SCOPE_KIND": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo generado en M-57 (saneo de catálogos del bloque D8).",
+      "values": {
+        "BUSINESS": "Todo el negocio de datos.",
+        "BUSINESS_UNIT": "Una unidad de negocio.",
+        "BUSINESS_PROCESS": "Un proceso de negocio.",
+        "OWNER_SET": "Conjunto de objetos de un owner."
+      }
+    },
+    "SAFEGUARD": {
+      "dominio": "D0 · Gobierno (D8)",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo generado en M-57 (saneo de catálogos del bloque D8).",
+      "values": {
+        "SCC": "Cláusulas contractuales tipo (SCC).",
+        "BCR": "Normas corporativas vinculantes (BCR).",
+        "ADEQUACY": "Decisión de adecuación."
+      }
+    },
+    "ENCRYPTION_ALGORITHM": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "AES_256": "AES-256.",
+        "AES_128": "AES-128.",
+        "RSA": "RSA.",
+        "TDE": "Transparent Data Encryption."
+      }
+    },
+    "VERSION_STATUS": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "DRAFT": "Borrador.",
+        "PUBLISHED": "Publicada.",
+        "DEPRECATED": "Obsoleta.",
+        "RETIRED": "Retirada."
+      }
+    },
+    "OPERAND_KIND": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "COLUMN_SOURCE": "Columna de origen.",
+        "COLUMN_CANONICAL": "Columna canónica.",
+        "LITERAL": "Literal.",
+        "FUNCTION": "Función."
+      }
+    },
+    "LIFECYCLE_PHASE": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "STATUS",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "ACTIVE": "Activo.",
+        "ARCHIVE": "Archivado.",
+        "PURGE": "Purga."
+      }
+    },
+    "MASKING_METHOD": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "MODE",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "HASH": "Hash.",
+        "PARTIAL": "Enmascarado parcial.",
+        "NULLIFY": "Anulación.",
+        "TOKENIZE": "Tokenización."
+      }
+    },
+    "LOGICAL_TYPE": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "STRING": "Texto.",
+        "INTEGER": "Entero.",
+        "DECIMAL": "Decimal.",
+        "BOOLEAN": "Booleano.",
+        "DATE": "Fecha.",
+        "TIMESTAMP": "Marca de tiempo."
+      }
+    },
+    "UI_CONTEXT": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "EDIT": "Edición.",
+        "SEARCH": "Búsqueda.",
+        "VIEW": "Vista.",
+        "FILTER": "Filtro.",
+        "EXPORT": "Exportación.",
+        "LIST": "Listado.",
+        "DETAIL": "Detalle."
+      }
+    },
+    "EXPRESSION_TYPE": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "PROJECTION": "Proyección (SELECT).",
+        "FILTER": "Filtro (WHERE).",
+        "JOIN": "Unión.",
+        "AGGREGATION": "Agregación (GROUP BY).",
+        "HAVING": "Filtro post-agregación.",
+        "ORDER": "Ordenación."
+      }
+    },
+    "DATA_LAYER": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "BRONZE": "Aterrizaje/crudo.",
+        "SILVER": "Depurado/integrado.",
+        "GOLD": "Canónico/consumo."
+      }
+    },
+    "CHANGE_KIND": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "ADD_ENTITY": "Alta de entidad.",
+        "ADD_ATTRIBUTE": "Alta de atributo.",
+        "DROP_ATTRIBUTE": "Baja de atributo.",
+        "TYPE_CHANGE": "Cambio de tipo.",
+        "RENAME": "Renombrado.",
+        "DROP_ENTITY": "Baja de entidad."
+      }
+    },
+    "NODE_KIND": {
+      "dominio": "D0 · Catálogos",
+      "tipo_valor": "CERRADO",
+      "estado": "PROPUESTO",
+      "category": "KIND",
+      "canonical_accelerator": "METADATA",
+      "usado_en": [],
+      "desc": "Catálogo saneado en M-60.",
+      "values": {
+        "LOGICAL_OP": "Operador lógico.",
+        "COMPARISON": "Comparación.",
+        "FUNCTION": "Función.",
+        "COLUMN_REF": "Referencia a columna.",
+        "LITERAL": "Literal."
+      }
+    }
+  },
+  "categories": [
+    {
+      "code": "KIND",
+      "sort_order": 10
+    },
+    {
+      "code": "STATUS",
+      "sort_order": 20
+    },
+    {
+      "code": "LEVEL",
+      "sort_order": 30
+    },
+    {
+      "code": "MODE",
+      "sort_order": 40
+    },
+    {
+      "code": "ACTION",
+      "sort_order": 50
+    },
+    {
+      "code": "FORMAT",
+      "sort_order": 60
+    },
+    {
+      "code": "DIMENSION",
+      "sort_order": 70
+    },
+    {
+      "code": "ROLE",
+      "sort_order": 80
+    },
+    {
+      "code": "TIME",
+      "sort_order": 90
+    }
+  ]
 }
