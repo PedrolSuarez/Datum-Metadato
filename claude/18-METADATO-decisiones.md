@@ -984,5 +984,53 @@ Propagado al **bootstrap del Control Plane**, no solo al fichero de definición:
 
 **Verificado:** entidades 295→291, atributos 2636→2608, METADATA 163→159 / OBSERVABILITY 132 sin cambio; catálogos 134 (recuento sin cambio); 0 FK colgantes en todo el modelo. Registro oficial + visualizador.
 
-*Fin de `18-METADATO-decisiones.md` v1.37.*
+### METADATO-62 — Poda de tablas de extensibilidad + término VIEWS — DECIDIDO
+
+**Poda.** `canonical_attribute_attribute` y `canonical_entity_attribute` (D2·H · Extensibilidad, tipo REF) eran tablas para colgar atributos ad-hoc extra sobre un atributo/entidad canónicos. Duplicaban el concepto ya cubierto por `canonical_attribute` y **no tenían ninguna FK entrante ni uso** en el modelo. Eliminadas de modelo y seed.
+
+**Término VIEWS.** Las 5 entidades de vistas canónicas y expresión —`canonical_view`, `expression`, `expression_node`, `expression_operand`, `function_catalog`— vivían en el subdominio genérico `D2·G` con `business_term` = `METADATA` (placeholder), por lo que no colgaban de ningún término real en el árbol del acelerador. Se crea el término **VIEWS** (hijo de `COMMON_DATA`, orden 40, junto a `CANONICAL_ENTITY`) y se les asigna.
+
+**Verificado:** entidades 291→289, atributos 2608→2598; 0 bare, 0 catálogo inexistente, 0 FK colgantes. Registro oficial + visualizador.
+
+### METADATO-63 — Cierre de flecos de términos + coherencia seed↔modelo — DECIDIDO
+
+Cuatro ajustes que dejan el árbol de términos limpio y el seed alineado con el modelo:
+
+1. **`canonical_model_change` → VERSIONING.** Es el changelog del esquema del metamodelo (qué cambió, si es breaking, cuándo se anunció). Misma familia que `object_version`/`object_approval`; se agrupa bajo VERSIONING.
+
+2. **Borradas 16 filas seed de ingesta de fuentes.** `source_entity_partition_strategy`, `source_connection`, `source_connection_credential`, `source_connection_token_state`, `source_entity_database`, `source_entity_file`, `source_entity_api_endpoint`, `source_api_endpoint_parameter`, `source_api_graphql_query`, `source_api_soap_operation`, `source_entity_stream_topic`, `source_entity_webhook`, `source_entity_excel_workbook`, `source_archive_container`, `multi_record`, `source_entity_relation`. Estaban en `seed.canonical_entity` con el placeholder `business_term_code='METADATA'` pero **no materializadas en el modelo** y su contenido ya está incluido en otras tablas de fuentes. Se retiran del seed.
+
+3. **DATA_AGREEMENTS: GOVERNANCE → EXPOSURE.** Las cesiones (`data_sharing_agreement`), encargos (`data_processing_agreement`) y transferencias internacionales (`international_data_transfer`) son exposición de datos a terceros; el término cuelga ahora de EXPOSURE (mantiene `is_regulatory`/RGPD).
+
+4. **Geografía = estructura + dimensión (patrón TIME).** El término `GEO_STRUCTURE` ya existía bajo `HIERARCHY` (junto a `TEMPORAL_STRUCTURE`) y las 11 entidades (`continent`, `supra_zone`, `region`, `province`, `locality`, jerarquía comercial y fiscal) ya lo tenían en el seed. Es la **definición de la estructura geográfica** que luego se usa como dimensión, igual que TIME. Solo se alineó el campo `business_term` del modelo (estaba a None).
+
+**Aclaración sobre "las 17 entidades genéricas":** eran exactamente las **16 de ingesta** (punto 2) **+ `canonical_model_change`** (punto 1). Al ejecutar 1 y 2 desaparece el grupo: **0 entidades con término genérico**.
+
+**Verificado:** entidades 289, atributos 2598; `seed.canonical_entity` (289) coincide 1:1 con el modelo (289); 0 bare, 0 catálogo inexistente, 0 FK colgantes; acelerador METADATA 157 / OBSERVABILITY 132. Registro oficial + visualizador.
+
+### METADATO-64 — Maestro de terceros `external_organization` — DECIDIDO
+
+Cierre del último fleco: la organización externa contraparte de cesiones y encargos estaba referenciada pero no modelada (`external_organization_code` como código suelto con `fk_target=None` y nota "master data no modelado aún").
+
+**Entidad nueva `external_organization`** (master-data, tipo MDM), asignada al término **DATA_AGREEMENTS** (bajo EXPOSURE), patrón `business_unit`:
+- `code` (BK, PK), `legal_name` (razón social), `country_code` → FK `country`, `tax_id` (NIF/VAT), `gdpr_role_code` → catálogo `GDPR_PARTY_ROLE` (metadata-first), `dpo_contact`, `system` (TYD_SYSTEM).
+
+**Catálogo nuevo `GDPR_PARTY_ROLE`** (categoría ROLE, CERRADO, autoridad RGPD): CONTROLLER (responsable), PROCESSOR (encargado), JOINT_CONTROLLER (corresponsable), RECIPIENT (cesionario), SUB_PROCESSOR (subencargado). Sembrado completo: def + `reference_catalog` + 5 `reference_value`.
+
+**Conversión a FK reales:** `data_sharing_agreement.external_organization_code` (el cesionario) y `data_processing_agreement.external_organization_code` (el encargado) pasan de código suelto a **FK `external_organization`** (RESTRICT), dando integridad referencial y reutilización del mismo tercero en varios acuerdos.
+
+**Verificado:** entidades 289→290, atributos 2598→2605, catálogos 134→135; seed↔modelo 290=290; 0 bare, 0 catálogo inexistente, 0 FK colgantes; acelerador METADATA 158 / OBSERVABILITY 132. Registro oficial + visualizador.
+
+### METADATO-65 — Cierre de coherencia de catálogos — DECIDIDO
+
+Tras la auditoría integral de coherencia (que salió limpia en integridad, seed↔modelo y árbol de términos), se cierran los cuatro puntos de pulido detectados:
+
+1. **48 catálogos PROPUESTO → CONFIRMADO.** Toda la curaduría de contenido pendiente pasa a definitiva (incluye el recién creado GDPR_PARTY_ROLE). Estado del catálogo unificado: **133 CONFIRMADO, 0 PROPUESTO, 0 ACTIVE**.
+2. **`MATURITY_LEVEL` eliminado.** Estaba definido pero ni sembrado ni referenciado: `assessment_pattern_threshold` usa el patrón dinámico `level_scale_code`→LEVEL_SCALE + `level_code` (dinámico, integridad por DQ), que lo sustituye. Catálogo muerto → fuera.
+3. **`STANDARD_AUTHORITY` estado `ACTIVE`→`CONFIRMADO`.** Era el único catálogo con ese valor de estado; normalizado al vocabulario del resto.
+4. **Unificación `VERSION_STATUS` → `PUBLICATION_STATUS`.** Los dos catálogos tenían valores idénticos {DRAFT, PUBLISHED, DEPRECATED, RETIRED}. Se conserva `PUBLICATION_STATUS` (CONFIRMADO, ordenado, autoridad INTERNAL) y se retira `VERSION_STATUS` (el duplicado creado en M-60). `object_version.version_status_code` repunta a `PUBLICATION_STATUS`; VERSION_STATUS eliminado de def, `reference_catalog` y `reference_value`. (Revierte la decisión b de M-61 a petición del founder.)
+
+**Verificado:** catálogos 135→133; `reference_value` 558→554; def↔seed cuadran (133=133); 0 catálogos sembrados sin valores; 0 bare, 0 catálogo inexistente, 0 FK colgantes; entidades 290 / atributos 2605 sin cambio. Registro oficial + visualizador.
+
+*Fin de `18-METADATO-decisiones.md` v1.41.*
 
