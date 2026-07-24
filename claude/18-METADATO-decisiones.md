@@ -960,5 +960,29 @@ Auditoría de **todo** el modelo (no por bloques): **21 atributos `*_code` bare*
 
 **Verificado (auditoría a cero sobre TODO el modelo):** 0 atributos bare, 0 referencias a catálogo inexistente, 0 FK colgantes. Catálogos 123→134; sin cambios de entidades/atributos (295/2636). Registro oficial + visualizador.
 
-*Fin de `18-METADATO-decisiones.md` v1.36.*
+### METADATO-61 — Consolidación del versionado + recategorización de catálogos — DECIDIDO
+
+Dos frentes de limpieza cerrados juntos (respuestas de Pedro: **a sí, b no, c recategorizar TYPE**).
+
+**(a) Versionado consolidado.** El versionado de objetos estaba disperso en 4 tablas SCD2 casi idénticas —`canonical_attribute_version`, `canonical_entity_version`, `source_attribute_version`, `source_entity_version`—, una por tipo de objeto. Se **fusionan en una única tabla polimórfica `object_version`** (patrón ya usado en `object_text`/`object_approval`): identidad `object_row_uuid` + `object_type_code` (→ OBJECT_TYPE) + `version_number`, con los campos SCD2 (valid_from/valid_to, is_current, change_kind_code, version_status_code…). La FK entrante `source_discovery_drift.accepted_into_version_code` (apuntaba a `source_entity_version`) se **repunta a `object_version`**. `object_version` + `object_approval` se agrupan en un término nuevo **VERSIONING** (padre GOVERNANCE, bajo METADATA).
+
+**(b) `VERSION_STATUS` NO se fusiona con `PUBLICATION_STATUS`** (decisión explícita de Pedro): son ciclos distintos (estado de una versión de objeto vs. estado de publicación de un artefacto), se mantienen separados aunque hoy compartan valores.
+
+**(c) Recategorización de catálogos.** Los 134 catálogos tenían `category` heterogénea/heredada. Se reclasifican en **9 categorías funcionales** por la semántica del valor que codifican:
+
+- **KIND (71)** — tipologías/clasificaciones (qué *es* algo): AGGREGATE_FUNCTION, ASSESSMENT_TYPE, CARDINALITY, INCIDENT_TYPE, JOIN_TYPE, KEY_TYPE, OPERATOR, RULE_KIND, SOURCE_SYSTEM_KIND, TRANSFORMATION_ROLE… (TRANSFORMATION_ROLE reclasificado FORMAT→KIND: es una tipología de transformación, no un formato).
+- **MODE (17)** — modo/estrategia/método de operar: CAPTURE_MODE, MASKING_METHOD, MATERIALIZATION_MODE, SCORING_METHOD, SURVIVORSHIP_STRATEGY, WRITE_SEMANTICS…
+- **STATUS (10)** — estado en un ciclo de vida: APPROVAL_STATUS, LIFECYCLE_STATE, PUBLICATION_STATUS, RUN_STATUS, VERSION_STATUS…
+- **LEVEL (10)** — nivel/escalón ordenado: ACCESS_LEVEL, DATA_CRITICALITY, DQ_SEVERITY, LEVEL_SCALE, MATURITY_LEVEL, SECURITY_CLASSIFICATION…
+- **ACTION (7)** — acción a ejecutar: BREACH_ACTION, DQ_ACTION, ON_MISS, REFERENTIAL_ACTION…
+- **FORMAT (5)** — formato de representación: DATE_FORMAT, DECIMAL_FORMAT, LANDING_FORMAT, OUTPUT_FORMAT, STREAM_MESSAGE_FORMAT.
+- **DIMENSION (5)** — eje/dimensión de medida: DQ_DIMENSION, ISO_CHARACTERISTIC, MATURITY_DIMENSION, PERSPECTIVE…
+- **TIME (5)** — temporalidad: FREQUENCY, TEMPORAL_HIERARCHY_TYPE, TIME_GRAIN…
+- **ROLE (4)** — rol de negocio/autoridad: BUSINESS_ROLE_PROFILE, OWNERSHIP_ROLE, STANDARD_AUTHORITY, CAPTURE_ATTRIBUTE_ROLE.
+
+Propagado al **bootstrap del Control Plane**, no solo al fichero de definición: `categories[]` de `DATUM_Catalogos.json` reescrito con las 9, y en `DATUM_Carga_Inicial_Metadato.json` el seed `reference_category` pasa de 6→9 (KIND/STATUS/LEVEL/MODE/ACTION/FORMAT/DIMENSION/ROLE/TIME) y los 133 `reference_catalog.category_code` remapeados (antes 116 en `TYPE`; ahora KIND 71, MODE 17, STATUS 10, LEVEL 9, ACTION 7, FORMAT 5, DIMENSION 5, TIME 5, ROLE 4 — `MATURITY_LEVEL` es def-only, no sembrado). La categorización es **organizativa** (agrupación en el visualizador/gobierno), no cambia el contrato metadata-first ni los valores.
+
+**Verificado:** entidades 295→291, atributos 2636→2608, METADATA 163→159 / OBSERVABILITY 132 sin cambio; catálogos 134 (recuento sin cambio); 0 FK colgantes en todo el modelo. Registro oficial + visualizador.
+
+*Fin de `18-METADATO-decisiones.md` v1.37.*
 
