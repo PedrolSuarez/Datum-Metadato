@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.41 — Julio 2026
+**Versión:** v1.42 — Julio 2026
 
 **Propósito:** estado consolidado del metamodelo DATUM y de los aceleradores/modelos cargables. Los JSON son bootstrap del Control Plane.
 
@@ -14,7 +14,7 @@ La fuente de verdad es el **documento en disco**, no este registro. Nada se cano
 
 
 
-## Estado consolidado (tras METADATO-16..65, v1.41)
+## Estado consolidado (tras METADATO-16..66, v1.42)
 
 - Metamodelo: **290 entidades**, **2605 atributos** (M-42 retención; M-47 population_mode_code + emits_observability_entity; M-48 derived_from_entity). Fuente: `DATUM_Modelo_Datos_Metadato.json`. Trazabilidad del recuento: 178→311 (acelerador **OBSERVABILITY** materializado en 3 bloques —14 núcleo reasignado + 47 funcional DATUM A–I + 72 Unity Catalog—, M-41); 194→190 (simplificación CANONICAL_ENTITY, M-23); 190→187 (saneamiento BUSINESS_TERM, M-28); 187→202 (GEOGRAPHY/ORG/D07, M-30); 202→196 estado consolidado del rediseño D3 (M-31, base registrada 187→196); 196→184 (rediseño definición TRANSFORMATION, M-32); 184→189 (modelo de transformaciones por tipologías, M-33); 189→171 (ORCHESTRATION + fusión de identidad + limpieza integral de D3: captura/contracts/discovery/D-G/runners, M-34); 171→172 (acelerador DATA_QUALITY: +`dq_check_type`, M-35); 172→176 (cierre capa analítica D7 → término ANALYTICS, M-37); 176→178 (agregación nativa del hecho: +`accumulative_fact_filter`/`accumulative_fact_join`, M-38/39); 178→311 (materialización OBSERVABILITY, M-41); **311→303 (poda del gobierno de calidad DQ + acto único de evaluación, M-54)**; 303→295 (cierre D8 SECURITY/GDPR + eliminación D5 + poda discovery_rule + unificación retención, M-55..59); **295→291 (consolidación del versionado: 4 `*_version` dispersos → `object_version` polimórfico, M-61)**; 291→289 (poda de 2 tablas de extensibilidad sin uso + término VIEWS, M-62); saneamiento seed↔modelo (M-63: −16 filas seed de ingesta ya incluidas, sin cambio de entidades materializadas). Reparto por acelerador: **METADATA 158 / OBSERVABILITY 132**; **seed y modelo coherentes (290 = 290), 0 entidades con término genérico**.
 
@@ -184,6 +184,13 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **M-52 (carga UC completa):** sembrados 838 `source_attribute` (columnas UC con tipo nativo) + 12 `data_type` Databricks + 838 `transformation_field` 1:1. La carga UC ya no depende de discovery (solo drift) y usa el compilador de transformaciones estándar.
 - **M-53 (capa analítica OBS):** capa analítica del acelerador (subject_kind=OBSERVABILITY): +7 dimensiones, 6 hechos (EXECUTION/QUALITY/ACCESS/COST/INCIDENT/INGESTION) con 18 medidas, 14 KPIs (10 básicos + 4 derivados), 5 data products publicados (platform_health, dq_scorecard, access_audit, finops_chargeback, ingestion_monitor). Solo seed analítico.
 
+### FINANCE + Compras materializados, `party` eliminado (METADATO-66) — aceleradores de negocio
+- **FINANCE ACTIVO (131)** e integrado en `/dashboard/canonico` (seed `carga_inicial` + `modelo_canonico`); 11 términos padre `FIN_*`; 316 catálogos con relación atributo↔catálogo metadata-first; capa org (`datum_org.json`, 7 BU/21 proc); glosario (artefacto).
+- **`legal_entity` de 1ª clase** (desde role_profile); **TYD** corregidos (1.502 col., 0 no canónicos); **contrapartes** como maestros (bank/lender/auditor/regulator); `counterparty` polimórfico.
+- **`party` ELIMINADO** (no tabla monolítica): maestros por tipo + **registro de dependencias** (144 refs anotadas; 119 pendientes: HR 112, COMMERCIAL 7); viejo modelo PARTY superado.
+- **PROCUREMENT (Compras) ACTIVO (15) — nuevo**: supplier master + requisición/pedido/recepción + contrato marco + evaluación; repunte AP `supplier_party_id`→`supplier_id`.
+- **Nota de alcance:** estos son **aceleradores de negocio** en ficheros propios (`datum_terminos_modelo__FINANCE_CORPORATE_v1.json`, `..._PROCUREMENT_v1.json`) + demo (`datum_modelo_canonico/carga_inicial/catalogos/org.json`); **el metamodelo núcleo (290) no cambia**.
+
 ## Aceleradores incorporados
 
 | Acelerador | Estado | Notas |
@@ -196,7 +203,9 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 
 | Observabilidad (OBSERVABILITY) | ACTIVO | **133 entidades** / 28 términos, **2 raíz: DATUM (61) + UNITY_CATALOG (72)** (M-45); information_schema partido en 7 sub-términos (M-46); ejecución (run/run_step) + discovery-obs + DQ-obs + snapshot + funcional DATUM A–I (auditoría/GDPR/incidentes/FinOps/lifecycle/madurez/MDM) + **72 tablas Unity Catalog** (UNITY_CATALOG). Físico `observability` (process/quality/audit + esquema `uc` persistente). UC ingerido desde Databricks `system.*` (fuente 365d, modelada como `source_system`=databricks_system) → `observability.uc` (retención AUDIT_7Y, append-only), ingesta incremental/snapshot (M-42/43) |
 
-| Financiero (FINANCE) | REGISTRADO (0 entidades) | catálogo físico `business` |
+| Financiero (FINANCE) | **ACTIVO (131 entidades)** | materializado e integrado en la vista canónica (M-66): 11 términos padre `FIN_*` + `FIN_EXTERNAL_PARTIES`; TYD canónicos (1.502 col.); 316 catálogos; org 7 BU/21 procesos; maestros bank/lender/auditor/regulator |
+
+| Compras (PROCUREMENT) | **ACTIVO (15 entidades)** | acelerador NUEVO (M-66): supplier master + ciclo compra + contrato marco + evaluación; 3 términos padre `PROC_*`; BU COMPRAS; three-way match con FINANCE AP |
 
 | RRHH (HR) | REGISTRADO (0 entidades) | — |
 
@@ -338,6 +347,9 @@ De 19 tablas a **4** — `transformation` (cabecera: entidad canónica ← tabla
 - **v1.40 (Julio 2026):** METADATO-64. **Maestro de terceros `external_organization`.** Nueva entidad master-data (tipo MDM) bajo término **DATA_AGREEMENTS** (EXPOSURE): `code`(BK), `legal_name`, `country_code`→FK `country`, `tax_id`, `gdpr_role_code`→cat **GDPR_PARTY_ROLE** (metadata-first), `dpo_contact`, `system`. Nuevo catálogo **GDPR_PARTY_ROLE** (ROLE; CONTROLLER/PROCESSOR/JOINT_CONTROLLER/RECIPIENT/SUB_PROCESSOR) sembrado def+rc+rv. **Convertidos en FK reales** los `external_organization_code` de `data_sharing_agreement` (cesionario) y `data_processing_agreement` (encargado), que antes eran código suelto (`fk_target=None`, "no modelado aún"). Entidades 289→290; atributos 2598→2605; catálogos 134→135; METADATA 157→158. **0 bare, 0 catálogo inexistente, 0 FK colgantes; seed↔modelo 290=290.** Registro oficial + visualizador.
 
 - **v1.41 (Julio 2026):** METADATO-65. **Cierre de coherencia de catálogos (tras auditoría integral).** (1) **48 catálogos PROPUESTO → CONFIRMADO** (todos los pendientes de curaduría, incluido GDPR_PARTY_ROLE); **estado unificado: 133/133 CONFIRMADO, 0 PROPUESTO**. (2) **`MATURITY_LEVEL` eliminado** (definido pero ni sembrado ni usado; redundante con el patrón dinámico `LEVEL_SCALE`+`level_code`). (3) **`STANDARD_AUTHORITY`** estado `ACTIVE`→`CONFIRMADO` (vocabulario). (4) **Unificación `VERSION_STATUS`→`PUBLICATION_STATUS`**: mismos valores {DRAFT/PUBLISHED/DEPRECATED/RETIRED}; `object_version.version_status_code` repuntado a PUBLICATION_STATUS; VERSION_STATUS retirado de def+seed. Catálogos 135→133; `reference_value` 558→554; **def↔seed cuadran (133=133)**. Entidades 290 / atributos 2605 sin cambio. **0 bare, 0 catálogo inexistente, 0 FK colgantes.** Registro oficial + visualizador.
+
+
+- **v1.42 (Julio 2026):** METADATO-66. FINANCE materializado e integrado en la vista canónica (131 entidades, 11 términos padre FIN_*, 316 catálogos, capa org); legal_entity de 1ª clase; corrección integral de TYD (1.502 columnas, 0 no canónicos); eliminación de `party` (maestros por tipo + registro de dependencias, 119 pendientes HR/COMMERCIAL); acelerador **Compras (PROCUREMENT)** nuevo (15 entidades); maestros de contrapartes (bank/lender/auditor/regulator); UNASSIGNED cerrado. Aceleradores de negocio en ficheros propios + demo; metamodelo núcleo (290) sin cambios.
 
 *Fin de `99-METADATO-control.md` v1.41.*
 

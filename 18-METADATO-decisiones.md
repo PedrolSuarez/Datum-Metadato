@@ -960,5 +960,102 @@ Auditoría de **todo** el modelo (no por bloques): **21 atributos `*_code` bare*
 
 **Verificado (auditoría a cero sobre TODO el modelo):** 0 atributos bare, 0 referencias a catálogo inexistente, 0 FK colgantes. Catálogos 123→134; sin cambios de entidades/atributos (295/2636). Registro oficial + visualizador.
 
-*Fin de `18-METADATO-decisiones.md` v1.36.*
+### METADATO-61 — Consolidación del versionado + recategorización de catálogos — DECIDIDO
+
+Dos frentes de limpieza cerrados juntos (respuestas de Pedro: **a sí, b no, c recategorizar TYPE**).
+
+**(a) Versionado consolidado.** El versionado de objetos estaba disperso en 4 tablas SCD2 casi idénticas —`canonical_attribute_version`, `canonical_entity_version`, `source_attribute_version`, `source_entity_version`—, una por tipo de objeto. Se **fusionan en una única tabla polimórfica `object_version`** (patrón ya usado en `object_text`/`object_approval`): identidad `object_row_uuid` + `object_type_code` (→ OBJECT_TYPE) + `version_number`, con los campos SCD2 (valid_from/valid_to, is_current, change_kind_code, version_status_code…). La FK entrante `source_discovery_drift.accepted_into_version_code` (apuntaba a `source_entity_version`) se **repunta a `object_version`**. `object_version` + `object_approval` se agrupan en un término nuevo **VERSIONING** (padre GOVERNANCE, bajo METADATA).
+
+**(b) `VERSION_STATUS` NO se fusiona con `PUBLICATION_STATUS`** (decisión explícita de Pedro): son ciclos distintos (estado de una versión de objeto vs. estado de publicación de un artefacto), se mantienen separados aunque hoy compartan valores.
+
+**(c) Recategorización de catálogos.** Los 134 catálogos tenían `category` heterogénea/heredada. Se reclasifican en **9 categorías funcionales** por la semántica del valor que codifican:
+
+- **KIND (71)** — tipologías/clasificaciones (qué *es* algo): AGGREGATE_FUNCTION, ASSESSMENT_TYPE, CARDINALITY, INCIDENT_TYPE, JOIN_TYPE, KEY_TYPE, OPERATOR, RULE_KIND, SOURCE_SYSTEM_KIND, TRANSFORMATION_ROLE… (TRANSFORMATION_ROLE reclasificado FORMAT→KIND: es una tipología de transformación, no un formato).
+- **MODE (17)** — modo/estrategia/método de operar: CAPTURE_MODE, MASKING_METHOD, MATERIALIZATION_MODE, SCORING_METHOD, SURVIVORSHIP_STRATEGY, WRITE_SEMANTICS…
+- **STATUS (10)** — estado en un ciclo de vida: APPROVAL_STATUS, LIFECYCLE_STATE, PUBLICATION_STATUS, RUN_STATUS, VERSION_STATUS…
+- **LEVEL (10)** — nivel/escalón ordenado: ACCESS_LEVEL, DATA_CRITICALITY, DQ_SEVERITY, LEVEL_SCALE, MATURITY_LEVEL, SECURITY_CLASSIFICATION…
+- **ACTION (7)** — acción a ejecutar: BREACH_ACTION, DQ_ACTION, ON_MISS, REFERENTIAL_ACTION…
+- **FORMAT (5)** — formato de representación: DATE_FORMAT, DECIMAL_FORMAT, LANDING_FORMAT, OUTPUT_FORMAT, STREAM_MESSAGE_FORMAT.
+- **DIMENSION (5)** — eje/dimensión de medida: DQ_DIMENSION, ISO_CHARACTERISTIC, MATURITY_DIMENSION, PERSPECTIVE…
+- **TIME (5)** — temporalidad: FREQUENCY, TEMPORAL_HIERARCHY_TYPE, TIME_GRAIN…
+- **ROLE (4)** — rol de negocio/autoridad: BUSINESS_ROLE_PROFILE, OWNERSHIP_ROLE, STANDARD_AUTHORITY, CAPTURE_ATTRIBUTE_ROLE.
+
+Propagado al **bootstrap del Control Plane**, no solo al fichero de definición: `categories[]` de `DATUM_Catalogos.json` reescrito con las 9, y en `DATUM_Carga_Inicial_Metadato.json` el seed `reference_category` pasa de 6→9 (KIND/STATUS/LEVEL/MODE/ACTION/FORMAT/DIMENSION/ROLE/TIME) y los 133 `reference_catalog.category_code` remapeados (antes 116 en `TYPE`; ahora KIND 71, MODE 17, STATUS 10, LEVEL 9, ACTION 7, FORMAT 5, DIMENSION 5, TIME 5, ROLE 4 — `MATURITY_LEVEL` es def-only, no sembrado). La categorización es **organizativa** (agrupación en el visualizador/gobierno), no cambia el contrato metadata-first ni los valores.
+
+**Verificado:** entidades 295→291, atributos 2636→2608, METADATA 163→159 / OBSERVABILITY 132 sin cambio; catálogos 134 (recuento sin cambio); 0 FK colgantes en todo el modelo. Registro oficial + visualizador.
+
+### METADATO-62 — Poda de tablas de extensibilidad + término VIEWS — DECIDIDO
+
+**Poda.** `canonical_attribute_attribute` y `canonical_entity_attribute` (D2·H · Extensibilidad, tipo REF) eran tablas para colgar atributos ad-hoc extra sobre un atributo/entidad canónicos. Duplicaban el concepto ya cubierto por `canonical_attribute` y **no tenían ninguna FK entrante ni uso** en el modelo. Eliminadas de modelo y seed.
+
+**Término VIEWS.** Las 5 entidades de vistas canónicas y expresión —`canonical_view`, `expression`, `expression_node`, `expression_operand`, `function_catalog`— vivían en el subdominio genérico `D2·G` con `business_term` = `METADATA` (placeholder), por lo que no colgaban de ningún término real en el árbol del acelerador. Se crea el término **VIEWS** (hijo de `COMMON_DATA`, orden 40, junto a `CANONICAL_ENTITY`) y se les asigna.
+
+**Verificado:** entidades 291→289, atributos 2608→2598; 0 bare, 0 catálogo inexistente, 0 FK colgantes. Registro oficial + visualizador.
+
+### METADATO-63 — Cierre de flecos de términos + coherencia seed↔modelo — DECIDIDO
+
+Cuatro ajustes que dejan el árbol de términos limpio y el seed alineado con el modelo:
+
+1. **`canonical_model_change` → VERSIONING.** Es el changelog del esquema del metamodelo (qué cambió, si es breaking, cuándo se anunció). Misma familia que `object_version`/`object_approval`; se agrupa bajo VERSIONING.
+
+2. **Borradas 16 filas seed de ingesta de fuentes.** `source_entity_partition_strategy`, `source_connection`, `source_connection_credential`, `source_connection_token_state`, `source_entity_database`, `source_entity_file`, `source_entity_api_endpoint`, `source_api_endpoint_parameter`, `source_api_graphql_query`, `source_api_soap_operation`, `source_entity_stream_topic`, `source_entity_webhook`, `source_entity_excel_workbook`, `source_archive_container`, `multi_record`, `source_entity_relation`. Estaban en `seed.canonical_entity` con el placeholder `business_term_code='METADATA'` pero **no materializadas en el modelo** y su contenido ya está incluido en otras tablas de fuentes. Se retiran del seed.
+
+3. **DATA_AGREEMENTS: GOVERNANCE → EXPOSURE.** Las cesiones (`data_sharing_agreement`), encargos (`data_processing_agreement`) y transferencias internacionales (`international_data_transfer`) son exposición de datos a terceros; el término cuelga ahora de EXPOSURE (mantiene `is_regulatory`/RGPD).
+
+4. **Geografía = estructura + dimensión (patrón TIME).** El término `GEO_STRUCTURE` ya existía bajo `HIERARCHY` (junto a `TEMPORAL_STRUCTURE`) y las 11 entidades (`continent`, `supra_zone`, `region`, `province`, `locality`, jerarquía comercial y fiscal) ya lo tenían en el seed. Es la **definición de la estructura geográfica** que luego se usa como dimensión, igual que TIME. Solo se alineó el campo `business_term` del modelo (estaba a None).
+
+**Aclaración sobre "las 17 entidades genéricas":** eran exactamente las **16 de ingesta** (punto 2) **+ `canonical_model_change`** (punto 1). Al ejecutar 1 y 2 desaparece el grupo: **0 entidades con término genérico**.
+
+**Verificado:** entidades 289, atributos 2598; `seed.canonical_entity` (289) coincide 1:1 con el modelo (289); 0 bare, 0 catálogo inexistente, 0 FK colgantes; acelerador METADATA 157 / OBSERVABILITY 132. Registro oficial + visualizador.
+
+### METADATO-64 — Maestro de terceros `external_organization` — DECIDIDO
+
+Cierre del último fleco: la organización externa contraparte de cesiones y encargos estaba referenciada pero no modelada (`external_organization_code` como código suelto con `fk_target=None` y nota "master data no modelado aún").
+
+**Entidad nueva `external_organization`** (master-data, tipo MDM), asignada al término **DATA_AGREEMENTS** (bajo EXPOSURE), patrón `business_unit`:
+- `code` (BK, PK), `legal_name` (razón social), `country_code` → FK `country`, `tax_id` (NIF/VAT), `gdpr_role_code` → catálogo `GDPR_PARTY_ROLE` (metadata-first), `dpo_contact`, `system` (TYD_SYSTEM).
+
+**Catálogo nuevo `GDPR_PARTY_ROLE`** (categoría ROLE, CERRADO, autoridad RGPD): CONTROLLER (responsable), PROCESSOR (encargado), JOINT_CONTROLLER (corresponsable), RECIPIENT (cesionario), SUB_PROCESSOR (subencargado). Sembrado completo: def + `reference_catalog` + 5 `reference_value`.
+
+**Conversión a FK reales:** `data_sharing_agreement.external_organization_code` (el cesionario) y `data_processing_agreement.external_organization_code` (el encargado) pasan de código suelto a **FK `external_organization`** (RESTRICT), dando integridad referencial y reutilización del mismo tercero en varios acuerdos.
+
+**Verificado:** entidades 289→290, atributos 2598→2605, catálogos 134→135; seed↔modelo 290=290; 0 bare, 0 catálogo inexistente, 0 FK colgantes; acelerador METADATA 158 / OBSERVABILITY 132. Registro oficial + visualizador.
+
+### METADATO-65 — Cierre de coherencia de catálogos — DECIDIDO
+
+Tras la auditoría integral de coherencia (que salió limpia en integridad, seed↔modelo y árbol de términos), se cierran los cuatro puntos de pulido detectados:
+
+1. **48 catálogos PROPUESTO → CONFIRMADO.** Toda la curaduría de contenido pendiente pasa a definitiva (incluye el recién creado GDPR_PARTY_ROLE). Estado del catálogo unificado: **133 CONFIRMADO, 0 PROPUESTO, 0 ACTIVE**.
+2. **`MATURITY_LEVEL` eliminado.** Estaba definido pero ni sembrado ni referenciado: `assessment_pattern_threshold` usa el patrón dinámico `level_scale_code`→LEVEL_SCALE + `level_code` (dinámico, integridad por DQ), que lo sustituye. Catálogo muerto → fuera.
+3. **`STANDARD_AUTHORITY` estado `ACTIVE`→`CONFIRMADO`.** Era el único catálogo con ese valor de estado; normalizado al vocabulario del resto.
+4. **Unificación `VERSION_STATUS` → `PUBLICATION_STATUS`.** Los dos catálogos tenían valores idénticos {DRAFT, PUBLISHED, DEPRECATED, RETIRED}. Se conserva `PUBLICATION_STATUS` (CONFIRMADO, ordenado, autoridad INTERNAL) y se retira `VERSION_STATUS` (el duplicado creado en M-60). `object_version.version_status_code` repunta a `PUBLICATION_STATUS`; VERSION_STATUS eliminado de def, `reference_catalog` y `reference_value`. (Revierte la decisión b de M-61 a petición del founder.)
+
+**Verificado:** catálogos 135→133; `reference_value` 558→554; def↔seed cuadran (133=133); 0 catálogos sembrados sin valores; 0 bare, 0 catálogo inexistente, 0 FK colgantes; entidades 290 / atributos 2605 sin cambio. Registro oficial + visualizador.
+
+### METADATO-66 — FINANCE materializado en la vista canónica, corrección integral de TYD, capa organizativa, eliminación de `party` (maestros por tipo + registro de dependencias) y acelerador Compras (PROCUREMENT) — DECIDIDO
+
+Sesión amplia sobre los **modelos cargables (aceleradores de negocio)** y su integración en la demo canónica Next.js (`/dashboard/canonico`, `dataplane - demo`). Operado sobre disco con `json.loads`/`json.dumps`; ficheros completos. **El metamodelo núcleo (290 entidades METADATA+OBSERVABILITY) no cambia**; M-66 materializa/registra aceleradores de negocio y su integración.
+
+**(A) FINANCE materializado e integrado.** El acelerador `FINANCE_CORPORATE_v1` pasa de REGISTRADO (0) a **ACTIVO (131 entidades)**: inyectado en `datum_carga_inicial.json` (seed acelerador→business_term→canonical_entity) y `datum_modelo_canonico.json` (detalle). **11 términos padre `FIN_*`** + término `FIN_EXTERNAL_PARTIES`. **316 catálogos** integrados en `datum_catalogos.json`, con relación atributo↔catálogo metadata-first (`reference_catalog` + `catalog_ref_metadata_only` + `usado_en`). Glosario de entidades (artefacto).
+
+**(B) `legal_entity` de primera clase.** Promocionada desde `legal_entity_role_profile` (perfil de rol colgado de `party_role_assignment`) a entidad maestra: PK `[id, legal_entity_code]`; árbol societario unificado al nivel LE; **50 FK** repuntadas; **5 FK rotas preexistentes reparadas**.
+
+**(C) Corrección integral de TYD.** El acelerador usaba 9 tipos gruesos, incl. `TYD_DECIMAL`/`TYD_TIMESTAMP` **inexistentes en el catálogo canónico** de 36 dominios. **1.502 columnas** retipadas: FK→`TYD_UUID`; importes→`TYD_MONETARY_VALUE`; `_pct`→`TYD_DECIMAL_PERCENT`; `_at`→`TYD_TIMESTAMP_UTC`; currency/country/language→dominios ISO; IBAN/BIC/NIF; textos→`TYD_TEXT_DESCRIPTION`. **0 TYD no canónicos**; 18 casos particulares anotados (tipos de cambio, sensibilidades, medidas físicas).
+
+**(D) Capa organizativa FINANCE** (`datum_org.json`): 7 unidades (raíz FINANCE + 7 departamentos), 21 procesos, 27 asignaciones proceso→término (`business_process_term`).
+
+**(E) Eliminación de `party` — arquitectura de identidad.** Se **RECHAZA la tabla `party` monolítica**. Cada tipo de actor es su **propia entidad maestra** (`supplier`, `legal_entity`, futuros `customer`/`employee`); la identidad "es el mismo actor" entre tipos se resolverá por **matching/xref**, no por fila compartida. Retirado `party_id`/`party_role_assignment_id` de los maestros. Las **144 referencias `*_party_id`** restantes se **ANOTAN** (metadata-first, sin tabla): `pending_party_role` + `pending_accelerator` + `party_nature` + `resolved_entity`. Catálogo `PARTY_ROLE`. Registro de dependencias (artefacto). **El viejo modelo PARTY (G33) queda SUPERADO.**
+
+**(F) Acelerador Compras (PROCUREMENT) — NUEVO, ACTIVO (15 entidades).** Hogar del proveedor que faltaba. Términos: **SUPPLIER** (`supplier` maestro + site/bank/contact/qualification), **PURCHASE_REQUISITION**, **PURCHASE_ORDER**, **GOODS_RECEIPT**, **PROCUREMENT_CONTRACT** (contrato marco), **SUPPLIER_EVALUATION**. 17 catálogos, TYD canónicos. Integrado en la vista canónica (3 términos padre `PROC_*`) y org (BU **COMPRAS**, 4 procesos). Three-way match `supplier_invoice`↔`purchase_order`↔`goods_receipt`. **Repunte AP de FINANCE**: `supplier_party_id`→`supplier_id`. Ficheros fuente: `datum_terminos_modelo__PROCUREMENT_v1.json`, `datum_catalogos__PROCUREMENT_v1.json`.
+
+**(G) Maestros de contrapartes externas** (FINANCE, término `FIN_EXTERNAL_PARTIES`): `bank`, `lender` (prestamista: banco/fondo/Estado/bonista), `auditor`, `regulator` con catálogos `*_KIND`. **8 referencias** repuntadas. `external_partner` resuelto a `supplier`/`bank` (factoring→bank; insurance/maintenance/valuator/collection/advisor/**manufacturer**→supplier); `counterparty` → **puntero polimórfico** `counterparty_type_code` (cat COUNTERPARTY_TYPE) + `counterparty_id`. **UNASSIGNED = 0.**
+
+**(H) Franquiciados (doctrina, no ejecutada).** `FRANCHISEE` es rol del dominio franquicia/retail (`OPS_RETAIL_FASTFOOD`), con FK a `brand` (marketing); ni FINANCE ni marketing como dueño. Se modelará con ese acelerador.
+
+**Estado tras M-66:** aceleradores ACTIVOS en la vista canónica: METADATA, OBSERVABILITY, **FINANCE (131)**, **PROCUREMENT (15)**. Modelo canónico de la demo **433 entidades**; catálogos **466**; org 15 BU / 51 procesos / 112 vínculos. Party eliminado; **6 maestros vivos** (supplier, legal_entity, bank, lender, auditor, regulator); **119 dependencias pendientes** registradas (HR 112, COMMERCIAL 7; UNASSIGNED 0).
+
+**Pendientes:** crear aceleradores **COMMERCIAL** (`customer`) y **HR** (`employee`) y repuntar sus 119 dependencias; 18 casos particulares de TYD; i18n de términos padre (`FIN_*`/`PROC_*`) y procesos; modelar franquiciados; retirar físicamente el viejo modelo PARTY (`datum_terminos_modelo__PARTY_v1.json`). **Registro oficial.**
+
+*Fin de `18-METADATO-decisiones.md` v1.42.*
+
 

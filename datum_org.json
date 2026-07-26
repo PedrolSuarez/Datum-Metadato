@@ -1,0 +1,1492 @@
+{
+ "_meta": {
+  "titulo": "Datos de organización para el visor (compilado, PROPUESTA METADATO-67)",
+  "nota": "business_process_term de procesos de ingesta/derivación DERIVADO de transformaciones→canónica→término; ONLINE mapeado a mano."
+ },
+ "business_unit": [
+  {
+   "code": "GOBIERNO_DATO",
+   "parent_business_unit_code": "",
+   "business_unit_kind_code": "C_LEVEL",
+   "is_governance_operator": "1",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "GOVERNANCE_LEAD",
+   "parent_business_unit_code": "GOBIERNO_DATO",
+   "business_unit_kind_code": "AREA",
+   "is_governance_operator": "1",
+   "topology_code": "",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "METADATO_MANAGER",
+   "parent_business_unit_code": "GOVERNANCE_LEAD",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "DQ_MANAGER",
+   "parent_business_unit_code": "GOVERNANCE_LEAD",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "ARQUITECTURA_DATO",
+   "parent_business_unit_code": "GOBIERNO_DATO",
+   "business_unit_kind_code": "AREA",
+   "is_governance_operator": "0",
+   "topology_code": "",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "TECNICO_METADATO",
+   "parent_business_unit_code": "ARQUITECTURA_DATO",
+   "business_unit_kind_code": "TEAM",
+   "is_governance_operator": "0",
+   "topology_code": "",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "FINANCE",
+   "parent_business_unit_code": "",
+   "business_unit_kind_code": "DIVISION",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "ACCOUNTING",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "CREDIT_AND_COLLECTIONS",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "TREASURY",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "TAX",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "CONSOLIDATION",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "FPA",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "MANAGEMENT_CONTROL",
+   "parent_business_unit_code": "FINANCE",
+   "business_unit_kind_code": "DEPARTMENT",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  },
+  {
+   "code": "COMPRAS",
+   "parent_business_unit_code": "",
+   "business_unit_kind_code": "DIVISION",
+   "is_governance_operator": "0",
+   "topology_code": "HYBRID",
+   "cost_center_code": "",
+   "system": ""
+  }
+ ],
+ "business_process": [
+  {
+   "code": "PROC_DEF_MODELO_CANONICO",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_DEF_JERARQUIAS",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_DEF_ORG_PROCESOS",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_DEF_ANALITICA",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_GOBERNAR_CICLO_VIDA",
+   "parent_process_code": "",
+   "business_unit_code": "METADATO_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_GOBERNAR_CALIDAD",
+   "parent_process_code": "",
+   "business_unit_code": "DQ_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_OPERAR_EVALUACION",
+   "parent_process_code": "",
+   "business_unit_code": "DQ_MANAGER",
+   "system": ""
+  },
+  {
+   "code": "PROC_GOBERNAR_ROLES_SEG",
+   "parent_process_code": "",
+   "business_unit_code": "GOVERNANCE_LEAD",
+   "system": ""
+  },
+  {
+   "code": "PROC_PRIVACIDAD_ACUERDOS",
+   "parent_process_code": "",
+   "business_unit_code": "GOVERNANCE_LEAD",
+   "system": ""
+  },
+  {
+   "code": "PROC_EXPOSICION",
+   "parent_process_code": "",
+   "business_unit_code": "GOVERNANCE_LEAD",
+   "system": ""
+  },
+  {
+   "code": "PROC_UX_PRODUCTO",
+   "parent_process_code": "",
+   "business_unit_code": "GOVERNANCE_LEAD",
+   "system": ""
+  },
+  {
+   "code": "PROC_CONFIG_DATABRICKS",
+   "parent_process_code": "",
+   "business_unit_code": "ARQUITECTURA_DATO",
+   "system": ""
+  },
+  {
+   "code": "PROC_DEF_FUENTES",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "PROC_TRANSFORMAR_CARGAR",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "PROC_ORQUESTAR",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "uc_ingest",
+   "parent_process_code": "",
+   "business_unit_code": "ARQUITECTURA_DATO",
+   "system": ""
+  },
+  {
+   "code": "obs_dq_incident",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_incident",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_alert",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_cost_anomaly",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_budget_breach",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_metamodel_snapshot_run",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_platform_health_snapshot",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_datum_internal_kpi_value",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "obs_anomaly_detection",
+   "parent_process_code": "",
+   "business_unit_code": "TECNICO_METADATO",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_ENTIDADES_LEGALES",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_LIBROS_CONTABLES",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_PLAN_CONTABLE",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_LIBRO_MAYOR",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_ACTIVOS_FIJOS",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_ESTADOS_FINANCIEROS",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_KPIS_APARCADO",
+   "parent_process_code": "",
+   "business_unit_code": "ACCOUNTING",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_FACTURACION_DE_CLIENTE_AR",
+   "parent_process_code": "",
+   "business_unit_code": "CREDIT_AND_COLLECTIONS",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_FACTURACION_DE_PROVEEDOR_AP",
+   "parent_process_code": "",
+   "business_unit_code": "CREDIT_AND_COLLECTIONS",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_CAJA_Y_BANCOS",
+   "parent_process_code": "",
+   "business_unit_code": "TREASURY",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_DIVISA",
+   "parent_process_code": "",
+   "business_unit_code": "TREASURY",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_REGISTRO_FISCAL",
+   "parent_process_code": "",
+   "business_unit_code": "TAX",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_DECLARACIONES_TRIBUTARIAS",
+   "parent_process_code": "",
+   "business_unit_code": "TAX",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_IMPUESTO_DIFERIDO",
+   "parent_process_code": "",
+   "business_unit_code": "TAX",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_PERIMETRO_DE_CONSOLIDACION",
+   "parent_process_code": "",
+   "business_unit_code": "CONSOLIDATION",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_ELIMINACIONES_E_INTERCOMPANIA",
+   "parent_process_code": "",
+   "business_unit_code": "CONSOLIDATION",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_POLITICAS_CONTABLES",
+   "parent_process_code": "",
+   "business_unit_code": "CONSOLIDATION",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_PRESUPUESTO",
+   "parent_process_code": "",
+   "business_unit_code": "FPA",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DEL_FORECAST",
+   "parent_process_code": "",
+   "business_unit_code": "FPA",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_DATA_PRODUCTS_APARCADO",
+   "parent_process_code": "",
+   "business_unit_code": "FPA",
+   "system": ""
+  },
+  {
+   "code": "PROC_FIN_GESTION_DE_CONTABILIDAD_ANALITICA",
+   "parent_process_code": "",
+   "business_unit_code": "MANAGEMENT_CONTROL",
+   "system": ""
+  },
+  {
+   "code": "PROC_COMPRAS_MAESTRO",
+   "parent_process_code": "",
+   "business_unit_code": "COMPRAS",
+   "system": ""
+  },
+  {
+   "code": "PROC_COMPRAS_APROVISIONAMIENTO",
+   "parent_process_code": "",
+   "business_unit_code": "COMPRAS",
+   "system": ""
+  },
+  {
+   "code": "PROC_COMPRAS_RECEPCION",
+   "parent_process_code": "",
+   "business_unit_code": "COMPRAS",
+   "system": ""
+  },
+  {
+   "code": "PROC_COMPRAS_EVALUACION",
+   "parent_process_code": "",
+   "business_unit_code": "COMPRAS",
+   "system": ""
+  }
+ ],
+ "business_process_execution": [
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_JERARQUIAS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ORG_PROCESOS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CICLO_VIDA",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CALIDAD",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_OPERAR_EVALUACION",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_PRIVACIDAD_ACUERDOS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_CONFIG_DATABRICKS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_TRANSFORMAR_CARGAR",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_ORQUESTAR",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "execution_mode_code": "FULL",
+   "workflow_pattern_code": "WF_INGEST_BATCH",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 3 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "execution_mode_code": "INCREMENTAL",
+   "workflow_pattern_code": "WF_INGEST_BATCH",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 */12 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "execution_mode_code": "STREAMING",
+   "workflow_pattern_code": "WF_INGEST_STREAM",
+   "frequency_code": "REAL_TIME",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "*/30 * * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_dq_incident",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_dq_incident_pattern",
+   "frequency_code": "REAL_TIME",
+   "trigger_kind_code": "EVENT",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_incident",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_incident_pattern",
+   "frequency_code": "HOURLY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 * * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_alert",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_alert_pattern",
+   "frequency_code": "HOURLY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 * * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_cost_anomaly",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_cost_anomaly_pattern",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 4 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_budget_breach",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_budget_breach_pattern",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 4 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_metamodel_snapshot_run",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_metamodel_snapshot_run_pattern",
+   "frequency_code": "WEEKLY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 5 1,15 * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_platform_health_snapshot",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_platform_health_snapshot_pattern",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 6 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_datum_internal_kpi_value",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_datum_internal_kpi_value_pattern",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 6 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_anomaly_detection",
+   "execution_mode_code": "DERIVED",
+   "workflow_pattern_code": "obs_anomaly_detection_pattern",
+   "frequency_code": "DAILY",
+   "trigger_kind_code": "SCHEDULE",
+   "schedule_cron": "0 4 * * *",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ENTIDADES_LEGALES",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_LIBROS_CONTABLES",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PLAN_CONTABLE",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_LIBRO_MAYOR",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ACTIVOS_FIJOS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ESTADOS_FINANCIEROS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_KPIS_APARCADO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_CLIENTE_AR",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_PROVEEDOR_AP",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_CAJA_Y_BANCOS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_DIVISA",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_REGISTRO_FISCAL",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_DECLARACIONES_TRIBUTARIAS",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_IMPUESTO_DIFERIDO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PERIMETRO_DE_CONSOLIDACION",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ELIMINACIONES_E_INTERCOMPANIA",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_POLITICAS_CONTABLES",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PRESUPUESTO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_FORECAST",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_DATA_PRODUCTS_APARCADO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_CONTABILIDAD_ANALITICA",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_MAESTRO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_APROVISIONAMIENTO",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_RECEPCION",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_EVALUACION",
+   "execution_mode_code": "ONLINE",
+   "workflow_pattern_code": "",
+   "frequency_code": "",
+   "trigger_kind_code": "MANUAL",
+   "schedule_cron": "",
+   "system": ""
+  }
+ ],
+ "business_process_term": [
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "business_term_code": "CANONICAL_ENTITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "business_term_code": "BUSINESS_TERM",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "business_term_code": "DATA_DOMAIN",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "business_term_code": "TECHNOLOGY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_MODELO_CANONICO",
+   "business_term_code": "VIEWS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "business_term_code": "COMMON_STRUCTURE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "business_term_code": "DATA_CATALOG",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "business_term_code": "I18N",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ESTRUCTURA_COMUN",
+   "business_term_code": "ACCELERATOR",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_JERARQUIAS",
+   "business_term_code": "HIERARCHY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_JERARQUIAS",
+   "business_term_code": "GEO_STRUCTURE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_JERARQUIAS",
+   "business_term_code": "TEMPORAL_STRUCTURE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ORG_PROCESOS",
+   "business_term_code": "ORG_STRUCTURE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ORG_PROCESOS",
+   "business_term_code": "BUSINESS_PROCESS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "business_term_code": "ANALYTICS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "business_term_code": "FACT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "business_term_code": "DIMENSION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "business_term_code": "KPI",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_ANALITICA",
+   "business_term_code": "DATA_PRODUCT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CICLO_VIDA",
+   "business_term_code": "VERSIONING",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CICLO_VIDA",
+   "business_term_code": "LIFECYCLE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CICLO_VIDA",
+   "business_term_code": "DOCUMENTATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_CALIDAD",
+   "business_term_code": "DATA_QUALITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_OPERAR_EVALUACION",
+   "business_term_code": "ASSESSMENT_ENGINE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "business_term_code": "GOVERNANCE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "business_term_code": "SECURITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "business_term_code": "RBAC",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "business_term_code": "ABAC",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_GOBERNAR_ROLES_SEG",
+   "business_term_code": "CONSENT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_PRIVACIDAD_ACUERDOS",
+   "business_term_code": "GDPR_DPO",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_PRIVACIDAD_ACUERDOS",
+   "business_term_code": "DATA_AGREEMENTS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "business_term_code": "EXPOSURE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "business_term_code": "EXPOSURE_CORE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "business_term_code": "EXPOSURE_MECHANISM",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "business_term_code": "EXPOSURE_MARKETPLACE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_EXPOSICION",
+   "business_term_code": "EXPOSURE_COMPLIANCE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX_SCREENS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX_GENERATIVE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX_PERMISSIONS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX_BRANDING",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_UX_PRODUCTO",
+   "business_term_code": "UX_SUPPORT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_CONFIG_DATABRICKS",
+   "business_term_code": "DATABRICKS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_CONFIG_DATABRICKS",
+   "business_term_code": "CATALOG",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_CONFIG_DATABRICKS",
+   "business_term_code": "DELTA_CONFIG",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "DATA_SOURCE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "SOURCE_SYSTEM",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "SOURCE_TABLE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "SOURCE_INGESTION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "DISCOVERY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_DEF_FUENTES",
+   "business_term_code": "SOURCE_CONTRACT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_TRANSFORMAR_CARGAR",
+   "business_term_code": "TRANSFORMATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_TRANSFORMAR_CARGAR",
+   "business_term_code": "TRANSFORMATION_DEFINITION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_TRANSFORMAR_CARGAR",
+   "business_term_code": "TRANSFORMATION_SECURITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_TRANSFORMAR_CARGAR",
+   "business_term_code": "LOAD_CANONICAL",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_ORQUESTAR",
+   "business_term_code": "ORCHESTRATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_CONSTRAINTS",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_EXTERNAL",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_OBJECTS",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_PRIVILEGES",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_SECURITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_SHARING",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "IS_TAGS",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_ACCESS",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_BILLING",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_COMPUTE",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_DATA_CLASSIFICATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_DATA_QUALITY_MONITORING",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_LAKEFLOW",
+   "system": ""
+  },
+  {
+   "business_process_code": "uc_ingest",
+   "business_term_code": "UC_QUERY",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_dq_incident",
+   "business_term_code": "DQ_OBSERVATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_incident",
+   "business_term_code": "INCIDENT_ALERT",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_alert",
+   "business_term_code": "INCIDENT_ALERT",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_cost_anomaly",
+   "business_term_code": "FINOPS",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_budget_breach",
+   "business_term_code": "FINOPS",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_metamodel_snapshot_run",
+   "business_term_code": "METAMODEL_SNAPSHOT",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_platform_health_snapshot",
+   "business_term_code": "GOVERNANCE_MATURITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_datum_internal_kpi_value",
+   "business_term_code": "GOVERNANCE_MATURITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "obs_anomaly_detection",
+   "business_term_code": "ACCESS_AUDIT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ENTIDADES_LEGALES",
+   "business_term_code": "LEGAL_ENTITY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ENTIDADES_LEGALES",
+   "business_term_code": "REGULATORY_FILING",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_LIBROS_CONTABLES",
+   "business_term_code": "ACCOUNTING_BOOK",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PLAN_CONTABLE",
+   "business_term_code": "CHART_OF_ACCOUNTS",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PLAN_CONTABLE",
+   "business_term_code": "ACCOUNT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_LIBRO_MAYOR",
+   "business_term_code": "JOURNAL_ENTRY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_LIBRO_MAYOR",
+   "business_term_code": "ACCOUNTING_PERIOD",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ACTIVOS_FIJOS",
+   "business_term_code": "FIXED_ASSET",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ESTADOS_FINANCIEROS",
+   "business_term_code": "FINANCIAL_STATEMENT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_CLIENTE_AR",
+   "business_term_code": "CUSTOMER_INVOICE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_CLIENTE_AR",
+   "business_term_code": "CUSTOMER_COLLECTION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_PROVEEDOR_AP",
+   "business_term_code": "SUPPLIER_INVOICE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_FACTURACION_DE_PROVEEDOR_AP",
+   "business_term_code": "SUPPLIER_PAYMENT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_CAJA_Y_BANCOS",
+   "business_term_code": "BANK_ACCOUNT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_DIVISA",
+   "business_term_code": "FX_RATE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_REGISTRO_FISCAL",
+   "business_term_code": "TAX_REGISTRATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_DECLARACIONES_TRIBUTARIAS",
+   "business_term_code": "TAX_DECLARATION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_IMPUESTO_DIFERIDO",
+   "business_term_code": "DEFERRED_TAX",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PERIMETRO_DE_CONSOLIDACION",
+   "business_term_code": "CONSOLIDATION_GROUP",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PERIMETRO_DE_CONSOLIDACION",
+   "business_term_code": "CONSOLIDATION_SCOPE",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ELIMINACIONES_E_INTERCOMPANIA",
+   "business_term_code": "ELIMINATION_ENTRY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_ELIMINACIONES_E_INTERCOMPANIA",
+   "business_term_code": "INTERCOMPANY_TRANSACTION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_POLITICAS_CONTABLES",
+   "business_term_code": "ACCOUNTING_POLICY",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_PRESUPUESTO",
+   "business_term_code": "BUDGET_VERSION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DEL_FORECAST",
+   "business_term_code": "FORECAST_VERSION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_CONTABILIDAD_ANALITICA",
+   "business_term_code": "COST_CENTER",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_FIN_GESTION_DE_CONTABILIDAD_ANALITICA",
+   "business_term_code": "ANALYTICAL_DIMENSION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_MAESTRO",
+   "business_term_code": "SUPPLIER",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_APROVISIONAMIENTO",
+   "business_term_code": "PURCHASE_REQUISITION",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_APROVISIONAMIENTO",
+   "business_term_code": "PURCHASE_ORDER",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_APROVISIONAMIENTO",
+   "business_term_code": "PROCUREMENT_CONTRACT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_RECEPCION",
+   "business_term_code": "GOODS_RECEIPT",
+   "system": ""
+  },
+  {
+   "business_process_code": "PROC_COMPRAS_EVALUACION",
+   "business_term_code": "SUPPLIER_EVALUATION",
+   "system": ""
+  }
+ ]
+}
