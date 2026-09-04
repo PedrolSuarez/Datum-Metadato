@@ -1,0 +1,989 @@
+{
+ "_meta": {
+  "schema": "datum.terminos_modelo/v3",
+  "accelerator_id": "EAM_v1",
+  "fuente": "Diseño nuevo (acelerador EAM).",
+  "i18n_anchor": {
+   "campo": "row_id",
+   "namespace": "9f788878-59fb-5c4c-98ad-aefaebb51d45"
+  }
+ },
+ "accelerator_id": "EAM_v1",
+ "terms": [
+  {
+   "term_id": "EAM_EQUIPMENT",
+   "label": "Equipos",
+   "desc": "Equipos",
+   "accelerator_id": "EAM_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "equipment",
+     "role": "MAIN",
+     "entity_kind": "MASTER",
+     "desc": "Equipo/activo mantenible, anclado a su emplazamiento (almacén, punto de venta, centro de trabajo o línea de producción).",
+     "n_attributes": 16,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "06d745e1-b2e5-52d2-82bb-3aa9bf3fa30e"
+      },
+      {
+       "name": "equipment_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "3753e6d3-431e-5072-8a97-d42e5cee295f"
+      },
+      {
+       "name": "equipment_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "20bc6911-b0fa-5299-841c-e4b9f9e84196"
+      },
+      {
+       "name": "equipment_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "3ee4afc4-864f-5fd4-a5cb-9e9dfa73e85d",
+       "reference_catalog": "EQUIPMENT_KIND",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "warehouse_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "warehouse",
+       "desc": "",
+       "row_id": "03998151-d15d-52a3-acb9-730a9478149d"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto de venta donde está el equipo (tienda, restaurante, clínica…).",
+       "row_id": "638d00ac-decd-516b-9735-1038f4417bd3"
+      },
+      {
+       "name": "work_center_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "work_center",
+       "desc": "Centro de trabajo donde está el equipo (oficina, planta).",
+       "row_id": "e4e590d5-5194-54ce-b1f1-92dd0e41bf46"
+      },
+      {
+       "name": "production_line_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "production_line",
+       "desc": "",
+       "row_id": "2772741d-ef15-5957-bd82-a87857a0a202"
+      },
+      {
+       "name": "fixed_asset_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "fixed_asset",
+       "desc": "",
+       "row_id": "40c03892-5cf4-5762-820c-f225f509eed9"
+      },
+      {
+       "name": "manufacturer",
+       "tyd": "TYD_NAME",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "5a8833bb-e068-57fd-afbd-14ae5ae79d05"
+      },
+      {
+       "name": "model",
+       "tyd": "TYD_NAME",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "2a859230-b460-5f0e-be92-747f9f8bfc8c"
+      },
+      {
+       "name": "serial_number",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "b468ef0e-210c-525c-a2c8-81119c2a6558"
+      },
+      {
+       "name": "install_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "2822888f-42cf-5209-a405-a6bd8d9bd7ac"
+      },
+      {
+       "name": "criticality_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "d1d91314-20f5-51e6-b9cc-fad8eb8487b2",
+       "reference_catalog": "EQUIPMENT_CRITICALITY",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "38f2c3d5-f046-5e4b-aa7f-fcf4df558a0c",
+       "reference_catalog": "EQUIPMENT_STATUS",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "d240586b-67fd-5dda-9242-3f2d4f9400c8"
+      }
+     ],
+     "keys": [
+      {
+       "target": "reference_value",
+       "via_attr": "equipment_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "warehouse",
+       "via_attr": "warehouse_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "work_center",
+       "via_attr": "work_center_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "production_line",
+       "via_attr": "production_line_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "fixed_asset",
+       "via_attr": "fixed_asset_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "criticality_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "equipment_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "equipment_kind_value_id",
+       "against": "reference_value:EQUIPMENT_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "warehouse_id",
+       "against": "warehouse"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "work_center_id",
+       "against": "work_center"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "production_line_id",
+       "against": "production_line"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "fixed_asset_id",
+       "against": "fixed_asset"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "criticality_value_id",
+       "against": "reference_value:EQUIPMENT_CRITICALITY"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:EQUIPMENT_STATUS"
+      }
+     ],
+     "target_schema": "MDM_GLOBAL",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "110f0dba-23e4-5e9d-9e1d-d35816630ae6"
+    }
+   ],
+   "row_id": "616d2e72-1bf9-5fb1-aea8-f510f05ca618"
+  },
+  {
+   "term_id": "EAM_MAINTENANCE",
+   "label": "Mantenimiento",
+   "desc": "Mantenimiento",
+   "accelerator_id": "EAM_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "maintenance_plan",
+     "role": "MAIN",
+     "entity_kind": "MASTER",
+     "desc": "Plan de mantenimiento (preventivo/predictivo).",
+     "n_attributes": 8,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "892acd09-3560-58bb-9386-067b876f2434"
+      },
+      {
+       "name": "plan_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "bff47493-afec-5f4c-9b1c-a6774e00e3a7"
+      },
+      {
+       "name": "equipment_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "equipment",
+       "desc": "",
+       "row_id": "2c9e40ef-0f00-5564-a03d-8694838e591e"
+      },
+      {
+       "name": "maintenance_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "dfce3aba-90e5-5b63-b010-cc350302d089",
+       "reference_catalog": "MAINTENANCE_KIND",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "frequency_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "876323d2-e543-5609-92b5-b94508b3c5ea",
+       "reference_catalog": "BILLING_FREQUENCY",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "task_description",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "584f119c-556f-5f25-95a4-c70332e8ad29"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "b4211a33-511d-50ce-931a-35e8545d6113",
+       "reference_catalog": "MAINTENANCE_PLAN_STATUS",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "d7f6e2ff-58a7-54bf-96a2-b423ee7eb74a"
+      }
+     ],
+     "keys": [
+      {
+       "target": "equipment",
+       "via_attr": "equipment_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "maintenance_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "frequency_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "plan_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "equipment_id",
+       "against": "equipment"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "maintenance_kind_value_id",
+       "against": "reference_value:MAINTENANCE_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "frequency_value_id",
+       "against": "reference_value:BILLING_FREQUENCY"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:MAINTENANCE_PLAN_STATUS"
+      }
+     ],
+     "target_schema": "MDM_GLOBAL",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "bd2921fb-b274-54b0-9d53-df883f33461e"
+    },
+    {
+     "entity_id": "maintenance_work_order",
+     "role": "EXTENSION",
+     "entity_kind": "MASTER",
+     "desc": "Orden de trabajo de mantenimiento.",
+     "n_attributes": 14,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "77204ea7-d79f-5aa3-9e91-001e933d73e6"
+      },
+      {
+       "name": "work_order_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "3639ee64-92ad-50ab-9e3e-d1f9178cfd38"
+      },
+      {
+       "name": "equipment_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "equipment",
+       "desc": "",
+       "row_id": "de982db2-89e7-5c23-988a-ef72250d3670"
+      },
+      {
+       "name": "maintenance_plan_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "maintenance_plan",
+       "desc": "",
+       "row_id": "246f6721-7760-5759-a404-081452155468"
+      },
+      {
+       "name": "work_order_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "18b4df8c-5457-5e67-bfdb-a49aa1540f78",
+       "reference_catalog": "WORK_ORDER_KIND",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "priority_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "7e6c62a2-2ea9-5772-9b0b-046336570179",
+       "reference_catalog": "SERVICE_PRIORITY",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "0b45725b-9f97-5aa9-a378-daec5db1c767",
+       "reference_catalog": "WORK_ORDER_STATUS",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "reported_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "3ff4d82c-19bb-59bf-8a7f-febd22fdaa40"
+      },
+      {
+       "name": "scheduled_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "41186e84-354c-559f-ad44-5fe57ace1549"
+      },
+      {
+       "name": "completed_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "d47b25da-947f-58fb-99d7-b2a08fc4cef7"
+      },
+      {
+       "name": "assigned_employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "",
+       "row_id": "15874cab-ebfb-5972-af3c-c136a8b960d0"
+      },
+      {
+       "name": "downtime_hours",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "4a94d1e5-d1d0-590c-8913-4aee97ba778e"
+      },
+      {
+       "name": "description",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "0c8fb56b-a1da-5ab3-bd9f-69b46b426157"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "2c7841a0-78ac-55f4-859d-854b6bd627b8"
+      }
+     ],
+     "keys": [
+      {
+       "target": "equipment",
+       "via_attr": "equipment_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "maintenance_plan",
+       "via_attr": "maintenance_plan_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "work_order_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "priority_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "employee",
+       "via_attr": "assigned_employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "work_order_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "equipment_id",
+       "against": "equipment"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "maintenance_plan_id",
+       "against": "maintenance_plan"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "work_order_kind_value_id",
+       "against": "reference_value:WORK_ORDER_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "priority_value_id",
+       "against": "reference_value:SERVICE_PRIORITY"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:WORK_ORDER_STATUS"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "assigned_employee_id",
+       "against": "employee"
+      }
+     ],
+     "target_schema": "CDM_EAM",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "a4db197b-740d-5619-8303-6a596837f993"
+    },
+    {
+     "entity_id": "maintenance_work_order_task",
+     "role": "EXTENSION",
+     "entity_kind": "DETAIL",
+     "desc": "Tarea de la orden de mantenimiento.",
+     "n_attributes": 8,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "56ae912b-0eaf-5e73-b512-0016ecf51b58"
+      },
+      {
+       "name": "maintenance_work_order_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "maintenance_work_order",
+       "desc": "",
+       "row_id": "15d149b9-41b7-5137-a018-10dbc2ddc8f6"
+      },
+      {
+       "name": "sequence_number",
+       "tyd": "TYD_INT",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "47c64ffe-d00d-5a8b-b903-5f14e24a296b"
+      },
+      {
+       "name": "task_description",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "7da9b3d7-62bf-5e1c-bfe4-66961e96cebe"
+      },
+      {
+       "name": "labor_hours",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "fc87cdf3-1dd1-544a-b151-d137be491dec"
+      },
+      {
+       "name": "employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "",
+       "row_id": "5dfa11a8-c378-5c42-9701-7db3d8c33bb4"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "f8504e51-9212-5b91-b615-4d702422ae13",
+       "reference_catalog": "WORK_ORDER_TASK_STATUS",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "570a1f11-abcb-58da-a52c-c63f71285814"
+      }
+     ],
+     "keys": [
+      {
+       "target": "maintenance_work_order",
+       "via_attr": "maintenance_work_order_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "employee",
+       "via_attr": "employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "maintenance_work_order_id",
+        "sequence_number"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "maintenance_work_order_id",
+       "against": "maintenance_work_order"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:WORK_ORDER_TASK_STATUS"
+      }
+     ],
+     "target_schema": "CDM_EAM",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "1932d058-7445-50eb-96e8-5a0b9fc6451c"
+    },
+    {
+     "entity_id": "spare_part_usage",
+     "role": "EXTENSION",
+     "entity_kind": "DETAIL",
+     "desc": "Consumo de repuestos en la OT.",
+     "n_attributes": 7,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "de6724c2-337c-5b3f-a377-f686c3d94173"
+      },
+      {
+       "name": "maintenance_work_order_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "maintenance_work_order",
+       "desc": "",
+       "row_id": "1bb1b36e-3dd5-5d36-9d6b-ad1226a71228"
+      },
+      {
+       "name": "product_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "product",
+       "desc": "",
+       "row_id": "b385c1f6-a5a0-553d-a894-fdcb78096a77"
+      },
+      {
+       "name": "lot_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "stock_lot",
+       "desc": "",
+       "row_id": "af928332-a3ed-5537-966b-7ab9507162d5"
+      },
+      {
+       "name": "quantity",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "aa0aa978-7fe3-5884-9ede-d5044be199d9"
+      },
+      {
+       "name": "uom_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "88ad907e-f38d-526f-9d15-78861e1a4f3a",
+       "reference_catalog": "UOM",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "6978798d-cc11-5233-ba60-74fb31ca31b4"
+      }
+     ],
+     "keys": [
+      {
+       "target": "maintenance_work_order",
+       "via_attr": "maintenance_work_order_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "product",
+       "via_attr": "product_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "stock_lot",
+       "via_attr": "lot_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "uom_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "maintenance_work_order_id",
+        "product_id"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "maintenance_work_order_id",
+       "against": "maintenance_work_order"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "product_id",
+       "against": "product"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "lot_id",
+       "against": "stock_lot"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "uom_value_id",
+       "against": "reference_value:UOM"
+      }
+     ],
+     "target_schema": "CDM_EAM",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "d89337b7-d6c2-5e69-8dfa-293d18266769"
+    }
+   ],
+   "row_id": "482457da-c84d-547b-aaea-47573cc01333"
+  }
+ ]
+}

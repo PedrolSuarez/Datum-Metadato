@@ -1,0 +1,42 @@
+=== DATUM verify_full ===
+entidades 952 · atributos 10920 · FK 3510 · refs a catálogo 1374
+catálogos 1086 (sembrados 134) · estados {'CONFIRMADO': 770, 'FROM_VISOR': 285, 'PENDIENTE': 8, 'DEFINIDO': 23}
+i18n 17816 · esperados 17816 · ausentes 0 · huérfanos 0
+restricciones 16 · aceleradores 19 · términos 238
+  datum_terminos_modelo__BANKING_v1.json: v3 · 21 términos · 109 nodos · desfasados 0 · refcat 166 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__COMMERCIAL_v1.json: v3 · 3 términos · 14 nodos · desfasados 0 · refcat 20 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__EAM_v1.json: v3 · 2 términos · 5 nodos · desfasados 0 · refcat 11 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__FINANCE_CORPORATE_v1.json: v3 · 42 términos · 148 nodos · desfasados 0 · refcat 367 · FK sin regla 25 · FK party pendientes 98 · parciales 0
+  datum_terminos_modelo__HEALTHCARE_v1.json: v3 · 11 términos · 108 nodos · desfasados 0 · refcat 173 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__HHRR_v1.json: v2 · 9 términos · 76 nodos · desfasados 2 · refcat 138 · FK sin regla 308 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__INSURANCE_v1.json: v3 · 12 términos · 108 nodos · desfasados 0 · refcat 112 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__LEGAL_v1.json: v3 · 3 términos · 7 nodos · desfasados 0 · refcat 14 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__MANUFACTURING_v1.json: v3 · 4 términos · 11 nodos · desfasados 0 · refcat 18 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__MARKETING_v1.json: v3 · 6 términos · 18 nodos · desfasados 0 · refcat 51 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__PROCUREMENT_v1.json: v3 · 6 términos · 15 nodos · desfasados 0 · refcat 23 · FK sin regla 0 · FK party pendientes 6 · parciales 0
+  datum_terminos_modelo__PROJECT_v1.json: v3 · 2 términos · 5 nodos · desfasados 0 · refcat 5 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__QUALITY_v1.json: v3 · 2 términos · 5 nodos · desfasados 0 · refcat 14 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__SERVICE_v1.json: v3 · 3 términos · 6 nodos · desfasados 0 · refcat 12 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__SITE_v1.json: v3 · 3 términos · 12 nodos · desfasados 0 · refcat 15 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__SUPPLY_CHAIN_v1.json: v3 · 3 términos · 8 nodos · desfasados 0 · refcat 12 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+  datum_terminos_modelo__WAREHOUSE_v1.json: v3 · 7 términos · 17 nodos · desfasados 0 · refcat 28 · FK sin regla 0 · FK party pendientes 0 · parciales 0
+
+ERRORES: 13   AVISOS: 413
+  E [FKC] dq_run_result.run_id -> run_step inexistente
+  E [FKC] dq_column_incident.run_id -> run_step inexistente
+  E [SEED] reference_value DOCUMENT_TYPE:DATA_PRODUCT_CARD no está en el catálogo
+  E [SEED] reference_value DOCUMENT_TYPE:ADR no está en el catálogo
+  E [SEED] reference_value DOCUMENT_TYPE:RUNBOOK no está en el catálogo
+  E [SEED] reference_value DOCUMENT_TYPE:DPA no está en el catálogo
+  E [SEED] reference_value DOCUMENT_TYPE:POLICY no está en el catálogo
+  E [SEED] reference_value DOCUMENT_TYPE:REPORT no está en el catálogo
+  E [TERMS] datum_terminos_modelo__FINANCE_CORPORATE_v1.json: nodo data_product_subscription no existe en el modelo
+  E [TERMS] datum_terminos_modelo__FINANCE_CORPORATE_v1.json: nodo party no existe en el modelo
+  E [TERMS] datum_terminos_modelo__FINANCE_CORPORATE_v1.json: 25 FK sin regla REFERENTIAL: ['supplier_payment.factoring_provider_id->bank', 'consolidation_group.external_auditor_id->auditor', 'consolidation_group.regulatory_oversight_id->regulator', 'regulatory_filing.regulator_id->regulator', 'tax_registration.tax_advisor_id->supplier', 'tax_declaration.external_advisor_id->supplier', 'pillar_two_calculation.external_advisor_id->supplier', 'customer_payment.factoring_provider_id->bank', 'dunning_case.external_collection_agency_id->supplier', 'bank_account.bank_id->bank', 'financing_instrument.lender_id->lender', 'financing_instrument.agent_bank_id->bank', 'hedge_instrument.counterparty_bank_id->bank', 'fixed_asset.insurance_provider_id->supplier', 'fixed_asset_technical_profile.manufacturer_id->supplier', 'asset_location_assignment.borrower_legal_entity_id->legal_entity', 'asset_maintenance_log.provider_id->supplier', 'asset_transaction.destination_legal_entity_id->legal_entity', 'asset_impairment.external_valuator_id->supplier', 'journal_entry.intercompany_counterparty_legal_entity_id->legal_entity', 'business_unit.parent_business_unit_code->business_unit', 'country.primary_currency_code->currency', 'country.primary_language_code->language', 'country.supra_zone_code->supra_zone', 'region.country_code->country']
+  E [TERMS] datum_terminos_modelo__HHRR_v1.json: compensation_package.linked_sales_commission_plan_id fk_target términos='sales_commission_plan' modelo=None
+  E [TERMS] datum_terminos_modelo__HHRR_v1.json: payslip_component.origin_kind_value_id reference_catalog términos=None modelo='PAYSLIP_COMPONENT_ORIGIN'
+  W [SEED] 823 entidades con esquema físico no sembrado (problema conocido 'metadata'): ['banking', 'commercial', 'd03', 'eam', 'finance', 'healthcare', 'hr', 'insurance', 'legal', 'manufacturing', 'marketing', 'mdm', 'metadata', 'procurement', 'project', 'quality', 'rdm', 'service', 'site', 'supply_chain', 'warehouse']
+  W [TERMS] datum_terminos_modelo__FINANCE_CORPORATE_v1.json: 25 FK sin entrada en keys
+  W [TERMS] datum_terminos_modelo__HHRR_v1.json: esquema v2, sin dq_referential_integrity (308 FK sin regla derivada)
+  W [TERMS] datum_terminos_modelo__HHRR_v1.json: 301 FK sin entrada en keys
+  W [CAT] resumen: {'[CAT] sin etiqueta': 393, '[CAT] usado_en obsoleto': 1, '[CAT] sin valores': 15} (--all para el detalle)

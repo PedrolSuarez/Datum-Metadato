@@ -1,0 +1,52 @@
+{
+ "kpi_history": {
+  "KPI_MM_ENTITIES": [
+   {
+    "date": "2026-07-19",
+    "value": 178
+   }
+  ],
+  "KPI_MM_ATTRIBUTES": [
+   {
+    "date": "2026-07-19",
+    "value": 1161
+   }
+  ],
+  "KPI_MM_AVG_ATTR": [
+   {
+    "date": "2026-07-19",
+    "value": 6.52
+   }
+  ],
+  "KPI_MM_CATALOGS": [
+   {
+    "date": "2026-07-19",
+    "value": 83
+   }
+  ],
+  "KPI_MM_CATALOG_VALUES": [
+   {
+    "date": "2026-07-19",
+    "value": 312
+   }
+  ],
+  "KPI_MM_DQ_EXCEPTIONS": [
+   {
+    "date": "2026-07-19",
+    "value": 338
+   }
+  ],
+  "KPI_MM_FK_MDF_PCT": [
+   {
+    "date": "2026-07-19",
+    "value": 60.1
+   }
+  ],
+  "KPI_MM_TERMED_PCT": [
+   {
+    "date": "2026-07-19",
+    "value": 61.8
+   }
+  ]
+ }
+}

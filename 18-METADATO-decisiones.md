@@ -2,7 +2,7 @@
 
 
 
-**Versión:** v1.36 — Julio 2026
+**Versión:** v1.82 — Septiembre 2026
 
 **Numeración:** METADATO-n (propia del proyecto, independiente de DATUM-n de Producto).
 
@@ -1056,6 +1056,633 @@ Sesión amplia sobre los **modelos cargables (aceleradores de negocio)** y su in
 
 **Pendientes:** crear aceleradores **COMMERCIAL** (`customer`) y **HR** (`employee`) y repuntar sus 119 dependencias; 18 casos particulares de TYD; i18n de términos padre (`FIN_*`/`PROC_*`) y procesos; modelar franquiciados; retirar físicamente el viejo modelo PARTY (`datum_terminos_modelo__PARTY_v1.json`). **Registro oficial.**
 
-*Fin de `18-METADATO-decisiones.md` v1.42.*
+### METADATO-67 — Consolidación técnica de aceleradores, reestructuración de `legal_entity` (golden record + satélites), criterio de PK maestro/dependiente, cardinalidades, calendario fiscal y repo como fuente única — DECIDIDO
+
+Sesión sobre los **aceleradores de negocio** (FINANCE/PROCUREMENT) y la **arquitectura de fuente de verdad**. Operado sobre disco (`json.loads`/`json.dumps`, ficheros completos), escrito en repo + visor. **El metamodelo núcleo (290 METADATA+OBSERVABILITY) no cambia.**
+
+**(A) Bloque técnico suelto → `system` (TYD_SYSTEM) en aceleradores.** FINANCE/PROCUREMENT llevaban `audit` (TYD_AUDIT) + `status_value_id` genérico sueltos, en vez del `system` universal del metamodelo (M-9). Colapsados a un único `system`: FINANCE −132 `audit`, −123 `status_value_id` (su catálogo `STATUS` estaba **roto** —valores `_,P,E,N,D,I,T`— y se retira; el ciclo de vida vive en `system.lifecycle_state_code`→LIFECYCLE_STATE), +135 `system`; PROCUREMENT −15 `audit`, +15 `system`. **Se conservan** los status de **negocio** (`*_status_value_id`, y los `status_value_id` de PROCUREMENT que apuntan a catálogos reales PO_STATUS/RECEIPT_STATUS…). Limpiadas 246 reglas `dq` + 123 `keys` colgantes. **Divisa NO tocada**: el patrón multidivisa (`*_currency_id` de alcance local/funcional/transaccional/reporte) es legítimo, no redundante.
+
+**(B) Barrido SCD2.** Los campos SCD2 (historización de la fila) se **materializan automáticamente desde las delta properties (D05)**, no se modelan (el metamodelo modela 0). Retirados el placeholder basura `"SCD2 (3)"` (33), `is_active`/`version` sueltos (18, ya dentro de `system`) y `valid_from`/`valid_to` donde acompañaban a SCD2 (8). **Conservada la vigencia de negocio real** (contratos/acuerdos/asignaciones con plazo). Después también se retiran `valid_from`/`valid_to` de `address`/`contact`/`ownership_structure` (no son vigencia de negocio; la historia la da SCD2).
+
+**(C) `legal_entity` reestructurada: golden record magro + satélites por concern.** El maestro dejaba de ser identidad para ser cajón de sastre y duplicaba datos (`primary_tax_id`≟`tax_registration_number`, `business_registration_number`≟`registration_number`, `vat_number` mal ubicado). Core reducido a **15 atributos de identidad pura** (`id`, code, name, short_name, legal_form, `country_of_incorporation`, `lei_code`, kind, incorporation/dissolution_date, parent/ultimate_parent, lifecycle_status, notes, system). Cada concern a su satélite (FK al `id` del maestro): `legal_entity_tax_profile`, `legal_entity_registration`, **`legal_entity_financial_profile`** (nuevo), **`legal_entity_listing`** (nuevo), **`legal_entity_audit_profile`** (nuevo), **`legal_entity_classification`** (nuevo), `legal_entity_address`, `legal_entity_contact`. Quitados del core: `country_of_tax_residence` (redundante con `tax_profile`), `internal_management_responsibility_party_id` (es un rol/asignación, no identidad; irá en org/HR), `consolidation_group_id` (ver E). FINANCE 133→137 entidades.
+
+**(D) Criterio de PK para aceleradores de negocio (regla general).** Distinto del metamodelo, para anonimización de datos dependientes:
+- **Maestro** (lo referencian otros por FK): `PK=[id]`, `id=sha2('datum:'||BK)`, `UI` sobre la BK natural. El `id` opaco permite anonimizar.
+- **Dependiente hoja** (sin FK entrante): **sin surrogate**; `PK=[<id del padre> + discriminadores]`. Hereda anonimización por el `id` del padre; los discriminadores son códigos de catálogo, no sensibles. (Las 8 hijas de `legal_entity` son hojas verificadas: 0 FK entrantes.)
+
+**(E) Cardinalidades corregidas a la realidad de una entidad legal única.** Una entidad se constituye en **un** país, se inscribe en **un** registro, tiene **una** identidad fiscal de origen. La multiplicidad (IVA/registro extranjero) es **presencia operativa / establecimiento**, no filas de la entidad. Resultado: **1:1** `tax_profile`, `registration`, `financial_profile`; **1:N** `audit_profile` (coauditoría FR), `listing` (dual-listing), `classification` (varios CNAE/NAICS por esquema+código), `address`, `contact`. **Pertenencia a consolidación = M:N** vía `consolidation_scope_member` (retirado `consolidation_group_id` del core, forzaba grupo único). Cargos (CEO/administrador) = asignación de rol, futura capa org/HR.
+
+**(F) Calendario fiscal enganchado a TIME.** La dimensión TIME ya trae una jerarquía **`FISCAL` (`PARALLEL_CONFIG`)** parametrizada por compañía (pendiente anotado en el propio fichero: "valores por compañía → perfil de compañía"). Se materializa: `financial_profile.fiscal_year_start_month`/`day` + `fiscal_period_kind_value_id` (→PERIOD_KIND_DEFAULT) **parametrizan TIME.FISCAL**; `accounting_book.fiscal_year_start` pasa a **override**; el **fin de ejercicio se deriva** (inicio−1 día); los períodos reales (`accounting_period.period_start/end_date`) unen a TIME por fecha. Sustituye a `fiscal_year_end_month/day` (fin) del perfil.
+
+**(G) Catálogo `CLASSIFICATION_SCHEME` completo (12 esquemas).** CNAE, NACE, NAICS, SIC, UK_SIC, ISIC, NAF/APE, ATECO, WZ, ANZSIC, GICS, ICB (cada uno con descripción). `legal_entity_classification` es N por esquema **y** por código (una empresa puede tener varios CNAE). `classification_code` debe validar contra el catálogo de códigos de su esquema (per-scheme, pendiente de poblar).
+
+**(H) Repo `DATUM Metadato` = fuente única de verdad.** Los JSON `datum_*` (minúscula) del repo son la fuente que pinta el **visor canónico**; `dataplane-demo` es copia. Sincronizado el repo al estado limpio: **eliminadas 74 tablas de metamodelo obsoletas** (limpiezas ya hechas que el repo arrastraba) e **incluidos OBSERVABILITY/FINANCE/PROCUREMENT** en `datum_modelo_canonico`/`carga_inicial`/`catalogos`. Los ficheros bootstrap `DATUM_*` (mayúscula: `DATUM_Modelo_Datos_Metadato`, `DATUM_Carga_Inicial_Metadato`, `DATUM_Catalogos`) **RETIRADOS a `_to_delete`**: `datum_*` es la fuente única que **formará** el bootstrap del Control Plane — no se gestiona doble. Copia viva de los aceleradores movida al repo.
+
+**Estado tras M-67:** metamodelo núcleo sin cambio; **FINANCE 137** (legal_entity 15 + 8 satélites, 4 nuevos); PROCUREMENT 15; visor y repo alineados (fuente única). `legal_entity` cerrada como golden record.
+
+**Pendientes:** poblar catálogos de códigos por esquema de clasificación; aceleradores COMMERCIAL/HR y sus dependencias; modelar establecimiento/sucursal (IVA extranjero) cuando toque; asignación de cargos (org/HR); i18n; retirar viejo PARTY. **Registro oficial.**
+
+### METADATO-68 — Autoridades fiscales/registrales → maestro `regulator`; impuestos aplicables (`legal_entity_tax`) desacoplando el sesgo IVA — DECIDIDO
+
+Continuación de M-67 sobre `legal_entity` (aceleradores de negocio; **metamodelo núcleo sin cambio**).
+
+**(A) Autoridades como `regulator`.** Los `*_authority_party_id` estaban mal anotados como dependencia `EMPLOYEE`/`HR` (volcado M-66). Repunteados al maestro **`regulator`** (M-66): `legal_entity_registration.registration_authority_party_id` → **`registration_authority_id`** (FK `regulator`; conserva `registration_authority_name` como texto de apoyo); `legal_entity_tax_profile.tax_authority_party_id` → **`tax_authority_id`** (FK `regulator`). `ownership_structure.owner_party_id` se deja **sin tocar** (decisión del founder: el owner polimórfico —legal_entity/persona/fondo— se resolverá con sus maestros). `validity_until_date` de `registration` confirmado **opcional** (null = registro indefinido; con fecha = caduca/renueva).
+
+**(B) Impuestos aplicables desacoplados del IVA.** `tax_profile` cableaba los impuestos como columnas fijas de IVA (`vat_*`) + tasa suelta de IS y de retenciones — **inválido** para IGIC (Canarias), IPSI (Ceuta/Melilla) y para N impuestos simultáneos. **Nueva entidad `legal_entity_tax`** (1:N, hoja; PK `[legal_entity_id, tax_type_value_id]`; sin surrogate, hereda anonimización del padre): un impuesto por fila con `rate_default_pct`, `scheme_value_id`, `registration_number`, `registration_status_value_id`, alta/baja. `tax_profile` queda como **cabecera de identidad fiscal + obligaciones** (territorio, NIF, autoridad, intra-EU, CbC/DAC6/DAC7/precios de transferencia, e-invoicing); **migrados fuera 8 campos** (vat_number/scheme/status/rate, IS is_subject+rate, retención is_subject+rate). **Catálogos**: +`TAX_TYPE` (14: IVA/IGIC/IPSI/VAT/GST/SALES_TAX/IS/CIT/IRPF_RET/WHT/IRNR/IAE/ITP_AJD/STAMP_DUTY), +`TAX_SCHEME` (8, incl. ZEC/REF canario), +`TAX_REGISTRATION_STATUS` (6); **retirados** `VAT_SCHEME`/`VAT_REGISTRATION_STATUS` (huérfanos tras la migración).
+
+**Estado tras M-68:** FINANCE **137→138** entidades; `tax_profile` 29→21 atributos; catálogos +3 −2. Verificado: `legal_entity_tax` PK compuesta, hoja sin surrogate, row_id deterministas; 0 keys/dq colgantes en `tax_profile`. Repo + visor + Instrucciones escritos.
+
+**Pendientes:** `owner` polimórfico de ownership cuando lleguen maestros persona/fondo; ~53 `*_party_id` (approved_by/prepared_by/reviewed_by/customer…) a la espera de HR (`employee`)/COMMERCIAL (`customer`); poblar `classification_code` por esquema; poblar valores reales de impuestos por entidad. **Registro oficial.**
+
+### METADATO-69 — Acelerador **Recursos Humanos (HR)** materializado; `employee` como maestro de persona interna; satélites y cableado de catálogos metadata-first — DECIDIDO
+
+Acelerador de negocio (**metamodelo núcleo sin cambio**). Materializa HHRR sobre `datum_terminos_modelo__HHRR_v1.json` (esquema v2) y su integración en la vista canónica.
+
+**(A) Materialización y saneo global.** **76 entidades** HR bajo 9 términos padre (EMPLOYEE, POSITION, COMPENSATION_PACKAGE, PAYROLL_RUN, PERFORMANCE_REVIEW, BENEFIT_ENROLLMENT, TIME_OFF_REQUEST, EMPLOYEE_CERTIFICATION, CANDIDATE); **1.166 atributos**. Saneo: TYD canónicos, `system` compuesto (M-9) en lugar de audit+`status_value_id` sueltos, repunte de dependencias party/legal_entity. Rellenadas las entidades *stub* vacías desde estándar HR.
+
+**(B) `employee` = maestro de persona interna** (decisión del founder: **no** `natural_person` compartido). Golden record magro (21 atributos: identidad legal, estado de ciclo de vida, empleador actual, contrato actual, manager, fechas de alta, HRBP/recruiter, centro de trabajo primario). `PK=[id]`, `id=sha2('datum:'||BK)`, `UI=[current_legal_entity_id, employee_code]`.
+
+**(C) Dependencias y cardinalidades.** `work_center` (centro de trabajo) **dependiente de `legal_entity`** (`DEPENDENT_MASTER`, `UI=[legal_entity_id, work_center_code]`); `employee` **dependiente de `legal_entity`** (empleador). Del empleado cuelgan como **hojas débiles** (`PK=[employee_id (+discriminador)]`, sin surrogate, heredan anonimización del padre): `employee_contact`, `employee_address`, `employee_work_authorization` (1:N por país). `employee` **partido en 6 satélites 1:1** por *concern*: `employee_personal_profile`, `employee_payroll_profile`, `employee_employment_terms`, `employee_termination`, `employee_data_privacy` (RGPD). Contrato/contacto/dirección = dependientes del empleado, **sin relación directa con `legal_entity`**.
+
+**(D) Catálogos poblados + cableado metadata-first.** **100 catálogos HR**, todos con valores (85 CONFIRMADO + 15 FROM_VISOR pre-sembrados). De **141** atributos `*_value_id`: **138 cableados** al catálogo (`tyd=TYD_CODE`, `fk_target=reference_value`, `reference_catalog`, `catalog_ref_metadata_only=true`) — reutilizando los existentes y **creando 38 catálogos nuevos** (BACKGROUND_CHECK_*, INTERVIEW_STAGE/SESSION/MODE/RECOMMENDATION, OFFER_STATUS, PIP_*, PERFORMANCE_OBJECTIVE/RATING_SCALE/DIMENSION, BENEFIT_CLAIM/PLAN_TIER, DATA_PROCESSING_LEGAL_BASIS (RGPD art. 6), EMERGENCY_CONTACT_RELATIONSHIP, CANDIDATE_SOURCE/WITHDRAWAL, TIME_OFF/PAYROLL transaction, PROFICIENCY_LEVEL, …). **3 dejados sin cablear a catálogo por ser FK a maestro real**: `preferred_language`→`language`; `competency`/`target_competency`→`competency`. `applicable_jurisdiction_value_id` (×3: benefit_program, time_off_accrual_policy, training_program) **reconvertido a FK a `country`** (`applicable_jurisdiction_country_id`, `TYD_COUNTRY_CODE_ISO`).
+
+**Estado tras M-69:** HR **76 entidades / 1.166 atributos / 100 catálogos**. Verificado: los 104 catálogos referenciados por HR existen; canónico y términos coinciden (138 = 138); **0 FK colgantes**. Repo + visor + Instrucciones escritos.
+
+**Pendientes:** repuntar los ~53 `*_party_id` de FINANCE a `employee`; acelerador **COMMERCIAL** (`customer`) y las 2 FK aún colgantes de HR (`brand`, `sales_commission_plan`); i18n; poblar valores reales de catálogo por cliente. **Registro oficial.**
+
+### METADATO-70 — Repunte de `*_party_id` internos a `employee` y saneo integral de `fk_target` malformados (cierre FINANCE/PROCUREMENT) — DECIDIDO
+
+Aceleradores de negocio (**metamodelo núcleo sin cambio**). Cierra los dos flecos que quedaban de M-66/67/68 tras materializar HR (M-69).
+
+**(A) `*_party_id` internos → maestro `employee`.** Los 110 `*_party_id` de FINANCE/PROCUREMENT/MDM estaban todos con `fk_target=None` ("a la espera de HR"). Clasificados por semántica: **97 actores internos** (aprobadores, preparadores, revisores, responsables, custodios, tesorería, comprador interno, comercial interno, firmante, receptor…) **repunteados a FK `employee`** y **renombrados `*_party_id` → `*_employee_id`** (convención de FK a maestro), con su entrada `keys` FK. Los de mayor volumen: `approved_by` (×14), `prepared_by` (×13), `reviewed_by` (×13), `responsible` (×10). En canónico hay ahora **133 FK a `employee`** (97 nuevos + 36 internos de HR), todas resuelven. **13 contrapartes externas dejadas intactas** (no son empleados; esperan **COMMERCIAL** `customer` / maestros de contraparte): `customer_party_id` (×5), `client`, `lessor`, `beneficiary`, `intermediary`, `disputing`, `disposal_buyer`, `account_holder_secondary`, y `owner_party_id` de `ownership_structure` (owner polimórfico, decisión del founder en M-68).
+
+**(B) Saneo de `fk_target` malformados.** Auditado TODO el modelo: **22 valores / 47 ocurrencias** de `fk_target` que no resolvían a entidad (truncamientos `'al'`/`'cc'`/`'opcional'`, anotaciones `'(D8)'`/`'(polimórfico)'`, y destinos con el nombre del atributo en vez del maestro). Corregido derivando el destino del **nombre del atributo** (no de la cadena rota): **29 apuntados a maestro real existente** — `*_currency_id`→`currency`, `*_country_id`→`country`, `journal_entry_id_linked`→`journal_entry`, `bank_statement_entry_id`→`bank_statement_entry`, `cost_center_id`→`cost_center`, `account_id_linked`→`account`, `responsible_business_unit_id`→`business_unit`, `linked_assumption_id`→`budget_assumption`, `access_grant_ref`→`data_access_request`. **40 pasados a `None`** (bien formado = sin FK único): **22 polimórficas** (`*_object_row_uuid`, cuya dispersión porta su `*_object_type_code` acompañante — verificado) y **18 de maestros aún no modelados** (`location` ×3, `billing_item` ×2, `cash_pooling_arrangement`, `brand`, `sales_commission_plan`, `entity_reference`, `source_reference`).
+
+**Estado tras M-70:** FINANCE/PROCUREMENT **sin FK rotas** (0 `fk_target` malformado en todo el modelo); recuentos de entidades/atributos sin cambio (solo renombrado y repunte de FK). Aplicado a canónico + términos FINANCE + términos PROCUREMENT; escrito a repo + visor + Instrucciones. **FINANCE y PROCUREMENT quedan cerrados.**
+
+**Pendientes:** maestros aún no modelados que dejan FK en `None` (marketing `brand`, `sales_commission_plan`, `location`, `billing_item`, `cash_pooling_arrangement` — se enlazarán cuando lleguen sus aceleradores); acelerador **COMMERCIAL** (`customer`) para las 13 contrapartes externas; owner polimórfico de ownership; i18n. **Registro oficial.**
+
+### METADATO-71 — Acelerador **Comercial (COMMERCIAL_v1)**: maestro `customer`, cierre order-to-cash y pipeline `opportunity` — DECIDIDO
+
+Acelerador de negocio (**metamodelo núcleo sin cambio**). Cierra la contraparte cliente que FINANCE tenía en espera.
+
+**(A) Maestro `customer`** (espejo fiel de `supplier`): golden record + satélites. `PK=[id]=sha2('datum:'||customer_code)`, `UI=[customer_code]`, jerarquía de grupo por `parent_customer_id`. **Satélites**: `customer_contact`, `customer_address` (billing/shipping), `customer_bank_account` (SEPA), `customer_credit_profile` (1:1: límite, rating, riesgo, DSO), `customer_tax_registration` (1:N por país, patrón `legal_entity_tax`).
+
+**(B) Cierre order-to-cash.** Los 8 FK que estaban en `None` esperando cliente → `customer` (renombrados a `customer_id`): `customer_invoice`, `credit_note`, `debit_note`, `customer_payment`, `dunning_case` (`customer_party_id`), `invoice_dispute.disputing_party_id`→`disputing_customer_id`, `project.client_party_id`.
+
+**(C) Pipeline de venta (término COM_SALES).** `opportunity` (deal) + `opportunity_line`. Flujo **lead → opportunity → customer**: la oportunidad referencia `source_lead_id` (→`lead`, MARKETING), `customer_id` (→`customer`), `campaign_id` (atribución); `stage`/`status` (QUALIFICATION…CLOSED_WON/LOST), importe/probabilidad/fechas, `owner_employee_id`.
+
+**Estado tras M-71:** COMMERCIAL **8 entidades / 91 atributos / 7 catálogos** (4 CONFIRMADO + 3 BORRADOR). Nuevos catálogos `CUSTOMER_KIND/SEGMENT/STATUS`, `CREDIT_RATING`, `OPPORTUNITY_STAGE/STATUS/LOSS_REASON`; reutilizados CONTACT/ADDRESS/PAYMENT_METHOD/RISK_LEVEL/TAX_SCHEME. Fichero `datum_terminos_modelo__COMMERCIAL_v1.json` (row_id uuid5). Verificado: 0 FK colgantes, canónico↔términos coherentes. Repo + visor + Instrucciones.
+
+**Fronteras:** `brand`/`product`/`billing_item` NO son de COMMERCIAL (→ MARKETING, M-72). Contrapartes no-cliente (lessor/beneficiary/intermediary/disposal_buyer/account_holder_secondary/owner de ownership) intactas. **Pendientes**: quote/order/contract si se amplía el pipeline; afinar los 3 catálogos BORRADOR. **Registro oficial.**
+
+### METADATO-72 — Acelerador **Marketing (MARKETING v1+v2)**: marca, producto/oferta, precios, campañas, segmentos y demand-gen — DECIDIDO
+
+Acelerador de negocio (**metamodelo núcleo sin cambio**). Absorbe `BRAND_AND_PRODUCT` bajo un único acelerador **MARKETING**; greenfield (ninguna entidad marketing preexistente).
+
+**(v1) Marca + Producto + Precios (18→ ver abajo).** **BRAND**: `brand` (maestro) + `brand_registration` (marca registrada/IP) + `brand_license` (royalties) + `brand_valuation`. **PRODUCT**: `product` (maestro/item vendible) + `product_family` + `product_catalog` + `product_catalog_item` (M:N). **PRICING**: `price_list` + `price`. Cierra los 3 FK colgantes: `position.primary_brand_id`→`brand`; `supplier_invoice_line`/`customer_invoice_line`.`billing_item_id`→`product_id`→`product`.
+
+**(v2) Campañas + Segmentos + Demand-gen** (acelerador → v1.1.0). **CAMPAIGN**: `campaign` + `campaign_channel` + `campaign_metric` + `content_asset`. **MARKET**: `market_segment` + `customer_segment_membership` (M:N cliente↔segmento). **DEMAND**: `lead` (PII) + `campaign_response`. **Handoff MARKETING→COMMERCIAL**: `lead.converted_opportunity_id`→`opportunity` (y `converted_customer_id`→`customer`), cerrando el flujo `lead → opportunity → customer`.
+
+**Catálogos:** importados los **39 reservados** de `BRAND_AND_PRODUCT_v1` al `datum_catalogos.json` bajo `canonical_accelerator=MARKETING` (3 CONFIRMADO con valores del doc —NICE_CLASS/BRAND_KIND/BRAND_STATUS—, resto BORRADOR/PENDIENTE); +14 nuevos v2 (CAMPAIGN_*, MARKETING_CHANNEL, CONTENT_*, SEGMENT_KIND, LEAD_*, OPPORTUNITY_* comparte con COMMERCIAL). Fichero suelto `datum_catalogos__BRAND_AND_PRODUCT_v1.json` **retirado a `_to_delete`** (no doble gestión).
+
+**Estado tras M-72:** MARKETING **18 entidades / 179 atributos / 49 catálogos** (3 CONFIRMADO + 38 BORRADOR + 8 PENDIENTE); acelerador v1.1.0. Fichero `datum_terminos_modelo__MARKETING_v1.json` (row_id uuid5). Verificado: 0 FK colgantes/malformados en todo el modelo. Repo + visor + Instrucciones.
+
+**Pendientes:** afinar los catálogos BORRADOR de marketing; `MARKETING_v3` si se amplía (attribution multi-touch, journeys). **Registro oficial.**
+
+### METADATO-73 — COMMERCIAL_v2: extensión del pipeline (CPQ + order + contrato) y puente order-to-cash a FINANCE — DECIDIDO
+
+Continuación de M-71 (COMMERCIAL; **metamodelo núcleo sin cambio**). Extiende el pipeline de venta más allá de `opportunity`.
+
+**(A) CPQ y pedido (término COM_SALES).** `quote` (maestro, desde `opportunity`: `price_list_id`→lista de precios MARKETING, versión, validez, `status`, totales) + `quote_line` (producto, cantidad, precio, descuento). `sales_order` (desde `quote`: `status`, entrega solicitada, PO del cliente, totales) + `sales_order_line` (producto, cantidad servida).
+
+**(B) Contratos (término COM_CONTRACT).** `customer_contract` (espejo de `procurement_contract`: cliente, tipo, vigencia, auto-renovación, `billing_frequency`, importe comprometido, `owner_employee_id`) + `contract_line` (producto, precio recurrente, frecuencia). Soporta la facturación recurrente.
+
+**(C) Puente order-to-cash a FINANCE.** `customer_invoice` gana FK reales `sales_order_id`→`sales_order` y `customer_contract_id`→`customer_contract` (antes referencias de texto). El `customer_purchase_order_reference` se mantiene como texto (PO externo del cliente). Flujo cerrado: **lead → opportunity → quote → sales_order → customer_invoice → customer_payment**, y en paralelo **customer_contract → customer_invoice** (recurrente).
+
+**Estado tras M-73:** COMMERCIAL **8→14 entidades** (v1.1.0), +6 (`quote`/`quote_line`/`sales_order`/`sales_order_line`/`customer_contract`/`contract_line`); catálogos +5 BORRADOR (`QUOTE_STATUS`, `SALES_ORDER_STATUS`, `CUSTOMER_CONTRACT_KIND`, `CONTRACT_STATUS`, `BILLING_FREQUENCY`). Verificado: 0 FK malformados en todo el modelo, row_id uuid5, canónico↔términos coherentes. Repo + visor + Instrucciones.
+
+**Fuera de alcance (otro acelerador):** entrega/logística (albarán/envíos) → OPS. **Pendientes:** afinar catálogos BORRADOR de COMMERCIAL/MARKETING; i18n. **Registro oficial.**
+
+### METADATO-74 — Saneo de catálogos: reparación de corrupción `_PENDIENTE_`, fusión de duplicado y poblado de universales — DECIDIDO
+
+Higiene transversal de catálogos (sin cambios de entidades del núcleo; toca FINANCE ya registrado solo en catálogos + 2 repuntes de `reference_catalog`).
+
+**(A) Corrupción de carga reparada (2 patrones, 42 catálogos).** En la carga original, el literal `"_PENDIENTE_"` se iteró carácter a carácter y se materializó como valores `{_,P,E,N,D,I,T}`. **28 catálogos** (todos FINANCE FROM_VISOR) tenían ese set como únicos valores → vaciados a **PENDIENTE**. Otros **14** lo tenían **mezclado** con valores reales (`ACCOUNTING_STANDARD`, `TAX_KIND`, `TAX_TREATMENT`, `PRECISION_ROUNDING`, `PRESENTATION_UNIT`, `E_INVOICING_STATUS`, `AGING_BUCKET`, `GRANULARITY`…) → eliminadas las letras, conservando sus valores. Corregido de paso un exceso de la limpieza: restaurados `A`/`B` de `CREDIT_RATING`.
+
+**(B) `PAYMENT_METHOD` poblado.** Estaba corrupto y lo reutilizan supplier/customer: BANK_TRANSFER, DIRECT_DEBIT_SEPA, CARD, CASH, CHECK, WIRE, STANDING_ORDER, OTHER (CONFIRMADO).
+
+**(C) Fusión de duplicado intra-FINANCE.** `APPLIES_TO_ACCOUNTING_STANDARD` (asset_category) y `PRESENTATION_ACCOUNTING_STANDARD` (consolidation_group) eran duplicados vacíos del catálogo rico `ACCOUNTING_STANDARD` (20 valores). Repunteados sus 2 atributos → `ACCOUNTING_STANDARD` (13 refs) y **retirados los 2 catálogos**. Criterio de fusión: **solo dentro del mismo acelerador** (decisión del founder); no se cruzan aceleradores.
+
+**(D) Universales de FINANCE poblados (BORRADOR).** 9 catálogos estándar (métodos de amortización, tipos FX AVERAGE/CLOSING, `REPAYMENT_FREQUENCY`, `ASSET_KIND_DEFAULT`, `DISCLOSURE_PERIOD`, `SUBLEDGER_REFERENCE_KIND`, `SOURCE_DOCUMENT_REFERENCE_KIND`). **16 estructurales** dejados vacíos a propósito (CUSTOM_DIMENSION_1..5, PARENT, NEW/PREVIOUS_STATUS, APPROVER_ROLE, SUBSCRIBER_ROLE, DEFAULT_CURRENCY… → deben ser FK a maestro/otro catálogo, no enum propio; pendientes de doctrina del founder).
+
+**(E) Duplicados no fusionados (por diseño).** Tras el saneo quedan 4 grupos con valores idénticos intra-acelerador que son **coincidencia, no mismo concepto** (`PAYMENT_FREQUENCY`≟`CONSOLIDATION_FREQUENCY`, `DEPRECIATION_FREQUENCY`≟`PERIOD_KIND_DEFAULT`, `ENTRY_SIDE`≟`NORMAL_BALANCE_SIDE`, `ACCRUAL_POLICY_STATUS`≟`BENEFIT_PROGRAM_STATUS`). Se **mantienen separados**: son atributos distintos; fusionarlos acoplaría campos no relacionados y quitaría flexibilidad.
+
+**Estado tras M-74:** catálogos 623→**621** (−2 fusionados); **583 referencias resuelven todas, 0 basura de 1 carácter, 0 FK malformados**. Repo + visor + Instrucciones. **Pendientes:** poblar los 16 estructurales de FINANCE con doctrina del founder; i18n. **Registro oficial.**
+
+### METADATO-75 — Acelerador **Almacén (WAREHOUSE_v1 / WMS)** completo — DECIDIDO
+
+Acelerador de negocio nuevo (**metamodelo núcleo sin cambio**). Gestión de almacenes de punta a punta, greenfield.
+
+**17 entidades en 7 familias.** **WH_STRUCTURE**: `warehouse` (maestro→legal_entity), `warehouse_zone`, `storage_bin` (ubicación). **WH_ITEM**: `warehouse_item` (config producto×almacén: tracking NONE/LOT/SERIAL, min/max/reorder, ABC), `stock_lot` (lote/caducidad), `serial_number`. **WH_STOCK**: `stock_balance` (on_hand/reserved/available por producto×almacén×ubicación×lote), `stock_reservation` (contra `sales_order_line`). **WH_MOVEMENT**: `stock_movement` (ledger de inventario), `stock_adjustment`(+`_line`). **WH_INBOUND**: `putaway_task` (desde `goods_receipt_line`). **WH_OUTBOUND**: `pick_task` (desde `sales_order`), `shipment`(+`_line`) = albarán. **WH_COUNT**: `cycle_count`(+`_line`).
+
+**Enganches (sin duplicar):** entrada→`goods_receipt_line` (PROCUREMENT), salida→`sales_order`/`_line` (COMMERCIAL), artículo→`product` (MARKETING), propietario→`legal_entity`, operarios→`employee`, lotes→`supplier`. **Puente order-to-cash a FINANCE**: `customer_invoice.shipment_id`→`shipment` (antes `delivery_note_reference` de texto). Cadena logística cerrada: recepción→putaway→stock→reserva→picking→shipment→factura.
+
+**Estado tras M-75:** WAREHOUSE **17 entidades / 188 atributos / 19 catálogos** (BORRADOR). Fichero `datum_terminos_modelo__WAREHOUSE_v1.json` (row_id uuid5); reutiliza `UOM`. Verificado: 0 FK malformados, canónico↔términos coherentes. Repo + visor + Instrucciones. **Registro oficial.**
+
+### METADATO-76 — Acelerador **Manufactura (MANUFACTURING_v1)** completo — DECIDIDO
+
+Acelerador de negocio nuevo (**metamodelo núcleo sin cambio**). Fabricación de productos desde materias primas vía fórmula/escandallo; greenfield.
+
+**11 entidades en 4 familias.** **MF_BOM**: `bill_of_materials` (fórmula/escandallo: producto terminado, versión, lote base), `bom_line` (componentes MP/semi + merma), `bom_coproduct` (co-productos/subproductos/mermas). **MF_ROUTING**: `production_line` (recurso), `routing`, `routing_operation` (secuencia, tiempos). **MF_ORDER**: `production_order` (OF), `production_order_component` (planificado vs consumido, con lote), `production_order_output` (terminado+co-productos, lote nuevo, calidad), `production_operation_log`. **MF_COSTING**: `product_standard_cost` (escandallo de coste por componente MATERIAL/LABOR/OVERHEAD — estructura modelada; tasas = doctrina del founder).
+
+**Enganches:** MP entra por `goods_receipt` (PROCUREMENT)→`stock_lot`/`stock_balance` (WAREHOUSE); la OF consume componentes (stock out) según BOM y genera `production_order_output` (stock in, lote nuevo)→disponible para `sales_order`. Producto=`product` (MARKETING), con `PRODUCT_KIND` ampliado a **RAW_MATERIAL/SEMI_FINISHED/FINISHED_GOOD**; `STOCK_MOVEMENT_KIND` +CONSUMPTION/PRODUCTION_RECEIPT; `MOVEMENT_REFERENCE_KIND` +PRODUCTION_ORDER.
+
+**Estado tras M-76:** MANUFACTURING **11 entidades / 121 atributos / 11 catálogos** (BORRADOR). Fichero `datum_terminos_modelo__MANUFACTURING_v1.json` (row_id uuid5). **Flujo end-to-end completo**: compra→almacén→fabricación→almacén→venta→envío→factura. Verificado: 0 FK malformados en todo el modelo. Repo + visor + Instrucciones. **Registro oficial.**
+
+### METADATO-77 — Afinado de catálogos BORRADOR de WAREHOUSE y MANUFACTURING — DECIDIDO
+
+Higiene de catálogos (sin cambios de entidades). Los **30 catálogos** en BORRADOR de los dos aceleradores nuevos → **CONFIRMADO**, con descripción en español por cada valor y enriquecimiento puntual: `STOCK_ADJUSTMENT_REASON` +COUNT_VARIANCE/OBSOLESCENCE, `WAREHOUSE_KIND` +CROSS_DOCK. Verificado: 0 BORRADOR restantes en WAREHOUSE/MANUFACTURING, todas las referencias de catálogo resuelven, JSON íntegro. Repo + visor + Instrucciones. **Registro oficial.**
+
+### METADATO-78 — Cierre del modelo común: 6 aceleradores nuevos (SUPPLY_CHAIN, QUALITY, SERVICE, LEGAL, EAM, PROJECT) — DECIDIDO
+
+Cierre funcional del modelo común de empresa (**metamodelo núcleo sin cambio**). Seis aceleradores de negocio nuevos que completan la cobertura de dominios, construidos en una pasada con el patrón heredado (PK/UI, `system`, row_id uuid5, catálogos metadata-first). **36 entidades / 53 catálogos.**
+
+**SUPPLY_CHAIN (8)** — cadena de suministro: `carrier`, `transport_route`, `freight_order`(+`_stop`, enlaza `shipment`), `transfer_order`(+`_line`) entre almacenes, `demand_forecast`, `replenishment_proposal` (MRP: BUY/MAKE/TRANSFER).
+
+**QUALITY (5)** — QMS: `quality_specification`, `quality_inspection`(+`_line`; entrada←`goods_receipt`, proceso←`production_order`), `non_conformance`, `corrective_action` (CAPA).
+
+**SERVICE (6)** — postventa: `service_case`(+`_activity`), `return_order`(+`_line`, RMA con disposición), `warranty`, `warranty_claim`.
+
+**LEGAL (7)** — llena el slot antes vacío (entity_count 0→7): `contract` (repositorio unificado) + `contract_clause`/`contract_obligation`, `legal_case`(+`_event`), `permit_license`(→`regulator`), `compliance_obligation` (GDPR/ISO/SOX…).
+
+**EAM (5)** — mantenimiento: `equipment`(→`fixed_asset`/`production_line`), `maintenance_plan`, `maintenance_work_order`(+`_task`), `spare_part_usage` (consume stock).
+
+**PROJECT/PSA (5)** — extiende el `project` existente: `project_phase`, `project_task`, `project_milestone`, `timesheet_entry`(→`employee`), `project_resource_assignment`.
+
+**Estado tras M-78:** canónico 576→**612 entidades**; **15 aceleradores** (13 de negocio, todos con contenido). Catálogos 651→**703** (+53 BORRADOR). Ficheros `datum_terminos_modelo__{SUPPLY_CHAIN,QUALITY,SERVICE,LEGAL,EAM,PROJECT}_v1.json` (row_id uuid5). **Modelo común completo end-to-end**: planificar→aprovisionar→recepcionar/inspeccionar→almacenar→fabricar→recontar→vender→reservar→picking→enviar(transporte)→facturar→cobrar→postventa/RMA/garantía; con RRHH, Finanzas, Marketing, Legal, Mantenimiento y Proyectos como transversales. Verificado: **0 FK malformados en todo el modelo**, todos los catálogos referenciados existen, row_ids únicos. Repo + visor + Instrucciones.
+
+**Pendientes:** afinar los 53 catálogos BORRADOR de los 6 aceleradores; poblar los 16 estructurales de FINANCE; i18n. **Registro oficial.**
+
+### METADATO-79 — Saneo y cierre de catálogos FINANCE (estructurales + universales) — DECIDIDO
+
+Higiene final de los catálogos de FINANCE que quedaban sin poblar tras M-74. Tratados según su naturaleza real, no poblados a ciegas.
+
+**(A) Estructurales (16).** **4 enum genuinos poblados**: APPROVER_ROLE, CALCULATION_METHOD_USED, SCENARIO_HORIZON_KIND, EFFECTIVE_TAX_RATE_METHODOLOGY (Pilar 2/GloBE). **5 `CUSTOM_DIMENSION_1..5` → catálogo ABIERTO** (dimensiones analíticas definidas por el cliente; valores por instalación). **5 atributos reconducidos a FK real** (no eran catálogos): `analytical_dimension_value.parent_value_id`→FK `analytical_dimension_value`; `account.default_currency_value_id`→`default_currency_id` FK `currency`; `accounting_period_state_history.new_status`/`previous_status`→catálogo `PERIOD_STATUS`; `dunning_communication.dunning_level_at_communication`→`CURRENT_DUNNING_LEVEL`. **2 sin uso eliminados** (SUBSCRIBER_ROLE, BREACHED_THRESHOLD_KIND). Catálogos retirados: PARENT, DEFAULT_CURRENCY, NEW_STATUS, PREVIOUS_STATUS, DUNNING_LEVEL_AT_COMMUNICATION, SUBSCRIBER_ROLE, BREACHED_THRESHOLD_KIND (7).
+
+**(B) Universales (9).** **5 eran duplicados**: DEFAULT/NEW_DEPRECIATION_METHOD → catálogo existente `DEPRECIATION_METHOD` (3 attrs repunteados); ASSET_KIND_DEFAULT → `ASSET_KIND`; AVERAGE/CLOSING_FX_RATE_KIND (idénticos) unificados en nuevo `FX_RATE_KIND` (2 attrs). Los 5 duplicados eliminados. **7 finalizados a CONFIRMADO** con descripción ES: DEPRECIATION_METHOD, ASSET_KIND, FX_RATE_KIND, REPAYMENT_FREQUENCY, DISCLOSURE_PERIOD, SUBLEDGER_REFERENCE_KIND, SOURCE_DOCUMENT_REFERENCE_KIND.
+
+**Estado tras M-79:** catálogos 703→**692** (−11 retirados: 7 estructurales + 5 duplicados − 1 FX_RATE_KIND nuevo). **0 catálogos BORRADOR en todo el modelo**; **0 FK malformados, 0 refs rotas.** Repo + visor + Instrucciones. Registro oficial.
+
+### METADATO-80 — i18n SHORT (es/en/fr/pt) del modelo de negocio — DECIDIDO
+
+Generación de traducciones **nivel SHORT (rótulo UI)** en 4 idiomas (es/en/fr/pt) para todo el modelo de negocio (13 aceleradores). Fichero `datum_i18n_negocio.json`.
+
+**Cobertura: 9.845 objetos** — 335 entidades canónicas + 5.404 atributos + 4.106 valores de catálogo. Anclaje por `row_id` (uuid5) de la entidad/atributo en los ficheros `terminos`; para valores de catálogo `row_id = uuid5('REFERENCE_VALUE:'+catálogo+':'+code)`.
+
+**Generación por tokens** (es/fr/pt derivados de un diccionario de tokens con reversión romance sustantivo→«de»→modificador y fusión sustantivo+adjetivo pospuesto; en fiel al code). Solo SHORT; SUMMARY y FUNCTIONAL quedan pendientes.
+
+**Revisión a mano de los 335 rótulos de entidad** (es/en/fr/pt): 0 tokens EN sin traducir, 0 «de»+adjetivo, gramática romance corregida; idiomatismos por override (escandallo, plan de cuentas, recibo de nómina, Pilar 2/GloBE, CbC, DAC, dependencia jerárquica…). Atributos y valores de catálogo quedan como generación por tokens (revisar es/fr/pt).
+
+**Alcance:** los 13 aceleradores de negocio. El core (METADATA/OBSERVABILITY) usa otro esquema de `row_id` (fuente markdown) y no está incluido — pendiente.
+
+**Entrega:** repo + visor (`public/datum_i18n_negocio.json`) + Instrucciones. Registro oficial.
+
+### METADATO-81 — i18n del CORE y unificación de todo el modelo en el formato del visor — DECIDIDO
+
+**Hallazgo previo.** El visor (`canonico/page.tsx`) une i18n por `sha256('datum:CANONICAL_ENTITY:'+name)[:16]` y **solo lee `datum_i18n_d2.json`**. El `datum_i18n_negocio.json` de M-80 estaba en claves `uuid5` (otro esquema, sin prefijo `datum:`) y **no lo renderizaba nada** — no había script de conversión. Con M-80 el negocio no se veía en el visor.
+
+**(A) i18n del CORE.** Generado nivel SHORT (es/en/fr/pt) para las **279 entidades del core** (METADATA/OBSERVABILITY, D0–D4) + 2.436 atributos + 529 valores de catálogo, en el formato del visor (`sha256-16`, prefijo `datum:`), fusionado en `datum_i18n_d2.json`. El D2 previo (40 entidades con SHORT/SUMMARY/FUNCTIONAL a mano) queda **intacto**. Rótulos de entidad **revisados a mano** (0 tokens EN sin traducir, 0 desacuerdos de género/número). Lexicón ampliado: Unity Catalog (`information_schema`, `compute`, `lakeflow`…), GDPR (interesado, tratamiento, finalidad, consentimiento), metamodelo (golden record→registro maestro, survivorship, cotejo…).
+
+**(B) Unificación del negocio.** Los 335 rótulos de negocio ya revisados a mano se **re-clavaron** de `uuid5` a `sha256-16` y se fusionaron en `datum_i18n_d2.json` (335 entidades + 5.404 atributos + 3.577 valores; 529 colisiones de catálogos compartidos omitidas). +37 atributos residuales de canónico cubiertos. `datum_i18n_negocio.json` queda **obsoleto**.
+
+**Resultado.** `datum_i18n_d2.json` = **modelo completo**: **612/612 entidades** con i18n resoluble por el visor, 0 atributos sin i18n, claves 100% `sha256-16`. Totales: 628 entidades (612 modelo + legacy D2), 8.046 atributos, 4.109 valores → **12.820 objetos**. Visor (`public/`) + repo (`DATUM_i18n_D2.json`). Registro oficial.
+
+### METADATO-82 — i18n niveles SUMMARY y FUNCTIONAL para todo el modelo — DECIDIDO
+
+Completados los tres niveles de texto (SHORT + **SUMMARY** + **FUNCTIONAL**) en es/en/fr/pt para los **12.820 objetos** de `datum_i18n_d2.json` (628 entidades, 8.046 atributos, 4.109 valores).
+
+**Fuente y método (sin invención).**
+- **es** — SUMMARY = el campo `desc` real de disco (entidad/atributo/valor); FUNCTIONAL = `desc` + estructura tomada del propio modelo (nº de atributos, clave natural, FK a entidades, catálogos referenciados; en atributos: tyd, obligatoriedad, FK/catálogo).
+- **en/fr/pt** — SUMMARY/FUNCTIONAL por **plantilla estructural** en cada idioma, con los nombres ya traducidos (SHORT) y los hechos del modelo. El `desc` libre (solo español en disco) **no se traduce a máquina**: en no-es el texto es estructural, no prosa inventada.
+
+**Preservado.** Las 40 entidades D2 con SUMMARY/FUNCTIONAL redactados a mano (y todo objeto que ya tenía ambos niveles) quedan **intactos**. 56 objetos de negocio no presentes en canónico (`data_product`, `data_product_subscription`, `party`) reciben nivel mínimo derivado del SHORT.
+
+**Estado.** Cobertura 12.820/12.820 con los 3 niveles en 4 idiomas; SHORT intacto. Marcado GENERADO_MAQUINA (revisar es/fr/pt; en fiel). Tamaño del fichero ≈ 10,3 MB — el visor lo descarga completo; si el peso molesta, se puede separar SHORT (visor) de SUMMARY/FUNCTIONAL (Control Plane) en un segundo fichero. Visor (`public/`) + repo (`DATUM_i18n_D2.json`). Registro oficial.
+
+### METADATO-83 — FUNCTIONAL de entidades con prosa traducida real (en/fr/pt) — DECIDIDO
+
+Mejora del nivel FUNCTIONAL (y SUMMARY) de las **entidades** en inglés, francés y portugués: se sustituye la plantilla estructural por **traducción real de la prosa** del `desc`.
+
+**Alcance.** 515 entidades con `desc` en disco (las 40 ya redactadas a mano quedan intactas; las 85 sin `desc` conservan su FUNCTIONAL estructural). Traducción es→en/fr/pt del `desc` con terminología profesional de gobierno del dato, preservando identificadores técnicos (snake_case, `TYD_*`, catálogos en MAYÚSCULAS, siglas, códigos `M-nn`/`DATUM-nn`, flechas →). SUMMARY.{en,fr,pt} = `desc` traducido; FUNCTIONAL.{en,fr,pt} = `desc` traducido + estructura (atributos/PK/FK/catálogos) del modelo. **es** sin cambios.
+
+**Verificación.** 515/515 traducidas, 0 idiomas vacíos, identificadores técnicos conservados (revisión de posibles pérdidas: solo valores de ejemplo localizados, no identificadores reales). SHORT intacto; 40 entidades ricas sin alterar; 12.820/12.820 objetos con los 3 niveles en 4 idiomas.
+
+**Pendiente (no bloqueante).** El desc libre de **atributos y valores** en en/fr/pt sigue como plantilla estructural (no prosa traducida). Fichero ≈ 10,5 MB. Visor (`public/`) + repo (`DATUM_i18n_D2.json`). Registro oficial.
+
+### METADATO-84 — FUNCTIONAL/SUMMARY de atributos y valores con prosa traducida real (en/fr/pt) — DECIDIDO
+
+Cierre de la internacionalización: se sustituye la plantilla estructural por **traducción real de la prosa** del `desc` también en **atributos** (5.225 con `desc`) y **valores de catálogo** (1.461 con `desc`).
+
+**Método (dedup + traducción profesional).** Los 6.686 objetos con `desc` se deduplicaron a **4.777 textos únicos** (muchos `desc` se repiten: campos de auditoría, claves, etc.), traducidos es→en/fr/pt con terminología de gobierno del dato/contabilidad/GDPR y preservando identificadores técnicos (snake_case, `TYD_*`, catálogos en MAYÚSCULAS, siglas, códigos `M-nn`, valores de enum, fórmulas). Reconstrucción: SUMMARY.{en,fr,pt} = `desc` traducido; FUNCTIONAL.{en,fr,pt} = `desc` traducido + estructura (atributos: tyd/obligatoriedad/FK/catálogo; valores: «code» del catálogo). **es** sin cambios.
+
+**Verificación.** 4.777/4.777 textos traducidos, 0 idiomas vacíos, identificadores preservados. 249 objetos redactados a mano en el D2 original intactos; SHORT intacto; 12.820/12.820 objetos con los 3 niveles en 4 idiomas.
+
+**Estado final i18n.** Modelo COMPLETO trilingüe+es: **SHORT + SUMMARY + FUNCTIONAL** en es/en/fr/pt para los 12.820 objetos, con prosa traducida de verdad en todo lo que tiene `desc` en disco (entidades, atributos y valores). Fichero ≈ 11 MB. Visor (`public/`) + repo (`DATUM_i18n_D2.json`). Registro oficial.
+
+### METADATO-85 — Partición del i18n del visor por nivel (rendimiento) — DECIDIDO
+
+Optimización de carga del visor separando el i18n **por nivel**, no por acelerador. Motivo (patrón real de consumo del visor `canonico/page.tsx`): el **SHORT es transversal** (árbol de todos los aceleradores + buscador global), mientras que **SUMMARY/FUNCTIONAL solo se muestran en la ficha** del objeto seleccionado, de uno en uno.
+
+**Datos.** Fichero completo 11 MB (gzip 1,34). SHORT = 3,0 MB; detalle (SUMMARY+FUNCTIONAL) = 7,0 MB. El coste real es el **parseo** del JSON al cargar, no la transferencia.
+
+**Solución.** Dos ficheros en el visor (`dataplane/public`): `datum_i18n_d2.json` = **solo SHORT** (carga al entrar; árbol y buscador funcionan en todo el modelo); `datum_i18n_detail.json` = **SUMMARY+FUNCTIONAL** (carga **diferida** en segundo plano y fusión en el mismo mapa `i18n` por clave `sha256`; la resolución de etiquetas no cambia). Parseo inicial 11 MB → 3,7 MB.
+
+**Cambio de código.** `src/app/dashboard/canonico/page.tsx` y `src/app/page.tsx`: el `fetch` de `datum_i18n_d2.json` encadena un `fetch` diferido de `datum_i18n_detail.json` que hace merge de `texts` por clave. Descartada la partición **por acelerador** como eje único: el SHORT es global (buscador/árbol), partir por acelerador obligaría a cargar los 15 ficheros o degradaría el buscador.
+
+**Fuente de verdad.** El repo `DATUM_i18n_D2.json` conserva el fichero **completo** (bootstrap del Control Plane); los dos ficheros partidos son artefactos derivados del visor. Registro oficial.
+
+### METADATO-86 — Detalle i18n troceado por acelerador con carga bajo demanda — DECIDIDO
+
+Fase 2 de la partición (sobre M-85): el detalle (SUMMARY+FUNCTIONAL) se **trocea por acelerador** y se carga solo el del acelerador cuya ficha se abre.
+
+**Ficheros.** SHORT (`datum_i18n_d2.json`, 3,9 MB) ahora incluye el campo **`acc`** en cada objeto. Detalle repartido en **18 ficheros** `datum_i18n_detail_<ACC>.json` (15 aceleradores + `MISC` para objetos sin acelerador + `GLOBAL`/`_GLOBAL_` para catálogos transversales). Tamaños: FINANCE 3,1 MB (el mayor), METADATA 1,2 / OBSERVABILITY 1,1 / HR 1,0, el resto ≤ 0,3 MB. El antiguo `datum_i18n_detail.json` queda como stub obsoleto.
+
+**Visor.** `canonico/page.tsx` y `page.tsx`: se revierte el fetch único de detalle; se añade `loadDetail(acc)` (guardado por un `Set` de aceleradores ya cargados, merge por clave `sha256`) disparado al seleccionar objeto — `useEffect` sobre `sel` (lee `acc` del objeto en `i18n`) y sobre `selCat` (lee `canonical_accelerator` del catálogo). Al abrir un acelerador se descarga solo su detalle (≤ 3,1 MB) en vez de los 7,9 MB completos.
+
+**Consistencia verificada.** 12.820 objetos de detalle = SHORT; 0 claves ausentes, 0 desajustes de `acc`, 0 objetos SHORT sin detalle. El mapeo entidad→acelerador usa el mismo seed que el visor (`canonical_entity.business_term_code`→`business_term.canonical_accelerator_code`); valores por `canonical_accelerator` del catálogo. Repo `DATUM_i18n_D2.json` sigue **completo** (fuente de verdad). Registro oficial.
+
+### METADATO-87 — Estándares sectoriales: andamiaje en el metamodelo + acelerador HEALTHCARE + piloto FHIR — DECIDIDO
+
+Mecanismo para **sectorizar** aplicando estándares específicos (FHIR salud, BIAN banca, ACORD seguros). Principio: el modelo canónico sigue siendo la **verdad semántica única**; un estándar es una **capa de correspondencia (crosswalk) + perfil** encima del canónico, no un modelo paralelo. Generaliza el patrón que FINANCE ya usa para normas contables (`accounting_standard` + `account_statement_mapping` + `is_required_by_standard`).
+
+**(A) Andamiaje (core, METADATA · subdominio SECTOR_STANDARDS).** 3 entidades nuevas: `sector_standard` (registro: autoridad, versión, sector, URI, estado), `canonical_standard_entity_map` (crosswalk entidad canónica ↔ recurso del estándar), `canonical_standard_attribute_map` (crosswalk atributo ↔ elemento, con transformación, unidad y enlace a value set/terminología). Catálogos nuevos `MAP_DIRECTION`, `STANDARD_STATUS`; y 6 autoridades añadidas a `STANDARD_AUTHORITY` (HL7, BIAN, ACORD, SNOMED, LOINC, ISO 20022). Reutiliza `SECTORAL_TEMPLATE` (ya tenía FHIR/BIAN/ACORD), `MAPPING_RELATION`, `PRIMARY_INDUSTRY_SECTOR` y `reference_catalog.external_authority_code/external_standard_ref`.
+
+**(B) Acelerador HEALTHCARE (6 entidades, alineadas a FHIR).** `patient`, `practitioner`, `care_organization`, `encounter`, `observation`, `condition`. 10 catálogos: value sets FHIR (ADMINISTRATIVE_GENDER, ENCOUNTER_CLASS/STATUS, OBSERVATION_STATUS, CONDITION_CLINICAL/VERIFICATION_STATUS, ORGANIZATION_TYPE) y abiertos enlazados a terminología externa (OBSERVATION_CODE→LOINC, CONDITION_CODE/PRACTITIONER_SPECIALTY→SNOMED CT). Terminos `HEALTHCARE_v1` (2 términos). Acelerador 16.º; PII/sensibilidad marcadas en `patient`/`observation`/`condition`.
+
+**(C) Piloto FHIR (bidireccional).** `sector_standard` FHIR (HL7, R4) + **7 crosswalks de entidad** (patient→Patient, practitioner→Practitioner, care_organization→Organization, encounter→Encounter, observation→Observation, condition→Condition, y `legal_entity`→Organization reutilizando el canónico) + **31 crosswalks de atributo** (p. ej. `patient.family_name`→`Patient.name.family`, `condition.condition_snomed_code`→`Condition.code` [SNOMED], `observation.observation_loinc_code`→`Observation.code` [LOINC]) con `standard_value_set_uri` y `bound_reference_catalog_code`. Sembrados en `carga_inicial`.
+
+**Conformidad = DQ derivada** (no modelada): sale de `is_required_by_standard` + `cardinality_min/max` + value sets enlazados.
+
+**Sectorización de la empresa:** el tenant selecciona estándar(es) por configuración de instalación (D00: no hay tabla `client`); las partes del modelo (`legal_entity`…) se clasifican con `CLASSIFICATION_SCHEME`/`PRIMARY_INDUSTRY_SECTOR`.
+
+**Estado tras M-87:** entidades **612→621** (+3 andamiaje METADATA, +6 HEALTHCARE); METADATA 163→166; aceleradores 15→16. i18n es/en/fr/pt de todo lo nuevo (117 entidad/atributo + 54 valores), prosa traducida; HEALTHCARE ya es fichero de detalle propio del visor (carga bajo demanda). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+### METADATO-88 — Estándar sectorial BIAN (banca): acelerador BANKING + crosswalks — DECIDIDO
+
+Segundo estándar sectorial sobre el andamiaje de M-87, siguiendo `PLANTILLA_estandar_sectorial.md` (los 10 pasos). La banca retail no está en el canónico → **acelerador de extensión BANKING** + estándar **BIAN** como capa de correspondencia+perfil.
+
+**(A) Acelerador BANKING (6 entidades, alineadas a BIAN).** `banking_product` (Product Directory), `account_arrangement` (Current Account / Arrangement), `banking_transaction` (Account Position Transaction), `card` (Bank Card), `payment_order` (Payment Order / ISO 20022 pain.001), `loan_arrangement` (Consumer Loan). 10 catálogos: BANKING_PRODUCT_KIND, ACCOUNT_TYPE_BANKING, ARRANGEMENT_STATUS, BANKING_TRANSACTION_TYPE/STATUS, PAYMENT_METHOD_BANKING, PAYMENT_ORDER_STATUS, CARD_TYPE/STATUS, LOAN_STATUS — enlazados a BIAN / ISO 20022. Terminos `BANKING_v1` (4 términos: BK_PRODUCT/BK_ACCOUNT/BK_PAYMENT/BK_LENDING); `is_regulatory`=PSD2/SEPA; PII/sensibilidad en cuenta/tarjeta/pago/préstamo. Reutiliza `customer`, `legal_entity`, `currency`.
+
+**(B) Estándar BIAN (bidireccional).** `sector_standard` BIAN (autoridad BIAN, v12.0, sector FINANCIAL_SERVICES) + **8 crosswalks de entidad** (los 6 nuevos + `customer`→Customer y `legal_entity`→Legal Entity por solape) + **27 crosswalks de atributo** con rutas BIAN (p. ej. `account_arrangement.iban`→`CurrentAccount.IBAN`, `payment_order.amount`→`PaymentOrder.PaymentAmount`, `banking_transaction.transaction_type_value_id`→`AccountPositionTransaction.TransactionType` [ISO 20022], `loan_arrangement.outstanding_balance`→`ConsumerLoan.OutstandingBalance`). Sembrados en `carga_inicial`.
+
+**Conformidad = DQ derivada** (is_required_by_standard + cardinalidades + value sets).
+
+**Estado tras M-88:** entidades **621→627** (+6 BANKING); aceleradores 16→17; **2 estándares sectoriales** conviviendo sobre el mismo canónico (FHIR salud M-87, BIAN banca). i18n es/en/fr/pt de todo lo nuevo (83 entidad/atributo + 54 valores), prosa traducida; BANKING ya es fichero de detalle propio del visor (carga bajo demanda). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+### METADATO-89 — Estándar sectorial ACORD (seguros): acelerador INSURANCE + crosswalks — DECIDIDO
+
+Tercer estándar sectorial sobre el andamiaje de M-87, siguiendo `PLANTILLA_estandar_sectorial.md`. Los seguros no están en el canónico → **acelerador de extensión INSURANCE** + estándar **ACORD** como capa de correspondencia+perfil. Completa el trío FHIR (salud) / BIAN (banca) / ACORD (seguros) sobre un canónico único.
+
+**(A) Acelerador INSURANCE (7 entidades, alineadas a ACORD).** `insurance_product`, `insurance_policy` (Policy), `coverage` (Coverage), `insured_risk` (InsuredObject), `premium` (Premium), `claim` (Claim), `claim_payment` (ClaimPayment). 9 catálogos: LINE_OF_BUSINESS, POLICY_STATUS, COVERAGE_TYPE/STATUS, RISK_TYPE, PREMIUM_FREQUENCY, CLAIM_TYPE/STATUS, CLAIM_PAYMENT_STATUS — enlazados a ACORD. Terminos `INSURANCE_v1` (3 términos: INS_PRODUCT/INS_POLICY/INS_CLAIM); `is_regulatory`=Solvencia II/IDD; PII/sensibilidad en póliza/siniestro/prima/pago. Reutiliza `customer`, `legal_entity`, `currency`, `country`.
+
+**(B) Estándar ACORD (bidireccional).** `sector_standard` ACORD (autoridad ACORD, v2023, sector FINANCIAL_SERVICES) + **9 crosswalks de entidad** (los 7 nuevos + `customer`→Party y `legal_entity`→Party por solape) + **26 crosswalks de atributo** con rutas ACORD (p. ej. `insurance_policy.policy_number`→`Policy.PolicyNumber`, `coverage.coverage_type_value_id`→`Coverage.CoverageCd`, `claim.claim_status_value_id`→`Claim.ClaimStatusCd`, `claim_payment.payment_amount`→`ClaimPayment.PaymentAmt`). Sembrados en `carga_inicial`.
+
+**Conformidad = DQ derivada** (is_required_by_standard + cardinalidades + value sets).
+
+**Estado tras M-89:** entidades **627→634** (+7 INSURANCE); aceleradores 17→18; **3 estándares sectoriales** sobre un canónico único (FHIR M-87, BIAN M-88, ACORD M-89). i18n es/en/fr/pt de todo lo nuevo (85 entidad/atributo + 63 valores), prosa traducida; INSURANCE ya es fichero de detalle propio del visor (carga bajo demanda). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+### METADATO-90 — HEALTHCARE a operativa exhaustiva (FHIR) — DECIDIDO
+
+Ampliación del acelerador HEALTHCARE de las 6 entidades piloto (M-87) a **28 entidades**, cubriendo la operativa clínica y administrativa alineada con recursos FHIR. Las 6 previas (patient, practitioner, care_organization, encounter, observation, condition) quedan intactas.
+
+**+22 entidades** en 5 términos nuevos:
+- **HC_ADMIN:** location, device, practitioner_role, related_person, episode_of_care, healthcare_service.
+- **HC_SCHEDULING:** schedule, slot, appointment.
+- **HC_CLINICAL (amplía):** procedure, allergy_intolerance, immunization, care_plan, diagnostic_report, service_request, specimen.
+- **HC_MEDICATION:** medication, medication_request, medication_administration.
+- **HC_FINANCIAL:** patient_coverage (FHIR Coverage), patient_invoice.
+- **HC_DOCUMENT:** document_reference.
+
+**36 catálogos** nuevos (value sets FHIR: appointment-status, medicationrequest-status, specimen-status, allergyintolerance-clinical…; abiertos a ATC/SNOMED/CVX). **+22 crosswalks de entidad** y **+47 de atributo** extendiendo el estándar FHIR (M-87), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (234 entidad/atributo + 157 valores), prosa traducida.
+
+**Estado tras M-90:** entidades **634→656** (+22 HEALTHCARE, total acelerador 28); i18n del visor por acelerador (HEALTHCARE 0,26 MB, carga bajo demanda); consistencia SHORT↔detalle verificada. **0 referencias rotas.** Repo + visor. Registro oficial.
+
+### METADATO-91 — BANKING a operativa exhaustiva (BIAN) — DECIDIDO
+
+Ampliación del acelerador BANKING de las 6 entidades piloto (M-88) a **28 entidades**, cubriendo la operativa de banca retail alineada con BIAN. Las 6 previas (banking_product, account_arrangement, banking_transaction, card, payment_order, loan_arrangement) quedan intactas.
+
+**+22 entidades** en 5 términos nuevos:
+- **BK_PARTY:** beneficiary, counterparty, party_bank_relationship.
+- **BK_ACCOUNT (amplía):** account_balance_snapshot, account_statement, direct_debit_mandate, standing_order, account_signatory.
+- **BK_CARD:** card_authorization, card_transaction, card_dispute.
+- **BK_PAYMENT (amplía):** payment_execution, sepa_direct_debit.
+- **BK_LENDING (amplía):** loan_repayment_schedule, loan_repayment, collateral, guarantee.
+- **BK_RISK:** credit_limit, credit_score.
+- **BK_COMPLIANCE:** kyc_case, aml_alert.
+- **BK_TREASURY:** fx_deal.
+
+**25 catálogos** nuevos (estados de mandato/tarjeta/disputa/ejecución de pago [ISO 20022 pain.002/008], KYC/AML, FX, garantías…). **+22 crosswalks de entidad** y **+45 de atributo** extendiendo el estándar BIAN (M-88), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (216 entidad/atributo + 104 valores), prosa traducida. `is_regulatory`=PSD2/AML5/Basel.
+
+**Estado tras M-91:** entidades **656→677** (+22 BANKING, total acelerador 28); i18n del visor por acelerador (BANKING 0,24 MB, carga bajo demanda); consistencia SHORT↔detalle verificada. **0 referencias rotas.** Repo + visor. Registro oficial.
+
+### METADATO-92 — INSURANCE a operativa exhaustiva (ACORD) — DECIDIDO
+
+Ampliación del acelerador INSURANCE de las 7 entidades piloto (M-89) a **28 entidades**, cubriendo el ciclo de vida asegurador alineado con ACORD. Las 7 previas (insurance_product, insurance_policy, coverage, insured_risk, premium, claim, claim_payment) quedan intactas.
+
+**+21 entidades** en 5 términos nuevos:
+- **INS_COMMERCIAL:** insurance_quote, insurance_application, policy_endorsement, policy_renewal, policy_cancellation.
+- **INS_DISTRIBUTION:** producer, commission, policy_party, beneficiary_designation.
+- **INS_CLAIM (amplía):** claim_activity, claim_reserve, claim_adjuster_assignment, subrogation, loss_event.
+- **INS_UNDERWRITING:** underwriting_case, risk_assessment, rating_factor.
+- **INS_REINSURANCE:** reinsurance_treaty, reinsurance_cession.
+- **INS_BILLING:** billing_account, premium_installment.
+
+**23 catálogos** nuevos (estados de cotización/solicitud/suplemento/siniestro/reaseguro/facturación, decisión de suscripción, motivos, tipos de mediador/reaseguro…). **+21 crosswalks de entidad** y **+39 de atributo** extendiendo ACORD (M-89), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (189 entidad/atributo + 104 valores). `is_regulatory`=Solvencia II/IDD.
+
+**Estado tras M-92:** entidades **677→698** (+21 INSURANCE, total acelerador 28). **Los tres estándares (FHIR/BIAN/ACORD) con acelerador de extensión a 28 entidades.** 0 referencias rotas. Repo + visor. Registro oficial.
+
+> Nota de alcance: "28 entidades" es el **núcleo operativo** de cada dominio, no el modelo completo del estándar (BIAN/ACORD/FHIR son mucho más amplios). Ampliaciones futuras por áreas de negocio priorizadas.
+
+### METADATO-93 — BANKING · Área A «Retail a fondo» (BIAN) — DECIDIDO
+
+Primera ampliación por áreas priorizadas del acelerador BANKING sobre su núcleo operativo de 28 entidades (M-91). El área **A (Retail a fondo)** profundiza depósitos, pagos, tarjetas y préstamos retail alineados con los Service Domains BIAN correspondientes. Las 28 previas quedan intactas.
+
+**+20 entidades** (BANKING **28→48**):
+- **BK_DEPOSIT (nuevo):** term_deposit, interest_accrual, account_fee, statement_line.
+- **BK_PAYMENT (amplía):** payment_initiation, clearing_settlement, correspondent_bank, payment_batch, swift_message.
+- **BK_CARD (amplía):** card_issuance, card_installment_plan, loyalty_program, merchant, acquiring_transaction.
+- **BK_LENDING (amplía):** mortgage, loan_drawdown, arrears_case, collection_action, loan_restructuring, loan_provision.
+
+**18 catálogos** nuevos (tipos/estados de depósito a plazo, devengo de intereses, comisiones, compensación/liquidación [ISO 20022], mensajería SWIFT MT, emisión de tarjeta, planes de aplazamiento, fidelización, adquirencia, hipoteca/disposición, impago/mora, acciones de cobro, reestructuración, provisiones IFRS 9…). **+20 crosswalks de entidad** y **+45 de atributo** extendiendo el estándar BIAN (M-88/M-91), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (196 entidad/atributo + 80 valores). `is_regulatory`=PSD2/SEPA/IFRS 9/Basel.
+
+**Estado tras M-93:** entidades **698→718** (+20 BANKING, total acelerador **48**); i18n del visor por acelerador (carga bajo demanda); consistencia SHORT↔detalle verificada. **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: el área A es la primera de una ampliación por áreas de BANKING. Quedan pendientes B (canales y servicing), C (banca corporativa / trade finance) y D (mercados / securities).
+
+### METADATO-94 — BANKING · Área B «Canales y servicing» (BIAN) — DECIDIDO
+
+Segunda ampliación por áreas priorizadas del acelerador BANKING sobre el área A (M-93). El área **B (Canales y servicing)** cubre la atención al cliente, la gestión de casos y reclamaciones, los canales (físicos y digitales) y la venta/relación, alineada con el área de negocio BIAN *Sales & Service*. Las 48 entidades previas quedan intactas.
+
+**+20 entidades** (BANKING **48→68**) en 3 términos nuevos:
+- **BK_SERVICING (nuevo):** servicing_case, servicing_order, complaint, complaint_resolution, customer_interaction, interaction_note, customer_communication.
+- **BK_CHANNEL (nuevo):** channel, servicing_session, branch, atm, atm_operation, online_banking_enrollment, device_registration, channel_activity.
+- **BK_SALES (nuevo):** sales_lead, sales_opportunity, product_application, customer_relationship, customer_appointment.
+
+**35 catálogos** nuevos (tipos/estados de expediente y orden de servicing, categoría/canal/estado de reclamación y resolución, tipo/sentido de interacción y comunicación, tipo/estado de canal, método de autenticación, estado de sesión, tipo/estado de oficina y cajero, operación de cajero, alta digital, dispositivo y confianza, actividad de canal, origen/estado de lead, etapa de oportunidad, estado de solicitud, segmento/estado de relación, tipo/estado de cita). **+20 crosswalks de entidad** y **+37 de atributo** extendiendo el estándar BIAN (M-88), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (193 entidad/atributo + 173 valores). `is_regulatory`=FCA DISP/MiFID II/IDD (reclamaciones y venta asesorada).
+
+Dos IDs colisionaban con otros aceleradores (`lead`→MARKETING, `appointment`→HEALTHCARE); renombrados a **sales_lead** y **customer_appointment** para no sobrescribir.
+
+**Estado tras M-94:** entidades **718→738** (+20 BANKING, total acelerador **68**); i18n del visor por acelerador (carga bajo demanda); consistencia SHORT↔detalle verificada (14.898 objetos, 0 ausentes). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: área B de la ampliación por áreas de BANKING. Quedan pendientes C (banca corporativa / trade finance) y D (mercados / securities).
+
+### METADATO-95 — BANKING · Área C «Banca corporativa / trade finance» (BIAN) — DECIDIDO
+
+Tercera ampliación por áreas priorizadas del acelerador BANKING. El área **C (Banca corporativa / trade finance)** cubre la financiación corporativa, el comercio exterior, la gestión de tesorería corporativa y los mercados de tesorería, alineada con las áreas de negocio BIAN correspondientes. Las 68 entidades previas quedan intactas.
+
+**+20 entidades** (BANKING **68→88**) en 4 términos nuevos:
+- **BK_CORPORATE_LENDING:** credit_facility, syndicated_loan, loan_syndication_share, loan_covenant, credit_agreement, facility_utilization.
+- **BK_TRADE_FINANCE:** letter_of_credit, documentary_collection, bank_guarantee, trade_finance_document, bill_of_exchange, factoring_agreement, factored_invoice, supply_chain_finance_program.
+- **BK_CASH_MANAGEMENT:** cash_pool, pool_participant_account, sweep_instruction, liquidity_position.
+- **BK_CORPORATE_TREASURY:** fx_forward_contract, money_market_deal.
+
+**26 catálogos** nuevos (tipos/estados de línea, rol de sindicación, covenants IFRS/Basel, crédito documentario y remesa [ICC UCP 600 / URC 522], garantías [URDG 758], documentos comerciales, factoring/confirming, cash pooling y barridos, mercado monetario, FX). **+20 crosswalks de entidad** y **+54 de atributo** extendiendo el estándar BIAN (M-88), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (206 entidad/atributo + 116 valores). `is_regulatory`=ICC UCP 600/URC 522/URDG 758, Basel/IFRS 9, EMIR.
+
+**Estado tras M-95:** entidades **738→758** (+20 BANKING, total acelerador **88**); i18n del visor por acelerador (carga bajo demanda); consistencia SHORT↔detalle verificada (15.217 objetos, 0 ausentes). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: área C de la ampliación por áreas de BANKING. Queda pendiente D (mercados / securities: custodia, valores, derivados, corporate actions), que cierra el mapa priorizado.
+
+### METADATO-96 — BANKING · Área D «Mercados / securities» (BIAN) — DECIDIDO
+
+Cuarta y última ampliación por áreas priorizadas del acelerador BANKING. El área **D (Mercados / securities)** cubre los valores y su negociación, la custodia y operaciones corporativas, la gestión de inversión y los derivados, alineada con las áreas de negocio BIAN correspondientes. Las 88 entidades previas quedan intactas. **Con esta área se cierra el mapa priorizado de BANKING sobre BIAN (A retail, B canales/servicing, C corporativa/trade finance, D mercados/securities).**
+
+**+20 entidades** (BANKING **88→108**) en 4 términos nuevos:
+- **BK_SECURITIES:** financial_instrument, equity_instrument, debt_instrument, securities_order, trade_execution, securities_settlement, market_data_quote.
+- **BK_CUSTODY:** custody_account, securities_position, safekeeping_instruction, corporate_action, corporate_action_election, dividend_payment.
+- **BK_INVESTMENT:** investment_portfolio, investment_mandate, asset_allocation, brokerage_account.
+- **BK_DERIVATIVES:** derivative_contract, option_contract, margin_call.
+
+**26 catálogos** nuevos (tipos/clases de instrumento, ratings, órdenes y ejecución [MiFID II/MiFIR], centros de negociación, CSD [Iberclear/Euroclear/Clearstream/DTC], custodia DVP/FOP, operaciones corporativas, perfiles de riesgo, categoría MiFID, derivados/opciones/márgenes [EMIR]). **+20 crosswalks de entidad** y **+44 de atributo** extendiendo el estándar BIAN (M-88), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (204 entidad/atributo + 112 valores). `is_regulatory`=MiFID II/MiFIR, CSDR/SRD II, EMIR.
+
+**Estado tras M-96:** entidades **758→778** (+20 BANKING, total acelerador **108**); i18n del visor por acelerador (carga bajo demanda); consistencia SHORT↔detalle verificada (15.525 objetos, 0 ausentes). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: BANKING queda con **108 entidades** repartidas en las cuatro áreas priorizadas. Es un núcleo operativo amplio y coherente alineado con BIAN, no el modelo completo del estándar (BIAN como arquitectura de servicios abarca ~320 Service Domains, en su mayoría capacidades de servicio, no entidades de datos). Ampliaciones ulteriores, si se requieren, por sub-áreas concretas bajo demanda.
+
+### METADATO-97 — INSURANCE · Área A «Producto y póliza a fondo» (ACORD) — DECIDIDO
+
+Primera ampliación por áreas priorizadas del acelerador INSURANCE sobre su núcleo de 28 entidades (M-92), replicando el enfoque de BANKING. El área **A (Producto y póliza a fondo)** profundiza la estructura de producto, el detalle de coberturas, el objeto asegurado y sus intereses, y el desglose de prima, alineada con ACORD. Las 28 previas quedan intactas.
+
+**+20 entidades** (INSURANCE **28→48**) en 4 términos (2 nuevos):
+- **INS_PRODUCT (amplía):** product_coverage_option, rating_table, policy_form.
+- **INS_POLICY (amplía):** coverage_limit, deductible, sub_limit, peril, policy_form_attachment.
+- **INS_INSURED (nuevo):** insured_object, exposure, additional_insured, lienholder, insurable_interest, risk_location, valuation.
+- **INS_PREMIUM (nuevo):** premium_component, premium_tax, premium_adjustment, discount_surcharge, no_claim_bonus.
+
+**20 catálogos** nuevos (tipos de cobertura/límite/franquicia/peril, objeto asegurado, base de exposición, roles e intereses, ocupación/construcción, métodos de valoración, componentes e impuestos de prima, bonificaciones/recargos). **+20 crosswalks de entidad** y **+33 de atributo** extendiendo ACORD (M-89), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (170 entidad/atributo + 101 valores). `is_regulatory`=Solvencia II/IDD.
+
+**Estado tras M-97:** entidades **778→798** (+20 INSURANCE, total acelerador **48**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+*Fin de `18-METADATO-decisiones.md` v1.73.*
+
+### METADATO-98 — INSURANCE · Área B «Suscripción y siniestros a fondo» (ACORD) — DECIDIDO
+
+Segunda ampliación por áreas del acelerador INSURANCE. El área **B (Suscripción y siniestros a fondo)** profundiza el ciclo de suscripción (submission→binder) y la gestión integral de siniestros (FNOL→litigio/CAT/fraude), alineada con ACORD. Las 48 previas quedan intactas.
+
+**+20 entidades** (INSURANCE **48→68**) en 2 términos ampliados:
+- **INS_UNDERWRITING:** submission, risk_survey, underwriting_referral, underwriting_decision, quote_option, declination, binder, loss_history.
+- **INS_CLAIM:** fnol, claimant, claim_coverage, claim_item, claim_estimate, claim_expense, salvage, recovery, litigation, catastrophe_event, fraud_investigation, reinspection.
+
+**20 catálogos** nuevos (estados de solicitud/binder/FNOL/litigio/investigación; tipos de inspección/decisión/rechazo/reclamante/partida/peritación/gasto [ALAE/ULAE]/recobro; indicadores y resultado de fraude). **+20 crosswalks de entidad** y **+39 de atributo** extendiendo ACORD, bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (187 entidad/atributo + 95 valores). `is_regulatory`=Solvencia II/IDD.
+
+**Estado tras M-98:** entidades **798→818** (+20 INSURANCE, total acelerador **68**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+*Fin de `18-METADATO-decisiones.md` v1.74.*
+
+### METADATO-99 — INSURANCE · Área C «Distribución y mediación» (ACORD) — DECIDIDO
+
+Tercera ampliación por áreas del acelerador INSURANCE. El área **C (Distribución y mediación)** cubre la agencia/correduría, el ciclo del mediador (nombramiento, licencia, formación IDD, cumplimiento) y la compensación (comisiones e incentivos), alineada con ACORD. Las 68 previas quedan intactas.
+
+**+20 entidades** (INSURANCE **68→88**) en 2 términos (1 nuevo):
+- **INS_DISTRIBUTION (amplía):** agency, agency_agreement, producer_appointment, producer_license, producer_hierarchy, book_of_business, errors_omissions_coverage, training_record, compliance_check, lead_referral.
+- **INS_COMPENSATION (nuevo):** commission_statement, commission_statement_line, commission_schedule, override_commission, chargeback, producer_bank_account, incentive_program, incentive_payout, sales_goal, producer_performance.
+
+**18 catálogos** nuevos (tipos/estados de agencia/contrato/nombramiento/licencia, relación entre mediadores, formación IDD, verificación de cumplimiento, tipos de comisión, extorno, incentivos, métricas). **+20 crosswalks de entidad** y **+38 de atributo** extendiendo ACORD, bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (180 entidad/atributo + 81 valores). `is_regulatory`=IDD.
+
+**Estado tras M-99:** entidades **818→838** (+20 INSURANCE, total acelerador **88**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+*Fin de `18-METADATO-decisiones.md` v1.75.*
+
+### METADATO-100 — INSURANCE · Área D «Vida & Ahorro + Reaseguro» (ACORD) — DECIDIDO
+
+Cuarta y última ampliación por áreas del acelerador INSURANCE. El área **D (Vida & Ahorro + Reaseguro)** añade el ramo de vida-ahorro (renta, unit-linked, rescates, prestaciones) y profundiza el reaseguro (programas, capas, facultativo, borderós, cuenta técnica, retrocesión, conmutación), alineada con ACORD. **Con esta área se cierra el mapa priorizado de INSURANCE (A/B/C/D), en paridad con BANKING.** Las 88 previas quedan intactas.
+
+**+20 entidades** (INSURANCE **88→108**) en 2 términos (1 nuevo):
+- **INS_LIFE (nuevo):** annuity, policy_rider, cash_value, surrender, policy_loan, unit_link_fund, fund_allocation, medical_underwriting, maturity_benefit, death_benefit, premium_holiday.
+- **INS_REINSURANCE (amplía):** reinsurance_program, treaty_layer, facultative_placement, reinsurance_bordereau, reinsurance_claim_recovery, retrocession, reinsurance_participant, reinsurance_account, commutation.
+
+**14 catálogos** nuevos (tipos de renta/rider/rescate, nivel de riesgo de fondo, selección médica, modalidades de prestación, borderó, estados de recobro/conmutación, rol de reasegurador). **+20 crosswalks de entidad** y **+44 de atributo** extendiendo ACORD, bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (189 entidad/atributo + 57 valores). `is_regulatory`=Solvencia II/IDD/PRIIPs.
+
+**Estado tras M-100:** entidades **838→858** (+20 INSURANCE, total acelerador **108**). **INSURANCE (ACORD) = 108 entidades, mismo alcance que BANKING (BIAN).** Núcleo operativo amplio y coherente, no el modelo completo del estándar. **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: ACORD queda con 108 entidades en cuatro áreas. FHIR/HEALTHCARE permanece en 28 (núcleo); su ampliación por áreas queda pendiente si se desea paridad total del trío.
+
+### METADATO-101 — HEALTHCARE · Área A «Admisión, episodios y flujo asistencial» (FHIR) — DECIDIDO
+
+Primera ampliación por áreas priorizadas del acelerador HEALTHCARE sobre su núcleo de 28 entidades (M-90), replicando el enfoque de BANKING/INSURANCE. El área **A** profundiza la admisión hospitalaria y el detalle del encuentro, el equipo asistencial, y añade el flujo asistencial (tareas, alertas, derivaciones, traslados, comunicaciones), alineada con FHIR R4. Las 28 previas quedan intactas.
+
+**+20 entidades** (HEALTHCARE **28→48**) en 2 términos (1 nuevo):
+- **HC_ADMIN (amplía):** hospitalization, encounter_participant, encounter_diagnosis, encounter_location, care_team, care_team_member, patient_contact, patient_link, organization_affiliation, endpoint, hospital_bed.
+- **HC_WORKFLOW (nuevo):** task, flag, patient_referral, appointment_response, waitlist_entry, admission_request, patient_transfer, communication, communication_request.
+
+**32 catálogos** nuevos (admit-source/discharge-disposition, tipos de participante/diagnóstico, estados de equipo/cama/tarea/alerta/derivación, endpoint-connection-type FHIR, medios de comunicación…). **+20 crosswalks de entidad** y **+30 de atributo** extendiendo FHIR (M-87), bidireccionales. **i18n es/en/fr/pt** de todo lo nuevo (179 entidad/atributo + 162 valores). `is_regulatory`=HL7 FHIR R4.
+
+Colisión de ID `transfer_order` (SUPPLY_CHAIN) → renombrado a **patient_transfer**. Colisión de 3 catálogos ya existentes en INSURANCE/BANKING (REFERRAL_REASON/REFERRAL_STATUS/COMMUNICATION_STATUS) → catálogos HEALTHCARE renombrados a **HC_REFERRAL_REASON/HC_REFERRAL_STATUS/HC_COMMUNICATION_STATUS**; INSURANCE y BANKING verificados sin regresión (byte-idénticos a disco).
+
+**Estado tras M-101:** entidades **858→878** (+20 HEALTHCARE, total acelerador **48**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: primera de la ampliación por áreas de HEALTHCARE. Quedan B (clínico y diagnóstico), C (medicación y farmacia) y D (financiero, cobertura y salud pública).
+
+### METADATO-102 — HEALTHCARE · Área B «Clínico y diagnóstico a fondo» (FHIR) — DECIDIDO
+
+Segunda ampliación por áreas del acelerador HEALTHCARE. El área **B** profundiza el módulo clínico (antecedentes familiares, impresión clínica, riesgo, objetivos, estructura corporal, estadificación/evidencia de condiciones, actividad de plan, ejecutores, eventos adversos e incidencias) y añade el módulo de diagnóstico (componentes y rangos de observación, imagen médica, cuestionarios, recogida de muestras, resultados, genómica), alineada con FHIR R4. Las 48 previas quedan intactas.
+
+**+20 entidades** (HEALTHCARE **48→68**) en 2 términos (1 nuevo):
+- **HC_CLINICAL (amplía):** family_member_history, clinical_impression, clinical_risk_assessment, goal, body_structure, condition_stage, condition_evidence, care_plan_activity, procedure_performer, adverse_event, detected_issue.
+- **HC_DIAGNOSTIC (nuevo):** observation_component, observation_reference_range, imaging_study, imaging_series, questionnaire, questionnaire_response, specimen_collection, diagnostic_result, molecular_sequence.
+
+**29 catálogos** nuevos (probabilidad de riesgo, objetivos, localización/lateralidad, estadificación, evento adverso, incidencia detectada, interpretación de observación, modalidad de imagen DICOM, cuestionarios, método de muestra, secuencia molecular…). **+20 crosswalks de entidad** y **+30 de atributo** extendiendo FHIR, bidireccionales. **i18n es/en/fr/pt** (178 entidad/atributo + 143 valores). `is_regulatory`=HL7 FHIR R4 / LOINC / DICOM.
+
+Colisión de ID `risk_assessment` (INSURANCE) → renombrado a **clinical_risk_assessment**. Se añadió guard anti-colisión de catálogos al pipeline (0 colisiones en esta área).
+
+**Estado tras M-102:** entidades **878→898** (+20 HEALTHCARE, total acelerador **68**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: segunda de la ampliación por áreas de HEALTHCARE. Quedan C (medicación y farmacia) y D (financiero, cobertura y salud pública).
+
+### METADATO-103 — HEALTHCARE · Área C «Medicación y farmacia a fondo» (FHIR) — DECIDIDO
+
+Tercera ampliación por áreas del acelerador HEALTHCARE. El área **C** profundiza el circuito del medicamento (dispensación, declaración, conocimiento, composición, posología, lotes, vacunación, farmacovigilancia, conciliación, monitorización) y añade el módulo de farmacia y suministros (vademécum, existencias, peticiones/entregas, nutrición, dispositivos, productos biológicos, fórmula magistral), alineada con FHIR R4. Las 68 previas quedan intactas.
+
+**+20 entidades** (HEALTHCARE **68→88**) en 2 términos (1 nuevo):
+- **HC_MEDICATION (amplía):** medication_dispense, medication_statement, medication_knowledge, medication_ingredient, dosage_instruction, medication_batch, immunization_recommendation, immunization_evaluation, adverse_drug_reaction, medication_reconciliation, therapeutic_drug_monitoring.
+- **HC_PHARMACY (nuevo):** formulary_item, pharmacy_inventory, supply_request, supply_delivery, nutrition_order, nutrition_product, device_usage, biologically_derived_product, compounding_order.
+
+**25 catálogos** nuevos (forma farmacéutica, vía/frecuencia, vacunas CVX, causalidad RAM WHO-UMC, conciliación, vademécum, suministros, dietas, producto nutricional/biológico…); reutiliza ADVERSE_EVENT_SEVERITY y OBSERVATION_INTERPRETATION. **+20 crosswalks de entidad** y **+30 de atributo** extendiendo FHIR, bidireccionales. **i18n es/en/fr/pt** (184 entidad/atributo + 133 valores). `is_regulatory`=HL7 FHIR R4 / ATC / CVX.
+
+**Estado tras M-103:** entidades **898→918** (+20 HEALTHCARE, total acelerador **88**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: tercera de la ampliación por áreas de HEALTHCARE. Queda D (financiero, cobertura y salud pública), que cerraría HEALTHCARE en 108 (paridad del trío).
+
+### METADATO-104 — HEALTHCARE · Área D «Financiero, cobertura y salud pública» (FHIR) — DECIDIDO
+
+Cuarta y última ampliación por áreas del acelerador HEALTHCARE. El área **D** cierra el acelerador con el módulo financiero y de cobertura (reclamaciones, líneas, respuestas del pagador, explicación de beneficios, elegibilidad, cuentas asistenciales, cargos y tarifas, avisos y conciliación de pagos, conciertos) y el módulo de salud pública (medidas de calidad e informes, estudios de investigación y sujetos, enfermedades de declaración obligatoria, brotes, verificación de credenciales, notificación a registros), alineada con FHIR R4. Las 88 previas quedan intactas. **Con esta área HEALTHCARE alcanza 108 entidades: paridad total del trío sectorial (BANKING 108 · INSURANCE 108 · HEALTHCARE 108).**
+
+**+20 entidades** (HEALTHCARE **88→108**) en 2 términos (1 nuevo):
+- **HC_FINANCIAL (amplía):** healthcare_claim, claim_line_item, claim_response, explanation_of_benefit, coverage_eligibility_request, coverage_eligibility_response, healthcare_account, charge_item, charge_item_definition, payment_notice, claim_payment_reconciliation, healthcare_contract.
+- **HC_PUBLIC_HEALTH (nuevo):** quality_measure, measure_report, research_study, research_subject, notifiable_condition, outbreak, verification_result, immunization_registry_report.
+
+**22 catálogos** nuevos (tipo/estado de reclamación, resultado del pagador, propósito/estado/resultado de elegibilidad, estado de cuenta/cargo/pago/concierto, puntuación/estado/tipo de informe de medida, fase y estado de estudio, estado de sujeto, enfermedad EDO y estado de notificación, estado de brote, tipo/estado de verificación, estado de notificación al registro). Genéricos colisionables prefijados **HC_** (HC_CLAIM_TYPE, HC_CLAIM_STATUS, HC_PAYMENT_STATUS, HC_CONTRACT_STATUS, HC_ACCOUNT_STATUS); **0 catálogos existentes mutados**. **+20 crosswalks de entidad** y **+46 de atributo** extendiendo FHIR, bidireccionales. **i18n es/en/fr/pt** (185 entidad/atributo + 103 valores). `is_regulatory`=HL7 FHIR R4 / EDO / GDPR.
+
+Colisión de ID `payment_reconciliation` (BANK_ACCOUNT) → renombrado a **claim_payment_reconciliation**. Anti-colisión de catálogos verificado: BANKING/INSURANCE/FINANCE detail byte-idénticos a disco. Se corrigieron 18 descripciones de atributo de fecha que quedaron en inglés → castellano con traducción.
+
+**Estado tras M-104:** entidades **918→938** (+20 HEALTHCARE, total acelerador **108**). **0 referencias rotas.** Repo + visor. Registro oficial.
+
+> Nota de alcance: cierre de la ampliación por áreas de HEALTHCARE. **Trío sectorial completo a 108 (BANKING · INSURANCE · HEALTHCARE).**
+
+---
+
+### Corrección de traza — procedencia de la «paridad 108» (a instancia de Pedro)
+
+Aclaración de gobierno sobre las decisiones M-93…M-104, incorporada al registro por orden expresa de Pedro tras detectar que la traza atribuía una decisión que él no tomó.
+
+**El «108 por acelerador» y la «paridad del trío» NO fueron una directiva de Pedro.** El registro debe leerse así:
+
+- **El 108 es una consecuencia aritmética, no un objetivo pedido.** En M-91 se fijó un núcleo operativo de 28 entidades por dominio. Al ordenarse las ampliaciones «por áreas», cada área se dimensionó en +20 entidades y resultaron 4 áreas (A/B/C/D): 28 + 4×20 = 108. El número emergió de esas dos elecciones, no de una meta previa.
+- **El cuanto de «20 por área» lo introdujo Claude**; no consta instrucción de Pedro con esa cifra. Se aplicó en la primera área de BANKING (M-93) y se arrastró al resto por inercia.
+- **La «paridad total del trío» es un encuadre propuesto por Claude.** Apareció como opción condicional en la nota de M-100 («…si se desea paridad total del trío») y se consolidó después como si fuera una meta fijada. No lo fue.
+- **Lo que Pedro sí decidió** fue el contenido concreto de cada área (qué entidades entran) al ordenar «registra» en cada una. Aprobó áreas, no un tope numérico ni una simetría entre sectores.
+
+Queda por tanto retirada cualquier lectura de las notas de M-96, M-100, M-103 y M-104 que dé a entender que la paridad 108 fue un objetivo definido por Pedro. Las entidades registradas y los recuentos **no cambian**; lo que se corrige es la **procedencia** de la decisión de simetría.
+
+### METADATO-105 — Capa de emplazamientos (SITE), producto común y saneamiento i18n — DECIDIDO
+
+Ejecución de la arquitectura por capas cerrada en sesión (`MAPA_aceleradores_capas_y_sectores.md`). Backbone obligatorio = Fundación (METADATA+OBSERVABILITY) + ERP + CRM + WAREHOUSE + **SITE**; operación sectorial, cadena de suministro y add-ons como capa variable. Todo enraíza en `legal_entity`.
+
+**Producto común (Fases 1–2b).** Un único maestro `product` (identidad + catálogo); la clasificación va por `product_family` (árbol por `hierarchy_purpose`) y las fichas sectoriales solo llevan parámetros de catálogo, enganchadas por `product_id`: banking_product, insurance_product, healthcare_service, medication, nutrition_product. `warehouse` gana `parent_warehouse_id` (auto-jerarquía) y `work_center_id` (opcional). `banking_product` profundizado + **`banking_product_fee`** (nueva) con catálogos RATE_TYPE, REFERENCE_INDEX, FEE_KIND, FEE_FREQUENCY; `insurance_product` y `product_coverage_option` enriquecidos. **Retirados** BANKING_PRODUCT_KIND y LINE_OF_BUSINESS (clasificación pura → nodos de familia); **SERVICE_CATEGORY se conserva** porque tipifica el servicio, no solo lo clasifica. El valor por cliente sigue viviendo en la cadena cotización→contrato, no en el producto.
+
+**Acelerador SITE (19.º) — 12 entidades en 3 términos:**
+- **SITE_STRUCTURE:** `point_of_sale` (generaliza tienda/súper/restaurante/sucursal/clínica; compone `work_center` + `brand`), `point_of_sale_warehouse` (N:M con almacén). Catálogos POS_TYPE, POS_STATUS, POS_WAREHOUSE_ROLE.
+- **SITE_BOOKING** (capacidad, disponibilidad y reserva): `bookable_resource` (recurso individual: habitación, mesa, plaza, pista, aula), `availability_slot` (hueco libre/ocupado, generaliza `slot` de sanidad), `reservation` (compromiso, generaliza `appointment`). Capacidad agregada = atributo `point_of_sale.total_capacity`. Catálogos RESOURCE_TYPE, RESOURCE_STATUS, AVAILABILITY_STATUS, BOOKING_STATUS. Sanidad conserva su `schedule`/`slot`/`appointment` FHIR.
+- **SITE_OPERATION** (gestión del punto): `point_opening_hours`, `point_calendar_exception` (enlazable al `public_holiday_calendar` de HR), `shift_template`, **`shift_assignment` (cuadrante)**, **`time_clock_entry` (fichaje)**, `point_demand_forecast` (demanda por fecha y franja: afluencia, tickets, comensales, pacientes) y `point_staffing_requirement` (personas necesarias por franja y puesto). Cadena **demanda → necesidad de personal → cuadrante**, comparada por punto/fecha/franja y no por FK, porque un turno existe haya previsión o no. Catálogos POINT_CALENDAR_EXCEPTION_KIND, SHIFT_KIND, SHIFT_ASSIGNMENT_STATUS, CLOCK_DIRECTION, CLOCK_CAPTURE_METHOD, POINT_DEMAND_MEASURE y DAY_OF_WEEK (`_GLOBAL_`).
+
+Frontera con HR verificada en disco: HR no tenía turnos ni fichaje. El maestro del empleado, su contrato y su jornada siguen en HR; cuadrante y fichaje son operación del punto. No se reutilizó `demand_forecast` (SUPPLY_CHAIN) porque tiene `product_id` obligatorio y granularidad de día: relajarlo habría roto su semántica de reaprovisionamiento.
+
+**Criterio de arquitectura fijado (revisión de la Fase 3d).** El plan escrito decía «absorber EAM en SITE» y «partir QUALITY en general/operativa». Al contrastar con disco **ninguna de las dos cosas se sostenía**, y se revisaron: EAM ancla a `fixed_asset`/`production_line`/`warehouse` y es capacidad transversal, no parte de la estructura del emplazamiento (absorberlo repetía el error ya corregido con WAREHOUSE); y las 5 entidades de QUALITY anclan todas a producto/lote/recepción/orden, sin mitad corporativa que separar. Queda como criterio: **una capacidad transversal no se absorbe en SITE, se ancla a SITE** — vale para WAREHOUSE, EAM y QUALITY. En consecuencia `equipment` gana `point_of_sale_id` y `work_center_id`.
+
+**Calidad del punto — resuelta por anclaje, 0 entidades nuevas.** QUALITY ya lo soportaba casi entero (producto y lote opcionales, NONCONFORMANCE_SOURCE con CUSTOMER, INSPECTION_RESULT apto/no apto). Solo faltaba el sujeto «punto»: `quality_inspection.point_of_sale_id`, `non_conformance.point_of_sale_id`, `quality_inspection_line.observation`, y `quality_specification` pasa a **criterio de producto o de punto** (`product_id` deja de ser obligatorio; gana `point_of_sale_id` e `inspection_kind_value_id`, que es lo que agrupa el protocolo/checklist). INSPECTION_KIND 5→12 valores (OPENING, CLOSING, HYGIENE, CLEANLINESS, SAFETY, BRAND_STANDARD, SITE_AUDIT).
+
+**Tipos.** `TYD_TIME_OF_DAY` y `TYD_DURATION_SECONDS` ya existían en el catálogo canónico de tipos sin uso; se ponen en uso. **El sistema de tipos no se ha tocado.**
+
+**Corrección de un error introducido en esta misma tanda.** `RESERVATION_STATUS` ya existía y era de **WAREHOUSE** (`stock_reservation`, valores ACTIVE/FULFILLED/RELEASED/EXPIRED); al crear los catálogos de SITE se sobrescribió. Restaurada a WAREHOUSE con sus valores originales y la de SITE renombrada **BOOKING_STATUS**. Barrido el resto de catálogos creados: era la única colisión. Normalizados además `estado` y `category` en los 16 catálogos nuevos, que se habían quedado fuera de convención.
+
+**Saneamiento i18n.** 398 objetos sin correspondencia, que resultaron ser cuatro cosas distintas: **206 reparados** (i18n de atributos del metamodelo con `entity: null` y `code: "entidad.atributo"`; la clave sha256 ya era correcta en los 206, así que solo se rellenaron los campos — sin altas ni bajas); **27 falsos huérfanos** (sí existen en el metamodelo; fallo de la comprobación, que los contrastaba contra el modelo de negocio); **224 bajas** revalidadas objeto a objeto justo antes de borrar, con copia de seguridad íntegra en `datum_i18n_bajas_backup.json` — 121 atributos retirados (residuo de METADATO-9: `audit` 20, `row_uuid` 16, `status_code`/`lifecycle_state_code` 4), 100 valores de catálogos vivos y 3 de TEXT_FIELD_KIND; y **73 conservados a propósito** (entidades desconocidas, incluida `party`, que PARTY_ROLE declara prevista «mientras no exista el maestro»). Huérfanos **398→100**, MISC 244→100, i18n **17.881**. Verificado que no se borró de más: las 951 entidades, sus atributos y los valores de los 1.088 catálogos conservan i18n en los cuatro idiomas.
+
+**Estado tras M-105:** entidades **938→951** (+13: `banking_product_fee` + 12 de SITE). Aceleradores 18→**19**. Catálogos **+18 / −2**. **0 FK ni catálogos rotos, 0 huérfanos modelo↔seed, 0 i18n ausente.** Términos de SITE_v1, EAM_v1 y QUALITY_v1 alineados con el modelo atributo a atributo, incluidas `keys`, integridad referencial y obligatoriedad. Repo + visor. Registro oficial.
+
+> **Pendientes que deja abiertos:**
+> 1. **Obligatoriedad condicional.** Al hacer `quality_specification.product_id` opcional, su obligatoriedad pasa a ser condicional (obligatorio si el sujeto es producto). Las reglas DQ se derivan del metamodelo y hoy no hay forma de expresar una obligatoriedad condicional. Afecta más allá de este caso.
+> 2. **No existe un inventario fiable de las tablas vivas del metamodelo.** Los dos ficheros de modelo se contradicen (171 frente a 312 entidades) y **ninguno incluye `canonical_entity_bk_lookup_config`**, que los catálogos canonizados sí referencian (IDENTITY_MODE, ON_MISS, SURROGATE_STRATEGY). Por eso «no está en el modelo» no sirve como prueba, y por eso quedaron sin resolver las 73 entradas i18n. Merece sesión propia.
+> 3. **La tabla «Aceleradores incorporados» de `99-METADATO-control.md` está desactualizada**: no recoge BANKING, INSURANCE, HEALTHCARE, WAREHOUSE, MANUFACTURING ni otros ya registrados. No se ha reescrito por no exceder el alcance de esta orden.
+
+---
+
+### Corrección de traza — el «metamodelo contradictorio» de M-105 no existía (a instancia de Pedro)
+
+Al preguntar Pedro por los puntos abiertos de M-105 se verificó el estado real en disco y **el pendiente nº 2 quedó invalidado**. Se registra la corrección, no se cambia ningún recuento.
+
+**Lo que dije en M-105:** que no existía un inventario fiable de las tablas vivas del metamodelo, porque dos ficheros se contradecían (171 frente a 312 entidades) y ninguno incluía `canonical_entity_bk_lookup_config`, referenciada por los catálogos.
+
+**Lo comprobado:** el metamodelo vivo es **uno solo y coherente**. Son las **290 entidades** de `datum_modelo_canonico.json` (METADATA 161 + OBSERVABILITY 129), cifra que **coincide exactamente con la que este control venía declarando**. Los otros dos ficheros no son versiones en conflicto sino **restos con nombre casi idéntico**: el `DATUM_Modelo_Datos_Metadato.json` del Project es una foto congelada (171) y `_merge_out/DATUM_Modelo_Datos_Metadato.json` un intermedio de un proceso de merge (312). El error fue mío: comparé contra los dos ficheros muertos en vez de contra el modelo vivo.
+
+**Los aceleradores tampoco difieren:** el seed declara **19**, las **951 entidades están todas atribuidas** (0 sin acelerador) y el recuento declarado coincidía con el real en 18 de 19 (única desviación: METADATA 166 declarado / 161 real, ya corregida).
+
+**Lo que sí estaba mal era texto descriptivo viejo,** del mismo tipo que los huérfanos i18n: el campo `usado_en` de IDENTITY_MODE, ON_MISS y SURROGATE_STRATEGY citaba `canonical_entity_bk_lookup_config`, tabla ya retirada (`usado_en` es texto, no FK: nada estaba roto, pero inducía a error). Depurado. También la tabla «Aceleradores incorporados» de este control, reescrita con los 19.
+
+**Consecuencia sobre la limpieza i18n: queda cerrada del todo.** Las 73 entradas que M-105 conservó «por prudencia» lo estaban por un diagnóstico equivocado; verificado que ninguna de esas 9 tablas está viva, se dieron de baja (74 objetos). Revisados después los 26 restantes, resultaron ser de 6 tablas **retiradas por decisiones ya registradas**: `canonical_entity_version` y `canonical_attribute_version` consolidadas en `object_version` por **M-61**; `dq_governance_execution` podada por **M-54**; `discovery_rule_evaluation` por **M-55..59**; `canonical_entity_attribute` y `canonical_attribute_attribute` por la reestructuración de CANONICAL_ENTITY a 7 tablas (**M-23..26**). Se clasificaron como «metamodelo legítimo» solo porque aparecían en `_merge_out`, el fichero muerto que originó todo este malentendido.
+
+Resultado: i18n **17.881→17.781**, **huérfanos 398→0** y **MISC vacío** (fichero de detalle dejado explícitamente a cero). Copia de seguridad acumulada de las 324 bajas en `datum_i18n_bajas_backup.json`; reinsertar su bloque `i18n` revierte la operación entera. Comprobado que no se borró de más: las 951 entidades, todos sus atributos y todos los valores de los 1.088 catálogos conservan i18n en los cuatro idiomas.
+
+---
+
+### METADATO-106 — Obligatoriedad condicional, saneamiento estructural y colisión `account_balance_snapshot` — DECIDIDO
+
+Cierra el pendiente nº 1 de M-105 y, al barrer el modelo buscando un patrón, destapa y corrige varios defectos estructurales que nada tenían que ver con lo que se buscaba.
+
+**Obligatoriedad condicional: resuelta sin tocar el metamodelo.** La capacidad ya estaba diseñada y registrada, solo que nunca se había usado: `canonical_entity_constraint` (`expression` TYD_EXPRESSION + `error_message_text`) y el tipo de chequeo **`BUSINESS_RULE`**, cuyo origen `dq_check_type` declara literalmente como *«business_rule + canonical_entity_constraint (CHECK)»*. Se siembran las **16 primeras restricciones del modelo** (antes: 0). Precio asumido: una obligatoriedad condicional compila como BUSINESS_RULE → CONSISTENCY / POST_WRITE / QUARANTINE, no como MANDATORY_SIMPLE → COMPLETENESS / PRE_WRITE / REJECT. Si el patrón se generaliza, procederá llevarlo a `canonical_attribute` como `mandatory_condition_expression`; con los casos de hoy sería precipitado.
+
+**Discriminadores de sujeto polimórfico (4 entidades).** `quality_specification` (SPEC_SUBJECT_KIND: producto/punto), `non_conformance` (NC_SUBJECT_KIND: producto/lote/punto, **eje distinto del origen `source_value_id`**, que estaban mezclados), `schedule` (SCHEDULE_ACTOR_KIND: organización/profesional, alineado con el `Schedule.actor` polimórfico de FHIR) y `payslip_component` (PAYSLIP_COMPONENT_ORIGIN: definición genérica/componente del paquete). Las dos primeras eran deuda de M-105: al añadir el punto como sujeto se dejaron FK opcionales indistinguibles.
+
+**Barrido del modelo.** 16 candidatos a sujeto ambiguo; **14 falsos positivos**, porque el heurístico no distingue alternativas del mismo rol de referencias independientes. Queda escrito un criterio adicional: **una entidad réplica de un esquema externo no lleva discriminadores ni restricciones propias** (los tres `uc_*` son espejo 1:1 de `system.*` de Unity Catalog; alterarlos rompería la réplica).
+
+**Saneamiento estructural encontrado de paso:**
+- **454 atributos de catálogo sin `fk_target`** (HEALTHCARE 172, BANKING 162, INSURANCE 112, METADATA 8) normalizados a `reference_value`. El daño real era pequeño (los generadores derivaban las reglas desde `reference_catalog`), pero el patrón dependía del generador y no de la definición.
+- **10 entidades de HR sin clave primaria** → 0. `pk=1` marcado en las 4 que ya tenían `id`; `id` añadido a las 6 que no (`payslip`, `payslip_component`, `compensation_change_event`, `employee_lifecycle_status_history`, `employee_legal_entity_assignment_history`, `position_reporting_history`). Sin PK no hay identidad estable ni chequeo `UNIQUENESS`.
+- **6 obligatoriedades que faltaban**: `billing_account.insurance_policy_id`, `payslip_component.payslip_id`, y en los acuerdos RGPD `data_sharing_agreement` (contraparte + base legal) y `data_processing_agreement` (contraparte + documento). Un encargo de tratamiento sin documento firmado no es un registro incompleto, es imposible.
+- **9 atributos de FINANCE pasan de referencia a catálogo a FK de entidad**: las 8 dimensiones analíticas de `budget_line` y `journal_entry_line` → `analytical_dimension_value`, y `financial_statement_approval.approver_role_value_id` → `governance_role`. La prueba estaba a la vista: **`CUSTOM_DIMENSION_1..5` tenían `values: {}`** — vacíos, porque los valores los define cada cliente. Se retiran 6 catálogos que quedan sin uso.
+
+**Colisión `account_balance_snapshot` — resuelta: FINANCE recupera la suya.** Dos entidades distintas compartían el `code`: la definición FINANCE (saldo contable de mayor: `accounting_book`, `accounting_period`, apertura/debe/haber/cierre, ejes analíticos) había sido sobrescrita por la definición BANKING/BIAN (saldo de cuenta bancaria), mientras el seed seguía atribuyéndola a FINANCE (término SHARED). La BANKING se renombra a **`bank_account_balance_snapshot`** (término BK_ACCOUNT, esquema `banking`) y `account_balance_snapshot` vuelve a ser la de FINANCE con sus 21 atributos. Ninguna FK apuntaba a la entidad, así que el rename no rompió referencias; se reapuntaron **3 crosswalks BIAN** y se recalcularon los row_id del nodo BANKING. La i18n de los 19 atributos FINANCE **se recuperó íntegra de `datum_i18n_bajas_backup.json`** — eran los que M-105 dio de baja como «atributos retirados de entidad viva»; la copia de seguridad sirvió exactamente para lo que estaba pensada.
+
+**Punto ciego de la verificación, corregido.** El comprobador recorría los ficheros de términos buscando la clave `terms` y **se saltaba HR en silencio**: `datum_terminos_modelo__HHRR_v1.json` usa el esquema **v2**, con `terminos` y `attrs` y sin bloque `dq_referential_integrity`. Corregido, lee los 17 ficheros (674 nodos). HR resultó estar **impecable**: 76 nodos, 0 desfasados; sus referencias a catálogo no tienen regla derivada porque v2 es anterior a esa función, no porque falte nada.
+
+**Estado tras M-106:** entidades **951→952** (+1 por el desdoble de la colisión). BANKING **108→109**. Catálogos **1.092→1.086** (−6 retirados). i18n **17.815**; copia de bajas acumulada 331 objetos. **16 restricciones** (0 antes). **0 entidades sin PK, 0 huérfanos i18n, 0 FK ni catálogos rotos, 0 i18n ausente**, 19/19 aceleradores con recuento declarado = real. Repo + visor. Registro oficial.
+
+> **Errores propios corregidos sobre la marcha, para la traza:** (1) al normalizar los `fk_target` se aplastaron **10 FK reales de FINANCE** a `reference_value`; detectado al comparar con la copia del repo y restaurado. (2) La sincronización de términos metió **6 atributos de BANKING dentro del nodo FINANCE** de `account_balance_snapshot`; limpiados. (3) Se estuvo a punto de borrar la definición FINANCE al «sincronizar» lo que en realidad era una colisión.
+
+> **Pendiente que deja abierto:** `accounting_policy_disclosure.disclosure_period_value_id`. El fichero de términos dice FK a `accounting_period`, pero los valores del catálogo (`ANNUAL`, `HALF_YEAR`, `QUARTERLY`, `INTERIM`) son una **periodicidad**, no un periodo concreto, y `accounting_period` es la entidad de periodos reales. Es el único de los 10 donde la evidencia contradice la regla general aplicada al resto, y por eso no se tocó.
+
+---
+
+*Fin de `18-METADATO-decisiones.md` v1.82.*
+
 
 

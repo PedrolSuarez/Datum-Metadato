@@ -1,0 +1,1176 @@
+{
+ "_meta": {
+  "schema": "datum.terminos_modelo/v3",
+  "accelerator_id": "QUALITY_v1",
+  "fuente": "Diseño nuevo (acelerador QUALITY).",
+  "i18n_anchor": {
+   "campo": "row_id",
+   "namespace": "9f788878-59fb-5c4c-98ad-aefaebb51d45"
+  }
+ },
+ "accelerator_id": "QUALITY_v1",
+ "terms": [
+  {
+   "term_id": "QM_INSPECTION",
+   "label": "Inspección",
+   "desc": "Inspección",
+   "accelerator_id": "QUALITY_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "quality_specification",
+     "role": "MAIN",
+     "entity_kind": "MASTER",
+     "desc": "Criterio de calidad verificable de un producto o de un punto, con su tolerancia o su resultado esperado. El sujeto lo fija subject_kind_value_id.",
+     "n_attributes": 13,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "7ffb2116-dc0a-5cee-8927-0b82f9cd44ff"
+      },
+      {
+       "name": "spec_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "0ce0e2f9-f7b4-5adc-acda-5418340cfda0"
+      },
+      {
+       "name": "subject_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Sujeto del criterio: producto o punto. Discrimina qué FK es obligatoria.",
+       "reference_catalog": "SPEC_SUBJECT_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "a9588707-b82b-5f34-a9cd-feb0a258c9bf"
+      },
+      {
+       "name": "product_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "product",
+       "desc": "Producto al que aplica el criterio (obligatorio si el sujeto es PRODUCT).",
+       "row_id": "0f268895-b29d-5b50-bd4d-4b0853e77a9f"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto al que aplica el criterio (solo si el sujeto es POINT; nulo = todos los puntos).",
+       "row_id": "70589fbd-f3ca-5bb1-b5f0-9a88c80f19f1"
+      },
+      {
+       "name": "inspection_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Tipo de inspección al que pertenece el criterio; agrupa el protocolo/checklist.",
+       "reference_catalog": "INSPECTION_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "667ed71e-f56b-508b-afd8-34dbef3e2012"
+      },
+      {
+       "name": "characteristic_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "1d259f58-7350-5e1b-ab18-280a7f8892ff"
+      },
+      {
+       "name": "spec_min",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "9bf65b0b-a9d3-59be-a9d1-4009a317ed9b"
+      },
+      {
+       "name": "spec_max",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "873ecf66-21d5-5cce-b5fd-01fdb486bc87"
+      },
+      {
+       "name": "spec_target",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "bfd9c37e-14ea-5304-babd-6a4ae0dd51f3"
+      },
+      {
+       "name": "uom_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "UOM",
+       "catalog_ref_metadata_only": true,
+       "row_id": "d7885269-1c23-51d7-a269-b9164e79003e"
+      },
+      {
+       "name": "test_method",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "cab574ba-39d8-54d1-a5dd-3e88516d04b9"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "d4e8b4f1-d00c-5232-a24a-ffb1798cffc4"
+      }
+     ],
+     "keys": [
+      {
+       "target": "reference_value",
+       "via_attr": "subject_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "product",
+       "via_attr": "product_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "inspection_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "uom_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "spec_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "subject_kind_value_id",
+       "against": "reference_value:SPEC_SUBJECT_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "product_id",
+       "against": "product"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "inspection_kind_value_id",
+       "against": "reference_value:INSPECTION_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "uom_value_id",
+       "against": "reference_value:UOM"
+      }
+     ],
+     "target_schema": "MDM_GLOBAL",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "ed2cbbe2-9a58-539b-ba7e-c2ff783968e8",
+     "constraints": [
+      {
+       "code": "SUBJECT_PRODUCT_REQUIRES_PRODUCT_ID",
+       "expression": "subject_kind_value_id <> 'PRODUCT' OR product_id IS NOT NULL",
+       "error_message_text": "Un criterio de calidad con sujeto PRODUCT exige product_id."
+      },
+      {
+       "code": "SUBJECT_POINT_FORBIDS_PRODUCT_ID",
+       "expression": "subject_kind_value_id <> 'POINT' OR product_id IS NULL",
+       "error_message_text": "Un criterio de calidad con sujeto POINT no puede llevar product_id."
+      }
+     ]
+    },
+    {
+     "entity_id": "quality_inspection",
+     "role": "EXTENSION",
+     "entity_kind": "MASTER",
+     "desc": "Inspección de calidad, sobre producto/lote o ejecutada en un punto.",
+     "n_attributes": 14,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "1696bcc3-5074-5be9-9d61-baa3bdf2ca79"
+      },
+      {
+       "name": "inspection_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "1e8af154-675f-57ef-93f1-b30aeb1f5fb7"
+      },
+      {
+       "name": "inspection_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "INSPECTION_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "f537792e-068e-5c49-9f67-59156a8d32b4"
+      },
+      {
+       "name": "product_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "product",
+       "desc": "",
+       "row_id": "e9cd671e-e461-5818-b6a7-400164e5deb4"
+      },
+      {
+       "name": "goods_receipt_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "goods_receipt",
+       "desc": "",
+       "row_id": "3e0dcb42-c45b-5269-947a-f3b7b7d6f54a"
+      },
+      {
+       "name": "production_order_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "production_order",
+       "desc": "",
+       "row_id": "30b58a5d-7198-587f-89e3-a04c950a385c"
+      },
+      {
+       "name": "lot_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "stock_lot",
+       "desc": "",
+       "row_id": "f6765416-795e-5470-85df-df0e1ad657de"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto donde se ejecuta la inspección (tienda, restaurante, clínica).",
+       "row_id": "8283f182-9331-50cf-91a2-8e6a419620f0"
+      },
+      {
+       "name": "inspector_employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "",
+       "row_id": "7c021993-69b6-512a-bc93-7483fb0703af"
+      },
+      {
+       "name": "inspection_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "96bff24f-ffe8-5724-a9e2-6f0553109366"
+      },
+      {
+       "name": "sample_size",
+       "tyd": "TYD_INT",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "03532a2b-5a03-566b-b81f-27e67462fa27"
+      },
+      {
+       "name": "result_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "INSPECTION_RESULT",
+       "catalog_ref_metadata_only": true,
+       "row_id": "26866fe8-d8af-56ac-8d86-b0c316b786a9"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "INSPECTION_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "81e173dc-0d67-5748-92b1-a617e7c0ac8a"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "835c6e94-32e8-5fe6-8280-e3fab4af1dc1"
+      }
+     ],
+     "keys": [
+      {
+       "target": "reference_value",
+       "via_attr": "inspection_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "product",
+       "via_attr": "product_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "goods_receipt",
+       "via_attr": "goods_receipt_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "production_order",
+       "via_attr": "production_order_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "stock_lot",
+       "via_attr": "lot_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "employee",
+       "via_attr": "inspector_employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "result_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "inspection_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "inspection_kind_value_id",
+       "against": "reference_value:INSPECTION_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "product_id",
+       "against": "product"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "goods_receipt_id",
+       "against": "goods_receipt"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "production_order_id",
+       "against": "production_order"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "lot_id",
+       "against": "stock_lot"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "inspector_employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "result_value_id",
+       "against": "reference_value:INSPECTION_RESULT"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:INSPECTION_STATUS"
+      }
+     ],
+     "target_schema": "CDM_QUALITY",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "3199db7f-1d05-5f80-9cd1-49b27bd53523"
+    },
+    {
+     "entity_id": "quality_inspection_line",
+     "role": "EXTENSION",
+     "entity_kind": "DETAIL",
+     "desc": "Medición de una característica en la inspección.",
+     "n_attributes": 9,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "0a7d075a-b8e4-535a-910c-5fede3656475"
+      },
+      {
+       "name": "quality_inspection_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "quality_inspection",
+       "desc": "",
+       "row_id": "b4acf143-4460-510c-b948-98a303050b9e"
+      },
+      {
+       "name": "quality_specification_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "quality_specification",
+       "desc": "",
+       "row_id": "8d8c0ada-a232-57d9-b78e-1049d66db8dc"
+      },
+      {
+       "name": "characteristic_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "b28fbb3a-e5dd-528b-b975-e3cb3f079972"
+      },
+      {
+       "name": "measured_value",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "bffccc5b-f588-5a33-850d-754c1dce74ee"
+      },
+      {
+       "name": "uom_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "UOM",
+       "catalog_ref_metadata_only": true,
+       "row_id": "b4cc451c-7886-5d62-a6f7-ab638dad01fe"
+      },
+      {
+       "name": "result_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "INSPECTION_RESULT",
+       "catalog_ref_metadata_only": true,
+       "row_id": "567985bc-1215-5bfa-a3de-5e36fba67f95"
+      },
+      {
+       "name": "observation",
+       "tyd": "TYD_TEXT_SUMMARY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Observación del ítem verificado.",
+       "row_id": "b5ef6449-387e-5df2-81ed-3ff7ecf83f3b"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "54afb71c-614d-5f64-a1a9-97200433e775"
+      }
+     ],
+     "keys": [
+      {
+       "target": "quality_inspection",
+       "via_attr": "quality_inspection_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "quality_specification",
+       "via_attr": "quality_specification_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "uom_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "result_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "quality_inspection_id",
+        "characteristic_name"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "quality_inspection_id",
+       "against": "quality_inspection"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "quality_specification_id",
+       "against": "quality_specification"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "uom_value_id",
+       "against": "reference_value:UOM"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "result_value_id",
+       "against": "reference_value:INSPECTION_RESULT"
+      }
+     ],
+     "target_schema": "CDM_QUALITY",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "1e10a1bb-86e0-50b4-bd0b-39929584b0ef"
+    }
+   ],
+   "row_id": "f0db3c44-3823-54e4-a6dd-32f1e9e29042"
+  },
+  {
+   "term_id": "QM_NONCONFORMANCE",
+   "label": "No-conformidad y CAPA",
+   "desc": "No-conformidad y CAPA",
+   "accelerator_id": "QUALITY_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "non_conformance",
+     "role": "MAIN",
+     "entity_kind": "MASTER",
+     "desc": "No-conformidad sobre un producto, un lote o un punto. El sujeto lo fija subject_kind_value_id; el origen, source_value_id (incluye la queja de cliente).",
+     "n_attributes": 14,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "2d6609ec-085d-536f-9128-77e8afc153be"
+      },
+      {
+       "name": "nc_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "75d8c4a7-23a5-511a-81ca-0cb7e593a974"
+      },
+      {
+       "name": "subject_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Sujeto de la no-conformidad: producto, lote o punto. Eje distinto del origen (source_value_id).",
+       "reference_catalog": "NC_SUBJECT_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "5b97c835-2d4e-5588-99d6-d713b25ec612"
+      },
+      {
+       "name": "source_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Origen de la no-conformidad (inspección, cliente, proveedor, auditoría…). No confundir con el sujeto.",
+       "reference_catalog": "NONCONFORMANCE_SOURCE",
+       "catalog_ref_metadata_only": true,
+       "row_id": "651a5169-c075-5fe7-a968-c19ebe730e8d"
+      },
+      {
+       "name": "product_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "product",
+       "desc": "Producto afectado (obligatorio si el sujeto es PRODUCT).",
+       "row_id": "bf72c868-5824-5060-8cbe-533ff403c303"
+      },
+      {
+       "name": "lot_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "stock_lot",
+       "desc": "Lote afectado (obligatorio si el sujeto es LOT).",
+       "row_id": "5ac79ff2-d8fc-5903-9530-79bd891a1924"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto implicado: es el sujeto si subject=POINT; en los demás casos, lugar de detección.",
+       "row_id": "55fe4d1c-7f2a-58d3-84f0-19036aa7fb4d"
+      },
+      {
+       "name": "quality_inspection_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "quality_inspection",
+       "desc": "Inspección de la que procede (obligatoria si el origen es INSPECTION).",
+       "row_id": "2b83b9a8-14de-50d7-b0b7-eed905d01c5d"
+      },
+      {
+       "name": "severity_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "NONCONFORMANCE_SEVERITY",
+       "catalog_ref_metadata_only": true,
+       "row_id": "747e0f1c-908c-56f5-be7f-fd6f41b981e8"
+      },
+      {
+       "name": "description",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "351080f1-70d7-5a62-a3de-4769e4037258"
+      },
+      {
+       "name": "detected_by_employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "",
+       "row_id": "29070b7b-6030-5bf5-8504-7a37dd0c06e7"
+      },
+      {
+       "name": "detected_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "1a19886f-0268-5459-aa67-506e00890690"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "reference_catalog": "NONCONFORMANCE_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "2b76a108-9115-5745-86c1-034f7984e818"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "4a62fbb4-00e8-5c47-95f4-3388460bdf78"
+      }
+     ],
+     "keys": [
+      {
+       "target": "reference_value",
+       "via_attr": "subject_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "source_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "product",
+       "via_attr": "product_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "stock_lot",
+       "via_attr": "lot_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "quality_inspection",
+       "via_attr": "quality_inspection_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "severity_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "employee",
+       "via_attr": "detected_by_employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "nc_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "subject_kind_value_id",
+       "against": "reference_value:NC_SUBJECT_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "source_value_id",
+       "against": "reference_value:NONCONFORMANCE_SOURCE"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "product_id",
+       "against": "product"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "lot_id",
+       "against": "stock_lot"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "quality_inspection_id",
+       "against": "quality_inspection"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "severity_value_id",
+       "against": "reference_value:NONCONFORMANCE_SEVERITY"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "detected_by_employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:NONCONFORMANCE_STATUS"
+      }
+     ],
+     "target_schema": "MDM_GLOBAL",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "52aabd7a-4700-57fc-be5b-3b3d082f7156",
+     "constraints": [
+      {
+       "code": "SUBJECT_PRODUCT_REQUIRES_PRODUCT_ID",
+       "expression": "subject_kind_value_id <> 'PRODUCT' OR product_id IS NOT NULL",
+       "error_message_text": "Una no-conformidad con sujeto PRODUCT exige product_id."
+      },
+      {
+       "code": "SUBJECT_LOT_REQUIRES_LOT_ID",
+       "expression": "subject_kind_value_id <> 'LOT' OR lot_id IS NOT NULL",
+       "error_message_text": "Una no-conformidad con sujeto LOT exige lot_id."
+      },
+      {
+       "code": "SUBJECT_POINT_REQUIRES_POINT_OF_SALE_ID",
+       "expression": "subject_kind_value_id <> 'POINT' OR point_of_sale_id IS NOT NULL",
+       "error_message_text": "Una no-conformidad con sujeto POINT exige point_of_sale_id."
+      },
+      {
+       "code": "SUBJECT_POINT_FORBIDS_PRODUCT_AND_LOT",
+       "expression": "subject_kind_value_id <> 'POINT' OR (product_id IS NULL AND lot_id IS NULL)",
+       "error_message_text": "Una no-conformidad del propio punto no lleva producto ni lote; si los lleva, el sujeto es PRODUCT o LOT."
+      },
+      {
+       "code": "SOURCE_INSPECTION_REQUIRES_INSPECTION_ID",
+       "expression": "source_value_id <> 'INSPECTION' OR quality_inspection_id IS NOT NULL",
+       "error_message_text": "Si el origen es INSPECTION, quality_inspection_id es obligatorio."
+      }
+     ]
+    },
+    {
+     "entity_id": "corrective_action",
+     "role": "EXTENSION",
+     "entity_kind": "MASTER",
+     "desc": "Acción correctiva/preventiva (CAPA).",
+     "n_attributes": 11,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "ed93f932-b4d7-59bb-90f7-817634d86a79"
+      },
+      {
+       "name": "capa_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "BK",
+       "row_id": "f456ac0a-7f49-5aed-a7d4-a6262b52f07f"
+      },
+      {
+       "name": "non_conformance_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "non_conformance",
+       "desc": "",
+       "row_id": "0d20a0fa-a0af-5e3c-96b4-0a19b587f1c9"
+      },
+      {
+       "name": "action_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "5ca724b1-11f6-5981-91d8-5c207fcec6b7",
+       "reference_catalog": "CAPA_KIND",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "description",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "c1a9d3f7-9678-51a5-b4c1-9f6deba034d2"
+      },
+      {
+       "name": "responsible_employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "",
+       "row_id": "3c148d14-b085-5dcd-9c7d-5efacc3f275b"
+      },
+      {
+       "name": "due_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "ac4fd263-a6bc-5c9e-a0f8-eea5a96f873c"
+      },
+      {
+       "name": "completion_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "15235c49-4262-535c-a5db-8d7505d0ad9d"
+      },
+      {
+       "name": "effectiveness_verified",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "",
+       "row_id": "b39759b4-8158-5418-8b4f-41b344c6cb3e"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "",
+       "row_id": "cdb1bfd5-7c08-584a-b024-21593a3f4139",
+       "reference_catalog": "CAPA_STATUS",
+       "catalog_ref_metadata_only": true
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "3d9d17ed-afc0-580c-92b7-3215ecb84a90"
+      }
+     ],
+     "keys": [
+      {
+       "target": "non_conformance",
+       "via_attr": "non_conformance_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "action_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "employee",
+       "via_attr": "responsible_employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "capa_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "non_conformance_id",
+       "against": "non_conformance"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "action_kind_value_id",
+       "against": "reference_value:CAPA_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "responsible_employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:CAPA_STATUS"
+      }
+     ],
+     "target_schema": "CDM_QUALITY",
+     "partitioning": {
+      "partition_strategy_kind": "_PENDIENTE_"
+     },
+     "clustering": {},
+     "tech_props": {},
+     "row_id": "e094d0fc-3325-59bb-bfbb-be55dcec2cdc"
+    }
+   ],
+   "row_id": "0822219b-29fb-5d29-a7e1-c5ea08d828ed"
+  }
+ ]
+}

@@ -1,0 +1,380 @@
+{
+ "_meta": {
+  "heuristico": "FK opcionales a maestros no auxiliares, >=2 destinos, ninguna FK obligatoria; excluidas las que ya usan *_object_type_code",
+  "auxiliares_excluidos": [
+   "accounting_period",
+   "business_unit",
+   "cost_center",
+   "country",
+   "currency",
+   "employee",
+   "fx_rate",
+   "language",
+   "reference_value",
+   "segment",
+   "supra_zone",
+   "unit_of_measure"
+  ],
+  "aviso": "Es un heurístico: requiere juicio humano para decidir si los destinos son alternativas del mismo rol o referencias independientes."
+ },
+ "sin_discriminador": [
+  {
+   "entidad": "data_sharing_agreement",
+   "acelerador": "METADATA",
+   "destinos": [
+    "external_organization",
+    "governed_document",
+    "legal_basis"
+   ]
+  },
+  {
+   "entidad": "data_processing_agreement",
+   "acelerador": "METADATA",
+   "destinos": [
+    "external_organization",
+    "governed_document"
+   ]
+  },
+  {
+   "entidad": "uc_access_table_lineage",
+   "acelerador": "OBSERVABILITY",
+   "destinos": [
+    "uc_information_schema_tables",
+    "uc_query_history"
+   ]
+  },
+  {
+   "entidad": "uc_access_column_lineage",
+   "acelerador": "OBSERVABILITY",
+   "destinos": [
+    "uc_information_schema_tables",
+    "uc_query_history"
+   ]
+  },
+  {
+   "entidad": "uc_compute_instance_events",
+   "acelerador": "OBSERVABILITY",
+   "destinos": [
+    "uc_compute_clusters",
+    "uc_compute_instance_pools"
+   ]
+  },
+  {
+   "entidad": "asset_category",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "account",
+    "asset_category"
+   ]
+  },
+  {
+   "entidad": "compensation_change_event",
+   "acelerador": "HR",
+   "destinos": [
+    "budget_version",
+    "compensation_package"
+   ]
+  },
+  {
+   "entidad": "payslip_component",
+   "acelerador": "HR",
+   "destinos": [
+    "compensation_component_definition",
+    "compensation_package_component",
+    "payslip"
+   ]
+  },
+  {
+   "entidad": "lead",
+   "acelerador": "MARKETING",
+   "destinos": [
+    "campaign",
+    "customer",
+    "market_segment",
+    "opportunity"
+   ]
+  },
+  {
+   "entidad": "non_conformance",
+   "acelerador": "QUALITY",
+   "destinos": [
+    "point_of_sale",
+    "product",
+    "quality_inspection",
+    "stock_lot"
+   ]
+  },
+  {
+   "entidad": "schedule",
+   "acelerador": "HEALTHCARE",
+   "destinos": [
+    "care_organization",
+    "practitioner"
+   ]
+  },
+  {
+   "entidad": "underwriting_case",
+   "acelerador": "INSURANCE",
+   "destinos": [
+    "insurance_application",
+    "legal_entity"
+   ]
+  },
+  {
+   "entidad": "billing_account",
+   "acelerador": "INSURANCE",
+   "destinos": [
+    "customer",
+    "insurance_policy"
+   ]
+  },
+  {
+   "entidad": "sales_lead",
+   "acelerador": "BANKING",
+   "destinos": [
+    "banking_product",
+    "customer"
+   ]
+  },
+  {
+   "entidad": "bill_of_exchange",
+   "acelerador": "BANKING",
+   "destinos": [
+    "customer",
+    "documentary_collection"
+   ]
+  },
+  {
+   "entidad": "nutrition_product",
+   "acelerador": "HEALTHCARE",
+   "destinos": [
+    "nutrition_order",
+    "product"
+   ]
+  }
+ ],
+ "con_discriminador": [
+  {
+   "entidad": "kpi",
+   "acelerador": "METADATA",
+   "destinos": [
+    "accumulative_fact",
+    "accumulative_fact_measure",
+    "canonical_view"
+   ],
+   "discriminador": [
+    "kpi_type_code",
+    "subject_kind_code"
+   ]
+  },
+  {
+   "entidad": "canonical_model_change",
+   "acelerador": "METADATA",
+   "destinos": [
+    "canonical_attribute",
+    "canonical_entity"
+   ],
+   "discriminador": [
+    "change_kind_code"
+   ]
+  },
+  {
+   "entidad": "analytical_dimension",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "consolidation_group",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "value_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "accounting_policy",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "accounting_book",
+    "accounting_policy",
+    "consolidation_group",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "scope_kind_value_id",
+    "policy_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "chart_of_accounts",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "chart_of_accounts",
+    "consolidation_group",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "coa_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "fx_rate",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "consolidation_group",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "rate_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "budget_assumption",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "budget_version",
+    "forecast_version"
+   ],
+   "discriminador": [
+    "assumption_kind_value_id",
+    "source_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "variance_analysis",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "account",
+    "budget_version",
+    "forecast_version",
+    "legal_entity",
+    "project"
+   ],
+   "discriminador": [
+    "variance_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "cash_forecast",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "cash_forecast",
+    "consolidation_group",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "forecast_kind_value_id",
+    "forecast_horizon_kind_value_id",
+    "forecast_version_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "financial_statement_definition",
+   "acelerador": "FINANCE",
+   "destinos": [
+    "accounting_book",
+    "consolidation_group",
+    "financial_statement_definition",
+    "governance_role",
+    "legal_entity"
+   ],
+   "discriminador": [
+    "statement_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "compensation_package",
+   "acelerador": "HR",
+   "destinos": [
+    "employment_contract",
+    "salary_band"
+   ],
+   "discriminador": [
+    "package_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "product",
+   "acelerador": "MARKETING",
+   "destinos": [
+    "brand",
+    "product_family"
+   ],
+   "discriminador": [
+    "product_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "content_asset",
+   "acelerador": "MARKETING",
+   "destinos": [
+    "brand",
+    "campaign"
+   ],
+   "discriminador": [
+    "content_type_value_id"
+   ]
+  },
+  {
+   "entidad": "quality_specification",
+   "acelerador": "QUALITY",
+   "destinos": [
+    "point_of_sale",
+    "product"
+   ],
+   "discriminador": [
+    "subject_kind_value_id",
+    "inspection_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "quality_inspection",
+   "acelerador": "QUALITY",
+   "destinos": [
+    "goods_receipt",
+    "point_of_sale",
+    "product",
+    "production_order",
+    "stock_lot"
+   ],
+   "discriminador": [
+    "inspection_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "equipment",
+   "acelerador": "EAM",
+   "destinos": [
+    "fixed_asset",
+    "point_of_sale",
+    "production_line",
+    "warehouse",
+    "work_center"
+   ],
+   "discriminador": [
+    "equipment_kind_value_id"
+   ]
+  },
+  {
+   "entidad": "aml_alert",
+   "acelerador": "BANKING",
+   "destinos": [
+    "account_arrangement",
+    "customer"
+   ],
+   "discriminador": [
+    "alert_type_value_id"
+   ]
+  },
+  {
+   "entidad": "task",
+   "acelerador": "HEALTHCARE",
+   "destinos": [
+    "patient",
+    "practitioner",
+    "service_request"
+   ],
+   "discriminador": [
+    "task_type_value_id"
+   ]
+  }
+ ]
+}

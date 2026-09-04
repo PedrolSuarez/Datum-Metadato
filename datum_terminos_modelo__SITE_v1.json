@@ -1,0 +1,2100 @@
+{
+ "_meta": {
+  "schema": "datum.terminos_modelo/v3",
+  "accelerator_id": "SITE_v1",
+  "fuente": "Diseño nuevo (acelerador SITE — estructura de emplazamientos / puntos de venta, DATUM-native).",
+  "i18n_anchor": {
+   "campo": "row_id",
+   "namespace": "9f788878-59fb-5c4c-98ad-aefaebb51d45"
+  }
+ },
+ "accelerator_id": "SITE_v1",
+ "terms": [
+  {
+   "term_id": "SITE_STRUCTURE",
+   "label": "Estructura de emplazamientos",
+   "desc": "Puntos de venta y su vínculo con centros de trabajo y almacenes",
+   "accelerator_id": "SITE_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "point_of_sale",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Punto de venta: emplazamiento (físico o digital) donde se ejecuta la venta; usa centro de trabajo, marca y almacenes.",
+     "n_attributes": 12,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "d05998c1-30df-5ee4-ba76-2aeef88896be"
+      },
+      {
+       "name": "pos_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia.",
+       "row_id": "15aee504-40a4-5ea6-b47e-b0e833723132"
+      },
+      {
+       "name": "pos_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Nombre.",
+       "row_id": "9ba0e3e3-1a6c-5550-bcff-db9214d24f9e"
+      },
+      {
+       "name": "work_center_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "work_center",
+       "desc": "Centro de trabajo (físico, o HQ si es digital).",
+       "row_id": "570391e1-7a25-520c-a1b2-46e13cd67edf"
+      },
+      {
+       "name": "brand_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "brand",
+       "desc": "Marca que representa.",
+       "row_id": "23fd0184-c1ad-5bfc-9792-3a5daa92c2ee"
+      },
+      {
+       "name": "pos_type_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Tipo (físico/digital).",
+       "reference_catalog": "POS_TYPE",
+       "catalog_ref_metadata_only": true,
+       "row_id": "f284f51f-04f5-5b85-9c80-35c087741bd3"
+      },
+      {
+       "name": "address",
+       "tyd": "TYD_ADDRESS",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Dirección (si es físico).",
+       "row_id": "49057c6e-2a52-5860-9d99-070d5e005202"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Estado operativo.",
+       "reference_catalog": "POS_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "e2b597b4-a659-533e-9358-7f865d049d51"
+      },
+      {
+       "name": "opening_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fecha de apertura.",
+       "row_id": "c760c639-cbe3-5d78-9064-37e44604520a"
+      },
+      {
+       "name": "closing_date",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fecha de cierre.",
+       "row_id": "143bb615-627c-5975-8d3b-6dcc393f4006"
+      },
+      {
+       "name": "total_capacity",
+       "tyd": "TYD_INT",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Capacidad agregada del punto (aforo total), opcional.",
+       "row_id": "60d2a19f-9fe7-57d4-963b-5a39920522e4"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "60300026-1e9a-5914-85fb-bebf23d6f49f"
+      }
+     ],
+     "keys": [
+      {
+       "target": "work_center",
+       "via_attr": "work_center_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "brand",
+       "via_attr": "brand_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "pos_type_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "pos_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "work_center_id",
+       "against": "work_center"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "brand_id",
+       "against": "brand"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "pos_type_value_id",
+       "against": "reference_value:POS_TYPE"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:POS_STATUS"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "b0979abe-2f17-5d1d-9184-0918639cef8a"
+    },
+    {
+     "entity_id": "point_of_sale_warehouse",
+     "role": "SUPPORT",
+     "entity_kind": "DETAIL",
+     "desc": "Asignación de un almacén a un punto de venta (N:M).",
+     "n_attributes": 7,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "b24d3c91-4977-57e2-a8e6-c77ccff86d60"
+      },
+      {
+       "name": "link_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia.",
+       "row_id": "7ea28ba4-0e37-52d2-b211-12797bdddf2d"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto de venta.",
+       "row_id": "2dcdde14-1021-5037-ac11-d48508bcd552"
+      },
+      {
+       "name": "warehouse_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "warehouse",
+       "desc": "Almacén.",
+       "row_id": "814bb7dc-0838-5832-a534-6deb1880cee7"
+      },
+      {
+       "name": "role_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Rol del almacén para el punto.",
+       "reference_catalog": "POS_WAREHOUSE_ROLE",
+       "catalog_ref_metadata_only": true,
+       "row_id": "2cf17d67-8750-5365-82b9-22c1970c9531"
+      },
+      {
+       "name": "is_primary",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Almacén principal del punto.",
+       "row_id": "593f7739-3b8f-5e9c-b579-76b02994f1ca"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "c3ee1d55-0834-5118-8808-90f9095ff516"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "warehouse",
+       "via_attr": "warehouse_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "role_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "point_of_sale_id",
+        "link_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "warehouse_id",
+       "against": "warehouse"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "role_value_id",
+       "against": "reference_value:POS_WAREHOUSE_ROLE"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "cf2e2762-272a-5f36-8cff-786acfcf38d4"
+    }
+   ],
+   "row_id": "5e12f524-f701-5210-a005-d877f6e9173a"
+  },
+  {
+   "term_id": "SITE_BOOKING",
+   "label": "Capacidad, disponibilidad y reserva",
+   "desc": "Recursos reservables, huecos de disponibilidad y reservas (primitiva de servicios).",
+   "accelerator_id": "SITE_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "bookable_resource",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Recurso reservable individual de un punto (habitación, mesa, plaza, pista, butaca, aula). Materializa la capacidad como recursos discretos.",
+     "n_attributes": 9,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "0998a38d-81a3-51ac-bea8-690dc4d69415"
+      },
+      {
+       "name": "resource_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia.",
+       "row_id": "902ee6b4-84a9-542a-8161-fe65a8e2d7f0"
+      },
+      {
+       "name": "resource_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Nombre.",
+       "row_id": "5b31bcf9-7c25-5894-83ed-439d304b9c3a"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto al que pertenece.",
+       "row_id": "576c019c-5ce6-51d9-85b1-9e0a944542b4"
+      },
+      {
+       "name": "resource_type_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Tipo de recurso.",
+       "reference_catalog": "RESOURCE_TYPE",
+       "catalog_ref_metadata_only": true,
+       "row_id": "0b5c6a62-c2f8-5da6-89a5-64881685dfb6"
+      },
+      {
+       "name": "capacity",
+       "tyd": "TYD_INT",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Capacidad del recurso (p. ej. plazas de una mesa).",
+       "row_id": "910e4768-9484-59e4-8770-71680dcc9380"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Estado del recurso.",
+       "reference_catalog": "RESOURCE_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "fda8b0b0-0a03-5a0a-aa71-bd378e500ba2"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "c6a591ee-85bb-559e-b4ba-aa4524bb7676"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "e38b8888-5e7d-53a3-a885-3ae950841626"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "resource_type_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "resource_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "resource_type_value_id",
+       "against": "reference_value:RESOURCE_TYPE"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:RESOURCE_STATUS"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "e3f46a87-965c-506f-b2d7-3b5a9ae1de6e"
+    },
+    {
+     "entity_id": "availability_slot",
+     "role": "SUPPORT",
+     "entity_kind": "DETAIL",
+     "desc": "Hueco de disponibilidad: ventana temporal libre/ocupada de un punto o recurso. Generalización de slot (sanidad) a hotel/mesa/aula.",
+     "n_attributes": 10,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "5af05b9d-c2d1-52ab-b667-a2f3d76a829e"
+      },
+      {
+       "name": "slot_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia del hueco.",
+       "row_id": "fb95f3ad-074e-5a55-807d-64a3f8677fc2"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto ofertante.",
+       "row_id": "923b51c2-4656-5dc0-843f-2cbcd556bce8"
+      },
+      {
+       "name": "bookable_resource_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "bookable_resource",
+       "desc": "Recurso concreto (nulo si el hueco es de capacidad agregada del punto).",
+       "row_id": "e679f28b-093c-5129-a714-811317cf2c2c"
+      },
+      {
+       "name": "start_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Inicio de la ventana.",
+       "row_id": "bb67e4b4-a98e-524d-ae01-61cd1ec7186e"
+      },
+      {
+       "name": "end_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fin de la ventana.",
+       "row_id": "d35893f0-690d-5dd3-ae20-3a03b908ed2c"
+      },
+      {
+       "name": "capacity",
+       "tyd": "TYD_INT",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Plazas simultáneas que admite el hueco (1 = exclusivo).",
+       "row_id": "260335a1-5287-5afb-9a4f-9b3723f193d2"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Estado de disponibilidad.",
+       "reference_catalog": "AVAILABILITY_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "7676142a-6dd0-51dc-88d2-82f03bc81f4d"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "2e6a7503-0640-5811-9e5d-43b7f3f10760"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "2a32f69d-3dd6-5846-a55f-d9e427edf043"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "bookable_resource",
+       "via_attr": "bookable_resource_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "point_of_sale_id",
+        "slot_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "bookable_resource_id",
+       "against": "bookable_resource"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:AVAILABILITY_STATUS"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "f408db0d-ec13-5338-bfcb-8b9049288182"
+    },
+    {
+     "entity_id": "reservation",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Reserva: compromiso de un hueco/capacidad por un cliente. Generalización de appointment (sanidad) a hotel/mesa/aula.",
+     "n_attributes": 13,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "5cbc29c8-2bc8-5233-8cbb-4e98648016e2"
+      },
+      {
+       "name": "reservation_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia de la reserva.",
+       "row_id": "8338b710-194e-52c5-a377-bf0ed1d206fd"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto donde se reserva.",
+       "row_id": "b4231978-d4f9-5d0d-8a20-02a9f25e0f9b"
+      },
+      {
+       "name": "availability_slot_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "availability_slot",
+       "desc": "Hueco comprometido (opcional si es reserva abierta).",
+       "row_id": "c202fb5d-1360-5861-b70e-8eb482cd3582"
+      },
+      {
+       "name": "bookable_resource_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "bookable_resource",
+       "desc": "Recurso asignado (opcional).",
+       "row_id": "dfa819df-5285-59c1-8455-11453a9fa98f"
+      },
+      {
+       "name": "customer_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "customer",
+       "desc": "Cliente que reserva (opcional para reserva anónima).",
+       "row_id": "2509b674-f4b6-53c0-9742-9bbddedf5b97"
+      },
+      {
+       "name": "party_size",
+       "tyd": "TYD_INT",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Unidades/comensales/pax reservados.",
+       "row_id": "89027eae-bb7b-58a0-91a3-ef25b76e7ade"
+      },
+      {
+       "name": "start_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Inicio.",
+       "row_id": "96c1eca5-a483-5b4c-baa0-fa44db3e78a2"
+      },
+      {
+       "name": "end_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fin.",
+       "row_id": "972bf16f-886f-5c0e-ba26-1c0d48fd33df"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Estado de la reserva.",
+       "reference_catalog": "BOOKING_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "9f3ae6e5-edcb-5960-9694-3a5efcf83d12"
+      },
+      {
+       "name": "reason_text",
+       "tyd": "TYD_TEXT_SUMMARY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Motivo/concepto.",
+       "row_id": "5c4d534f-c9f4-5684-9b70-ebb4c827c7af"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "280ff9d0-7f3f-5f6b-ad57-917fa1b72318"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "b54f440f-495f-5ae6-bd98-4441fda87281"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "availability_slot",
+       "via_attr": "availability_slot_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "bookable_resource",
+       "via_attr": "bookable_resource_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "customer",
+       "via_attr": "customer_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "reservation_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "availability_slot_id",
+       "against": "availability_slot"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "bookable_resource_id",
+       "against": "bookable_resource"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "customer_id",
+       "against": "customer"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:BOOKING_STATUS"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "e4dce721-c16e-5bca-b3f2-e7fb10732676"
+    }
+   ],
+   "row_id": "b68262c3-a098-56e7-be36-a098f8862da4"
+  },
+  {
+   "term_id": "SITE_OPERATION",
+   "label": "Gestión del punto",
+   "desc": "Calendario y horarios de apertura, previsión de demanda, cuadrante de turnos y fichaje del emplazamiento.",
+   "accelerator_id": "SITE_v1",
+   "status": "ACTIVE",
+   "parent_leaf": true,
+   "entities": [
+    {
+     "entity_id": "point_opening_hours",
+     "role": "SUPPORT",
+     "entity_kind": "DETAIL",
+     "desc": "Horario regular de apertura del punto por día de la semana, con vigencia.",
+     "n_attributes": 10,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "c9314f90-5d1a-5336-bb28-8b3937be486a"
+      },
+      {
+       "name": "opening_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia del tramo horario.",
+       "row_id": "eeb3ea91-da1e-546a-8e63-bbd6c2211b8f"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto al que aplica.",
+       "row_id": "ac8dec35-2878-5f08-8d6b-a52ff0a267df"
+      },
+      {
+       "name": "day_of_week_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Día de la semana.",
+       "reference_catalog": "DAY_OF_WEEK",
+       "catalog_ref_metadata_only": true,
+       "row_id": "a8c6e1c5-91f6-5d85-81a8-cd2b6b2a20e9"
+      },
+      {
+       "name": "open_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de apertura.",
+       "row_id": "24766ecb-cc29-511f-bab0-3ce26b7c856c"
+      },
+      {
+       "name": "close_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de cierre.",
+       "row_id": "c9b34b56-5504-534a-9422-8430546a2488"
+      },
+      {
+       "name": "valid_from",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Inicio de vigencia del horario.",
+       "row_id": "0ac0c4c0-cd1d-5db1-ad18-e813531a02d9"
+      },
+      {
+       "name": "valid_to",
+       "tyd": "TYD_DATE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fin de vigencia del horario.",
+       "row_id": "5c6a347f-f638-53e0-969b-dc378bebf2b9"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "a8ca6361-ac92-54db-9991-336fa671bff1"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "37c96ea0-25a1-5a21-b2d9-3f3d73ac9c2a"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "day_of_week_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "point_of_sale_id",
+        "opening_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "day_of_week_value_id",
+       "against": "reference_value:DAY_OF_WEEK"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "48591f7e-3b58-578c-9f0a-16b7cdcf7703"
+    },
+    {
+     "entity_id": "point_calendar_exception",
+     "role": "SUPPORT",
+     "entity_kind": "DETAIL",
+     "desc": "Excepción del calendario del punto en una fecha: festivo, cierre extraordinario, obras u horario especial.",
+     "n_attributes": 11,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "e4acacb9-5edc-5d4c-9c49-e42e2ef03ab2"
+      },
+      {
+       "name": "exception_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia de la excepción.",
+       "row_id": "059b2feb-028c-519c-9e69-fcb9fd9da51c"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto afectado.",
+       "row_id": "cbab78ee-8d32-54f5-b351-fb297c1f772f"
+      },
+      {
+       "name": "exception_date",
+       "tyd": "TYD_DATE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fecha afectada.",
+       "row_id": "8110b15e-d8b9-5aa6-9d5d-e215a86e5331"
+      },
+      {
+       "name": "exception_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Motivo de la excepción.",
+       "reference_catalog": "POINT_CALENDAR_EXCEPTION_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "b6d26482-c76c-5587-812c-ceaad38dc267"
+      },
+      {
+       "name": "is_closed",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Cierre total ese día.",
+       "row_id": "98e9e95e-67df-5b94-9f9d-693b81157376"
+      },
+      {
+       "name": "open_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de apertura especial (si no cierra).",
+       "row_id": "c739ba45-0678-53c1-a980-47f914d6615e"
+      },
+      {
+       "name": "close_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de cierre especial (si no cierra).",
+       "row_id": "b9146e89-3099-5232-9b89-2c6431b58c97"
+      },
+      {
+       "name": "public_holiday_calendar_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "public_holiday_calendar",
+       "desc": "Festivo de HR que la origina (opcional).",
+       "row_id": "b2ad8442-90be-5404-a918-b78750475278"
+      },
+      {
+       "name": "reason_text",
+       "tyd": "TYD_TEXT_SUMMARY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Motivo.",
+       "row_id": "af26c8a6-870e-588b-82d3-499d72d79ce6"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "3a630cbc-5af1-5da0-b62c-a5b14ca2f892"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "exception_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "public_holiday_calendar",
+       "via_attr": "public_holiday_calendar_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "point_of_sale_id",
+        "exception_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "exception_kind_value_id",
+       "against": "reference_value:POINT_CALENDAR_EXCEPTION_KIND"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "public_holiday_calendar_id",
+       "against": "public_holiday_calendar"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "b67c44cd-e36c-5aaf-8418-7d913a2938f3"
+    },
+    {
+     "entity_id": "shift_template",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Definición de turno (mañana, tarde, noche, partido) usada para cuadrar el punto. La política laboral del empleado sigue en HR.",
+     "n_attributes": 12,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "cbe93487-5368-5dc4-b6a6-d9d4b22b5511"
+      },
+      {
+       "name": "shift_template_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia del turno.",
+       "row_id": "54e9ace3-ca67-5f3d-8b4e-c6417d0cbc88"
+      },
+      {
+       "name": "shift_template_name",
+       "tyd": "TYD_NAME",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Nombre del turno.",
+       "row_id": "0a6d4bba-a80e-50a0-9d43-9692589496fa"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto propietario (nulo = plantilla común de la compañía).",
+       "row_id": "3b449542-45a9-50ac-ab60-703d9c4650d7"
+      },
+      {
+       "name": "shift_kind_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Tipo de turno.",
+       "reference_catalog": "SHIFT_KIND",
+       "catalog_ref_metadata_only": true,
+       "row_id": "e830e6fe-07e8-56d6-82fb-c9f0feca0b53"
+      },
+      {
+       "name": "start_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de inicio.",
+       "row_id": "1a371634-3665-5837-ac2e-73bee823f81f"
+      },
+      {
+       "name": "end_time",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Hora de fin.",
+       "row_id": "1059751b-fde8-524b-aa5b-e74d825f28c0"
+      },
+      {
+       "name": "break_seconds",
+       "tyd": "TYD_DURATION_SECONDS",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Descanso previsto.",
+       "row_id": "58612773-7c09-5cea-a366-3d0adc0beee9"
+      },
+      {
+       "name": "crosses_midnight",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "El turno cruza la medianoche.",
+       "row_id": "4cf28c4b-2969-5afd-9526-abf7e170312a"
+      },
+      {
+       "name": "active",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Turno vigente.",
+       "row_id": "fc2ef346-87ef-5cf3-9bb5-baddffc1efe6"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "7b4705ff-ec47-50f6-ad44-ad54cb274528"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "1c982d9c-28e3-5b50-b0cf-026cf9a32918"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "shift_kind_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "shift_template_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "shift_kind_value_id",
+       "against": "reference_value:SHIFT_KIND"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "ce42560c-2e6b-52f9-b6cc-e27458bfbbff"
+    },
+    {
+     "entity_id": "shift_assignment",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Cuadrante: asignación de un empleado a un turno del punto en una fecha. El maestro del empleado y su contrato viven en HR.",
+     "n_attributes": 12,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "f55c38ec-161d-5ea5-86cc-723bb938a085"
+      },
+      {
+       "name": "assignment_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia de la asignación.",
+       "row_id": "e267ec9e-9cc8-5bb6-b91e-ea6929eba576"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto cuadrado.",
+       "row_id": "828ca5a1-0ea0-5367-b668-f9ff2a7d288b"
+      },
+      {
+       "name": "shift_template_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "shift_template",
+       "desc": "Turno asignado.",
+       "row_id": "05750fb1-36da-5c5b-a47c-aae09ee1f126"
+      },
+      {
+       "name": "employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "Empleado asignado (maestro en HR).",
+       "row_id": "ed642bda-a991-5761-b676-4bfa138134f4"
+      },
+      {
+       "name": "position_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "position",
+       "desc": "Puesto que cubre (opcional).",
+       "row_id": "0ceb28c3-f9c3-5a81-813a-57125fbe2c58"
+      },
+      {
+       "name": "shift_date",
+       "tyd": "TYD_DATE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fecha del turno.",
+       "row_id": "96435955-a21b-56f6-ba85-78be2d545c2e"
+      },
+      {
+       "name": "planned_start_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Inicio planificado.",
+       "row_id": "773eccc4-89d8-5cfd-be26-3a1b75434208"
+      },
+      {
+       "name": "planned_end_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fin planificado.",
+       "row_id": "d0e78f19-58cc-590a-993e-fbd6f2336f8c"
+      },
+      {
+       "name": "status_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Estado de la asignación.",
+       "reference_catalog": "SHIFT_ASSIGNMENT_STATUS",
+       "catalog_ref_metadata_only": true,
+       "row_id": "ad7e127d-c027-5392-8dce-55c6a6ef5672"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "76a2cc58-cbcd-59dc-95e5-18c81cd5e06d"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "44c42ec2-86a3-5c16-9d88-9918b470e32b"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "shift_template",
+       "via_attr": "shift_template_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "employee",
+       "via_attr": "employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "position",
+       "via_attr": "position_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "status_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "assignment_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "shift_template_id",
+       "against": "shift_template"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "position_id",
+       "against": "position"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "status_value_id",
+       "against": "reference_value:SHIFT_ASSIGNMENT_STATUS"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "6adf1173-577c-56c7-8e01-a463832a0cf0"
+    },
+    {
+     "entity_id": "time_clock_entry",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Fichaje: marcaje de entrada, salida o descanso de un empleado en un punto, contrastable contra el cuadrante.",
+     "n_attributes": 12,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "45968062-9625-5e54-840e-53165bad3c44"
+      },
+      {
+       "name": "entry_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia del marcaje.",
+       "row_id": "6ee55e64-48fd-5fa0-bb55-7e1b8f6a1662"
+      },
+      {
+       "name": "employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "Empleado que ficha (maestro en HR).",
+       "row_id": "2e687a28-2645-5122-9d5b-dcadfa3f4e67"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto donde se ficha.",
+       "row_id": "1a9cecbe-997d-597c-bb89-e98a65120819"
+      },
+      {
+       "name": "shift_assignment_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "shift_assignment",
+       "desc": "Asignación de cuadrante contrastada (opcional).",
+       "row_id": "959a5cc9-41d3-5e7d-ac28-c7c5db6ec94b"
+      },
+      {
+       "name": "event_datetime",
+       "tyd": "TYD_TIMESTAMP_UTC",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Instante del marcaje.",
+       "row_id": "1fb1262a-662a-51f7-b684-fd4cd92ad18e"
+      },
+      {
+       "name": "direction_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Sentido del marcaje.",
+       "reference_catalog": "CLOCK_DIRECTION",
+       "catalog_ref_metadata_only": true,
+       "row_id": "7b68ebe3-988d-5e78-8716-1314e1e0c30d"
+      },
+      {
+       "name": "capture_method_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Medio de captura.",
+       "reference_catalog": "CLOCK_CAPTURE_METHOD",
+       "catalog_ref_metadata_only": true,
+       "row_id": "26e366eb-b9f8-5039-924a-b75ff72c4707"
+      },
+      {
+       "name": "is_manual_adjustment",
+       "tyd": "TYD_BOOLEAN",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Marcaje introducido o corregido a mano.",
+       "row_id": "19328c75-b70c-59e0-ba7b-bea34eff2005"
+      },
+      {
+       "name": "adjusted_by_employee_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "employee",
+       "desc": "Responsable de la corrección (opcional).",
+       "row_id": "bf3cec87-1ced-5e3e-b7dc-4be760e875e3"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "9a562968-5534-5156-80d4-ee4c0a1cf677"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "bbf81e6c-5f6d-5296-8cce-97ccc24278c2"
+      }
+     ],
+     "keys": [
+      {
+       "target": "employee",
+       "via_attr": "employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "shift_assignment",
+       "via_attr": "shift_assignment_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "direction_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "capture_method_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "employee",
+       "via_attr": "adjusted_by_employee_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "entry_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "employee_id",
+       "against": "employee"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "shift_assignment_id",
+       "against": "shift_assignment"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "direction_value_id",
+       "against": "reference_value:CLOCK_DIRECTION"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "capture_method_value_id",
+       "against": "reference_value:CLOCK_CAPTURE_METHOD"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "adjusted_by_employee_id",
+       "against": "employee"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "7d14edf3-17f4-52b1-a398-3eb56ad0b466"
+    },
+    {
+     "entity_id": "point_demand_forecast",
+     "role": "MAIN",
+     "entity_kind": "MAIN",
+     "desc": "Demanda prevista de un punto por fecha y franja horaria (afluencia, tickets, comensales, pacientes). Es la base contra la que se cuadra el turno.",
+     "n_attributes": 13,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "2809a194-e719-5722-8c0e-e1fc6c325797"
+      },
+      {
+       "name": "forecast_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia de la previsión.",
+       "row_id": "fb31d992-a0a3-538f-a9a3-7023a83c49c3"
+      },
+      {
+       "name": "point_of_sale_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_of_sale",
+       "desc": "Punto previsto.",
+       "row_id": "bcaad761-348d-5d38-9c9f-6dfe8c1885c3"
+      },
+      {
+       "name": "forecast_date",
+       "tyd": "TYD_DATE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fecha prevista.",
+       "row_id": "1cd13180-abbb-5729-820a-1643484c47e3"
+      },
+      {
+       "name": "time_band_start",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Inicio de la franja (nulo = día completo).",
+       "row_id": "b7211dbd-31ed-5495-b88a-453977fa5efc"
+      },
+      {
+       "name": "time_band_end",
+       "tyd": "TYD_TIME_OF_DAY",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Fin de la franja.",
+       "row_id": "0e348a2d-4d72-5c98-88ef-381d04c52a0b"
+      },
+      {
+       "name": "demand_measure_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Magnitud prevista.",
+       "reference_catalog": "POINT_DEMAND_MEASURE",
+       "catalog_ref_metadata_only": true,
+       "row_id": "fb4ceb12-4b07-556f-b252-66771c092d90"
+      },
+      {
+       "name": "forecast_value",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Valor previsto.",
+       "row_id": "64bb5ff5-ad3f-5782-9f5e-2c18bb058c90"
+      },
+      {
+       "name": "actual_value",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Valor real observado, para contrastar la precisión.",
+       "row_id": "82811514-2a58-56cc-bd63-4dfb5193bd07"
+      },
+      {
+       "name": "forecast_method_value_id",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "reference_value",
+       "desc": "Método de cálculo.",
+       "reference_catalog": "FORECAST_METHOD",
+       "catalog_ref_metadata_only": true,
+       "row_id": "7c9b8ff1-a7d3-51f0-a60b-25fa88a23598"
+      },
+      {
+       "name": "forecast_version_label",
+       "tyd": "TYD_CODE",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Versión/escenario de la previsión (base, revisada…).",
+       "row_id": "a65bf821-9cf3-5391-aa9b-c9ac444b4c6e"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "6f5cef9f-13de-52f5-8449-f95f855ce4c1"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "5c1f57ee-010f-51a7-9336-d279081843cd"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_of_sale",
+       "via_attr": "point_of_sale_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "demand_measure_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "target": "reference_value",
+       "via_attr": "forecast_method_value_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "reference_value"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "forecast_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_of_sale_id",
+       "against": "point_of_sale"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "demand_measure_value_id",
+       "against": "reference_value:POINT_DEMAND_MEASURE"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "forecast_method_value_id",
+       "against": "reference_value:FORECAST_METHOD"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "c3d811e9-ce0b-571b-bed6-e8b74daa8c0f"
+    },
+    {
+     "entity_id": "point_staffing_requirement",
+     "role": "SUPPORT",
+     "entity_kind": "DETAIL",
+     "desc": "Necesidad de personal derivada de la demanda prevista de una franja, por puesto. Es el objetivo contra el que se compara el cuadrante.",
+     "n_attributes": 8,
+     "primary_key": [
+      "id"
+     ],
+     "attributes": [
+      {
+       "name": "id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": true,
+       "fk_target": null,
+       "desc": "PK",
+       "row_id": "b1fe4a97-222d-531d-8b9c-173f8d521197"
+      },
+      {
+       "name": "requirement_code",
+       "tyd": "TYD_CODE",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Referencia de la necesidad.",
+       "row_id": "d10b5800-68f2-57f8-b6ad-44741301ec16"
+      },
+      {
+       "name": "point_demand_forecast_id",
+       "tyd": "TYD_UUID",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": "point_demand_forecast",
+       "desc": "Previsión de la que deriva.",
+       "row_id": "29c6c06f-5aef-5225-b70e-d3dab24d7b7f"
+      },
+      {
+       "name": "position_id",
+       "tyd": "TYD_UUID",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": "position",
+       "desc": "Puesto requerido (maestro en HR; nulo = sin distinguir puesto).",
+       "row_id": "5587046c-5fde-59ab-ae6a-8678b73e0d40"
+      },
+      {
+       "name": "required_headcount",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Personas necesarias en la franja (admite fracción de jornada).",
+       "row_id": "f2bcd7a4-45ec-54a7-bc09-d976091646e4"
+      },
+      {
+       "name": "productivity_rate",
+       "tyd": "TYD_DECIMAL_RATIO",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Unidades de demanda por persona y hora usadas en el cálculo.",
+       "row_id": "14917094-5010-5891-8358-e331893a996a"
+      },
+      {
+       "name": "notes",
+       "tyd": "TYD_TEXT_DESCRIPTION",
+       "mandatory": false,
+       "pk": false,
+       "fk_target": null,
+       "desc": "Notas.",
+       "row_id": "008e13e4-07f9-5d11-aade-1b0b25cb1abc"
+      },
+      {
+       "name": "system",
+       "tyd": "TYD_SYSTEM",
+       "mandatory": true,
+       "pk": false,
+       "fk_target": null,
+       "desc": "composite: row_uuid (i18n) + lifecycle_state_code + auditoría. METADATO-9",
+       "row_id": "d3f8710e-62c9-5dcd-8ea0-ce4e92231580"
+      }
+     ],
+     "keys": [
+      {
+       "target": "point_demand_forecast",
+       "via_attr": "point_demand_forecast_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity",
+       "is_identifying": true
+      },
+      {
+       "target": "position",
+       "via_attr": "position_id",
+       "card": "N:1",
+       "key_kind": "FK",
+       "ref_kind": "master_entity"
+      },
+      {
+       "key_kind": "UI",
+       "columns": [
+        "point_demand_forecast_id",
+        "requirement_code"
+       ],
+       "is_unique": true
+      }
+     ],
+     "dq_referential_integrity": [
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "point_demand_forecast_id",
+       "against": "point_demand_forecast"
+      },
+      {
+       "rule": "REFERENTIAL_INTEGRITY",
+       "on": "position_id",
+       "against": "position"
+      }
+     ],
+     "target_schema": "site",
+     "partitioning": {
+      "strategy": "NONE"
+     },
+     "clustering": [],
+     "tech_props": {},
+     "row_id": "4acff4eb-6811-5e5a-a1e3-3ea8e653d4de"
+    }
+   ],
+   "row_id": "555fc6c5-9f04-513d-826e-d63bbdaa3f55"
+  }
+ ]
+}

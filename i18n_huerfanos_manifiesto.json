@@ -1,0 +1,1312 @@
+{
+ "CAT_AUSENTE": [
+  {
+   "key": "f96787833a8d01e7",
+   "obj": "TEXT_FIELD_KIND:SHORT"
+  },
+  {
+   "key": "e3138e541b31e8b6",
+   "obj": "TEXT_FIELD_KIND:SUMMARY"
+  },
+  {
+   "key": "96c9db8d696fc9ec",
+   "obj": "TEXT_FIELD_KIND:FUNCTIONAL"
+  }
+ ],
+ "ENT_DESCONOCIDA": [
+  {
+   "key": "b62e508f615bc454",
+   "obj": "business_term_canonical_entity"
+  },
+  {
+   "key": "9e22548764431457",
+   "obj": "canonical_attribute_business_term"
+  },
+  {
+   "key": "115d406f75ab38dd",
+   "obj": "canonical_attribute_constraint"
+  },
+  {
+   "key": "d0a8ea32b5d3c0f2",
+   "obj": "canonical_entity_bk_alias"
+  },
+  {
+   "key": "820172ecdc264853",
+   "obj": "canonical_entity_business_process"
+  },
+  {
+   "key": "a092d3fa0ecfbe67",
+   "obj": "canonical_entity_constraint_attribute"
+  },
+  {
+   "key": "da2a3daae100a407",
+   "obj": "canonical_relation_end"
+  },
+  {
+   "key": "0712b48c407a9d0a",
+   "obj": "data_product_subscription"
+  },
+  {
+   "key": "05b43579a0b59a93",
+   "obj": "party"
+  }
+ ],
+ "METAMODELO": [
+  {
+   "key": "c856ba05fa25a98b",
+   "obj": "canonical_attribute_attribute"
+  },
+  {
+   "key": "e7f1ea75790656d6",
+   "obj": "canonical_attribute_version"
+  },
+  {
+   "key": "18f68470b22ff1e4",
+   "obj": "canonical_entity_attribute"
+  },
+  {
+   "key": "8adb9758eb9a97d8",
+   "obj": "canonical_entity_bk_lookup_config"
+  },
+  {
+   "key": "acdfebf810f582f6",
+   "obj": "canonical_entity_version"
+  },
+  {
+   "key": "86835c739f9f0b93",
+   "obj": "canonical_attribute_attribute.code"
+  },
+  {
+   "key": "f53e6de46f52626a",
+   "obj": "canonical_attribute_attribute.canonical_attribute_code"
+  },
+  {
+   "key": "8946644f3281d8d7",
+   "obj": "canonical_attribute_attribute.data_type_domain_code"
+  },
+  {
+   "key": "f198493f7021af69",
+   "obj": "canonical_attribute_attribute.is_mandatory"
+  },
+  {
+   "key": "3193ed4098c5a505",
+   "obj": "canonical_attribute_version.canonical_attribute_code"
+  },
+  {
+   "key": "b657a9725b739a49",
+   "obj": "canonical_attribute_version.version_label"
+  },
+  {
+   "key": "6f678d783044cc4b",
+   "obj": "canonical_attribute_version.effective_from"
+  },
+  {
+   "key": "94353e0556562456",
+   "obj": "canonical_attribute_version.effective_until"
+  },
+  {
+   "key": "0add167db6693a13",
+   "obj": "canonical_attribute_version.is_current"
+  },
+  {
+   "key": "be63e4a58fa6b3d7",
+   "obj": "canonical_attribute_version.change_reason"
+  },
+  {
+   "key": "9d78c70637708213",
+   "obj": "canonical_entity_attribute.code"
+  },
+  {
+   "key": "a77739fdf7d0ab7e",
+   "obj": "canonical_entity_attribute.canonical_entity_code"
+  },
+  {
+   "key": "ec968789c122d150",
+   "obj": "canonical_entity_attribute.data_type_domain_code"
+  },
+  {
+   "key": "b053eed3ecc28791",
+   "obj": "canonical_entity_attribute.is_mandatory"
+  },
+  {
+   "key": "93d77aee42f86f98",
+   "obj": "canonical_entity_version.canonical_entity_code"
+  },
+  {
+   "key": "b272b4e0fedd8d18",
+   "obj": "canonical_entity_version.version_label"
+  },
+  {
+   "key": "cac65f319c4b125d",
+   "obj": "canonical_entity_version.effective_from"
+  },
+  {
+   "key": "b3f6a4a756872c14",
+   "obj": "canonical_entity_version.effective_until"
+  },
+  {
+   "key": "bc7725f6a8b9eb21",
+   "obj": "canonical_entity_version.is_current"
+  },
+  {
+   "key": "4bb431e83581d8ce",
+   "obj": "canonical_entity_version.change_reason"
+  },
+  {
+   "key": "b78ea9d635e4a4da",
+   "obj": "discovery_rule_evaluation"
+  },
+  {
+   "key": "e0c8dee408a4236d",
+   "obj": "dq_governance_execution"
+  }
+ ],
+ "ATTR_RETIRADO_ENT_VIVA": [
+  {
+   "key": "01b09c318a2be39c",
+   "obj": "business_term.owner_business_domain_code"
+  },
+  {
+   "key": "2b807ddc7406ba8a",
+   "obj": "business_term.status_code"
+  },
+  {
+   "key": "f0bcaa82a74e82af",
+   "obj": "business_term.row_uuid"
+  },
+  {
+   "key": "bd56ecd025d6bee8",
+   "obj": "business_term.audit"
+  },
+  {
+   "key": "77cb4a84d60607c5",
+   "obj": "business_term_related.source_term_code"
+  },
+  {
+   "key": "b1e31ed020642048",
+   "obj": "business_term_related.target_term_code"
+  },
+  {
+   "key": "49b652c21a0c2937",
+   "obj": "business_term_related.relation_type_code"
+  },
+  {
+   "key": "553e6b4494ddb8f1",
+   "obj": "business_term_related.audit"
+  },
+  {
+   "key": "7f56cbcf88a90343",
+   "obj": "business_term_synonym.audit"
+  },
+  {
+   "key": "979d420d560d3720",
+   "obj": "canonical_accelerator.domain_scope"
+  },
+  {
+   "key": "9007876659758bd0",
+   "obj": "canonical_accelerator.status_code"
+  },
+  {
+   "key": "c36538d37dcbab0a",
+   "obj": "canonical_accelerator.row_uuid"
+  },
+  {
+   "key": "218cd19597caa08b",
+   "obj": "canonical_accelerator.audit"
+  },
+  {
+   "key": "3effee4900d51fe5",
+   "obj": "canonical_attribute.materialization_mode_code"
+  },
+  {
+   "key": "c68606dd304ed9aa",
+   "obj": "canonical_attribute.referenced_entity_code"
+  },
+  {
+   "key": "58602006b6f6e646",
+   "obj": "canonical_attribute.physical_column_name"
+  },
+  {
+   "key": "cd87a03c5c0d99f6",
+   "obj": "canonical_attribute.is_unique"
+  },
+  {
+   "key": "ad18512861e727b8",
+   "obj": "canonical_attribute.row_uuid"
+  },
+  {
+   "key": "5b5c4605cbf83c32",
+   "obj": "canonical_attribute.audit"
+  },
+  {
+   "key": "1a589cd1a5c11fae",
+   "obj": "canonical_entity.canonical_accelerator_code"
+  },
+  {
+   "key": "847ddb70df54d961",
+   "obj": "canonical_entity.lifecycle_state_code"
+  },
+  {
+   "key": "b4cb2718fa4dfc57",
+   "obj": "canonical_entity.row_uuid"
+  },
+  {
+   "key": "3381071e3e3e7c28",
+   "obj": "canonical_entity.audit"
+  },
+  {
+   "key": "6ff2abda40b4f5e7",
+   "obj": "canonical_entity_constraint.constraint_type_code"
+  },
+  {
+   "key": "0ab25d09a68a5bef",
+   "obj": "canonical_entity_constraint.audit"
+  },
+  {
+   "key": "bbc4e10f1175de45",
+   "obj": "canonical_key.is_used_for_matching"
+  },
+  {
+   "key": "1b680767fc1587a1",
+   "obj": "canonical_key.referenced_entity_code"
+  },
+  {
+   "key": "6d4753a8af05079d",
+   "obj": "canonical_key.referenced_key_code"
+  },
+  {
+   "key": "3b4a0121c833c476",
+   "obj": "canonical_key.on_delete_action_code"
+  },
+  {
+   "key": "7e1afc5644c3fa92",
+   "obj": "canonical_key.on_update_action_code"
+  },
+  {
+   "key": "dcd446a4f4c154ce",
+   "obj": "canonical_key.row_uuid"
+  },
+  {
+   "key": "2a7786ed86361a35",
+   "obj": "canonical_key.audit"
+  },
+  {
+   "key": "9272eceda0fd883a",
+   "obj": "canonical_key_attribute.referenced_attribute_code"
+  },
+  {
+   "key": "b8c23962c68a8d1a",
+   "obj": "canonical_key_attribute.partition_transform"
+  },
+  {
+   "key": "bb0297ae226db0db",
+   "obj": "canonical_key_attribute.audit"
+  },
+  {
+   "key": "207d284f363835be",
+   "obj": "canonical_model_change.row_uuid"
+  },
+  {
+   "key": "55c7ecdb2f47e3d3",
+   "obj": "canonical_model_change.audit"
+  },
+  {
+   "key": "9066a9fedea40aec",
+   "obj": "canonical_relation.relation_kind_code"
+  },
+  {
+   "key": "b9454689cc046c8f",
+   "obj": "canonical_relation.source_canonical_entity_code"
+  },
+  {
+   "key": "dc0929b149f62abf",
+   "obj": "canonical_relation.target_canonical_entity_code"
+  },
+  {
+   "key": "2def00e244bb7795",
+   "obj": "canonical_relation.row_uuid"
+  },
+  {
+   "key": "0790bcd82c55c6fb",
+   "obj": "canonical_relation.audit"
+  },
+  {
+   "key": "04fd97ea69fe7007",
+   "obj": "canonical_relation_attribute_map.target_attribute_code"
+  },
+  {
+   "key": "fca12abaa6e97997",
+   "obj": "canonical_relation_attribute_map.row_uuid"
+  },
+  {
+   "key": "c3bc5b0a2d7d8158",
+   "obj": "canonical_relation_attribute_map.audit"
+  },
+  {
+   "key": "b1cca8b9456189d9",
+   "obj": "canonical_view.row_uuid"
+  },
+  {
+   "key": "b280b4c4d46a7d5e",
+   "obj": "canonical_view.audit"
+  },
+  {
+   "key": "4b96868e802bcc0b",
+   "obj": "lifecycle_phase_approval_rule.row_uuid"
+  },
+  {
+   "key": "c9c94cf29f0a8293",
+   "obj": "lifecycle_phase_approval_rule.audit"
+  },
+  {
+   "key": "1a6bc2b014bdba7d",
+   "obj": "lifecycle_policy.status_code"
+  },
+  {
+   "key": "cf29b81f6120c65b",
+   "obj": "lifecycle_policy.row_uuid"
+  },
+  {
+   "key": "1a4f960644ee3fb4",
+   "obj": "lifecycle_policy.audit"
+  },
+  {
+   "key": "c794582823b25177",
+   "obj": "data_product.id"
+  },
+  {
+   "key": "79013be8213f9740",
+   "obj": "data_product.data_product_code"
+  },
+  {
+   "key": "16fa3c47542532ea",
+   "obj": "data_product.data_product_name"
+  },
+  {
+   "key": "b1cd0186b7c3b931",
+   "obj": "data_product.data_product_kind_value_id"
+  },
+  {
+   "key": "ae98de245011c539",
+   "obj": "data_product.data_product_description"
+  },
+  {
+   "key": "4101462c325ecce0",
+   "obj": "data_product.business_purpose"
+  },
+  {
+   "key": "c06ca58700071bcf",
+   "obj": "data_product.target_audience_value_id"
+  },
+  {
+   "key": "10bc056da85eb10c",
+   "obj": "data_product.included_kpi_codes_summary"
+  },
+  {
+   "key": "4b5b0cec81880507",
+   "obj": "data_product.included_data_sources_summary"
+  },
+  {
+   "key": "bc32e460d1bb67fa",
+   "obj": "data_product.refresh_frequency_value_id"
+  },
+  {
+   "key": "4255e37660115643",
+   "obj": "data_product.freshness_slo_minutes"
+  },
+  {
+   "key": "551211fdce4615b0",
+   "obj": "data_product.completeness_slo_pct"
+  },
+  {
+   "key": "6e89848679fce382",
+   "obj": "data_product.accuracy_slo_pct"
+  },
+  {
+   "key": "e226912ff37d9b1f",
+   "obj": "data_product.availability_slo_pct"
+  },
+  {
+   "key": "1721edbb2de9c121",
+   "obj": "data_product.current_version_number"
+  },
+  {
+   "key": "ec2353f6fe9c8a69",
+   "obj": "data_product.previous_version_id"
+  },
+  {
+   "key": "997cafc298946536",
+   "obj": "data_product.data_product_status_value_id"
+  },
+  {
+   "key": "4ef63421ebe01f01",
+   "obj": "data_product.delivery_channel_value_id"
+  },
+  {
+   "key": "af058372ae3182e7",
+   "obj": "data_product.delivery_endpoint_reference"
+  },
+  {
+   "key": "a3e808f57100d562",
+   "obj": "data_product.requires_authentication"
+  },
+  {
+   "key": "333d2b0ada2e7ede",
+   "obj": "data_product.data_classification_value_id"
+  },
+  {
+   "key": "b77726139af1abbb",
+   "obj": "data_product.gdpr_applies"
+  },
+  {
+   "key": "bf29b22a2c8170f0",
+   "obj": "data_product.retention_period_days"
+  },
+  {
+   "key": "d5eb750ec37fe216",
+   "obj": "data_product.owner_business_unit_id"
+  },
+  {
+   "key": "3c37be7d9792761b",
+   "obj": "data_product.owner_employee_id"
+  },
+  {
+   "key": "3c844bf59485adf4",
+   "obj": "data_product.technical_steward_employee_id"
+  },
+  {
+   "key": "4aeab0d08209ff12",
+   "obj": "data_product.business_steward_employee_id"
+  },
+  {
+   "key": "b1f21485445bfe57",
+   "obj": "data_product.cost_per_query_estimate"
+  },
+  {
+   "key": "46a068874762dc43",
+   "obj": "data_product.subscriber_count_current"
+  },
+  {
+   "key": "1018e97cbc74a287",
+   "obj": "data_product.last_consumed_at"
+  },
+  {
+   "key": "80663e8ad2461a55",
+   "obj": "data_product.last_refreshed_at"
+  },
+  {
+   "key": "e0eea5a5a755abc7",
+   "obj": "data_product.documentation_uri"
+  },
+  {
+   "key": "cd978abb322d6591",
+   "obj": "data_product.effective_from_date"
+  },
+  {
+   "key": "22c45ba9a424de50",
+   "obj": "data_product.effective_until_date"
+  },
+  {
+   "key": "d7d0771a639162dc",
+   "obj": "data_product.notes"
+  },
+  {
+   "key": "0b0ef7d478fc7eec",
+   "obj": "account_balance_snapshot.snapshot_kind_value_id"
+  },
+  {
+   "key": "59fbd8bc9efdea46",
+   "obj": "account_balance_snapshot.snapshot_as_of_date"
+  },
+  {
+   "key": "461e50b5d91c8150",
+   "obj": "account_balance_snapshot.account_id"
+  },
+  {
+   "key": "88b7b5d1a4e100c5",
+   "obj": "account_balance_snapshot.accounting_book_id"
+  },
+  {
+   "key": "65619c1bfff63c54",
+   "obj": "account_balance_snapshot.accounting_period_id"
+  },
+  {
+   "key": "b3f03de470542d85",
+   "obj": "account_balance_snapshot.legal_entity_id"
+  },
+  {
+   "key": "d52d4c3433b9ff29",
+   "obj": "account_balance_snapshot.cost_center_id"
+  },
+  {
+   "key": "e13cb7220a3e0aad",
+   "obj": "account_balance_snapshot.project_id"
+  },
+  {
+   "key": "d8efe4f8a65f1b50",
+   "obj": "account_balance_snapshot.segment_id"
+  },
+  {
+   "key": "2f0f0669e00b6066",
+   "obj": "account_balance_snapshot.opening_balance_functional"
+  },
+  {
+   "key": "703461e58bec0954",
+   "obj": "account_balance_snapshot.period_debit_total_functional"
+  },
+  {
+   "key": "94eb0aa76cf7df82",
+   "obj": "account_balance_snapshot.period_credit_total_functional"
+  },
+  {
+   "key": "625caf2b6f6dd432",
+   "obj": "account_balance_snapshot.closing_balance_functional"
+  },
+  {
+   "key": "f38469a72c452266",
+   "obj": "account_balance_snapshot.opening_balance_reporting"
+  },
+  {
+   "key": "ae3c3723d9e3e860",
+   "obj": "account_balance_snapshot.closing_balance_reporting"
+  },
+  {
+   "key": "a1c912ef6c7b87b5",
+   "obj": "account_balance_snapshot.journal_entry_lines_count"
+  },
+  {
+   "key": "6230982ae33b5664",
+   "obj": "account_balance_snapshot.is_period_end_snapshot"
+  },
+  {
+   "key": "76a960f23d0e1844",
+   "obj": "account_balance_snapshot.materialization_runner_id"
+  },
+  {
+   "key": "3e7907bda8cf404a",
+   "obj": "account_balance_snapshot.materialization_timestamp"
+  }
+ ],
+ "ATTR_ENT_DESCONOCIDA": [
+  {
+   "key": "8319b95f1568b41d",
+   "obj": "business_term_canonical_entity.business_term_code"
+  },
+  {
+   "key": "7b6b2e64f59bdfa6",
+   "obj": "business_term_canonical_entity.canonical_entity_code"
+  },
+  {
+   "key": "04c768cd9647b93a",
+   "obj": "business_term_canonical_entity.role_code"
+  },
+  {
+   "key": "b2383485382978ea",
+   "obj": "business_term_canonical_entity.is_primary"
+  },
+  {
+   "key": "6d7a73cdf2de0c31",
+   "obj": "business_term_canonical_entity.row_uuid"
+  },
+  {
+   "key": "65782fc108c59041",
+   "obj": "business_term_canonical_entity.audit"
+  },
+  {
+   "key": "391d455113d490f9",
+   "obj": "canonical_attribute_business_term.canonical_attribute_code"
+  },
+  {
+   "key": "f364ddf5ad91ef6a",
+   "obj": "canonical_attribute_business_term.business_term_code"
+  },
+  {
+   "key": "766b33320e7f531d",
+   "obj": "canonical_attribute_business_term.mapping_kind_code"
+  },
+  {
+   "key": "7648e1632bb742d1",
+   "obj": "canonical_attribute_business_term.is_essential"
+  },
+  {
+   "key": "3b90526800ac7830",
+   "obj": "canonical_attribute_business_term.row_uuid"
+  },
+  {
+   "key": "8e1d6b5b2796e102",
+   "obj": "canonical_attribute_business_term.audit"
+  },
+  {
+   "key": "9ef5c8af0f334427",
+   "obj": "canonical_attribute_constraint.canonical_attribute_code"
+  },
+  {
+   "key": "695f900a840f041c",
+   "obj": "canonical_attribute_constraint.code"
+  },
+  {
+   "key": "b2d0ba711d015712",
+   "obj": "canonical_attribute_constraint.constraint_type_code"
+  },
+  {
+   "key": "ead748d668e40210",
+   "obj": "canonical_attribute_constraint.expression"
+  },
+  {
+   "key": "5ea57a03618ede19",
+   "obj": "canonical_attribute_constraint.min_value"
+  },
+  {
+   "key": "1421294140f0beae",
+   "obj": "canonical_attribute_constraint.max_value"
+  },
+  {
+   "key": "ee3df2936c3de41e",
+   "obj": "canonical_attribute_constraint.allowed_values_reference_catalog_code"
+  },
+  {
+   "key": "fe471f5e6b6d3b9c",
+   "obj": "canonical_attribute_constraint.audit"
+  },
+  {
+   "key": "f3126e921d820f31",
+   "obj": "canonical_entity_bk_alias.canonical_entity_code"
+  },
+  {
+   "key": "12d2584c9528e625",
+   "obj": "canonical_entity_bk_alias.previous_hash"
+  },
+  {
+   "key": "ff6a951880daa079",
+   "obj": "canonical_entity_bk_alias.current_hash"
+  },
+  {
+   "key": "e4c4dbc8a5d693ff",
+   "obj": "canonical_entity_bk_alias.change_reason_code"
+  },
+  {
+   "key": "1794fd07c3f9aa76",
+   "obj": "canonical_entity_bk_alias.previous_bk_in_clear_encrypted"
+  },
+  {
+   "key": "b8aeebafef04380b",
+   "obj": "canonical_entity_bk_alias.current_bk_in_clear_encrypted"
+  },
+  {
+   "key": "895ece2e36c963f0",
+   "obj": "canonical_entity_bk_alias.changed_at"
+  },
+  {
+   "key": "9ee03e69d1246779",
+   "obj": "canonical_entity_bk_alias.audit"
+  },
+  {
+   "key": "d736c3527037fbae",
+   "obj": "canonical_entity_business_process.canonical_entity_code"
+  },
+  {
+   "key": "30f4bcfe5f503613",
+   "obj": "canonical_entity_business_process.business_process_code"
+  },
+  {
+   "key": "d5ccc2f885d29133",
+   "obj": "canonical_entity_business_process.role_code"
+  },
+  {
+   "key": "c7e61cb5fe4a634a",
+   "obj": "canonical_entity_business_process.row_uuid"
+  },
+  {
+   "key": "b5d7524363f5044b",
+   "obj": "canonical_entity_business_process.audit"
+  },
+  {
+   "key": "cdb3b5231c06ceb0",
+   "obj": "canonical_entity_constraint_attribute.canonical_entity_constraint_code"
+  },
+  {
+   "key": "aad94f34413504fb",
+   "obj": "canonical_entity_constraint_attribute.canonical_attribute_code"
+  },
+  {
+   "key": "64f849b58ac680aa",
+   "obj": "canonical_entity_constraint_attribute.position_in_constraint"
+  },
+  {
+   "key": "28f859db4eef42ca",
+   "obj": "canonical_entity_constraint_attribute.role_in_expression_code"
+  },
+  {
+   "key": "884c0b0dff9dc91a",
+   "obj": "canonical_entity_constraint_attribute.audit"
+  },
+  {
+   "key": "84255185e139a1ad",
+   "obj": "canonical_relation_end.canonical_relation_code"
+  },
+  {
+   "key": "7298182871231900",
+   "obj": "canonical_relation_end.end_role_code"
+  },
+  {
+   "key": "abb9a3219df9523b",
+   "obj": "canonical_relation_end.canonical_entity_code"
+  },
+  {
+   "key": "7d454b339c439922",
+   "obj": "canonical_relation_end.cardinality_max"
+  },
+  {
+   "key": "ce88ee0c79b3820d",
+   "obj": "canonical_relation_end.is_mandatory"
+  },
+  {
+   "key": "cd619b91bbc823ee",
+   "obj": "canonical_relation_end.row_uuid"
+  },
+  {
+   "key": "9461546fef97cfd5",
+   "obj": "canonical_relation_end.audit"
+  },
+  {
+   "key": "832f3ad1b9bc9cd8",
+   "obj": "data_product_subscription.id"
+  },
+  {
+   "key": "3aeb94421947882a",
+   "obj": "data_product_subscription.data_product_id"
+  },
+  {
+   "key": "70d0ba2a41a1d9fb",
+   "obj": "data_product_subscription.subscriber_kind_value_id"
+  },
+  {
+   "key": "1ed8b19a60f59561",
+   "obj": "data_product_subscription.subscriber_employee_id"
+  },
+  {
+   "key": "9c96a1e868c2a3c0",
+   "obj": "data_product_subscription.subscriber_role_value_id"
+  },
+  {
+   "key": "e2b5e641ca453bbc",
+   "obj": "data_product_subscription.subscriber_system_code"
+  },
+  {
+   "key": "e6a451e2c5e17e03",
+   "obj": "data_product_subscription.subscriber_external_organization_employee_id"
+  },
+  {
+   "key": "3f90c1849bfe14b4",
+   "obj": "data_product_subscription.subscription_purpose_value_id"
+  },
+  {
+   "key": "8ccbc3337188d322",
+   "obj": "data_product_subscription.access_pattern_value_id"
+  },
+  {
+   "key": "cf984dc50290f538",
+   "obj": "data_product_subscription.subscription_status_value_id"
+  },
+  {
+   "key": "313c33166d17a80c",
+   "obj": "data_product_subscription.granted_at"
+  },
+  {
+   "key": "205ed2b801fcbedc",
+   "obj": "data_product_subscription.granted_by_employee_id"
+  },
+  {
+   "key": "cfc1811c661258e8",
+   "obj": "data_product_subscription.expires_at"
+  },
+  {
+   "key": "7d115bd11f709c14",
+   "obj": "data_product_subscription.last_accessed_at"
+  },
+  {
+   "key": "c7190c05bb9c8e1b",
+   "obj": "data_product_subscription.total_accesses_count"
+  },
+  {
+   "key": "65eb01bc6dab8aa8",
+   "obj": "data_product_subscription.requires_explicit_renewal"
+  },
+  {
+   "key": "9a4901308a3fa34d",
+   "obj": "data_product_subscription.notes"
+  },
+  {
+   "key": "029e7c4531d220e1",
+   "obj": "data_product_subscription.system"
+  },
+  {
+   "key": "51162eafd323327e",
+   "obj": "party.code"
+  }
+ ],
+ "ATTR_RETIRADO_ENT_METAMODELO": [
+  {
+   "key": "dceb1b830249ad5d",
+   "obj": "canonical_attribute_attribute.row_uuid"
+  },
+  {
+   "key": "d0165f240806219e",
+   "obj": "canonical_attribute_attribute.audit"
+  },
+  {
+   "key": "4532d07bdedc09c2",
+   "obj": "canonical_attribute_version.row_uuid"
+  },
+  {
+   "key": "9ef790e92015a986",
+   "obj": "canonical_attribute_version.audit"
+  },
+  {
+   "key": "820e9a6245fa8223",
+   "obj": "canonical_entity_attribute.row_uuid"
+  },
+  {
+   "key": "20cddc0374ff6f5c",
+   "obj": "canonical_entity_attribute.audit"
+  },
+  {
+   "key": "cea9e961c557a733",
+   "obj": "canonical_entity_bk_lookup_config.canonical_entity_code"
+  },
+  {
+   "key": "55e37ec81cb12789",
+   "obj": "canonical_entity_bk_lookup_config.lookup_strategy_code"
+  },
+  {
+   "key": "828737339937efc8",
+   "obj": "canonical_entity_bk_lookup_config.physical_catalog_code"
+  },
+  {
+   "key": "14f9b54b15e7f5e6",
+   "obj": "canonical_entity_bk_lookup_config.physical_schema_code"
+  },
+  {
+   "key": "7781c3e6b9bbb5a4",
+   "obj": "canonical_entity_bk_lookup_config.physical_table_name"
+  },
+  {
+   "key": "4117086d83e5683d",
+   "obj": "canonical_entity_bk_lookup_config.row_uuid"
+  },
+  {
+   "key": "5ffacdbfcfc2822d",
+   "obj": "canonical_entity_bk_lookup_config.audit"
+  },
+  {
+   "key": "677163015493d583",
+   "obj": "canonical_entity_version.row_uuid"
+  },
+  {
+   "key": "838d006183632129",
+   "obj": "canonical_entity_version.audit"
+  }
+ ],
+ "VALOR_RETIRADO": [
+  {
+   "key": "d7b4097a2e20fd74",
+   "obj": "DOCUMENT_TYPE:DATA_PRODUCT_CARD"
+  },
+  {
+   "key": "feb6420a6094be0d",
+   "obj": "DOCUMENT_TYPE:ADR"
+  },
+  {
+   "key": "694e17862d34712d",
+   "obj": "DOCUMENT_TYPE:RUNBOOK"
+  },
+  {
+   "key": "5356ec6b9e536db6",
+   "obj": "DOCUMENT_TYPE:DPA"
+  },
+  {
+   "key": "d9e6a0096c249431",
+   "obj": "DOCUMENT_TYPE:POLICY"
+  },
+  {
+   "key": "bb836e37e41bf06c",
+   "obj": "DOCUMENT_TYPE:REPORT"
+  },
+  {
+   "key": "1ba9ee07f35cb568",
+   "obj": "INSTALLMENT_STATUS:DUE"
+  },
+  {
+   "key": "f843bfe8fe37dd20",
+   "obj": "INSTALLMENT_STATUS:NOT_DUE"
+  },
+  {
+   "key": "ee1d41ef947b6e29",
+   "obj": "INSTALLMENT_STATUS:PARTIALLY_PAID"
+  },
+  {
+   "key": "cdfbb06c71cc935a",
+   "obj": "INSTALLMENT_STATUS:WRITTEN_OFF"
+  },
+  {
+   "key": "40bd5aa96fcd99d4",
+   "obj": "DISPUTE_STATUS:AWAITING_DOCUMENTATION"
+  },
+  {
+   "key": "bed43a0c31fb78f3",
+   "obj": "DISPUTE_STATUS:ESCALATED_TO_LEGAL"
+  },
+  {
+   "key": "11ed9cef9cbdd53c",
+   "obj": "DISPUTE_STATUS:IN_NEGOTIATION"
+  },
+  {
+   "key": "1d8627e10ffcda0b",
+   "obj": "DISPUTE_STATUS:RESOLVED_IN_FAVOR_OF_CUSTOMER"
+  },
+  {
+   "key": "245c8044638bdb88",
+   "obj": "DISPUTE_STATUS:RESOLVED_IN_FAVOR_OF_SUPPLIER"
+  },
+  {
+   "key": "d646331ab7d209dd",
+   "obj": "DISPUTE_STATUS:UNDER_INVESTIGATION"
+  },
+  {
+   "key": "20a924b2c41bb5bc",
+   "obj": "DISPUTE_STATUS:WITHDRAWN"
+  },
+  {
+   "key": "0ebf21b7692c48df",
+   "obj": "DISPUTE_STATUS:WRITTEN_OFF"
+  },
+  {
+   "key": "fb362687b1eb23dc",
+   "obj": "COMMUNICATION_CHANNEL:IN_PERSON_VISIT"
+  },
+  {
+   "key": "3aa47dd635704038",
+   "obj": "COMMUNICATION_CHANNEL:LEGAL_NOTIFICATION"
+  },
+  {
+   "key": "2a3efdc15d08bafb",
+   "obj": "COMMUNICATION_CHANNEL:OTHER"
+  },
+  {
+   "key": "bc163fa371cb39bf",
+   "obj": "COMMUNICATION_CHANNEL:PHONE_CALL"
+  },
+  {
+   "key": "8ac5bf022a332b50",
+   "obj": "COMMUNICATION_CHANNEL:PORTAL_NOTIFICATION"
+  },
+  {
+   "key": "af8dfa52d2f9f9f5",
+   "obj": "COMMUNICATION_CHANNEL:POSTAL_MAIL_CERTIFIED"
+  },
+  {
+   "key": "8b5570a1e324a499",
+   "obj": "COMMUNICATION_CHANNEL:POSTAL_MAIL_REGULAR"
+  },
+  {
+   "key": "e27945f6e15208e7",
+   "obj": "INSTRUMENT_STATUS:CANCELLED"
+  },
+  {
+   "key": "11cca3fd137ab22d",
+   "obj": "INSTRUMENT_STATUS:FULLY_DRAWN"
+  },
+  {
+   "key": "6f8f880593817476",
+   "obj": "INSTRUMENT_STATUS:FULLY_REPAID"
+  },
+  {
+   "key": "ee4a1b1b547b3f93",
+   "obj": "INSTRUMENT_STATUS:IN_DEFAULT"
+  },
+  {
+   "key": "85946e961b4b712a",
+   "obj": "INSTRUMENT_STATUS:IN_REPAYMENT"
+  },
+  {
+   "key": "5f60bd55f41b116c",
+   "obj": "INSTRUMENT_STATUS:NEGOTIATED"
+  },
+  {
+   "key": "4877b80c57eebab3",
+   "obj": "INSTRUMENT_STATUS:PARTIALLY_DRAWN"
+  },
+  {
+   "key": "63f4ff3716927e9f",
+   "obj": "INSTRUMENT_STATUS:RENEGOTIATED"
+  },
+  {
+   "key": "8904434320cf863b",
+   "obj": "INSTRUMENT_STATUS:SIGNED"
+  },
+  {
+   "key": "66f8385f166e6175",
+   "obj": "INSTRUMENT_STATUS:CLOSED_OUT_EARLY"
+  },
+  {
+   "key": "8a1c7ecab569fe6b",
+   "obj": "INSTRUMENT_STATUS:EXERCISED"
+  },
+  {
+   "key": "231ce0bc80c9bc8c",
+   "obj": "INSTRUMENT_STATUS:EXPIRED"
+  },
+  {
+   "key": "1383feb4daa82907",
+   "obj": "INSTRUMENT_STATUS:NETTED"
+  },
+  {
+   "key": "9a4216de0f31d474",
+   "obj": "PAYMENT_CHANNEL:ACH_US"
+  },
+  {
+   "key": "aa1258d00a86e045",
+   "obj": "PAYMENT_CHANNEL:CHECK"
+  },
+  {
+   "key": "b96158735bbe8557",
+   "obj": "PAYMENT_CHANNEL:INSTANT_PAYMENT"
+  },
+  {
+   "key": "4d17cedce5c759d5",
+   "obj": "PAYMENT_CHANNEL:OTHER"
+  },
+  {
+   "key": "f7944d7ae9be0b52",
+   "obj": "PAYMENT_CHANNEL:SEPA_CT"
+  },
+  {
+   "key": "298a025e77acffbe",
+   "obj": "PAYMENT_CHANNEL:SEPA_DD_B2B"
+  },
+  {
+   "key": "019982dc057b0eef",
+   "obj": "PAYMENT_CHANNEL:SEPA_DD_CORE"
+  },
+  {
+   "key": "cff81ceaa3c915fd",
+   "obj": "PAYMENT_CHANNEL:SEPA_INST"
+  },
+  {
+   "key": "7bea874756ebf153",
+   "obj": "PAYMENT_CHANNEL:SWIFT_MT103"
+  },
+  {
+   "key": "f944ea0c229d7a3f",
+   "obj": "PAYMENT_CHANNEL:SWIFT_MT202"
+  },
+  {
+   "key": "b9a357da2a8a9b63",
+   "obj": "COUNTERPARTY_TYPE:CUSTOMER"
+  },
+  {
+   "key": "6f7a6c8a10a6bc84",
+   "obj": "COUNTERPARTY_TYPE:SUPPLIER"
+  },
+  {
+   "key": "f14f99c571a3a779",
+   "obj": "COUNTERPARTY_TYPE:LEGAL_ENTITY"
+  },
+  {
+   "key": "f32f790ca98984c4",
+   "obj": "COUNTERPARTY_TYPE:INTERCOMPANY"
+  },
+  {
+   "key": "3812cb947ae448d2",
+   "obj": "COUNTERPARTY_TYPE:OTHER"
+  },
+  {
+   "key": "f92d355c244f9334",
+   "obj": "CREDIT_RATING:UNRATED"
+  },
+  {
+   "key": "2b14a58d1df6e59d",
+   "obj": "AGREEMENT_STATUS:EXPIRED"
+  },
+  {
+   "key": "e7298cad83f74e0e",
+   "obj": "LEAD_STATUS:WORKING"
+  },
+  {
+   "key": "1e7f263b7d55fee8",
+   "obj": "LEAD_STATUS:NURTURING"
+  },
+  {
+   "key": "4cc5857f6f37d233",
+   "obj": "LEAD_STATUS:MQL"
+  },
+  {
+   "key": "3477fe60b6fe6f80",
+   "obj": "LEAD_STATUS:SQL"
+  },
+  {
+   "key": "c6fe3e456a520955",
+   "obj": "LEAD_STATUS:DISQUALIFIED"
+  },
+  {
+   "key": "e79a4e1445291f4a",
+   "obj": "OPPORTUNITY_STAGE:DISCOVERY"
+  },
+  {
+   "key": "5c260dc6072c0cab",
+   "obj": "OPPORTUNITY_STAGE:CLOSED_WON"
+  },
+  {
+   "key": "78d41413640762d9",
+   "obj": "OPPORTUNITY_STAGE:CLOSED_LOST"
+  },
+  {
+   "key": "586ffb279bc27f4d",
+   "obj": "QUOTE_STATUS:SENT"
+  },
+  {
+   "key": "6f247d17af34c6bd",
+   "obj": "QUOTE_STATUS:REJECTED"
+  },
+  {
+   "key": "340650ad1a04a007",
+   "obj": "QUOTE_STATUS:REVISED"
+  },
+  {
+   "key": "79068c7215b830c3",
+   "obj": "QUOTE_STATUS:CANCELLED"
+  },
+  {
+   "key": "6c7bf524cc496cb4",
+   "obj": "COVERAGE_TYPE:COLLISION"
+  },
+  {
+   "key": "7220685453944bb4",
+   "obj": "COVERAGE_TYPE:COMPREHENSIVE"
+  },
+  {
+   "key": "54f2fea0e2fdb421",
+   "obj": "COVERAGE_TYPE:MEDICAL"
+  },
+  {
+   "key": "187ceede3b54dd04",
+   "obj": "COVERAGE_TYPE:PROPERTY_DAMAGE"
+  },
+  {
+   "key": "07d5f974e4a6dcd1",
+   "obj": "COVERAGE_TYPE:DISABILITY"
+  },
+  {
+   "key": "325e9d758a9209f6",
+   "obj": "DEVICE_TYPE:MONITOR"
+  },
+  {
+   "key": "913e7519eb60e41d",
+   "obj": "DEVICE_TYPE:PUMP"
+  },
+  {
+   "key": "7931063023997359",
+   "obj": "DEVICE_TYPE:IMAGING"
+  },
+  {
+   "key": "977aee521adffb27",
+   "obj": "DEVICE_TYPE:VENTILATOR"
+  },
+  {
+   "key": "6f7496278d4f860d",
+   "obj": "DEVICE_TYPE:IMPLANT"
+  },
+  {
+   "key": "22dd6377dc56800d",
+   "obj": "DEVICE_TYPE:OTHER"
+  },
+  {
+   "key": "f7944a0b8f1d5020",
+   "obj": "APPOINTMENT_STATUS:PROPOSED"
+  },
+  {
+   "key": "6b36cb6c232b201a",
+   "obj": "APPOINTMENT_STATUS:BOOKED"
+  },
+  {
+   "key": "f5fa490257b6c2aa",
+   "obj": "APPOINTMENT_STATUS:ARRIVED"
+  },
+  {
+   "key": "46651eed43cff756",
+   "obj": "APPOINTMENT_STATUS:FULFILLED"
+  },
+  {
+   "key": "9a03bce42ef6aa6e",
+   "obj": "APPOINTMENT_STATUS:CANCELLED"
+  },
+  {
+   "key": "54822202b123539e",
+   "obj": "APPOINTMENT_STATUS:NOSHOW"
+  },
+  {
+   "key": "6a4b5aad11e1b059",
+   "obj": "APPOINTMENT_TYPE:ROUTINE"
+  },
+  {
+   "key": "0819efceba47fc80",
+   "obj": "APPOINTMENT_TYPE:URGENT"
+  },
+  {
+   "key": "bf21202814bf6883",
+   "obj": "APPOINTMENT_TYPE:FOLLOWUP"
+  },
+  {
+   "key": "89164395f30833d2",
+   "obj": "APPOINTMENT_TYPE:CHECKUP"
+  },
+  {
+   "key": "9b9e2c1d5714c284",
+   "obj": "APPOINTMENT_TYPE:CONSULT"
+  },
+  {
+   "key": "03b0d20783cf673c",
+   "obj": "GUARANTEE_TYPE:PERSONAL"
+  },
+  {
+   "key": "969fddf44ed55337",
+   "obj": "GUARANTEE_TYPE:BANK_GUARANTEE"
+  },
+  {
+   "key": "e245cdf72cea1bb7",
+   "obj": "GUARANTEE_TYPE:CORPORATE"
+  },
+  {
+   "key": "d0ec3bc9d3175f1c",
+   "obj": "GUARANTEE_TYPE:MORTGAGE"
+  },
+  {
+   "key": "4571862b12d25c74",
+   "obj": "APPLICATION_STATUS:DECLINED"
+  },
+  {
+   "key": "b702e2b9b796462b",
+   "obj": "APPOINTMENT_STATUS:REQUESTED"
+  },
+  {
+   "key": "98b3ee9fb8131b00",
+   "obj": "APPOINTMENT_STATUS:SCHEDULED"
+  },
+  {
+   "key": "98c0ff36f06cb8ba",
+   "obj": "APPOINTMENT_STATUS:CONFIRMED"
+  },
+  {
+   "key": "0102b06a7d9dca44",
+   "obj": "APPOINTMENT_STATUS:COMPLETED"
+  },
+  {
+   "key": "59baa95d927c2dbb",
+   "obj": "APPOINTMENT_STATUS:NO_SHOW"
+  },
+  {
+   "key": "ef19cf3e7ab91090",
+   "obj": "AGREEMENT_STATUS:SIGNED"
+  }
+ ]
+}
