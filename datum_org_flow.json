@@ -1,0 +1,738 @@
+{
+ "_meta": {
+  "titulo": "Flujo de ejecución compilado por proceso batch/derived (PROPUESTA METADATO-67)",
+  "nota": "proceso→modo→patrón(steps)→entidades{canónica←origen, campos, matching}. Compilado de transformation/capture/workflow_pattern_step/match_rule_set."
+ },
+ "flows": {
+  "uc_ingest": {
+   "modes": [
+    {
+     "mode": "FULL",
+     "pattern": "WF_INGEST_BATCH",
+     "steps": [
+      {
+       "code": "CAPTURE",
+       "runner": "RUNNER_INGEST",
+       "gate": false,
+       "order": 1
+      },
+      {
+       "code": "DQ_GATE",
+       "runner": "RUNNER_DQ",
+       "gate": true,
+       "order": 2
+      },
+      {
+       "code": "WRITE",
+       "runner": "RUNNER_TRANSFORM",
+       "gate": false,
+       "order": 3
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "uc_information_schema_catalog_privileges",
+       "source": "system.information_schema.catalog_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_catalog_provider_share_usage",
+       "source": "system.information_schema.catalog_provider_share_usage",
+       "fields": 3,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_catalog_tags",
+       "source": "system.information_schema.catalog_tags",
+       "fields": 3,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_catalogs",
+       "source": "system.information_schema.catalogs",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_check_constraints",
+       "source": "system.information_schema.check_constraints",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_column_masks",
+       "source": "system.information_schema.column_masks",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_column_tags",
+       "source": "system.information_schema.column_tags",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_columns",
+       "source": "system.information_schema.columns",
+       "fields": 33,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_connection_privileges",
+       "source": "system.information_schema.connection_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_connections",
+       "source": "system.information_schema.connections",
+       "fields": 11,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_constraint_column_usage",
+       "source": "system.information_schema.constraint_column_usage",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_constraint_table_usage",
+       "source": "system.information_schema.constraint_table_usage",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_credential_privileges",
+       "source": "system.information_schema.credential_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_credentials",
+       "source": "system.information_schema.credentials",
+       "fields": 12,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_external_location_privileges",
+       "source": "system.information_schema.external_location_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_external_locations",
+       "source": "system.information_schema.external_locations",
+       "fields": 11,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_information_schema_catalog_name",
+       "source": "system.information_schema.information_schema_catalog_name",
+       "fields": 1,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_key_column_usage",
+       "source": "system.information_schema.key_column_usage",
+       "fields": 9,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_metastore_privileges",
+       "source": "system.information_schema.metastore_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_metastores",
+       "source": "system.information_schema.metastores",
+       "fields": 17,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_parameters",
+       "source": "system.information_schema.parameters",
+       "fields": 21,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_providers",
+       "source": "system.information_schema.providers",
+       "fields": 13,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_recipient_allowed_ip_ranges",
+       "source": "system.information_schema.recipient_allowed_ip_ranges",
+       "fields": 2,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_recipient_tokens",
+       "source": "system.information_schema.recipient_tokens",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_recipients",
+       "source": "system.information_schema.recipients",
+       "fields": 12,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_referential_constraints",
+       "source": "system.information_schema.referential_constraints",
+       "fields": 9,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_routine_columns",
+       "source": "system.information_schema.routine_columns",
+       "fields": 18,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_routine_privileges",
+       "source": "system.information_schema.routine_privileges",
+       "fields": 11,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_routines",
+       "source": "system.information_schema.routines",
+       "fields": 34,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_row_filters",
+       "source": "system.information_schema.row_filters",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_schema_privileges",
+       "source": "system.information_schema.schema_privileges",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_schema_share_usage",
+       "source": "system.information_schema.schema_share_usage",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_schema_tags",
+       "source": "system.information_schema.schema_tags",
+       "fields": 4,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_schemata",
+       "source": "system.information_schema.schemata",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_share_recipient_privileges",
+       "source": "system.information_schema.share_recipient_privileges",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_shares",
+       "source": "system.information_schema.shares",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_storage_credential_privileges",
+       "source": "system.information_schema.storage_credential_privileges",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_storage_credentials",
+       "source": "system.information_schema.storage_credentials",
+       "fields": 11,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_table_constraints",
+       "source": "system.information_schema.table_constraints",
+       "fields": 11,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_table_privileges",
+       "source": "system.information_schema.table_privileges",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_table_share_usage",
+       "source": "system.information_schema.table_share_usage",
+       "fields": 10,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_table_tags",
+       "source": "system.information_schema.table_tags",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_tables",
+       "source": "system.information_schema.tables",
+       "fields": 15,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_views",
+       "source": "system.information_schema.views",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_volume_privileges",
+       "source": "system.information_schema.volume_privileges",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_volume_tags",
+       "source": "system.information_schema.volume_tags",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_information_schema_volumes",
+       "source": "system.information_schema.volumes",
+       "fields": 11,
+       "matching": false
+      }
+     ]
+    },
+    {
+     "mode": "INCREMENTAL",
+     "pattern": "WF_INGEST_BATCH",
+     "steps": [
+      {
+       "code": "CAPTURE",
+       "runner": "RUNNER_INGEST",
+       "gate": false,
+       "order": 1
+      },
+      {
+       "code": "DQ_GATE",
+       "runner": "RUNNER_DQ",
+       "gate": true,
+       "order": 2
+      },
+      {
+       "code": "WRITE",
+       "runner": "RUNNER_TRANSFORM",
+       "gate": false,
+       "order": 3
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "uc_billing_list_prices",
+       "source": "system.billing.list_prices",
+       "fields": 8,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_clusters",
+       "source": "system.compute.clusters",
+       "fields": 27,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_instance_pools",
+       "source": "system.compute.instance_pools",
+       "fields": 19,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_node_types",
+       "source": "system.compute.node_types",
+       "fields": 5,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_warehouses",
+       "source": "system.compute.warehouses",
+       "fields": 13,
+       "matching": false
+      },
+      {
+       "canonical": "uc_data_classification_results",
+       "source": "system.data_classification.results",
+       "fields": 13,
+       "matching": false
+      },
+      {
+       "canonical": "uc_data_quality_monitoring_table_results",
+       "source": "system.data_quality_monitoring.table_results",
+       "fields": 12,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_job_tasks",
+       "source": "system.lakeflow.job_tasks",
+       "fields": 9,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_jobs",
+       "source": "system.lakeflow.jobs",
+       "fields": 19,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_pipelines",
+       "source": "system.lakeflow.pipelines",
+       "fields": 13,
+       "matching": false
+      }
+     ]
+    },
+    {
+     "mode": "STREAMING",
+     "pattern": "WF_INGEST_STREAM",
+     "steps": [
+      {
+       "code": "STREAM_CAPTURE",
+       "runner": "RUNNER_INGEST",
+       "gate": false,
+       "order": 1
+      },
+      {
+       "code": "DQ_GATE",
+       "runner": "RUNNER_DQ",
+       "gate": true,
+       "order": 2
+      },
+      {
+       "code": "WRITE",
+       "runner": "RUNNER_TRANSFORM",
+       "gate": false,
+       "order": 3
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "uc_access_assistant_events",
+       "source": "system.access.assistant_events",
+       "fields": 7,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_audit",
+       "source": "system.access.audit",
+       "fields": 17,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_clean_room_events",
+       "source": "system.access.clean_room_events",
+       "fields": 16,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_column_lineage",
+       "source": "system.access.column_lineage",
+       "fields": 28,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_inbound_network",
+       "source": "system.access.inbound_network",
+       "fields": 9,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_outbound_network",
+       "source": "system.access.outbound_network",
+       "fields": 10,
+       "matching": false
+      },
+      {
+       "canonical": "uc_access_table_lineage",
+       "source": "system.access.table_lineage",
+       "fields": 26,
+       "matching": false
+      },
+      {
+       "canonical": "uc_billing_usage",
+       "source": "system.billing.usage",
+       "fields": 18,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_instance_events",
+       "source": "system.compute.instance_events",
+       "fields": 10,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_node_timeline",
+       "source": "system.compute.node_timeline",
+       "fields": 17,
+       "matching": false
+      },
+      {
+       "canonical": "uc_compute_warehouse_events",
+       "source": "system.compute.warehouse_events",
+       "fields": 6,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_job_run_timeline",
+       "source": "system.lakeflow.job_run_timeline",
+       "fields": 22,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_job_task_run_timeline",
+       "source": "system.lakeflow.job_task_run_timeline",
+       "fields": 18,
+       "matching": false
+      },
+      {
+       "canonical": "uc_lakeflow_pipeline_update_timeline",
+       "source": "system.lakeflow.pipeline_update_timeline",
+       "fields": 16,
+       "matching": false
+      },
+      {
+       "canonical": "uc_query_history",
+       "source": "system.query.history",
+       "fields": 42,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_dq_incident": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_dq_incident_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_DQ",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "dq_incident",
+       "source": "(deriva) dq_run_result (fallidos sin auto-remediar)",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_incident": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_incident_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "incident",
+       "source": "(deriva) run_step(ERROR) + dq_incident",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_alert": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_alert_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "alert",
+       "source": "(deriva) run_step, dq_run_result, cost_anomaly",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_cost_anomaly": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_cost_anomaly_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "cost_anomaly",
+       "source": "(deriva) uc_billing_usage",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_budget_breach": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_budget_breach_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "budget_breach",
+       "source": "(deriva) uc_billing_usage + presupuesto",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_metamodel_snapshot_run": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_metamodel_snapshot_run_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "metamodel_snapshot_run",
+       "source": "(deriva) el propio metamodelo",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_platform_health_snapshot": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_platform_health_snapshot_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "platform_health_snapshot",
+       "source": "(deriva) run/run_step + dq_run_result",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_datum_internal_kpi_value": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_datum_internal_kpi_value_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "datum_internal_kpi_value",
+       "source": "(deriva) telemetría agregada",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  },
+  "obs_anomaly_detection": {
+   "modes": [
+    {
+     "mode": "DERIVED",
+     "pattern": "obs_anomaly_detection_pattern",
+     "steps": [
+      {
+       "code": "COMPUTE",
+       "runner": "RUNNER_KPI",
+       "gate": false,
+       "order": 1
+      }
+     ],
+     "entities": [
+      {
+       "canonical": "anomaly_detection",
+       "source": "(deriva) access_event (vista sobre uc_access_audit)",
+       "fields": 0,
+       "matching": false
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

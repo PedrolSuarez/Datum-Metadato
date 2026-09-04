@@ -224662,6 +224662,106 @@
     }
    }
   },
+  "cbf3dc57f545f7aa": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "PRIMARY_TAX_ID_KIND",
+   "code": "CIF_ES",
+   "texts": {
+    "SHORT": {
+     "es": "Es de Cif",
+     "en": "Cif Es",
+     "fr": "Es de Cif",
+     "pt": "Es de Cif"
+    },
+    "SUMMARY": {
+     "es": "Es de Cif",
+     "en": "Cif Es",
+     "fr": "Es de Cif",
+     "pt": "Es de Cif"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CIF_ES» del catálogo PRIMARY_TAX_ID_KIND.",
+     "en": "Value 'CIF_ES' of catalog PRIMARY_TAX_ID_KIND.",
+     "fr": "Valeur « CIF_ES » du catalogue PRIMARY_TAX_ID_KIND.",
+     "pt": "Valor «CIF_ES» do catálogo PRIMARY_TAX_ID_KIND."
+    }
+   }
+  },
+  "17a699f770b6d537": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "PRIMARY_TAX_ID_KIND",
+   "code": "CNPJ_BR",
+   "texts": {
+    "SHORT": {
+     "es": "Br de Cnpj",
+     "en": "Cnpj Br",
+     "fr": "Br de Cnpj",
+     "pt": "Br de Cnpj"
+    },
+    "SUMMARY": {
+     "es": "Br de Cnpj",
+     "en": "Cnpj Br",
+     "fr": "Br de Cnpj",
+     "pt": "Br de Cnpj"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CNPJ_BR» del catálogo PRIMARY_TAX_ID_KIND.",
+     "en": "Value 'CNPJ_BR' of catalog PRIMARY_TAX_ID_KIND.",
+     "fr": "Valeur « CNPJ_BR » du catalogue PRIMARY_TAX_ID_KIND.",
+     "pt": "Valor «CNPJ_BR» do catálogo PRIMARY_TAX_ID_KIND."
+    }
+   }
+  },
+  "2404e211a7798be3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "PRIMARY_TAX_ID_KIND",
+   "code": "EIN_US",
+   "texts": {
+    "SHORT": {
+     "es": "Us de Ein",
+     "en": "Ein Us",
+     "fr": "Us de Ein",
+     "pt": "Us de Ein"
+    },
+    "SUMMARY": {
+     "es": "Us de Ein",
+     "en": "Ein Us",
+     "fr": "Us de Ein",
+     "pt": "Us de Ein"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EIN_US» del catálogo PRIMARY_TAX_ID_KIND.",
+     "en": "Value 'EIN_US' of catalog PRIMARY_TAX_ID_KIND.",
+     "fr": "Valeur « EIN_US » du catalogue PRIMARY_TAX_ID_KIND.",
+     "pt": "Valor «EIN_US» do catálogo PRIMARY_TAX_ID_KIND."
+    }
+   }
+  },
+  "d05cea4bce992161": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "PRIMARY_TAX_ID_KIND",
+   "code": "RFC_MX",
+   "texts": {
+    "SHORT": {
+     "es": "Mx de Rfc",
+     "en": "Rfc Mx",
+     "fr": "Mx de Rfc",
+     "pt": "Mx de Rfc"
+    },
+    "SUMMARY": {
+     "es": "Mx de Rfc",
+     "en": "Rfc Mx",
+     "fr": "Mx de Rfc",
+     "pt": "Mx de Rfc"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RFC_MX» del catálogo PRIMARY_TAX_ID_KIND.",
+     "en": "Value 'RFC_MX' of catalog PRIMARY_TAX_ID_KIND.",
+     "fr": "Valeur « RFC_MX » du catalogue PRIMARY_TAX_ID_KIND.",
+     "pt": "Valor «RFC_MX» do catálogo PRIMARY_TAX_ID_KIND."
+    }
+   }
+  },
   "f11c7a9b9e5bcf96": {
    "object_type": "REFERENCE_VALUE",
    "catalog": "LEGAL_ENTITY_KIND",
@@ -270262,6 +270362,306 @@
     }
    }
   },
+  "84996ee2bcbb215d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "ACCOUNT",
+   "texts": {
+    "SHORT": {
+     "es": "Cuenta",
+     "en": "Account",
+     "fr": "Compte",
+     "pt": "Conta"
+    },
+    "SUMMARY": {
+     "es": "Cuenta",
+     "en": "Account",
+     "fr": "Compte",
+     "pt": "Conta"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ACCOUNT» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'ACCOUNT' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « ACCOUNT » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «ACCOUNT» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "3f353bbe21426a56": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "ANALYTICAL_CUSTOM",
+   "texts": {
+    "SHORT": {
+     "es": "Custom de analítica",
+     "en": "Analytical Custom",
+     "fr": "Custom de analytique",
+     "pt": "Custom de analítica"
+    },
+    "SUMMARY": {
+     "es": "Custom de analítica",
+     "en": "Analytical Custom",
+     "fr": "Custom de analytique",
+     "pt": "Custom de analítica"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ANALYTICAL_CUSTOM» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'ANALYTICAL_CUSTOM' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « ANALYTICAL_CUSTOM » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «ANALYTICAL_CUSTOM» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "55977017469e5475": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "COST_CENTER",
+   "texts": {
+    "SHORT": {
+     "es": "Centro de coste",
+     "en": "Cost Center",
+     "fr": "Centre de coût",
+     "pt": "Centro de custo"
+    },
+    "SUMMARY": {
+     "es": "Centro de coste",
+     "en": "Cost Center",
+     "fr": "Centre de coût",
+     "pt": "Centro de custo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «COST_CENTER» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'COST_CENTER' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « COST_CENTER » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «COST_CENTER» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "6018c92c49b52929": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "CUSTOMER",
+   "texts": {
+    "SHORT": {
+     "es": "Cliente",
+     "en": "Customer",
+     "fr": "Client",
+     "pt": "Cliente"
+    },
+    "SUMMARY": {
+     "es": "Cliente",
+     "en": "Customer",
+     "fr": "Client",
+     "pt": "Cliente"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CUSTOMER» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'CUSTOMER' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « CUSTOMER » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «CUSTOMER» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "46a447c7b88a3eb3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "EMPLOYEE",
+   "texts": {
+    "SHORT": {
+     "es": "Empleado",
+     "en": "Employee",
+     "fr": "Employé",
+     "pt": "Funcionário"
+    },
+    "SUMMARY": {
+     "es": "Empleado",
+     "en": "Employee",
+     "fr": "Employé",
+     "pt": "Funcionário"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EMPLOYEE» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'EMPLOYEE' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « EMPLOYEE » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «EMPLOYEE» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "0394f70e71a84bcf": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "GEOGRAPHY",
+   "texts": {
+    "SHORT": {
+     "es": "Geography",
+     "en": "Geography",
+     "fr": "Geography",
+     "pt": "Geography"
+    },
+    "SUMMARY": {
+     "es": "Geography",
+     "en": "Geography",
+     "fr": "Geography",
+     "pt": "Geography"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «GEOGRAPHY» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'GEOGRAPHY' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « GEOGRAPHY » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «GEOGRAPHY» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "ae8b3904c4bb17c4": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "LEGAL_ENTITY",
+   "texts": {
+    "SHORT": {
+     "es": "Entidad legal",
+     "en": "Legal Entity",
+     "fr": "Entité juridique",
+     "pt": "Entidade legal"
+    },
+    "SUMMARY": {
+     "es": "Entidad legal",
+     "en": "Legal Entity",
+     "fr": "Entité juridique",
+     "pt": "Entidade legal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «LEGAL_ENTITY» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'LEGAL_ENTITY' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « LEGAL_ENTITY » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «LEGAL_ENTITY» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "2e424fe3c2833eb4": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "PRODUCT",
+   "texts": {
+    "SHORT": {
+     "es": "Producto",
+     "en": "Product",
+     "fr": "Produit",
+     "pt": "Produto"
+    },
+    "SUMMARY": {
+     "es": "Producto",
+     "en": "Product",
+     "fr": "Produit",
+     "pt": "Produto"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PRODUCT» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'PRODUCT' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « PRODUCT » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «PRODUCT» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "6e2148e29e243744": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "PROJECT",
+   "texts": {
+    "SHORT": {
+     "es": "Proyecto",
+     "en": "Project",
+     "fr": "Projet",
+     "pt": "Projeto"
+    },
+    "SUMMARY": {
+     "es": "Proyecto",
+     "en": "Project",
+     "fr": "Projet",
+     "pt": "Projeto"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PROJECT» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'PROJECT' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « PROJECT » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «PROJECT» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "2709cf5fa03de55c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "SEGMENT",
+   "texts": {
+    "SHORT": {
+     "es": "Segmento",
+     "en": "Segment",
+     "fr": "Segment",
+     "pt": "Segmento"
+    },
+    "SUMMARY": {
+     "es": "Segmento",
+     "en": "Segment",
+     "fr": "Segment",
+     "pt": "Segmento"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SEGMENT» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'SEGMENT' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « SEGMENT » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «SEGMENT» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "3b9e91cb85d6b724": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "SUPPLIER",
+   "texts": {
+    "SHORT": {
+     "es": "Proveedor",
+     "en": "Supplier",
+     "fr": "Fournisseur",
+     "pt": "Fornecedor"
+    },
+    "SUMMARY": {
+     "es": "Proveedor",
+     "en": "Supplier",
+     "fr": "Fournisseur",
+     "pt": "Fornecedor"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SUPPLIER» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'SUPPLIER' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « SUPPLIER » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «SUPPLIER» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
+  "fd05dadc56fa4183": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_DIMENSION_KIND",
+   "code": "TIME",
+   "texts": {
+    "SHORT": {
+     "es": "Tiempo",
+     "en": "Time",
+     "fr": "Temps",
+     "pt": "Tempo"
+    },
+    "SUMMARY": {
+     "es": "Tiempo",
+     "en": "Time",
+     "fr": "Temps",
+     "pt": "Tempo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «TIME» del catálogo TARGET_DIMENSION_KIND.",
+     "en": "Value 'TIME' of catalog TARGET_DIMENSION_KIND.",
+     "fr": "Valeur « TIME » du catalogue TARGET_DIMENSION_KIND.",
+     "pt": "Valor «TIME» do catálogo TARGET_DIMENSION_KIND."
+    }
+   }
+  },
   "96f4222b1051e532": {
    "object_type": "REFERENCE_VALUE",
    "catalog": "HIERARCHY_PURPOSE",
@@ -270359,6 +270759,631 @@
      "en": "Value 'ASSORTMENT' of catalog HIERARCHY_PURPOSE. assortment",
      "fr": "Valeur « ASSORTMENT » du catalogue HIERARCHY_PURPOSE. assortiment",
      "pt": "Valor «ASSORTMENT» do catálogo HIERARCHY_PURPOSE. sortimento"
+    }
+   }
+  },
+  "d413fad6b9ae90eb": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "CHANGE_GOVERNANCE",
+   "code": "FROZEN_NO_CHANGES",
+   "texts": {
+    "SHORT": {
+     "es": "Changes de No de Frozen",
+     "en": "Frozen No Changes",
+     "fr": "Changes de No de Frozen",
+     "pt": "Changes de No de Frozen"
+    },
+    "SUMMARY": {
+     "es": "Changes de No de Frozen",
+     "en": "Frozen No Changes",
+     "fr": "Changes de No de Frozen",
+     "pt": "Changes de No de Frozen"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «FROZEN_NO_CHANGES» del catálogo CHANGE_GOVERNANCE.",
+     "en": "Value 'FROZEN_NO_CHANGES' of catalog CHANGE_GOVERNANCE.",
+     "fr": "Valeur « FROZEN_NO_CHANGES » du catalogue CHANGE_GOVERNANCE.",
+     "pt": "Valor «FROZEN_NO_CHANGES» do catálogo CHANGE_GOVERNANCE."
+    }
+   }
+  },
+  "f307add114dcbfda": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "CHANGE_GOVERNANCE",
+   "code": "OPEN_BU_CAN_CHANGE",
+   "texts": {
+    "SHORT": {
+     "es": "Cambio de Can de Bu de abierto",
+     "en": "Open Bu Can Change",
+     "fr": "Changement de Can de Bu de ouvert",
+     "pt": "Alteração de Can de Bu de aberto"
+    },
+    "SUMMARY": {
+     "es": "Cambio de Can de Bu de abierto",
+     "en": "Open Bu Can Change",
+     "fr": "Changement de Can de Bu de ouvert",
+     "pt": "Alteração de Can de Bu de aberto"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OPEN_BU_CAN_CHANGE» del catálogo CHANGE_GOVERNANCE.",
+     "en": "Value 'OPEN_BU_CAN_CHANGE' of catalog CHANGE_GOVERNANCE.",
+     "fr": "Valeur « OPEN_BU_CAN_CHANGE » du catalogue CHANGE_GOVERNANCE.",
+     "pt": "Valor «OPEN_BU_CAN_CHANGE» do catálogo CHANGE_GOVERNANCE."
+    }
+   }
+  },
+  "784dff346125ffdb": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "CHANGE_GOVERNANCE",
+   "code": "RESTRICTED_OWNER_APPROVAL",
+   "texts": {
+    "SHORT": {
+     "es": "Aprobación de Owner de Restricted",
+     "en": "Restricted Owner Approval",
+     "fr": "Approbation de Owner de Restricted",
+     "pt": "Aprovação de Owner de Restricted"
+    },
+    "SUMMARY": {
+     "es": "Aprobación de Owner de Restricted",
+     "en": "Restricted Owner Approval",
+     "fr": "Approbation de Owner de Restricted",
+     "pt": "Aprovação de Owner de Restricted"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RESTRICTED_OWNER_APPROVAL» del catálogo CHANGE_GOVERNANCE.",
+     "en": "Value 'RESTRICTED_OWNER_APPROVAL' of catalog CHANGE_GOVERNANCE.",
+     "fr": "Valeur « RESTRICTED_OWNER_APPROVAL » du catalogue CHANGE_GOVERNANCE.",
+     "pt": "Valor «RESTRICTED_OWNER_APPROVAL» do catálogo CHANGE_GOVERNANCE."
+    }
+   }
+  },
+  "4ad6a06b899039d8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SALES_CHANNEL",
+   "code": "DIRECT_SALES",
+   "texts": {
+    "SHORT": {
+     "es": "Ventas de Direct",
+     "en": "Direct Sales",
+     "fr": "Ventes de Direct",
+     "pt": "Vendas de Direct"
+    },
+    "SUMMARY": {
+     "es": "Ventas de Direct",
+     "en": "Direct Sales",
+     "fr": "Ventes de Direct",
+     "pt": "Vendas de Direct"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DIRECT_SALES» del catálogo SALES_CHANNEL.",
+     "en": "Value 'DIRECT_SALES' of catalog SALES_CHANNEL.",
+     "fr": "Valeur « DIRECT_SALES » du catalogue SALES_CHANNEL.",
+     "pt": "Valor «DIRECT_SALES» do catálogo SALES_CHANNEL."
+    }
+   }
+  },
+  "402ffe1eedbb44d1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SALES_CHANNEL",
+   "code": "MARKETPLACE",
+   "texts": {
+    "SHORT": {
+     "es": "Marketplace",
+     "en": "Marketplace",
+     "fr": "Marketplace",
+     "pt": "Marketplace"
+    },
+    "SUMMARY": {
+     "es": "Marketplace",
+     "en": "Marketplace",
+     "fr": "Marketplace",
+     "pt": "Marketplace"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MARKETPLACE» del catálogo SALES_CHANNEL.",
+     "en": "Value 'MARKETPLACE' of catalog SALES_CHANNEL.",
+     "fr": "Valeur « MARKETPLACE » du catalogue SALES_CHANNEL.",
+     "pt": "Valor «MARKETPLACE» do catálogo SALES_CHANNEL."
+    }
+   }
+  },
+  "46bc2d3f8e627f4e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SALES_CHANNEL",
+   "code": "ONLINE",
+   "texts": {
+    "SHORT": {
+     "es": "Online",
+     "en": "Online",
+     "fr": "Online",
+     "pt": "Online"
+    },
+    "SUMMARY": {
+     "es": "Online",
+     "en": "Online",
+     "fr": "Online",
+     "pt": "Online"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ONLINE» del catálogo SALES_CHANNEL.",
+     "en": "Value 'ONLINE' of catalog SALES_CHANNEL.",
+     "fr": "Valeur « ONLINE » du catalogue SALES_CHANNEL.",
+     "pt": "Valor «ONLINE» do catálogo SALES_CHANNEL."
+    }
+   }
+  },
+  "ca4518f1b00e08b7": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SALES_CHANNEL",
+   "code": "RESELLER",
+   "texts": {
+    "SHORT": {
+     "es": "Reseller",
+     "en": "Reseller",
+     "fr": "Reseller",
+     "pt": "Reseller"
+    },
+    "SUMMARY": {
+     "es": "Reseller",
+     "en": "Reseller",
+     "fr": "Reseller",
+     "pt": "Reseller"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RESELLER» del catálogo SALES_CHANNEL.",
+     "en": "Value 'RESELLER' of catalog SALES_CHANNEL.",
+     "fr": "Valeur « RESELLER » du catalogue SALES_CHANNEL.",
+     "pt": "Valor «RESELLER» do catálogo SALES_CHANNEL."
+    }
+   }
+  },
+  "ad321d5b28cccb52": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SALES_CHANNEL",
+   "code": "RETAIL_STORE",
+   "texts": {
+    "SHORT": {
+     "es": "Store de Retail",
+     "en": "Retail Store",
+     "fr": "Store de Retail",
+     "pt": "Store de Retail"
+    },
+    "SUMMARY": {
+     "es": "Store de Retail",
+     "en": "Retail Store",
+     "fr": "Store de Retail",
+     "pt": "Store de Retail"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RETAIL_STORE» del catálogo SALES_CHANNEL.",
+     "en": "Value 'RETAIL_STORE' of catalog SALES_CHANNEL.",
+     "fr": "Valeur « RETAIL_STORE » du catalogue SALES_CHANNEL.",
+     "pt": "Valor «RETAIL_STORE» do catálogo SALES_CHANNEL."
+    }
+   }
+  },
+  "d824d3356ca4e11b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "COMMISSIONS",
+   "texts": {
+    "SHORT": {
+     "es": "Commissions",
+     "en": "Commissions",
+     "fr": "Commissions",
+     "pt": "Commissions"
+    },
+    "SUMMARY": {
+     "es": "Commissions",
+     "en": "Commissions",
+     "fr": "Commissions",
+     "pt": "Commissions"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «COMMISSIONS» del catálogo REVENUE_KIND.",
+     "en": "Value 'COMMISSIONS' of catalog REVENUE_KIND.",
+     "fr": "Valeur « COMMISSIONS » du catalogue REVENUE_KIND.",
+     "pt": "Valor «COMMISSIONS» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "636438bb66117949": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "GOODS",
+   "texts": {
+    "SHORT": {
+     "es": "Mercancía",
+     "en": "Goods",
+     "fr": "Marchandise",
+     "pt": "Mercadoria"
+    },
+    "SUMMARY": {
+     "es": "Mercancía",
+     "en": "Goods",
+     "fr": "Marchandise",
+     "pt": "Mercadoria"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «GOODS» del catálogo REVENUE_KIND.",
+     "en": "Value 'GOODS' of catalog REVENUE_KIND.",
+     "fr": "Valeur « GOODS » du catalogue REVENUE_KIND.",
+     "pt": "Valor «GOODS» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "c38d4bdec9b948df": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "ONE_TIME_LICENSE",
+   "texts": {
+    "SHORT": {
+     "es": "Licencia de tiempo de One",
+     "en": "One Time License",
+     "fr": "Licence de temps de One",
+     "pt": "Licença de tempo de One"
+    },
+    "SUMMARY": {
+     "es": "Licencia de tiempo de One",
+     "en": "One Time License",
+     "fr": "Licence de temps de One",
+     "pt": "Licença de tempo de One"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ONE_TIME_LICENSE» del catálogo REVENUE_KIND.",
+     "en": "Value 'ONE_TIME_LICENSE' of catalog REVENUE_KIND.",
+     "fr": "Valeur « ONE_TIME_LICENSE » du catalogue REVENUE_KIND.",
+     "pt": "Valor «ONE_TIME_LICENSE» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "7be2cc8fd392cd04": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "OTHER",
+   "texts": {
+    "SHORT": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "SUMMARY": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OTHER» del catálogo REVENUE_KIND.",
+     "en": "Value 'OTHER' of catalog REVENUE_KIND.",
+     "fr": "Valeur « OTHER » du catalogue REVENUE_KIND.",
+     "pt": "Valor «OTHER» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "b21841362e2724b3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "RECURRING_SUBSCRIPTION",
+   "texts": {
+    "SHORT": {
+     "es": "Suscripción de Recurring",
+     "en": "Recurring Subscription",
+     "fr": "Abonnement de Recurring",
+     "pt": "Subscrição de Recurring"
+    },
+    "SUMMARY": {
+     "es": "Suscripción de Recurring",
+     "en": "Recurring Subscription",
+     "fr": "Abonnement de Recurring",
+     "pt": "Subscrição de Recurring"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RECURRING_SUBSCRIPTION» del catálogo REVENUE_KIND.",
+     "en": "Value 'RECURRING_SUBSCRIPTION' of catalog REVENUE_KIND.",
+     "fr": "Valeur « RECURRING_SUBSCRIPTION » du catalogue REVENUE_KIND.",
+     "pt": "Valor «RECURRING_SUBSCRIPTION» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "6dfac8f043a6878c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "ROYALTIES",
+   "texts": {
+    "SHORT": {
+     "es": "Royalties",
+     "en": "Royalties",
+     "fr": "Royalties",
+     "pt": "Royalties"
+    },
+    "SUMMARY": {
+     "es": "Royalties",
+     "en": "Royalties",
+     "fr": "Royalties",
+     "pt": "Royalties"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ROYALTIES» del catálogo REVENUE_KIND.",
+     "en": "Value 'ROYALTIES' of catalog REVENUE_KIND.",
+     "fr": "Valeur « ROYALTIES » du catalogue REVENUE_KIND.",
+     "pt": "Valor «ROYALTIES» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "03bd9a146b4608d9": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REVENUE_KIND",
+   "code": "SERVICES",
+   "texts": {
+    "SHORT": {
+     "es": "Services",
+     "en": "Services",
+     "fr": "Services",
+     "pt": "Services"
+    },
+    "SUMMARY": {
+     "es": "Services",
+     "en": "Services",
+     "fr": "Services",
+     "pt": "Services"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SERVICES» del catálogo REVENUE_KIND.",
+     "en": "Value 'SERVICES' of catalog REVENUE_KIND.",
+     "fr": "Valeur « SERVICES » du catalogue REVENUE_KIND.",
+     "pt": "Valor «SERVICES» do catálogo REVENUE_KIND."
+    }
+   }
+  },
+  "5ea47c45fe117ac8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "CASH_FLOW",
+   "texts": {
+    "SHORT": {
+     "es": "Flow de tesorería",
+     "en": "Cash Flow",
+     "fr": "Flow de trésorerie",
+     "pt": "Flow de tesouraria"
+    },
+    "SUMMARY": {
+     "es": "Flow de tesorería",
+     "en": "Cash Flow",
+     "fr": "Flow de trésorerie",
+     "pt": "Flow de tesouraria"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CASH_FLOW» del catálogo KPI_CATEGORY.",
+     "en": "Value 'CASH_FLOW' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « CASH_FLOW » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «CASH_FLOW» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "21939422414deb36": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "EFFICIENCY",
+   "texts": {
+    "SHORT": {
+     "es": "Efficiency",
+     "en": "Efficiency",
+     "fr": "Efficiency",
+     "pt": "Efficiency"
+    },
+    "SUMMARY": {
+     "es": "Efficiency",
+     "en": "Efficiency",
+     "fr": "Efficiency",
+     "pt": "Efficiency"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EFFICIENCY» del catálogo KPI_CATEGORY.",
+     "en": "Value 'EFFICIENCY' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « EFFICIENCY » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «EFFICIENCY» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "a79be3e25296e787": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "GROWTH",
+   "texts": {
+    "SHORT": {
+     "es": "Growth",
+     "en": "Growth",
+     "fr": "Growth",
+     "pt": "Growth"
+    },
+    "SUMMARY": {
+     "es": "Growth",
+     "en": "Growth",
+     "fr": "Growth",
+     "pt": "Growth"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «GROWTH» del catálogo KPI_CATEGORY.",
+     "en": "Value 'GROWTH' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « GROWTH » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «GROWTH» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "8a2f24bddbaec2ee": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "LIQUIDITY",
+   "texts": {
+    "SHORT": {
+     "es": "Liquidity",
+     "en": "Liquidity",
+     "fr": "Liquidity",
+     "pt": "Liquidity"
+    },
+    "SUMMARY": {
+     "es": "Liquidity",
+     "en": "Liquidity",
+     "fr": "Liquidity",
+     "pt": "Liquidity"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «LIQUIDITY» del catálogo KPI_CATEGORY.",
+     "en": "Value 'LIQUIDITY' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « LIQUIDITY » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «LIQUIDITY» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "811d5fd27abb2d80": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "OPERATIONAL",
+   "texts": {
+    "SHORT": {
+     "es": "Operational",
+     "en": "Operational",
+     "fr": "Operational",
+     "pt": "Operational"
+    },
+    "SUMMARY": {
+     "es": "Operational",
+     "en": "Operational",
+     "fr": "Operational",
+     "pt": "Operational"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OPERATIONAL» del catálogo KPI_CATEGORY.",
+     "en": "Value 'OPERATIONAL' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « OPERATIONAL » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «OPERATIONAL» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "95d3d1dd633cdadc": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "PROFITABILITY",
+   "texts": {
+    "SHORT": {
+     "es": "Profitability",
+     "en": "Profitability",
+     "fr": "Profitability",
+     "pt": "Profitability"
+    },
+    "SUMMARY": {
+     "es": "Profitability",
+     "en": "Profitability",
+     "fr": "Profitability",
+     "pt": "Profitability"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PROFITABILITY» del catálogo KPI_CATEGORY.",
+     "en": "Value 'PROFITABILITY' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « PROFITABILITY » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «PROFITABILITY» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "d1ee7cd050071342": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "REGULATORY",
+   "texts": {
+    "SHORT": {
+     "es": "Regulatorio",
+     "en": "Regulatory",
+     "fr": "Réglementaire",
+     "pt": "Regulatório"
+    },
+    "SUMMARY": {
+     "es": "Regulatorio",
+     "en": "Regulatory",
+     "fr": "Réglementaire",
+     "pt": "Regulatório"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATORY» del catálogo KPI_CATEGORY.",
+     "en": "Value 'REGULATORY' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « REGULATORY » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «REGULATORY» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "0fd8d4963b64d796": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "RISK",
+   "texts": {
+    "SHORT": {
+     "es": "Risk",
+     "en": "Risk",
+     "fr": "Risk",
+     "pt": "Risk"
+    },
+    "SUMMARY": {
+     "es": "Risk",
+     "en": "Risk",
+     "fr": "Risk",
+     "pt": "Risk"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RISK» del catálogo KPI_CATEGORY.",
+     "en": "Value 'RISK' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « RISK » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «RISK» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "9b833177a929417d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "SOLVENCY",
+   "texts": {
+    "SHORT": {
+     "es": "Solvency",
+     "en": "Solvency",
+     "fr": "Solvency",
+     "pt": "Solvency"
+    },
+    "SUMMARY": {
+     "es": "Solvency",
+     "en": "Solvency",
+     "fr": "Solvency",
+     "pt": "Solvency"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SOLVENCY» del catálogo KPI_CATEGORY.",
+     "en": "Value 'SOLVENCY' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « SOLVENCY » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «SOLVENCY» do catálogo KPI_CATEGORY."
+    }
+   }
+  },
+  "66be7bb744c9287f": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CATEGORY",
+   "code": "VALUATION",
+   "texts": {
+    "SHORT": {
+     "es": "Valoración",
+     "en": "Valuation",
+     "fr": "Valorisation",
+     "pt": "Avaliação"
+    },
+    "SUMMARY": {
+     "es": "Valoración",
+     "en": "Valuation",
+     "fr": "Valorisation",
+     "pt": "Avaliação"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «VALUATION» del catálogo KPI_CATEGORY.",
+     "en": "Value 'VALUATION' of catalog KPI_CATEGORY.",
+     "fr": "Valeur « VALUATION » du catalogue KPI_CATEGORY.",
+     "pt": "Valor «VALUATION» do catálogo KPI_CATEGORY."
     }
    }
   },
@@ -270709,6 +271734,2906 @@
      "en": "Value 'SERVICE' of catalog UNIT_OF_MEASURE. service",
      "fr": "Valeur « SERVICE » du catalogue UNIT_OF_MEASURE. service",
      "pt": "Valor «SERVICE» do catálogo UNIT_OF_MEASURE. serviço"
+    }
+   }
+  },
+  "ad36eb897cf3e662": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "AD_HOC",
+   "texts": {
+    "SHORT": {
+     "es": "Hoc de Ad",
+     "en": "Ad Hoc",
+     "fr": "Hoc de Ad",
+     "pt": "Hoc de Ad"
+    },
+    "SUMMARY": {
+     "es": "Hoc de Ad",
+     "en": "Ad Hoc",
+     "fr": "Hoc de Ad",
+     "pt": "Hoc de Ad"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «AD_HOC» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'AD_HOC' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « AD_HOC » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «AD_HOC» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "868ca9c2f90a65bb": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "ANNUAL",
+   "texts": {
+    "SHORT": {
+     "es": "Anual",
+     "en": "Annual",
+     "fr": "Annuel",
+     "pt": "Anual"
+    },
+    "SUMMARY": {
+     "es": "Anual",
+     "en": "Annual",
+     "fr": "Annuel",
+     "pt": "Anual"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ANNUAL» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'ANNUAL' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « ANNUAL » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «ANNUAL» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "5474cdeb9764f6c4": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "DAILY",
+   "texts": {
+    "SHORT": {
+     "es": "Daily",
+     "en": "Daily",
+     "fr": "Daily",
+     "pt": "Daily"
+    },
+    "SUMMARY": {
+     "es": "Daily",
+     "en": "Daily",
+     "fr": "Daily",
+     "pt": "Daily"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DAILY» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'DAILY' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « DAILY » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «DAILY» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "0a8d24471c069ff7": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "MONTHLY",
+   "texts": {
+    "SHORT": {
+     "es": "Mensual",
+     "en": "Monthly",
+     "fr": "Mensuel",
+     "pt": "Mensal"
+    },
+    "SUMMARY": {
+     "es": "Mensual",
+     "en": "Monthly",
+     "fr": "Mensuel",
+     "pt": "Mensal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MONTHLY» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'MONTHLY' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « MONTHLY » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «MONTHLY» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "bded45df31178a09": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "QUARTERLY",
+   "texts": {
+    "SHORT": {
+     "es": "Trimestral",
+     "en": "Quarterly",
+     "fr": "Trimestriel",
+     "pt": "Trimestral"
+    },
+    "SUMMARY": {
+     "es": "Trimestral",
+     "en": "Quarterly",
+     "fr": "Trimestriel",
+     "pt": "Trimestral"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «QUARTERLY» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'QUARTERLY' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « QUARTERLY » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «QUARTERLY» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "3e4520c0b2398d06": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "SEMI_ANNUAL",
+   "texts": {
+    "SHORT": {
+     "es": "Anual de Semi",
+     "en": "Semi Annual",
+     "fr": "Annuel de Semi",
+     "pt": "Anual de Semi"
+    },
+    "SUMMARY": {
+     "es": "Anual de Semi",
+     "en": "Semi Annual",
+     "fr": "Annuel de Semi",
+     "pt": "Anual de Semi"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SEMI_ANNUAL» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'SEMI_ANNUAL' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « SEMI_ANNUAL » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «SEMI_ANNUAL» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "b913cca5356548b8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_FREQUENCY",
+   "code": "WEEKLY",
+   "texts": {
+    "SHORT": {
+     "es": "Semanal",
+     "en": "Weekly",
+     "fr": "Hebdomadaire",
+     "pt": "Semanal"
+    },
+    "SUMMARY": {
+     "es": "Semanal",
+     "en": "Weekly",
+     "fr": "Hebdomadaire",
+     "pt": "Semanal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WEEKLY» del catálogo KPI_FREQUENCY.",
+     "en": "Value 'WEEKLY' of catalog KPI_FREQUENCY.",
+     "fr": "Valeur « WEEKLY » du catalogue KPI_FREQUENCY.",
+     "pt": "Valor «WEEKLY» do catálogo KPI_FREQUENCY."
+    }
+   }
+  },
+  "1340bb13c726608e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "MTD",
+   "texts": {
+    "SHORT": {
+     "es": "Mtd",
+     "en": "Mtd",
+     "fr": "Mtd",
+     "pt": "Mtd"
+    },
+    "SUMMARY": {
+     "es": "Mtd",
+     "en": "Mtd",
+     "fr": "Mtd",
+     "pt": "Mtd"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MTD» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'MTD' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « MTD » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «MTD» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "8e77dfc356d86c51": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "PERIOD_PERIOD",
+   "texts": {
+    "SHORT": {
+     "es": "Periodo de periodo",
+     "en": "Period Period",
+     "fr": "Période de période",
+     "pt": "Período de período"
+    },
+    "SUMMARY": {
+     "es": "Periodo de periodo",
+     "en": "Period Period",
+     "fr": "Période de période",
+     "pt": "Período de período"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PERIOD_PERIOD» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'PERIOD_PERIOD' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « PERIOD_PERIOD » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «PERIOD_PERIOD» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "5deecbb5bcdd5cf3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "POINT_IN_TIME",
+   "texts": {
+    "SHORT": {
+     "es": "Tiempo de en de Point",
+     "en": "Point In Time",
+     "fr": "Temps de en de Point",
+     "pt": "Tempo de em de Point"
+    },
+    "SUMMARY": {
+     "es": "Tiempo de en de Point",
+     "en": "Point In Time",
+     "fr": "Temps de en de Point",
+     "pt": "Tempo de em de Point"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «POINT_IN_TIME» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'POINT_IN_TIME' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « POINT_IN_TIME » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «POINT_IN_TIME» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "aba6250051f4a1a1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "QTD",
+   "texts": {
+    "SHORT": {
+     "es": "Qtd",
+     "en": "Qtd",
+     "fr": "Qtd",
+     "pt": "Qtd"
+    },
+    "SUMMARY": {
+     "es": "Qtd",
+     "en": "Qtd",
+     "fr": "Qtd",
+     "pt": "Qtd"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «QTD» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'QTD' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « QTD » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «QTD» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "6f315dac9f0bca8e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "ROLLING_12M",
+   "texts": {
+    "SHORT": {
+     "es": "12m de Rolling",
+     "en": "Rolling 12m",
+     "fr": "12m de Rolling",
+     "pt": "12m de Rolling"
+    },
+    "SUMMARY": {
+     "es": "12m de Rolling",
+     "en": "Rolling 12m",
+     "fr": "12m de Rolling",
+     "pt": "12m de Rolling"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ROLLING_12M» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'ROLLING_12M' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « ROLLING_12M » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «ROLLING_12M» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "d40b2efb57e53df1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "ROLLING_3M",
+   "texts": {
+    "SHORT": {
+     "es": "3m de Rolling",
+     "en": "Rolling 3m",
+     "fr": "3m de Rolling",
+     "pt": "3m de Rolling"
+    },
+    "SUMMARY": {
+     "es": "3m de Rolling",
+     "en": "Rolling 3m",
+     "fr": "3m de Rolling",
+     "pt": "3m de Rolling"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ROLLING_3M» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'ROLLING_3M' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « ROLLING_3M » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «ROLLING_3M» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "73de475086dbb712": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "ROLLING_6M",
+   "texts": {
+    "SHORT": {
+     "es": "6m de Rolling",
+     "en": "Rolling 6m",
+     "fr": "6m de Rolling",
+     "pt": "6m de Rolling"
+    },
+    "SUMMARY": {
+     "es": "6m de Rolling",
+     "en": "Rolling 6m",
+     "fr": "6m de Rolling",
+     "pt": "6m de Rolling"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ROLLING_6M» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'ROLLING_6M' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « ROLLING_6M » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «ROLLING_6M» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "954ccfea5d018df7": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "KPI_CALCULATION_PERIODICITY",
+   "code": "YTD",
+   "texts": {
+    "SHORT": {
+     "es": "Ytd",
+     "en": "Ytd",
+     "fr": "Ytd",
+     "pt": "Ytd"
+    },
+    "SUMMARY": {
+     "es": "Ytd",
+     "en": "Ytd",
+     "fr": "Ytd",
+     "pt": "Ytd"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «YTD» del catálogo KPI_CALCULATION_PERIODICITY.",
+     "en": "Value 'YTD' of catalog KPI_CALCULATION_PERIODICITY.",
+     "fr": "Valeur « YTD » du catalogue KPI_CALCULATION_PERIODICITY.",
+     "pt": "Valor «YTD» do catálogo KPI_CALCULATION_PERIODICITY."
+    }
+   }
+  },
+  "73a0a565a43105d2": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "ANY",
+   "texts": {
+    "SHORT": {
+     "es": "Any",
+     "en": "Any",
+     "fr": "Any",
+     "pt": "Any"
+    },
+    "SUMMARY": {
+     "es": "Any",
+     "en": "Any",
+     "fr": "Any",
+     "pt": "Any"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ANY» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'ANY' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « ANY » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «ANY» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "9e97bab471272e10": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "BUSINESS_SEGMENT",
+   "texts": {
+    "SHORT": {
+     "es": "Segmento de negocio",
+     "en": "Business Segment",
+     "fr": "Segment de affaires",
+     "pt": "Segmento de negócio"
+    },
+    "SUMMARY": {
+     "es": "Segmento de negocio",
+     "en": "Business Segment",
+     "fr": "Segment de affaires",
+     "pt": "Segmento de negócio"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «BUSINESS_SEGMENT» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'BUSINESS_SEGMENT' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « BUSINESS_SEGMENT » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «BUSINESS_SEGMENT» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "9254e7e8dbdce2d6": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "CONSOLIDATED_GROUP",
+   "texts": {
+    "SHORT": {
+     "es": "Grupo de Consolidated",
+     "en": "Consolidated Group",
+     "fr": "Groupe de Consolidated",
+     "pt": "Grupo de Consolidated"
+    },
+    "SUMMARY": {
+     "es": "Grupo de Consolidated",
+     "en": "Consolidated Group",
+     "fr": "Groupe de Consolidated",
+     "pt": "Grupo de Consolidated"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CONSOLIDATED_GROUP» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'CONSOLIDATED_GROUP' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « CONSOLIDATED_GROUP » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «CONSOLIDATED_GROUP» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "5a4e047c4ea8d839": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "COST_CENTER",
+   "texts": {
+    "SHORT": {
+     "es": "Centro de coste",
+     "en": "Cost Center",
+     "fr": "Centre de coût",
+     "pt": "Centro de custo"
+    },
+    "SUMMARY": {
+     "es": "Centro de coste",
+     "en": "Cost Center",
+     "fr": "Centre de coût",
+     "pt": "Centro de custo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «COST_CENTER» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'COST_CENTER' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « COST_CENTER » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «COST_CENTER» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "cbb2b700526ffda0": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "GEOGRAPHIC",
+   "texts": {
+    "SHORT": {
+     "es": "Geographic",
+     "en": "Geographic",
+     "fr": "Geographic",
+     "pt": "Geographic"
+    },
+    "SUMMARY": {
+     "es": "Geographic",
+     "en": "Geographic",
+     "fr": "Geographic",
+     "pt": "Geographic"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «GEOGRAPHIC» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'GEOGRAPHIC' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « GEOGRAPHIC » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «GEOGRAPHIC» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "43c08df4a804abb8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "LEGAL_ENTITY_INDIVIDUAL",
+   "texts": {
+    "SHORT": {
+     "es": "Individual de entidad legal",
+     "en": "Legal Entity Individual",
+     "fr": "Individual de entité juridique",
+     "pt": "Individual de entidade legal"
+    },
+    "SUMMARY": {
+     "es": "Individual de entidad legal",
+     "en": "Legal Entity Individual",
+     "fr": "Individual de entité juridique",
+     "pt": "Individual de entidade legal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «LEGAL_ENTITY_INDIVIDUAL» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'LEGAL_ENTITY_INDIVIDUAL' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « LEGAL_ENTITY_INDIVIDUAL » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «LEGAL_ENTITY_INDIVIDUAL» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "0fb791887202eaba": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "APPLICABLE_SCOPE",
+   "code": "PROJECT",
+   "texts": {
+    "SHORT": {
+     "es": "Proyecto",
+     "en": "Project",
+     "fr": "Projet",
+     "pt": "Projeto"
+    },
+    "SUMMARY": {
+     "es": "Proyecto",
+     "en": "Project",
+     "fr": "Projet",
+     "pt": "Projeto"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PROJECT» del catálogo APPLICABLE_SCOPE.",
+     "en": "Value 'PROJECT' of catalog APPLICABLE_SCOPE.",
+     "fr": "Valeur « PROJECT » du catalogue APPLICABLE_SCOPE.",
+     "pt": "Valor «PROJECT» do catálogo APPLICABLE_SCOPE."
+    }
+   }
+  },
+  "8f6ec3e58353147d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DIRECTIONALITY",
+   "code": "DOWNWARD_IS_BETTER",
+   "texts": {
+    "SHORT": {
+     "es": "Better de Downward",
+     "en": "Downward Better",
+     "fr": "Better de Downward",
+     "pt": "Better de Downward"
+    },
+    "SUMMARY": {
+     "es": "Better de Downward",
+     "en": "Downward Better",
+     "fr": "Better de Downward",
+     "pt": "Better de Downward"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DOWNWARD_IS_BETTER» del catálogo DIRECTIONALITY.",
+     "en": "Value 'DOWNWARD_IS_BETTER' of catalog DIRECTIONALITY.",
+     "fr": "Valeur « DOWNWARD_IS_BETTER » du catalogue DIRECTIONALITY.",
+     "pt": "Valor «DOWNWARD_IS_BETTER» do catálogo DIRECTIONALITY."
+    }
+   }
+  },
+  "a8d8e5d9668a96d5": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DIRECTIONALITY",
+   "code": "NEUTRAL",
+   "texts": {
+    "SHORT": {
+     "es": "Neutral",
+     "en": "Neutral",
+     "fr": "Neutral",
+     "pt": "Neutral"
+    },
+    "SUMMARY": {
+     "es": "Neutral",
+     "en": "Neutral",
+     "fr": "Neutral",
+     "pt": "Neutral"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NEUTRAL» del catálogo DIRECTIONALITY.",
+     "en": "Value 'NEUTRAL' of catalog DIRECTIONALITY.",
+     "fr": "Valeur « NEUTRAL » du catalogue DIRECTIONALITY.",
+     "pt": "Valor «NEUTRAL» do catálogo DIRECTIONALITY."
+    }
+   }
+  },
+  "def267433d2998df": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DIRECTIONALITY",
+   "code": "RANGE_IS_BETTER",
+   "texts": {
+    "SHORT": {
+     "es": "Better de Range",
+     "en": "Range Better",
+     "fr": "Better de Range",
+     "pt": "Better de Range"
+    },
+    "SUMMARY": {
+     "es": "Better de Range",
+     "en": "Range Better",
+     "fr": "Better de Range",
+     "pt": "Better de Range"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RANGE_IS_BETTER» del catálogo DIRECTIONALITY.",
+     "en": "Value 'RANGE_IS_BETTER' of catalog DIRECTIONALITY.",
+     "fr": "Valeur « RANGE_IS_BETTER » du catalogue DIRECTIONALITY.",
+     "pt": "Valor «RANGE_IS_BETTER» do catálogo DIRECTIONALITY."
+    }
+   }
+  },
+  "3089e13236e240a5": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DIRECTIONALITY",
+   "code": "UPWARD_IS_BETTER",
+   "texts": {
+    "SHORT": {
+     "es": "Better de Upward",
+     "en": "Upward Better",
+     "fr": "Better de Upward",
+     "pt": "Better de Upward"
+    },
+    "SUMMARY": {
+     "es": "Better de Upward",
+     "en": "Upward Better",
+     "fr": "Better de Upward",
+     "pt": "Better de Upward"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «UPWARD_IS_BETTER» del catálogo DIRECTIONALITY.",
+     "en": "Value 'UPWARD_IS_BETTER' of catalog DIRECTIONALITY.",
+     "fr": "Valeur « UPWARD_IS_BETTER » du catalogue DIRECTIONALITY.",
+     "pt": "Valor «UPWARD_IS_BETTER» do catálogo DIRECTIONALITY."
+    }
+   }
+  },
+  "256c8c13587b5028": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_BREACH_STATUS",
+   "code": "ALERT",
+   "texts": {
+    "SHORT": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "SUMMARY": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ALERT» del catálogo THRESHOLD_BREACH_STATUS.",
+     "en": "Value 'ALERT' of catalog THRESHOLD_BREACH_STATUS.",
+     "fr": "Valeur « ALERT » du catalogue THRESHOLD_BREACH_STATUS.",
+     "pt": "Valor «ALERT» do catálogo THRESHOLD_BREACH_STATUS."
+    }
+   }
+  },
+  "bc5b20beabb1c474": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_BREACH_STATUS",
+   "code": "CRITICAL",
+   "texts": {
+    "SHORT": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "SUMMARY": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CRITICAL» del catálogo THRESHOLD_BREACH_STATUS.",
+     "en": "Value 'CRITICAL' of catalog THRESHOLD_BREACH_STATUS.",
+     "fr": "Valeur « CRITICAL » du catalogue THRESHOLD_BREACH_STATUS.",
+     "pt": "Valor «CRITICAL» do catálogo THRESHOLD_BREACH_STATUS."
+    }
+   }
+  },
+  "62109e48133c878b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_BREACH_STATUS",
+   "code": "NO_BREACH",
+   "texts": {
+    "SHORT": {
+     "es": "Breach de No",
+     "en": "No Breach",
+     "fr": "Breach de No",
+     "pt": "Breach de No"
+    },
+    "SUMMARY": {
+     "es": "Breach de No",
+     "en": "No Breach",
+     "fr": "Breach de No",
+     "pt": "Breach de No"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NO_BREACH» del catálogo THRESHOLD_BREACH_STATUS.",
+     "en": "Value 'NO_BREACH' of catalog THRESHOLD_BREACH_STATUS.",
+     "fr": "Valeur « NO_BREACH » du catalogue THRESHOLD_BREACH_STATUS.",
+     "pt": "Valor «NO_BREACH» do catálogo THRESHOLD_BREACH_STATUS."
+    }
+   }
+  },
+  "7a26e10c004f7290": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_BREACH_STATUS",
+   "code": "WARNING",
+   "texts": {
+    "SHORT": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "SUMMARY": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WARNING» del catálogo THRESHOLD_BREACH_STATUS.",
+     "en": "Value 'WARNING' of catalog THRESHOLD_BREACH_STATUS.",
+     "fr": "Valeur « WARNING » du catalogue THRESHOLD_BREACH_STATUS.",
+     "pt": "Valor «WARNING» do catálogo THRESHOLD_BREACH_STATUS."
+    }
+   }
+  },
+  "f7f54e6230e9a2f8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "ALERT",
+   "texts": {
+    "SHORT": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "SUMMARY": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ALERT» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'ALERT' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « ALERT » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «ALERT» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "f05e5ca8322b06b3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "CRITICAL",
+   "texts": {
+    "SHORT": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "SUMMARY": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CRITICAL» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'CRITICAL' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « CRITICAL » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «CRITICAL» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "1068528854bd91d1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "MAX_ACCEPTABLE",
+   "texts": {
+    "SHORT": {
+     "es": "Acceptable de Max",
+     "en": "Max Acceptable",
+     "fr": "Acceptable de Max",
+     "pt": "Acceptable de Max"
+    },
+    "SUMMARY": {
+     "es": "Acceptable de Max",
+     "en": "Max Acceptable",
+     "fr": "Acceptable de Max",
+     "pt": "Acceptable de Max"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MAX_ACCEPTABLE» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'MAX_ACCEPTABLE' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « MAX_ACCEPTABLE » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «MAX_ACCEPTABLE» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "173956820bc39220": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "MIN_ACCEPTABLE",
+   "texts": {
+    "SHORT": {
+     "es": "Acceptable de Min",
+     "en": "Min Acceptable",
+     "fr": "Acceptable de Min",
+     "pt": "Acceptable de Min"
+    },
+    "SUMMARY": {
+     "es": "Acceptable de Min",
+     "en": "Min Acceptable",
+     "fr": "Acceptable de Min",
+     "pt": "Acceptable de Min"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MIN_ACCEPTABLE» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'MIN_ACCEPTABLE' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « MIN_ACCEPTABLE » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «MIN_ACCEPTABLE» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "d37f8d0c64d030b1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "STRETCH_TARGET",
+   "texts": {
+    "SHORT": {
+     "es": "Objetivo de Stretch",
+     "en": "Stretch Target",
+     "fr": "Cible de Stretch",
+     "pt": "Alvo de Stretch"
+    },
+    "SUMMARY": {
+     "es": "Objetivo de Stretch",
+     "en": "Stretch Target",
+     "fr": "Cible de Stretch",
+     "pt": "Alvo de Stretch"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «STRETCH_TARGET» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'STRETCH_TARGET' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « STRETCH_TARGET » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «STRETCH_TARGET» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "f76d573ae30de305": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "TARGET",
+   "texts": {
+    "SHORT": {
+     "es": "Objetivo",
+     "en": "Target",
+     "fr": "Cible",
+     "pt": "Alvo"
+    },
+    "SUMMARY": {
+     "es": "Objetivo",
+     "en": "Target",
+     "fr": "Cible",
+     "pt": "Alvo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «TARGET» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'TARGET' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « TARGET » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «TARGET» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "32c359be65d09177": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_KIND",
+   "code": "WARNING",
+   "texts": {
+    "SHORT": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "SUMMARY": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WARNING» del catálogo THRESHOLD_KIND.",
+     "en": "Value 'WARNING' of catalog THRESHOLD_KIND.",
+     "fr": "Valeur « WARNING » du catalogue THRESHOLD_KIND.",
+     "pt": "Valor «WARNING» do catálogo THRESHOLD_KIND."
+    }
+   }
+  },
+  "5dc72fb722e43924": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_DIRECTION",
+   "code": "LOWER_BOUND",
+   "texts": {
+    "SHORT": {
+     "es": "Bound de Lower",
+     "en": "Lower Bound",
+     "fr": "Bound de Lower",
+     "pt": "Bound de Lower"
+    },
+    "SUMMARY": {
+     "es": "Bound de Lower",
+     "en": "Lower Bound",
+     "fr": "Bound de Lower",
+     "pt": "Bound de Lower"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «LOWER_BOUND» del catálogo THRESHOLD_DIRECTION.",
+     "en": "Value 'LOWER_BOUND' of catalog THRESHOLD_DIRECTION.",
+     "fr": "Valeur « LOWER_BOUND » du catalogue THRESHOLD_DIRECTION.",
+     "pt": "Valor «LOWER_BOUND» do catálogo THRESHOLD_DIRECTION."
+    }
+   }
+  },
+  "579b63d64d3fde69": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_DIRECTION",
+   "code": "RANGE_EXCLUSIVE",
+   "texts": {
+    "SHORT": {
+     "es": "Exclusive de Range",
+     "en": "Range Exclusive",
+     "fr": "Exclusive de Range",
+     "pt": "Exclusive de Range"
+    },
+    "SUMMARY": {
+     "es": "Exclusive de Range",
+     "en": "Range Exclusive",
+     "fr": "Exclusive de Range",
+     "pt": "Exclusive de Range"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RANGE_EXCLUSIVE» del catálogo THRESHOLD_DIRECTION.",
+     "en": "Value 'RANGE_EXCLUSIVE' of catalog THRESHOLD_DIRECTION.",
+     "fr": "Valeur « RANGE_EXCLUSIVE » du catalogue THRESHOLD_DIRECTION.",
+     "pt": "Valor «RANGE_EXCLUSIVE» do catálogo THRESHOLD_DIRECTION."
+    }
+   }
+  },
+  "4caaf96bda9db4f5": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_DIRECTION",
+   "code": "RANGE_INCLUSIVE",
+   "texts": {
+    "SHORT": {
+     "es": "Inclusive de Range",
+     "en": "Range Inclusive",
+     "fr": "Inclusive de Range",
+     "pt": "Inclusive de Range"
+    },
+    "SUMMARY": {
+     "es": "Inclusive de Range",
+     "en": "Range Inclusive",
+     "fr": "Inclusive de Range",
+     "pt": "Inclusive de Range"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RANGE_INCLUSIVE» del catálogo THRESHOLD_DIRECTION.",
+     "en": "Value 'RANGE_INCLUSIVE' of catalog THRESHOLD_DIRECTION.",
+     "fr": "Valeur « RANGE_INCLUSIVE » du catalogue THRESHOLD_DIRECTION.",
+     "pt": "Valor «RANGE_INCLUSIVE» do catálogo THRESHOLD_DIRECTION."
+    }
+   }
+  },
+  "48e992ce52d0fb5a": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "THRESHOLD_DIRECTION",
+   "code": "UPPER_BOUND",
+   "texts": {
+    "SHORT": {
+     "es": "Bound de Upper",
+     "en": "Upper Bound",
+     "fr": "Bound de Upper",
+     "pt": "Bound de Upper"
+    },
+    "SUMMARY": {
+     "es": "Bound de Upper",
+     "en": "Upper Bound",
+     "fr": "Bound de Upper",
+     "pt": "Bound de Upper"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «UPPER_BOUND» del catálogo THRESHOLD_DIRECTION.",
+     "en": "Value 'UPPER_BOUND' of catalog THRESHOLD_DIRECTION.",
+     "fr": "Valeur « UPPER_BOUND » du catalogue THRESHOLD_DIRECTION.",
+     "pt": "Valor «UPPER_BOUND» do catálogo THRESHOLD_DIRECTION."
+    }
+   }
+  },
+  "1ac3f60c01a28e0f": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SEVERITY_KIND",
+   "code": "ALERT",
+   "texts": {
+    "SHORT": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "SUMMARY": {
+     "es": "Alert",
+     "en": "Alert",
+     "fr": "Alert",
+     "pt": "Alert"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ALERT» del catálogo SEVERITY_KIND.",
+     "en": "Value 'ALERT' of catalog SEVERITY_KIND.",
+     "fr": "Valeur « ALERT » du catalogue SEVERITY_KIND.",
+     "pt": "Valor «ALERT» do catálogo SEVERITY_KIND."
+    }
+   }
+  },
+  "4701e3de3ce77e2a": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SEVERITY_KIND",
+   "code": "CATASTROPHIC",
+   "texts": {
+    "SHORT": {
+     "es": "Catastrophic",
+     "en": "Catastrophic",
+     "fr": "Catastrophic",
+     "pt": "Catastrophic"
+    },
+    "SUMMARY": {
+     "es": "Catastrophic",
+     "en": "Catastrophic",
+     "fr": "Catastrophic",
+     "pt": "Catastrophic"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CATASTROPHIC» del catálogo SEVERITY_KIND.",
+     "en": "Value 'CATASTROPHIC' of catalog SEVERITY_KIND.",
+     "fr": "Valeur « CATASTROPHIC » du catalogue SEVERITY_KIND.",
+     "pt": "Valor «CATASTROPHIC» do catálogo SEVERITY_KIND."
+    }
+   }
+  },
+  "73543cd0f7c96c74": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SEVERITY_KIND",
+   "code": "CRITICAL",
+   "texts": {
+    "SHORT": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "SUMMARY": {
+     "es": "Crítico",
+     "en": "Critical",
+     "fr": "Critique",
+     "pt": "Crítico"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CRITICAL» del catálogo SEVERITY_KIND.",
+     "en": "Value 'CRITICAL' of catalog SEVERITY_KIND.",
+     "fr": "Valeur « CRITICAL » du catalogue SEVERITY_KIND.",
+     "pt": "Valor «CRITICAL» do catálogo SEVERITY_KIND."
+    }
+   }
+  },
+  "4dd44ab330428d73": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SEVERITY_KIND",
+   "code": "INFO",
+   "texts": {
+    "SHORT": {
+     "es": "Info",
+     "en": "Info",
+     "fr": "Info",
+     "pt": "Info"
+    },
+    "SUMMARY": {
+     "es": "Info",
+     "en": "Info",
+     "fr": "Info",
+     "pt": "Info"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INFO» del catálogo SEVERITY_KIND.",
+     "en": "Value 'INFO' of catalog SEVERITY_KIND.",
+     "fr": "Valeur « INFO » du catalogue SEVERITY_KIND.",
+     "pt": "Valor «INFO» do catálogo SEVERITY_KIND."
+    }
+   }
+  },
+  "99467ec59940af5d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SEVERITY_KIND",
+   "code": "WARNING",
+   "texts": {
+    "SHORT": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "SUMMARY": {
+     "es": "Warning",
+     "en": "Warning",
+     "fr": "Warning",
+     "pt": "Warning"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WARNING» del catálogo SEVERITY_KIND.",
+     "en": "Value 'WARNING' of catalog SEVERITY_KIND.",
+     "fr": "Valeur « WARNING » du catalogue SEVERITY_KIND.",
+     "pt": "Valor «WARNING» do catálogo SEVERITY_KIND."
+    }
+   }
+  },
+  "6126644fb7465762": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "API_DATA_FEED",
+   "texts": {
+    "SHORT": {
+     "es": "Feed de datos de Api",
+     "en": "Api Data Feed",
+     "fr": "Feed de données de Api",
+     "pt": "Feed de dados de Api"
+    },
+    "SUMMARY": {
+     "es": "Feed de datos de Api",
+     "en": "Api Data Feed",
+     "fr": "Feed de données de Api",
+     "pt": "Feed de dados de Api"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «API_DATA_FEED» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'API_DATA_FEED' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « API_DATA_FEED » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «API_DATA_FEED» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "97aa4750275ae957": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "DASHBOARD_INTERACTIVE",
+   "texts": {
+    "SHORT": {
+     "es": "Interactive de Dashboard",
+     "en": "Dashboard Interactive",
+     "fr": "Interactive de Dashboard",
+     "pt": "Interactive de Dashboard"
+    },
+    "SUMMARY": {
+     "es": "Interactive de Dashboard",
+     "en": "Dashboard Interactive",
+     "fr": "Interactive de Dashboard",
+     "pt": "Interactive de Dashboard"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DASHBOARD_INTERACTIVE» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'DASHBOARD_INTERACTIVE' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « DASHBOARD_INTERACTIVE » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «DASHBOARD_INTERACTIVE» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "221918677086c5c2": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "EMBEDDED_VISUALIZATION",
+   "texts": {
+    "SHORT": {
+     "es": "Visualization de Embedded",
+     "en": "Embedded Visualization",
+     "fr": "Visualization de Embedded",
+     "pt": "Visualization de Embedded"
+    },
+    "SUMMARY": {
+     "es": "Visualization de Embedded",
+     "en": "Embedded Visualization",
+     "fr": "Visualization de Embedded",
+     "pt": "Visualization de Embedded"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EMBEDDED_VISUALIZATION» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'EMBEDDED_VISUALIZATION' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « EMBEDDED_VISUALIZATION » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «EMBEDDED_VISUALIZATION» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "123553630428ecc3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "EVENT_STREAM",
+   "texts": {
+    "SHORT": {
+     "es": "Stream de evento",
+     "en": "Event Stream",
+     "fr": "Stream de événement",
+     "pt": "Stream de evento"
+    },
+    "SUMMARY": {
+     "es": "Stream de evento",
+     "en": "Event Stream",
+     "fr": "Stream de événement",
+     "pt": "Stream de evento"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EVENT_STREAM» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'EVENT_STREAM' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « EVENT_STREAM » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «EVENT_STREAM» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "149acd8a2f58bda8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "EXPORT_FILE",
+   "texts": {
+    "SHORT": {
+     "es": "File de Export",
+     "en": "Export File",
+     "fr": "File de Export",
+     "pt": "File de Export"
+    },
+    "SUMMARY": {
+     "es": "File de Export",
+     "en": "Export File",
+     "fr": "File de Export",
+     "pt": "File de Export"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXPORT_FILE» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'EXPORT_FILE' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « EXPORT_FILE » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «EXPORT_FILE» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "1f30c3a67122fe5e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "ML_FEATURE_STORE",
+   "texts": {
+    "SHORT": {
+     "es": "Store de Feature de Ml",
+     "en": "Ml Feature Store",
+     "fr": "Store de Feature de Ml",
+     "pt": "Store de Feature de Ml"
+    },
+    "SUMMARY": {
+     "es": "Store de Feature de Ml",
+     "en": "Ml Feature Store",
+     "fr": "Store de Feature de Ml",
+     "pt": "Store de Feature de Ml"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ML_FEATURE_STORE» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'ML_FEATURE_STORE' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « ML_FEATURE_STORE » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «ML_FEATURE_STORE» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "ff040dbeedfb92f0": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "NOTEBOOK_ANALYTICAL",
+   "texts": {
+    "SHORT": {
+     "es": "Analítica de Notebook",
+     "en": "Notebook Analytical",
+     "fr": "Analytique de Notebook",
+     "pt": "Analítica de Notebook"
+    },
+    "SUMMARY": {
+     "es": "Analítica de Notebook",
+     "en": "Notebook Analytical",
+     "fr": "Analytique de Notebook",
+     "pt": "Analítica de Notebook"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NOTEBOOK_ANALYTICAL» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'NOTEBOOK_ANALYTICAL' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « NOTEBOOK_ANALYTICAL » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «NOTEBOOK_ANALYTICAL» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "b05dfa9cdba4402a": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_KIND",
+   "code": "REPORT_TABULAR",
+   "texts": {
+    "SHORT": {
+     "es": "Tabular de Report",
+     "en": "Report Tabular",
+     "fr": "Tabular de Report",
+     "pt": "Tabular de Report"
+    },
+    "SUMMARY": {
+     "es": "Tabular de Report",
+     "en": "Report Tabular",
+     "fr": "Tabular de Report",
+     "pt": "Tabular de Report"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REPORT_TABULAR» del catálogo DATA_PRODUCT_KIND.",
+     "en": "Value 'REPORT_TABULAR' of catalog DATA_PRODUCT_KIND.",
+     "fr": "Valeur « REPORT_TABULAR » du catalogue DATA_PRODUCT_KIND.",
+     "pt": "Valor «REPORT_TABULAR» do catálogo DATA_PRODUCT_KIND."
+    }
+   }
+  },
+  "bc197088357a9f90": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "ACCOUNTING_TEAM",
+   "texts": {
+    "SHORT": {
+     "es": "Team contable",
+     "en": "Accounting Team",
+     "fr": "Team comptable",
+     "pt": "Team contabilístico"
+    },
+    "SUMMARY": {
+     "es": "Team contable",
+     "en": "Accounting Team",
+     "fr": "Team comptable",
+     "pt": "Team contabilístico"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ACCOUNTING_TEAM» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'ACCOUNTING_TEAM' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « ACCOUNTING_TEAM » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «ACCOUNTING_TEAM» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "da98032aac2a3273": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "ANY",
+   "texts": {
+    "SHORT": {
+     "es": "Any",
+     "en": "Any",
+     "fr": "Any",
+     "pt": "Any"
+    },
+    "SUMMARY": {
+     "es": "Any",
+     "en": "Any",
+     "fr": "Any",
+     "pt": "Any"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ANY» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'ANY' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « ANY » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «ANY» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "12c2f76261478dd9": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "BOARD_OF_DIRECTORS",
+   "texts": {
+    "SHORT": {
+     "es": "Directors de Board",
+     "en": "Board Directors",
+     "fr": "Directors de Board",
+     "pt": "Directors de Board"
+    },
+    "SUMMARY": {
+     "es": "Directors de Board",
+     "en": "Board Directors",
+     "fr": "Directors de Board",
+     "pt": "Directors de Board"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «BOARD_OF_DIRECTORS» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'BOARD_OF_DIRECTORS' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « BOARD_OF_DIRECTORS » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «BOARD_OF_DIRECTORS» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "dc275f924ad4a327": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "CONSOLIDATION_TEAM",
+   "texts": {
+    "SHORT": {
+     "es": "Team de consolidación",
+     "en": "Consolidation Team",
+     "fr": "Team de consolidation",
+     "pt": "Team de consolidação"
+    },
+    "SUMMARY": {
+     "es": "Team de consolidación",
+     "en": "Consolidation Team",
+     "fr": "Team de consolidation",
+     "pt": "Team de consolidação"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CONSOLIDATION_TEAM» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'CONSOLIDATION_TEAM' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « CONSOLIDATION_TEAM » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «CONSOLIDATION_TEAM» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "13f71dcd3fcd4fa0": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "EXECUTIVE_CEO_CFO",
+   "texts": {
+    "SHORT": {
+     "es": "Cfo de Ceo de Executive",
+     "en": "Executive CEO CFO",
+     "fr": "Cfo de Ceo de Executive",
+     "pt": "Cfo de Ceo de Executive"
+    },
+    "SUMMARY": {
+     "es": "Cfo de Ceo de Executive",
+     "en": "Executive CEO CFO",
+     "fr": "Cfo de Ceo de Executive",
+     "pt": "Cfo de Ceo de Executive"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXECUTIVE_CEO_CFO» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'EXECUTIVE_CEO_CFO' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « EXECUTIVE_CEO_CFO » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «EXECUTIVE_CEO_CFO» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "d0d2c1905f878ef3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "EXTERNAL_AUDITORS",
+   "texts": {
+    "SHORT": {
+     "es": "Auditors externo",
+     "en": "External Auditors",
+     "fr": "Auditors externe",
+     "pt": "Auditors externo"
+    },
+    "SUMMARY": {
+     "es": "Auditors externo",
+     "en": "External Auditors",
+     "fr": "Auditors externe",
+     "pt": "Auditors externo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXTERNAL_AUDITORS» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'EXTERNAL_AUDITORS' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « EXTERNAL_AUDITORS » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «EXTERNAL_AUDITORS» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "71832106f1920b49": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "EXTERNAL_PARTNERS",
+   "texts": {
+    "SHORT": {
+     "es": "Partners externo",
+     "en": "External Partners",
+     "fr": "Partners externe",
+     "pt": "Partners externo"
+    },
+    "SUMMARY": {
+     "es": "Partners externo",
+     "en": "External Partners",
+     "fr": "Partners externe",
+     "pt": "Partners externo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXTERNAL_PARTNERS» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'EXTERNAL_PARTNERS' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « EXTERNAL_PARTNERS » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «EXTERNAL_PARTNERS» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "cc7ec18d5c297ae1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "FPA_TEAM",
+   "texts": {
+    "SHORT": {
+     "es": "Team de Fpa",
+     "en": "Fpa Team",
+     "fr": "Team de Fpa",
+     "pt": "Team de Fpa"
+    },
+    "SUMMARY": {
+     "es": "Team de Fpa",
+     "en": "Fpa Team",
+     "fr": "Team de Fpa",
+     "pt": "Team de Fpa"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «FPA_TEAM» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'FPA_TEAM' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « FPA_TEAM » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «FPA_TEAM» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "6d46a5bbb15994e2": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "INTERNAL_AUDIT",
+   "texts": {
+    "SHORT": {
+     "es": "Auditoría interno",
+     "en": "Internal Audit",
+     "fr": "Audit interne",
+     "pt": "Auditoria interno"
+    },
+    "SUMMARY": {
+     "es": "Auditoría interno",
+     "en": "Internal Audit",
+     "fr": "Audit interne",
+     "pt": "Auditoria interno"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INTERNAL_AUDIT» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'INTERNAL_AUDIT' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « INTERNAL_AUDIT » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «INTERNAL_AUDIT» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "2598ecf1bd2c0161": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "INVESTOR_RELATIONS",
+   "texts": {
+    "SHORT": {
+     "es": "Relations de Investor",
+     "en": "Investor Relations",
+     "fr": "Relations de Investor",
+     "pt": "Relations de Investor"
+    },
+    "SUMMARY": {
+     "es": "Relations de Investor",
+     "en": "Investor Relations",
+     "fr": "Relations de Investor",
+     "pt": "Relations de Investor"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INVESTOR_RELATIONS» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'INVESTOR_RELATIONS' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « INVESTOR_RELATIONS » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «INVESTOR_RELATIONS» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "dfb51bef6857c94c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "REGULATORS",
+   "texts": {
+    "SHORT": {
+     "es": "Regulators",
+     "en": "Regulators",
+     "fr": "Regulators",
+     "pt": "Regulators"
+    },
+    "SUMMARY": {
+     "es": "Regulators",
+     "en": "Regulators",
+     "fr": "Regulators",
+     "pt": "Regulators"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATORS» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'REGULATORS' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « REGULATORS » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «REGULATORS» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "28d44ef23533f9cc": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "TAX_TEAM",
+   "texts": {
+    "SHORT": {
+     "es": "Team de impuesto",
+     "en": "Tax Team",
+     "fr": "Team de impôt",
+     "pt": "Team de imposto"
+    },
+    "SUMMARY": {
+     "es": "Team de impuesto",
+     "en": "Tax Team",
+     "fr": "Team de impôt",
+     "pt": "Team de imposto"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «TAX_TEAM» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'TAX_TEAM' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « TAX_TEAM » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «TAX_TEAM» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "8821ffc261b27f8f": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "TARGET_AUDIENCE",
+   "code": "TREASURY_TEAM",
+   "texts": {
+    "SHORT": {
+     "es": "Team de Treasury",
+     "en": "Treasury Team",
+     "fr": "Team de Treasury",
+     "pt": "Team de Treasury"
+    },
+    "SUMMARY": {
+     "es": "Team de Treasury",
+     "en": "Treasury Team",
+     "fr": "Team de Treasury",
+     "pt": "Team de Treasury"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «TREASURY_TEAM» del catálogo TARGET_AUDIENCE.",
+     "en": "Value 'TREASURY_TEAM' of catalog TARGET_AUDIENCE.",
+     "fr": "Valeur « TREASURY_TEAM » du catalogue TARGET_AUDIENCE.",
+     "pt": "Valor «TREASURY_TEAM» do catálogo TARGET_AUDIENCE."
+    }
+   }
+  },
+  "068abb4c7959a6e8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "AD_HOC",
+   "texts": {
+    "SHORT": {
+     "es": "Hoc de Ad",
+     "en": "Ad Hoc",
+     "fr": "Hoc de Ad",
+     "pt": "Hoc de Ad"
+    },
+    "SUMMARY": {
+     "es": "Hoc de Ad",
+     "en": "Ad Hoc",
+     "fr": "Hoc de Ad",
+     "pt": "Hoc de Ad"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «AD_HOC» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'AD_HOC' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « AD_HOC » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «AD_HOC» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "eff2cb0b42925600": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "DAILY",
+   "texts": {
+    "SHORT": {
+     "es": "Daily",
+     "en": "Daily",
+     "fr": "Daily",
+     "pt": "Daily"
+    },
+    "SUMMARY": {
+     "es": "Daily",
+     "en": "Daily",
+     "fr": "Daily",
+     "pt": "Daily"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DAILY» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'DAILY' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « DAILY » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «DAILY» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "359009179f66b934": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "MONTHLY",
+   "texts": {
+    "SHORT": {
+     "es": "Mensual",
+     "en": "Monthly",
+     "fr": "Mensuel",
+     "pt": "Mensal"
+    },
+    "SUMMARY": {
+     "es": "Mensual",
+     "en": "Monthly",
+     "fr": "Mensuel",
+     "pt": "Mensal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MONTHLY» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'MONTHLY' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « MONTHLY » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «MONTHLY» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "c9536a796a3fff85": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "NEAR_REAL_TIME_HOURLY",
+   "texts": {
+    "SHORT": {
+     "es": "Hourly de tiempo de Real de Near",
+     "en": "Near Real Time Hourly",
+     "fr": "Hourly de temps de Real de Near",
+     "pt": "Hourly de tempo de Real de Near"
+    },
+    "SUMMARY": {
+     "es": "Hourly de tiempo de Real de Near",
+     "en": "Near Real Time Hourly",
+     "fr": "Hourly de temps de Real de Near",
+     "pt": "Hourly de tempo de Real de Near"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NEAR_REAL_TIME_HOURLY» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'NEAR_REAL_TIME_HOURLY' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « NEAR_REAL_TIME_HOURLY » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «NEAR_REAL_TIME_HOURLY» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "80b2201bb6968c1b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "QUARTERLY",
+   "texts": {
+    "SHORT": {
+     "es": "Trimestral",
+     "en": "Quarterly",
+     "fr": "Trimestriel",
+     "pt": "Trimestral"
+    },
+    "SUMMARY": {
+     "es": "Trimestral",
+     "en": "Quarterly",
+     "fr": "Trimestriel",
+     "pt": "Trimestral"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «QUARTERLY» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'QUARTERLY' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « QUARTERLY » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «QUARTERLY» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "8a6df88dc474b2b5": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "REAL_TIME",
+   "texts": {
+    "SHORT": {
+     "es": "Tiempo de Real",
+     "en": "Real Time",
+     "fr": "Temps de Real",
+     "pt": "Tempo de Real"
+    },
+    "SUMMARY": {
+     "es": "Tiempo de Real",
+     "en": "Real Time",
+     "fr": "Temps de Real",
+     "pt": "Tempo de Real"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REAL_TIME» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'REAL_TIME' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « REAL_TIME » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «REAL_TIME» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "7f394a255616959b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REFRESH_FREQUENCY",
+   "code": "WEEKLY",
+   "texts": {
+    "SHORT": {
+     "es": "Semanal",
+     "en": "Weekly",
+     "fr": "Hebdomadaire",
+     "pt": "Semanal"
+    },
+    "SUMMARY": {
+     "es": "Semanal",
+     "en": "Weekly",
+     "fr": "Hebdomadaire",
+     "pt": "Semanal"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WEEKLY» del catálogo REFRESH_FREQUENCY.",
+     "en": "Value 'WEEKLY' of catalog REFRESH_FREQUENCY.",
+     "fr": "Valeur « WEEKLY » du catalogue REFRESH_FREQUENCY.",
+     "pt": "Valor «WEEKLY» do catálogo REFRESH_FREQUENCY."
+    }
+   }
+  },
+  "1bc355a14246eb62": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_STATUS",
+   "code": "BETA",
+   "texts": {
+    "SHORT": {
+     "es": "Beta",
+     "en": "Beta",
+     "fr": "Beta",
+     "pt": "Beta"
+    },
+    "SUMMARY": {
+     "es": "Beta",
+     "en": "Beta",
+     "fr": "Beta",
+     "pt": "Beta"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «BETA» del catálogo DATA_PRODUCT_STATUS.",
+     "en": "Value 'BETA' of catalog DATA_PRODUCT_STATUS.",
+     "fr": "Valeur « BETA » du catalogue DATA_PRODUCT_STATUS.",
+     "pt": "Valor «BETA» do catálogo DATA_PRODUCT_STATUS."
+    }
+   }
+  },
+  "cb7e90eedf0f15f4": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_STATUS",
+   "code": "DEPRECATED",
+   "texts": {
+    "SHORT": {
+     "es": "Deprecated",
+     "en": "Deprecated",
+     "fr": "Deprecated",
+     "pt": "Deprecated"
+    },
+    "SUMMARY": {
+     "es": "Deprecated",
+     "en": "Deprecated",
+     "fr": "Deprecated",
+     "pt": "Deprecated"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DEPRECATED» del catálogo DATA_PRODUCT_STATUS.",
+     "en": "Value 'DEPRECATED' of catalog DATA_PRODUCT_STATUS.",
+     "fr": "Valeur « DEPRECATED » du catalogue DATA_PRODUCT_STATUS.",
+     "pt": "Valor «DEPRECATED» do catálogo DATA_PRODUCT_STATUS."
+    }
+   }
+  },
+  "1dc3bfbd2ef26482": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_STATUS",
+   "code": "DRAFT",
+   "texts": {
+    "SHORT": {
+     "es": "Borrador",
+     "en": "Draft",
+     "fr": "Brouillon",
+     "pt": "Rascunho"
+    },
+    "SUMMARY": {
+     "es": "Borrador",
+     "en": "Draft",
+     "fr": "Brouillon",
+     "pt": "Rascunho"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DRAFT» del catálogo DATA_PRODUCT_STATUS.",
+     "en": "Value 'DRAFT' of catalog DATA_PRODUCT_STATUS.",
+     "fr": "Valeur « DRAFT » du catalogue DATA_PRODUCT_STATUS.",
+     "pt": "Valor «DRAFT» do catálogo DATA_PRODUCT_STATUS."
+    }
+   }
+  },
+  "875028d14a22d3a0": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_STATUS",
+   "code": "GA_GENERALLY_AVAILABLE",
+   "texts": {
+    "SHORT": {
+     "es": "Disponible de Generally de Ga",
+     "en": "Ga Generally Available",
+     "fr": "Disponible de Generally de Ga",
+     "pt": "Disponível de Generally de Ga"
+    },
+    "SUMMARY": {
+     "es": "Disponible de Generally de Ga",
+     "en": "Ga Generally Available",
+     "fr": "Disponible de Generally de Ga",
+     "pt": "Disponível de Generally de Ga"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «GA_GENERALLY_AVAILABLE» del catálogo DATA_PRODUCT_STATUS.",
+     "en": "Value 'GA_GENERALLY_AVAILABLE' of catalog DATA_PRODUCT_STATUS.",
+     "fr": "Valeur « GA_GENERALLY_AVAILABLE » du catalogue DATA_PRODUCT_STATUS.",
+     "pt": "Valor «GA_GENERALLY_AVAILABLE» do catálogo DATA_PRODUCT_STATUS."
+    }
+   }
+  },
+  "a34168852cb0626e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_PRODUCT_STATUS",
+   "code": "RETIRED",
+   "texts": {
+    "SHORT": {
+     "es": "Retirado",
+     "en": "Retired",
+     "fr": "Retiré",
+     "pt": "Retirado"
+    },
+    "SUMMARY": {
+     "es": "Retirado",
+     "en": "Retired",
+     "fr": "Retiré",
+     "pt": "Retirado"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RETIRED» del catálogo DATA_PRODUCT_STATUS.",
+     "en": "Value 'RETIRED' of catalog DATA_PRODUCT_STATUS.",
+     "fr": "Valeur « RETIRED » du catalogue DATA_PRODUCT_STATUS.",
+     "pt": "Valor «RETIRED» do catálogo DATA_PRODUCT_STATUS."
+    }
+   }
+  },
+  "2ea9e032f14a2ce6": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "API_GRAPHQL",
+   "texts": {
+    "SHORT": {
+     "es": "Graphql de Api",
+     "en": "Api Graphql",
+     "fr": "Graphql de Api",
+     "pt": "Graphql de Api"
+    },
+    "SUMMARY": {
+     "es": "Graphql de Api",
+     "en": "Api Graphql",
+     "fr": "Graphql de Api",
+     "pt": "Graphql de Api"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «API_GRAPHQL» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'API_GRAPHQL' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « API_GRAPHQL » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «API_GRAPHQL» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "9686a2fe2289020e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "API_REST",
+   "texts": {
+    "SHORT": {
+     "es": "Rest de Api",
+     "en": "Api Rest",
+     "fr": "Rest de Api",
+     "pt": "Rest de Api"
+    },
+    "SUMMARY": {
+     "es": "Rest de Api",
+     "en": "Api Rest",
+     "fr": "Rest de Api",
+     "pt": "Rest de Api"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «API_REST» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'API_REST' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « API_REST » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «API_REST» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "a6d61d2ca02e1b5d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "EMAIL_REPORT",
+   "texts": {
+    "SHORT": {
+     "es": "Report de Email",
+     "en": "Email Report",
+     "fr": "Report de Email",
+     "pt": "Report de Email"
+    },
+    "SUMMARY": {
+     "es": "Report de Email",
+     "en": "Email Report",
+     "fr": "Report de Email",
+     "pt": "Report de Email"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EMAIL_REPORT» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'EMAIL_REPORT' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « EMAIL_REPORT » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «EMAIL_REPORT» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "73dcbe086f636cd7": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "EMBEDDED_IFRAME",
+   "texts": {
+    "SHORT": {
+     "es": "Iframe de Embedded",
+     "en": "Embedded Iframe",
+     "fr": "Iframe de Embedded",
+     "pt": "Iframe de Embedded"
+    },
+    "SUMMARY": {
+     "es": "Iframe de Embedded",
+     "en": "Embedded Iframe",
+     "fr": "Iframe de Embedded",
+     "pt": "Iframe de Embedded"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EMBEDDED_IFRAME» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'EMBEDDED_IFRAME' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « EMBEDDED_IFRAME » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «EMBEDDED_IFRAME» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "2b763abd7639e525": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "EVENT_KAFKA",
+   "texts": {
+    "SHORT": {
+     "es": "Kafka de evento",
+     "en": "Event Kafka",
+     "fr": "Kafka de événement",
+     "pt": "Kafka de evento"
+    },
+    "SUMMARY": {
+     "es": "Kafka de evento",
+     "en": "Event Kafka",
+     "fr": "Kafka de événement",
+     "pt": "Kafka de evento"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EVENT_KAFKA» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'EVENT_KAFKA' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « EVENT_KAFKA » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «EVENT_KAFKA» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "96b831f22663b9af": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "EXCEL_LIVE_CONNECT",
+   "texts": {
+    "SHORT": {
+     "es": "Connect de Live de Excel",
+     "en": "Excel Live Connect",
+     "fr": "Connect de Live de Excel",
+     "pt": "Connect de Live de Excel"
+    },
+    "SUMMARY": {
+     "es": "Connect de Live de Excel",
+     "en": "Excel Live Connect",
+     "fr": "Connect de Live de Excel",
+     "pt": "Connect de Live de Excel"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXCEL_LIVE_CONNECT» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'EXCEL_LIVE_CONNECT' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « EXCEL_LIVE_CONNECT » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «EXCEL_LIVE_CONNECT» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "afb786300167b034": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "FILE_S3",
+   "texts": {
+    "SHORT": {
+     "es": "S3 de File",
+     "en": "File S3",
+     "fr": "S3 de File",
+     "pt": "S3 de File"
+    },
+    "SUMMARY": {
+     "es": "S3 de File",
+     "en": "File S3",
+     "fr": "S3 de File",
+     "pt": "S3 de File"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «FILE_S3» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'FILE_S3' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « FILE_S3 » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «FILE_S3» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "1a13f68cdb84a472": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "FILE_SFTP",
+   "texts": {
+    "SHORT": {
+     "es": "Sftp de File",
+     "en": "File Sftp",
+     "fr": "Sftp de File",
+     "pt": "Sftp de File"
+    },
+    "SUMMARY": {
+     "es": "Sftp de File",
+     "en": "File Sftp",
+     "fr": "Sftp de File",
+     "pt": "Sftp de File"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «FILE_SFTP» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'FILE_SFTP' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « FILE_SFTP » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «FILE_SFTP» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "0f25a1ec34f1d0ac": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "MOBILE_APP",
+   "texts": {
+    "SHORT": {
+     "es": "App de Mobile",
+     "en": "Mobile App",
+     "fr": "App de Mobile",
+     "pt": "App de Mobile"
+    },
+    "SUMMARY": {
+     "es": "App de Mobile",
+     "en": "Mobile App",
+     "fr": "App de Mobile",
+     "pt": "App de Mobile"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «MOBILE_APP» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'MOBILE_APP' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « MOBILE_APP » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «MOBILE_APP» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "d7ce5d72e893b64a": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "NOTEBOOK_JUPYTER",
+   "texts": {
+    "SHORT": {
+     "es": "Jupyter de Notebook",
+     "en": "Notebook Jupyter",
+     "fr": "Jupyter de Notebook",
+     "pt": "Jupyter de Notebook"
+    },
+    "SUMMARY": {
+     "es": "Jupyter de Notebook",
+     "en": "Notebook Jupyter",
+     "fr": "Jupyter de Notebook",
+     "pt": "Jupyter de Notebook"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NOTEBOOK_JUPYTER» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'NOTEBOOK_JUPYTER' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « NOTEBOOK_JUPYTER » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «NOTEBOOK_JUPYTER» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "fa092b1cd7cf5a03": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DELIVERY_CHANNEL",
+   "code": "WEB_DASHBOARD",
+   "texts": {
+    "SHORT": {
+     "es": "Dashboard de Web",
+     "en": "Web Dashboard",
+     "fr": "Dashboard de Web",
+     "pt": "Dashboard de Web"
+    },
+    "SUMMARY": {
+     "es": "Dashboard de Web",
+     "en": "Web Dashboard",
+     "fr": "Dashboard de Web",
+     "pt": "Dashboard de Web"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WEB_DASHBOARD» del catálogo DELIVERY_CHANNEL.",
+     "en": "Value 'WEB_DASHBOARD' of catalog DELIVERY_CHANNEL.",
+     "fr": "Valeur « WEB_DASHBOARD » du catalogue DELIVERY_CHANNEL.",
+     "pt": "Valor «WEB_DASHBOARD» do catálogo DELIVERY_CHANNEL."
+    }
+   }
+  },
+  "d43e49bed44040ba": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "CONFIDENTIAL",
+   "texts": {
+    "SHORT": {
+     "es": "Confidential",
+     "en": "Confidential",
+     "fr": "Confidential",
+     "pt": "Confidential"
+    },
+    "SUMMARY": {
+     "es": "Confidential",
+     "en": "Confidential",
+     "fr": "Confidential",
+     "pt": "Confidential"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «CONFIDENTIAL» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'CONFIDENTIAL' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « CONFIDENTIAL » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «CONFIDENTIAL» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "f4263863c58da260": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "HIGHLY_CONFIDENTIAL_BOARD_ONLY",
+   "texts": {
+    "SHORT": {
+     "es": "Only de Board de Confidential de Highly",
+     "en": "Highly Confidential Board Only",
+     "fr": "Only de Board de Confidential de Highly",
+     "pt": "Only de Board de Confidential de Highly"
+    },
+    "SUMMARY": {
+     "es": "Only de Board de Confidential de Highly",
+     "en": "Highly Confidential Board Only",
+     "fr": "Only de Board de Confidential de Highly",
+     "pt": "Only de Board de Confidential de Highly"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «HIGHLY_CONFIDENTIAL_BOARD_ONLY» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'HIGHLY_CONFIDENTIAL_BOARD_ONLY' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « HIGHLY_CONFIDENTIAL_BOARD_ONLY » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «HIGHLY_CONFIDENTIAL_BOARD_ONLY» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "84d34772751414e1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "INTERNAL",
+   "texts": {
+    "SHORT": {
+     "es": "Interno",
+     "en": "Internal",
+     "fr": "Interne",
+     "pt": "Interno"
+    },
+    "SUMMARY": {
+     "es": "Interno",
+     "en": "Internal",
+     "fr": "Interne",
+     "pt": "Interno"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INTERNAL» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'INTERNAL' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « INTERNAL » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «INTERNAL» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "c70e7083a37c028d": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "PUBLIC",
+   "texts": {
+    "SHORT": {
+     "es": "Public",
+     "en": "Public",
+     "fr": "Public",
+     "pt": "Public"
+    },
+    "SUMMARY": {
+     "es": "Public",
+     "en": "Public",
+     "fr": "Public",
+     "pt": "Public"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «PUBLIC» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'PUBLIC' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « PUBLIC » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «PUBLIC» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "a5178d7cf3f4fd33": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "REGULATED_FINANCIAL",
+   "texts": {
+    "SHORT": {
+     "es": "Regulated financiero",
+     "en": "Regulated Financial",
+     "fr": "Regulated financier",
+     "pt": "Regulated financeiro"
+    },
+    "SUMMARY": {
+     "es": "Regulated financiero",
+     "en": "Regulated Financial",
+     "fr": "Regulated financier",
+     "pt": "Regulated financeiro"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATED_FINANCIAL» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'REGULATED_FINANCIAL' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « REGULATED_FINANCIAL » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «REGULATED_FINANCIAL» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "12421f515bf5bc41": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "DATA_CLASSIFICATION",
+   "code": "REGULATED_GDPR",
+   "texts": {
+    "SHORT": {
+     "es": "Gdpr de Regulated",
+     "en": "Regulated GDPR",
+     "fr": "Gdpr de Regulated",
+     "pt": "Gdpr de Regulated"
+    },
+    "SUMMARY": {
+     "es": "Gdpr de Regulated",
+     "en": "Regulated GDPR",
+     "fr": "Gdpr de Regulated",
+     "pt": "Gdpr de Regulated"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATED_GDPR» del catálogo DATA_CLASSIFICATION.",
+     "en": "Value 'REGULATED_GDPR' of catalog DATA_CLASSIFICATION.",
+     "fr": "Valeur « REGULATED_GDPR » du catalogue DATA_CLASSIFICATION.",
+     "pt": "Valor «REGULATED_GDPR» do catálogo DATA_CLASSIFICATION."
+    }
+   }
+  },
+  "483317651df8e72c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIBER_KIND",
+   "code": "DOWNSTREAM_SYSTEM",
+   "texts": {
+    "SHORT": {
+     "es": "System de Downstream",
+     "en": "Downstream System",
+     "fr": "System de Downstream",
+     "pt": "System de Downstream"
+    },
+    "SUMMARY": {
+     "es": "System de Downstream",
+     "en": "Downstream System",
+     "fr": "System de Downstream",
+     "pt": "System de Downstream"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DOWNSTREAM_SYSTEM» del catálogo SUBSCRIBER_KIND.",
+     "en": "Value 'DOWNSTREAM_SYSTEM' of catalog SUBSCRIBER_KIND.",
+     "fr": "Valeur « DOWNSTREAM_SYSTEM » du catalogue SUBSCRIBER_KIND.",
+     "pt": "Valor «DOWNSTREAM_SYSTEM» do catálogo SUBSCRIBER_KIND."
+    }
+   }
+  },
+  "c9bd905ee857eca1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIBER_KIND",
+   "code": "EXTERNAL_PARTNER_API",
+   "texts": {
+    "SHORT": {
+     "es": "Api de Partner externo",
+     "en": "External Partner Api",
+     "fr": "Api de Partner externe",
+     "pt": "Api de Partner externo"
+    },
+    "SUMMARY": {
+     "es": "Api de Partner externo",
+     "en": "External Partner Api",
+     "fr": "Api de Partner externe",
+     "pt": "Api de Partner externo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXTERNAL_PARTNER_API» del catálogo SUBSCRIBER_KIND.",
+     "en": "Value 'EXTERNAL_PARTNER_API' of catalog SUBSCRIBER_KIND.",
+     "fr": "Valeur « EXTERNAL_PARTNER_API » du catalogue SUBSCRIBER_KIND.",
+     "pt": "Valor «EXTERNAL_PARTNER_API» do catálogo SUBSCRIBER_KIND."
+    }
+   }
+  },
+  "fcdaf7392ad3a2f1": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIBER_KIND",
+   "code": "INDIVIDUAL_USER",
+   "texts": {
+    "SHORT": {
+     "es": "User de Individual",
+     "en": "Individual User",
+     "fr": "User de Individual",
+     "pt": "User de Individual"
+    },
+    "SUMMARY": {
+     "es": "User de Individual",
+     "en": "Individual User",
+     "fr": "User de Individual",
+     "pt": "User de Individual"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INDIVIDUAL_USER» del catálogo SUBSCRIBER_KIND.",
+     "en": "Value 'INDIVIDUAL_USER' of catalog SUBSCRIBER_KIND.",
+     "fr": "Valeur « INDIVIDUAL_USER » du catalogue SUBSCRIBER_KIND.",
+     "pt": "Valor «INDIVIDUAL_USER» do catálogo SUBSCRIBER_KIND."
+    }
+   }
+  },
+  "5fa8aa56097a5119": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIBER_KIND",
+   "code": "REGULATORY_FEED",
+   "texts": {
+    "SHORT": {
+     "es": "Feed regulatorio",
+     "en": "Regulatory Feed",
+     "fr": "Feed réglementaire",
+     "pt": "Feed regulatório"
+    },
+    "SUMMARY": {
+     "es": "Feed regulatorio",
+     "en": "Regulatory Feed",
+     "fr": "Feed réglementaire",
+     "pt": "Feed regulatório"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATORY_FEED» del catálogo SUBSCRIBER_KIND.",
+     "en": "Value 'REGULATORY_FEED' of catalog SUBSCRIBER_KIND.",
+     "fr": "Valeur « REGULATORY_FEED » du catalogue SUBSCRIBER_KIND.",
+     "pt": "Valor «REGULATORY_FEED» do catálogo SUBSCRIBER_KIND."
+    }
+   }
+  },
+  "f940b1832ffe838e": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIBER_KIND",
+   "code": "ROLE_GROUP",
+   "texts": {
+    "SHORT": {
+     "es": "Grupo de rol",
+     "en": "Role Group",
+     "fr": "Groupe de rôle",
+     "pt": "Grupo de papel"
+    },
+    "SUMMARY": {
+     "es": "Grupo de rol",
+     "en": "Role Group",
+     "fr": "Groupe de rôle",
+     "pt": "Grupo de papel"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ROLE_GROUP» del catálogo SUBSCRIBER_KIND.",
+     "en": "Value 'ROLE_GROUP' of catalog SUBSCRIBER_KIND.",
+     "fr": "Valeur « ROLE_GROUP » du catalogue SUBSCRIBER_KIND.",
+     "pt": "Valor «ROLE_GROUP» do catálogo SUBSCRIBER_KIND."
+    }
+   }
+  },
+  "f91e80b7fcad817b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "AUDIT_REVIEW",
+   "texts": {
+    "SHORT": {
+     "es": "Revisión de auditoría",
+     "en": "Audit Review",
+     "fr": "Revue de audit",
+     "pt": "Revisão de auditoria"
+    },
+    "SUMMARY": {
+     "es": "Revisión de auditoría",
+     "en": "Audit Review",
+     "fr": "Revue de audit",
+     "pt": "Revisão de auditoria"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «AUDIT_REVIEW» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'AUDIT_REVIEW' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « AUDIT_REVIEW » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «AUDIT_REVIEW» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "d37ef46f494361ff": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "DATA_SCIENCE_ANALYTICS",
+   "texts": {
+    "SHORT": {
+     "es": "Analytics de Science de datos",
+     "en": "Data Science Analytics",
+     "fr": "Analytics de Science de données",
+     "pt": "Analytics de Science de dados"
+    },
+    "SUMMARY": {
+     "es": "Analytics de Science de datos",
+     "en": "Data Science Analytics",
+     "fr": "Analytics de Science de données",
+     "pt": "Analytics de Science de dados"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «DATA_SCIENCE_ANALYTICS» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'DATA_SCIENCE_ANALYTICS' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « DATA_SCIENCE_ANALYTICS » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «DATA_SCIENCE_ANALYTICS» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "53a52056656e61c9": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "EXECUTIVE_DECISION_SUPPORT",
+   "texts": {
+    "SHORT": {
+     "es": "Support de Decision de Executive",
+     "en": "Executive Decision Support",
+     "fr": "Support de Decision de Executive",
+     "pt": "Support de Decision de Executive"
+    },
+    "SUMMARY": {
+     "es": "Support de Decision de Executive",
+     "en": "Executive Decision Support",
+     "fr": "Support de Decision de Executive",
+     "pt": "Support de Decision de Executive"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXECUTIVE_DECISION_SUPPORT» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'EXECUTIVE_DECISION_SUPPORT' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « EXECUTIVE_DECISION_SUPPORT » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «EXECUTIVE_DECISION_SUPPORT» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "6e5c40d4b7008af2": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "INVESTOR_RELATIONS",
+   "texts": {
+    "SHORT": {
+     "es": "Relations de Investor",
+     "en": "Investor Relations",
+     "fr": "Relations de Investor",
+     "pt": "Relations de Investor"
+    },
+    "SUMMARY": {
+     "es": "Relations de Investor",
+     "en": "Investor Relations",
+     "fr": "Relations de Investor",
+     "pt": "Relations de Investor"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «INVESTOR_RELATIONS» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'INVESTOR_RELATIONS' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « INVESTOR_RELATIONS » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «INVESTOR_RELATIONS» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "ba3eeb6c3e7f17f8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "OPERATIONAL_REPORTING",
+   "texts": {
+    "SHORT": {
+     "es": "Operational reporte",
+     "en": "Operational Reporting",
+     "fr": "Operational reporting",
+     "pt": "Operational relato"
+    },
+    "SUMMARY": {
+     "es": "Operational reporte",
+     "en": "Operational Reporting",
+     "fr": "Operational reporting",
+     "pt": "Operational relato"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OPERATIONAL_REPORTING» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'OPERATIONAL_REPORTING' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « OPERATIONAL_REPORTING » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «OPERATIONAL_REPORTING» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "e8bec0a516430a42": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "OTHER",
+   "texts": {
+    "SHORT": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "SUMMARY": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OTHER» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'OTHER' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « OTHER » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «OTHER» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "8ca709dc6b439d16": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_PURPOSE",
+   "code": "REGULATORY_FILING",
+   "texts": {
+    "SHORT": {
+     "es": "Presentación regulatorio",
+     "en": "Regulatory Filing",
+     "fr": "Dépôt réglementaire",
+     "pt": "Apresentação regulatório"
+    },
+    "SUMMARY": {
+     "es": "Presentación regulatorio",
+     "en": "Regulatory Filing",
+     "fr": "Dépôt réglementaire",
+     "pt": "Apresentação regulatório"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REGULATORY_FILING» del catálogo SUBSCRIPTION_PURPOSE.",
+     "en": "Value 'REGULATORY_FILING' of catalog SUBSCRIPTION_PURPOSE.",
+     "fr": "Valeur « REGULATORY_FILING » du catalogue SUBSCRIPTION_PURPOSE.",
+     "pt": "Valor «REGULATORY_FILING» do catálogo SUBSCRIPTION_PURPOSE."
+    }
+   }
+  },
+  "d64c92fbb28b9fe0": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "ACCESS_PATTERN",
+   "code": "BATCH_NIGHTLY",
+   "texts": {
+    "SHORT": {
+     "es": "Nightly de Batch",
+     "en": "Batch Nightly",
+     "fr": "Nightly de Batch",
+     "pt": "Nightly de Batch"
+    },
+    "SUMMARY": {
+     "es": "Nightly de Batch",
+     "en": "Batch Nightly",
+     "fr": "Nightly de Batch",
+     "pt": "Nightly de Batch"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «BATCH_NIGHTLY» del catálogo ACCESS_PATTERN.",
+     "en": "Value 'BATCH_NIGHTLY' of catalog ACCESS_PATTERN.",
+     "fr": "Valeur « BATCH_NIGHTLY » du catalogue ACCESS_PATTERN.",
+     "pt": "Valor «BATCH_NIGHTLY» do catálogo ACCESS_PATTERN."
+    }
+   }
+  },
+  "0a5ef80dc7060ee5": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "ACCESS_PATTERN",
+   "code": "EVENT_DRIVEN",
+   "texts": {
+    "SHORT": {
+     "es": "Driven de evento",
+     "en": "Event Driven",
+     "fr": "Driven de événement",
+     "pt": "Driven de evento"
+    },
+    "SUMMARY": {
+     "es": "Driven de evento",
+     "en": "Event Driven",
+     "fr": "Driven de événement",
+     "pt": "Driven de evento"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EVENT_DRIVEN» del catálogo ACCESS_PATTERN.",
+     "en": "Value 'EVENT_DRIVEN' of catalog ACCESS_PATTERN.",
+     "fr": "Valeur « EVENT_DRIVEN » du catalogue ACCESS_PATTERN.",
+     "pt": "Valor «EVENT_DRIVEN» do catálogo ACCESS_PATTERN."
+    }
+   }
+  },
+  "99ffbaed3414a2de": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "ACCESS_PATTERN",
+   "code": "ON_DEMAND_INTERACTIVE",
+   "texts": {
+    "SHORT": {
+     "es": "Interactive de demanda de en",
+     "en": "On Demand Interactive",
+     "fr": "Interactive de demande de en",
+     "pt": "Interactive de procura de em"
+    },
+    "SUMMARY": {
+     "es": "Interactive de demanda de en",
+     "en": "On Demand Interactive",
+     "fr": "Interactive de demande de en",
+     "pt": "Interactive de procura de em"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ON_DEMAND_INTERACTIVE» del catálogo ACCESS_PATTERN.",
+     "en": "Value 'ON_DEMAND_INTERACTIVE' of catalog ACCESS_PATTERN.",
+     "fr": "Valeur « ON_DEMAND_INTERACTIVE » du catalogue ACCESS_PATTERN.",
+     "pt": "Valor «ON_DEMAND_INTERACTIVE» do catálogo ACCESS_PATTERN."
+    }
+   }
+  },
+  "68b1d9514452260b": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "ACCESS_PATTERN",
+   "code": "SCHEDULED_DAILY",
+   "texts": {
+    "SHORT": {
+     "es": "Daily de programado",
+     "en": "Scheduled Daily",
+     "fr": "Daily de planifié",
+     "pt": "Daily de agendado"
+    },
+    "SUMMARY": {
+     "es": "Daily de programado",
+     "en": "Scheduled Daily",
+     "fr": "Daily de planifié",
+     "pt": "Daily de agendado"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SCHEDULED_DAILY» del catálogo ACCESS_PATTERN.",
+     "en": "Value 'SCHEDULED_DAILY' of catalog ACCESS_PATTERN.",
+     "fr": "Valeur « SCHEDULED_DAILY » du catalogue ACCESS_PATTERN.",
+     "pt": "Valor «SCHEDULED_DAILY» do catálogo ACCESS_PATTERN."
+    }
+   }
+  },
+  "7b687acbdeece527": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_STATUS",
+   "code": "ACTIVE",
+   "texts": {
+    "SHORT": {
+     "es": "Activo",
+     "en": "Active",
+     "fr": "Actif",
+     "pt": "Ativo"
+    },
+    "SUMMARY": {
+     "es": "Activo",
+     "en": "Active",
+     "fr": "Actif",
+     "pt": "Ativo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «ACTIVE» del catálogo SUBSCRIPTION_STATUS.",
+     "en": "Value 'ACTIVE' of catalog SUBSCRIPTION_STATUS.",
+     "fr": "Valeur « ACTIVE » du catalogue SUBSCRIPTION_STATUS.",
+     "pt": "Valor «ACTIVE» do catálogo SUBSCRIPTION_STATUS."
+    }
+   }
+  },
+  "890184692ce483b8": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_STATUS",
+   "code": "EXPIRED",
+   "texts": {
+    "SHORT": {
+     "es": "Caducado",
+     "en": "Expired",
+     "fr": "Expiré",
+     "pt": "Expirado"
+    },
+    "SUMMARY": {
+     "es": "Caducado",
+     "en": "Expired",
+     "fr": "Expiré",
+     "pt": "Expirado"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «EXPIRED» del catálogo SUBSCRIPTION_STATUS.",
+     "en": "Value 'EXPIRED' of catalog SUBSCRIPTION_STATUS.",
+     "fr": "Valeur « EXPIRED » du catalogue SUBSCRIPTION_STATUS.",
+     "pt": "Valor «EXPIRED» do catálogo SUBSCRIPTION_STATUS."
+    }
+   }
+  },
+  "780cb8cf5ae863bb": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_STATUS",
+   "code": "REVOKED",
+   "texts": {
+    "SHORT": {
+     "es": "Revoked",
+     "en": "Revoked",
+     "fr": "Revoked",
+     "pt": "Revoked"
+    },
+    "SUMMARY": {
+     "es": "Revoked",
+     "en": "Revoked",
+     "fr": "Revoked",
+     "pt": "Revoked"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REVOKED» del catálogo SUBSCRIPTION_STATUS.",
+     "en": "Value 'REVOKED' of catalog SUBSCRIPTION_STATUS.",
+     "fr": "Valeur « REVOKED » du catalogue SUBSCRIPTION_STATUS.",
+     "pt": "Valor «REVOKED» do catálogo SUBSCRIPTION_STATUS."
+    }
+   }
+  },
+  "8da5c29aa37ce013": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "SUBSCRIPTION_STATUS",
+   "code": "SUSPENDED",
+   "texts": {
+    "SHORT": {
+     "es": "Suspendido",
+     "en": "Suspended",
+     "fr": "Suspendu",
+     "pt": "Suspenso"
+    },
+    "SUMMARY": {
+     "es": "Suspendido",
+     "en": "Suspended",
+     "fr": "Suspendu",
+     "pt": "Suspenso"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «SUSPENDED» del catálogo SUBSCRIPTION_STATUS.",
+     "en": "Value 'SUSPENDED' of catalog SUBSCRIPTION_STATUS.",
+     "fr": "Valeur « SUSPENDED » du catalogue SUBSCRIPTION_STATUS.",
+     "pt": "Valor «SUSPENDED» do catálogo SUBSCRIPTION_STATUS."
     }
    }
   },
@@ -275359,6 +279284,131 @@
      "en": "Value 'TERMINATED' of catalog BENEFIT_ENROLLMENT_STATUS.",
      "fr": "Valeur « TERMINATED » du catalogue BENEFIT_ENROLLMENT_STATUS.",
      "pt": "Valor «TERMINATED» do catálogo BENEFIT_ENROLLMENT_STATUS."
+    }
+   }
+  },
+  "06f7fa751850d54c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "BENEFIT_PROGRAM_CATEGORY",
+   "code": "HEALTH_INSURANCE",
+   "texts": {
+    "SHORT": {
+     "es": "Insurance de Health",
+     "en": "Health Insurance",
+     "fr": "Insurance de Health",
+     "pt": "Insurance de Health"
+    },
+    "SUMMARY": {
+     "es": "Insurance de Health",
+     "en": "Health Insurance",
+     "fr": "Insurance de Health",
+     "pt": "Insurance de Health"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «HEALTH_INSURANCE» del catálogo BENEFIT_PROGRAM_CATEGORY.",
+     "en": "Value 'HEALTH_INSURANCE' of catalog BENEFIT_PROGRAM_CATEGORY.",
+     "fr": "Valeur « HEALTH_INSURANCE » du catalogue BENEFIT_PROGRAM_CATEGORY.",
+     "pt": "Valor «HEALTH_INSURANCE» do catálogo BENEFIT_PROGRAM_CATEGORY."
+    }
+   }
+  },
+  "86ebf4c38cc055c3": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "BENEFIT_PROGRAM_CATEGORY",
+   "code": "RETIREMENT_PENSION",
+   "texts": {
+    "SHORT": {
+     "es": "Pension de Retirement",
+     "en": "Retirement Pension",
+     "fr": "Pension de Retirement",
+     "pt": "Pension de Retirement"
+    },
+    "SUMMARY": {
+     "es": "Pension de Retirement",
+     "en": "Retirement Pension",
+     "fr": "Pension de Retirement",
+     "pt": "Pension de Retirement"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «RETIREMENT_PENSION» del catálogo BENEFIT_PROGRAM_CATEGORY.",
+     "en": "Value 'RETIREMENT_PENSION' of catalog BENEFIT_PROGRAM_CATEGORY.",
+     "fr": "Valeur « RETIREMENT_PENSION » du catalogue BENEFIT_PROGRAM_CATEGORY.",
+     "pt": "Valor «RETIREMENT_PENSION» do catálogo BENEFIT_PROGRAM_CATEGORY."
+    }
+   }
+  },
+  "e43d6915cbd27204": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "BENEFIT_PROGRAM_CATEGORY",
+   "code": "LIFE_INSURANCE",
+   "texts": {
+    "SHORT": {
+     "es": "Insurance de Life",
+     "en": "Life Insurance",
+     "fr": "Insurance de Life",
+     "pt": "Insurance de Life"
+    },
+    "SUMMARY": {
+     "es": "Insurance de Life",
+     "en": "Life Insurance",
+     "fr": "Insurance de Life",
+     "pt": "Insurance de Life"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «LIFE_INSURANCE» del catálogo BENEFIT_PROGRAM_CATEGORY.",
+     "en": "Value 'LIFE_INSURANCE' of catalog BENEFIT_PROGRAM_CATEGORY.",
+     "fr": "Valeur « LIFE_INSURANCE » du catalogue BENEFIT_PROGRAM_CATEGORY.",
+     "pt": "Valor «LIFE_INSURANCE» do catálogo BENEFIT_PROGRAM_CATEGORY."
+    }
+   }
+  },
+  "a5c9be7f18c1640c": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "BENEFIT_PROGRAM_CATEGORY",
+   "code": "WELLNESS",
+   "texts": {
+    "SHORT": {
+     "es": "Wellness",
+     "en": "Wellness",
+     "fr": "Wellness",
+     "pt": "Wellness"
+    },
+    "SUMMARY": {
+     "es": "Wellness",
+     "en": "Wellness",
+     "fr": "Wellness",
+     "pt": "Wellness"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «WELLNESS» del catálogo BENEFIT_PROGRAM_CATEGORY.",
+     "en": "Value 'WELLNESS' of catalog BENEFIT_PROGRAM_CATEGORY.",
+     "fr": "Valeur « WELLNESS » du catalogue BENEFIT_PROGRAM_CATEGORY.",
+     "pt": "Valor «WELLNESS» do catálogo BENEFIT_PROGRAM_CATEGORY."
+    }
+   }
+  },
+  "58d6eeca01289550": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "BENEFIT_PROGRAM_CATEGORY",
+   "code": "OTHER",
+   "texts": {
+    "SHORT": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "SUMMARY": {
+     "es": "Otro",
+     "en": "Other",
+     "fr": "Autre",
+     "pt": "Outro"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «OTHER» del catálogo BENEFIT_PROGRAM_CATEGORY.",
+     "en": "Value 'OTHER' of catalog BENEFIT_PROGRAM_CATEGORY.",
+     "fr": "Valeur « OTHER » du catalogue BENEFIT_PROGRAM_CATEGORY.",
+     "pt": "Valor «OTHER» do catálogo BENEFIT_PROGRAM_CATEGORY."
     }
    }
   },
@@ -281109,6 +285159,106 @@
      "en": "Value 'LUMP_SUM' of catalog RELOCATION_PROVIDED_KIND.",
      "fr": "Valeur « LUMP_SUM » du catalogue RELOCATION_PROVIDED_KIND.",
      "pt": "Valor «LUMP_SUM» do catálogo RELOCATION_PROVIDED_KIND."
+    }
+   }
+  },
+  "311e0f2b21d80cd6": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REQUISITION_KIND",
+   "code": "NEW_POSITION",
+   "texts": {
+    "SHORT": {
+     "es": "Posición nuevo",
+     "en": "New Position",
+     "fr": "Poste nouveau",
+     "pt": "Posição novo"
+    },
+    "SUMMARY": {
+     "es": "Posición nuevo",
+     "en": "New Position",
+     "fr": "Poste nouveau",
+     "pt": "Posição novo"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «NEW_POSITION» del catálogo REQUISITION_KIND.",
+     "en": "Value 'NEW_POSITION' of catalog REQUISITION_KIND.",
+     "fr": "Valeur « NEW_POSITION » du catalogue REQUISITION_KIND.",
+     "pt": "Valor «NEW_POSITION» do catálogo REQUISITION_KIND."
+    }
+   }
+  },
+  "7cb7304cab6abb61": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REQUISITION_KIND",
+   "code": "REPLACEMENT",
+   "texts": {
+    "SHORT": {
+     "es": "Replacement",
+     "en": "Replacement",
+     "fr": "Replacement",
+     "pt": "Replacement"
+    },
+    "SUMMARY": {
+     "es": "Replacement",
+     "en": "Replacement",
+     "fr": "Replacement",
+     "pt": "Replacement"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «REPLACEMENT» del catálogo REQUISITION_KIND.",
+     "en": "Value 'REPLACEMENT' of catalog REQUISITION_KIND.",
+     "fr": "Valeur « REPLACEMENT » du catalogue REQUISITION_KIND.",
+     "pt": "Valor «REPLACEMENT» do catálogo REQUISITION_KIND."
+    }
+   }
+  },
+  "c4ddbaee07b88c71": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REQUISITION_KIND",
+   "code": "BACKFILL",
+   "texts": {
+    "SHORT": {
+     "es": "Backfill",
+     "en": "Backfill",
+     "fr": "Backfill",
+     "pt": "Backfill"
+    },
+    "SUMMARY": {
+     "es": "Backfill",
+     "en": "Backfill",
+     "fr": "Backfill",
+     "pt": "Backfill"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «BACKFILL» del catálogo REQUISITION_KIND.",
+     "en": "Value 'BACKFILL' of catalog REQUISITION_KIND.",
+     "fr": "Valeur « BACKFILL » du catalogue REQUISITION_KIND.",
+     "pt": "Valor «BACKFILL» do catálogo REQUISITION_KIND."
+    }
+   }
+  },
+  "06b8ae5cd1f28c74": {
+   "object_type": "REFERENCE_VALUE",
+   "catalog": "REQUISITION_KIND",
+   "code": "TEMPORARY",
+   "texts": {
+    "SHORT": {
+     "es": "Temporary",
+     "en": "Temporary",
+     "fr": "Temporary",
+     "pt": "Temporary"
+    },
+    "SUMMARY": {
+     "es": "Temporary",
+     "en": "Temporary",
+     "fr": "Temporary",
+     "pt": "Temporary"
+    },
+    "FUNCTIONAL": {
+     "es": "Valor «TEMPORARY» del catálogo REQUISITION_KIND.",
+     "en": "Value 'TEMPORARY' of catalog REQUISITION_KIND.",
+     "fr": "Valeur « TEMPORARY » du catalogue REQUISITION_KIND.",
+     "pt": "Valor «TEMPORARY» do catálogo REQUISITION_KIND."
     }
    }
   },

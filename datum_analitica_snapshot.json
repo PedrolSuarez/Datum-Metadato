@@ -1,0 +1,141 @@
+{
+ "snapshot_date": "2026-07-19",
+ "subject_kind": "METAMODEL",
+ "accelerators": {
+  "METADATA": {
+   "kpis": {
+    "KPI_MM_ENTITIES": {
+     "value": 178,
+     "unit": "COUNT",
+     "verdict": "info"
+    },
+    "KPI_MM_ATTRIBUTES": {
+     "value": 1161,
+     "unit": "COUNT",
+     "verdict": "info"
+    },
+    "KPI_MM_AVG_ATTR": {
+     "value": 6.52,
+     "unit": "RATIO",
+     "verdict": "info"
+    },
+    "KPI_MM_CATALOGS": {
+     "value": 83,
+     "unit": "COUNT",
+     "verdict": "info"
+    },
+    "KPI_MM_CATALOG_VALUES": {
+     "value": 312,
+     "unit": "COUNT",
+     "verdict": "info"
+    },
+    "KPI_MM_DQ_EXCEPTIONS": {
+     "value": 338,
+     "unit": "COUNT",
+     "verdict": "bad"
+    },
+    "KPI_MM_FK_MDF_PCT": {
+     "value": 60.1,
+     "unit": "PERCENTAGE",
+     "verdict": "warn"
+    },
+    "KPI_MM_TERMED_PCT": {
+     "value": 61.8,
+     "unit": "PERCENTAGE",
+     "verdict": "warn"
+    }
+   },
+   "quality": [
+    {
+     "kpi": "DQ_PHYSICAL_SCHEMA",
+     "dim": "VALIDITY",
+     "desc": "physical_schema inválido",
+     "value": 178,
+     "verdict": "bad"
+    },
+    {
+     "kpi": "DQ_FK_DANGLING",
+     "dim": "VALIDITY",
+     "desc": "FK colgantes",
+     "value": 0,
+     "verdict": "ok"
+    },
+    {
+     "kpi": "DQ_TERMED_REAL",
+     "dim": "COMPLETENESS",
+     "desc": "% término real",
+     "value": 61.8,
+     "verdict": "warn"
+    },
+    {
+     "kpi": "DQ_CATALOG_EMPTY",
+     "dim": "COMPLETENESS",
+     "desc": "catálogos sin valores",
+     "value": 8,
+     "verdict": "warn"
+    },
+    {
+     "kpi": "DQ_FK_METADATA_FIRST",
+     "dim": "CONSISTENCY",
+     "desc": "% FK metadata-first",
+     "value": 60.1,
+     "verdict": "warn"
+    },
+    {
+     "kpi": "DQ_CATALOG_ORPHAN",
+     "dim": "CONSISTENCY",
+     "desc": "catálogos huérfanos",
+     "value": 15,
+     "verdict": "warn"
+    },
+    {
+     "kpi": "DQ_DUP_ENTITY",
+     "dim": "UNIQUENESS",
+     "desc": "codes duplicados",
+     "value": 0,
+     "verdict": "ok"
+    }
+   ],
+   "facts": {
+    "FACT_MM_ENTITY": {
+     "N_ENTITIES": 178,
+     "N_ATTRIBUTES": 1161,
+     "N_FK_ENTITY": 254,
+     "N_WEAK": 52
+    },
+    "FACT_MM_CATALOG": {
+     "N_CATALOGS": 83,
+     "N_VALUES": 312
+    },
+    "FACT_MM_QUALITY": {
+     "N_EXCEPTIONS": 338
+    }
+   }
+  },
+  "OBSERVABILITY": {
+   "kpis": {},
+   "quality": [],
+   "facts": {}
+  },
+  "FINANCE": {
+   "kpis": {},
+   "quality": [],
+   "facts": {}
+  },
+  "HR": {
+   "kpis": {},
+   "quality": [],
+   "facts": {}
+  },
+  "LEGAL": {
+   "kpis": {},
+   "quality": [],
+   "facts": {}
+  },
+  "MARKETING": {
+   "kpis": {},
+   "quality": [],
+   "facts": {}
+  }
+ }
+}

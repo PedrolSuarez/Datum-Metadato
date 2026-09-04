@@ -1813,16 +1813,6 @@
         "legal_entity_id"
        ],
        "is_unique": true
-      },
-      {
-       "target": "bank",
-       "via_attr": "factoring_provider_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -1912,11 +1902,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "reversal_reason_value_id",
        "against": "reversal_reason"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "factoring_provider_id",
-       "against": "bank"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -3199,26 +3184,6 @@
         "group_code"
        ],
        "is_unique": true
-      },
-      {
-       "target": "auditor",
-       "via_attr": "external_auditor_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
-      },
-      {
-       "target": "regulator",
-       "via_attr": "regulatory_oversight_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -3297,16 +3262,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "consolidation_frequency_value_id",
        "against": "consolidation_frequency"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "external_auditor_id",
-       "against": "auditor"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "regulatory_oversight_id",
-       "against": "regulator"
       }
      ],
      "target_schema": "MDM_GLOBAL"
@@ -15577,16 +15532,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "regulator",
-       "via_attr": "regulator_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -15687,11 +15632,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "amendment_reason_value_id",
        "against": "amendment_reason"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "regulator_id",
-       "against": "regulator"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -23437,16 +23377,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "supplier",
-       "via_attr": "tax_advisor_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -23563,11 +23493,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "tax_residency_kind_value_id",
        "against": "tax_residency_kind"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "tax_advisor_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -24660,16 +24585,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "supplier",
-       "via_attr": "external_advisor_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -24806,11 +24721,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "audit_status_value_id",
        "against": "audit_status"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "external_advisor_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -26104,16 +26014,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "supplier",
-       "via_attr": "external_advisor_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -26218,11 +26118,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "effective_tax_rate_methodology_used_value_id",
        "against": "effective_tax_rate_methodology_used"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "external_advisor_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -30712,16 +30607,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "bank",
-       "via_attr": "factoring_provider_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -30815,11 +30700,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "customer_id",
        "against": "customer"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "factoring_provider_id",
-       "against": "bank"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -31961,16 +31841,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "supplier",
-       "via_attr": "external_collection_agency_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -32054,11 +31924,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "customer_id",
        "against": "customer"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "external_collection_agency_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -33006,16 +32871,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "bank",
-       "via_attr": "bank_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -33125,11 +32980,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "e_banking_connection_kind_value_id",
        "against": "e_banking_connection_kind"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "bank_id",
-       "against": "bank"
       }
      ],
      "target_schema": "CDM_FINANCE",
@@ -36465,26 +36315,6 @@
         "instrument_code"
        ],
        "is_unique": true
-      },
-      {
-       "target": "lender",
-       "via_attr": "lender_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
-      },
-      {
-       "target": "bank",
-       "via_attr": "agent_bank_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -36606,16 +36436,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "repayment_frequency_value_id",
        "against": "repayment_frequency"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "lender_id",
-       "against": "lender"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "agent_bank_id",
-       "against": "bank"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -37411,16 +37231,6 @@
         "hedge_instrument_code"
        ],
        "is_unique": true
-      },
-      {
-       "target": "bank",
-       "via_attr": "counterparty_bank_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": null
       }
      ],
      "partitioning": {
@@ -37494,11 +37304,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "emir_reporting_status_value_id",
        "against": "emir_reporting_status"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "counterparty_bank_id",
-       "against": "bank"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -43228,16 +43033,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "supplier",
-       "via_attr": "insurance_provider_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -43351,11 +43146,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "tax_treatment_value_id",
        "against": "tax_treatment"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "insurance_provider_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -43559,16 +43349,6 @@
         "fixed_asset_id"
        ],
        "is_unique": true
-      },
-      {
-       "target": "supplier",
-       "via_attr": "manufacturer_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -43599,11 +43379,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "manufacturer_party_id",
        "against": "party"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "manufacturer_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -43830,16 +43605,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "legal_entity",
-       "via_attr": "borrower_legal_entity_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -43896,11 +43661,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "assignment_kind_value_id",
        "against": "assignment_kind"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "borrower_legal_entity_id",
-       "against": "legal_entity"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -44124,16 +43884,6 @@
         "maintenance_number"
        ],
        "is_unique": true
-      },
-      {
-       "target": "supplier",
-       "via_attr": "provider_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -44190,11 +43940,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "maintenance_kind_value_id",
        "against": "maintenance_kind"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "provider_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -45453,16 +45198,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "legal_entity",
-       "via_attr": "destination_legal_entity_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -45570,11 +45305,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "new_depreciation_method_value_id",
        "against": "new_depreciation_method"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "destination_legal_entity_id",
-       "against": "legal_entity"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -46003,16 +45733,6 @@
         "impairment_number"
        ],
        "is_unique": true
-      },
-      {
-       "target": "supplier",
-       "via_attr": "external_valuator_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -46118,11 +45838,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "recoverable_amount_basis_value_id",
        "against": "recoverable_amount_basis"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "external_valuator_id",
-       "against": "supplier"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -51224,16 +50939,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "master_entity"
-      },
-      {
-       "target": "legal_entity",
-       "via_attr": "intercompany_counterparty_legal_entity_id",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -51348,11 +51053,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "source_document_reference_kind_value_id",
        "against": "source_document_reference_kind"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "intercompany_counterparty_legal_entity_id",
-       "against": "legal_entity"
       }
      ],
      "target_schema": "CDM_FINANCE"
@@ -54417,16 +54117,6 @@
        "card": "N:1",
        "key_kind": "FK",
        "ref_kind": "reference_value"
-      },
-      {
-       "target": "business_unit",
-       "via_attr": "parent_business_unit_code",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "MDM_GLOBAL"
       }
      ],
      "partitioning": {
@@ -54457,11 +54147,6 @@
        "rule": "REFERENTIAL_INTEGRITY",
        "on": "topology_code",
        "against": "reference_value:GOVERNANCE_TOPOLOGY"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "parent_business_unit_code",
-       "against": "business_unit"
       }
      ],
      "target_schema": "MDM_GLOBAL",
@@ -54567,38 +54252,7 @@
        "row_id": "fafbe335-2cb7-59f9-80e3-6cfc9ac235c4"
       }
      ],
-     "keys": [
-      {
-       "target": "currency",
-       "via_attr": "primary_currency_code",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "RDM_GLOBAL"
-      },
-      {
-       "target": "language",
-       "via_attr": "primary_language_code",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "RDM_GLOBAL"
-      },
-      {
-       "target": "supra_zone",
-       "via_attr": "supra_zone_code",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "RDM_GLOBAL"
-      }
-     ],
+     "keys": [],
      "partitioning": {
       "partition_strategy_kind": "_PENDIENTE_",
       "partition_column_name": "_PENDIENTE_",
@@ -54617,23 +54271,7 @@
       "materialization_mode": "_PENDIENTE_"
      },
      "row_id_pendiente_fichero4": true,
-     "dq_referential_integrity": [
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "primary_currency_code",
-       "against": "currency"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "primary_language_code",
-       "against": "language"
-      },
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "supra_zone_code",
-       "against": "supra_zone"
-      }
-     ],
+     "dq_referential_integrity": [],
      "target_schema": "RDM_GLOBAL",
      "_disuelta_en_jerarquia": "GEOGRAPHY",
      "_nota_schema": "Proyección/puntero a la jerarquía global GEOGRAPHY. No duplica contenido: la riqueza (niveles, cross-links país→moneda/idioma) vive en la dimensión RDM. En f2 solo el code como FK natural.",
@@ -55179,18 +54817,7 @@
        "row_id": "3e0df5df-c42e-585e-8acc-0ac01698f683"
       }
      ],
-     "keys": [
-      {
-       "target": "country",
-       "via_attr": "country_code",
-       "card": "N:1",
-       "verb": null,
-       "key_kind": "FK",
-       "relation_kind": "N:1",
-       "ref_kind": "master_entity",
-       "target_schema": "RDM_GLOBAL"
-      }
-     ],
+     "keys": [],
      "partitioning": {
       "partition_strategy_kind": "_PENDIENTE_",
       "partition_column_name": "_PENDIENTE_",
@@ -55209,13 +54836,7 @@
       "materialization_mode": "_PENDIENTE_"
      },
      "row_id_pendiente_fichero4": true,
-     "dq_referential_integrity": [
-      {
-       "rule": "REFERENTIAL_INTEGRITY",
-       "on": "country_code",
-       "against": "country"
-      }
-     ],
+     "dq_referential_integrity": [],
      "target_schema": "RDM_GLOBAL",
      "_disuelta_en_jerarquia": "GEOGRAPHY",
      "_nota_schema": "Proyección/puntero a la jerarquía global GEOGRAPHY. No duplica contenido: la riqueza (niveles, cross-links país→moneda/idioma) vive en la dimensión RDM. En f2 solo el code como FK natural.",

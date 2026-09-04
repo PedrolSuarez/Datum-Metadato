@@ -1,0 +1,105 @@
+{
+ "_meta": {
+  "proposito": "Discrepancias detectadas al normalizar. La colisión de nombre queda RESUELTA; las 10 de catálogo-vs-entidad siguen pendientes de decisión.",
+  "decision": "Pedro, 2026-09-04: términos tiene razón. Aplicado a 9 de 10 como FK a entidad; el décimo se desdobla en dos atributos. Todos RESUELTOS."
+ },
+ "catalogo_vs_entidad": [
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "accounting_policy_disclosure",
+   "atributo": "disclosure_period_value_id",
+   "terminos_fk": "accounting_period",
+   "modelo_catalogo": "DISCLOSURE_PERIOD",
+   "estado": "RESUELTO — desdoblado",
+   "resolucion": "Descripción y valores se contradecían. Se desdobla: accounting_period_id (FK, periodo concreto) + disclosure_period_value_id (catálogo, frecuencia de reporte NIC 34)."
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "budget_line",
+   "atributo": "custom_dimension_1_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_1",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "budget_line",
+   "atributo": "custom_dimension_2_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_2",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "budget_line",
+   "atributo": "custom_dimension_3_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_3",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "financial_statement_approval",
+   "atributo": "approver_role_value_id",
+   "terminos_fk": "governance_role",
+   "modelo_catalogo": "APPROVER_ROLE",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "journal_entry_line",
+   "atributo": "custom_dimension_1_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_1",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "journal_entry_line",
+   "atributo": "custom_dimension_2_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_2",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "journal_entry_line",
+   "atributo": "custom_dimension_3_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_3",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "journal_entry_line",
+   "atributo": "custom_dimension_4_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_4",
+   "estado": "RESUELTO — FK a entidad"
+  },
+  {
+   "acelerador": "FINANCE_CORPORATE",
+   "entidad": "journal_entry_line",
+   "atributo": "custom_dimension_5_value_id",
+   "terminos_fk": "analytical_dimension_value",
+   "modelo_catalogo": "CUSTOM_DIMENSION_5",
+   "estado": "RESUELTO — FK a entidad"
+  }
+ ],
+ "colision_de_nombre": [
+  {
+   "entidad": "account_balance_snapshot",
+   "seed_acelerador": "FINANCE",
+   "termino": "SHARED",
+   "definicion_en_modelo": "BANKING/BIAN (account_arrangement, booked/available balance) — 8 atributos",
+   "definicion_en_terminos_FINANCE": "saldo contable de mayor (accounting_book, accounting_period, opening/closing balance) — 21 atributos",
+   "efecto": "La definición BANKING ocupa el code en el modelo canónico; la FINANCE solo sobrevive en el fichero de términos.",
+   "resolucion": {
+    "decision": "Pedro, 2026-09-04: FINANCE recupera la suya.",
+    "aplicado": "La definición BANKING/BIAN se renombra a bank_account_balance_snapshot (término BK_ACCOUNT, esquema banking); account_balance_snapshot vuelve a ser la definición FINANCE (21 atributos, saldo contable de mayor, término SHARED, esquema mdm).",
+    "trazabilidad": "i18n de los 19 atributos FINANCE recuperada de datum_i18n_bajas_backup.json; 3 crosswalks BIAN reapuntados a la entidad renombrada; ninguna FK apuntaba a la entidad, por lo que el rename no rompió referencias.",
+    "estado": "RESUELTO"
+   }
+  }
+ ]
+}

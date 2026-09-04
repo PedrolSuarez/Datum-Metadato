@@ -1,0 +1,5716 @@
+[
+ {
+  "catalogo": "REFERENTIAL_ACTION",
+  "acelerador": "METADATA",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 4,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CASCADE",
+   "NO_ACTION",
+   "RESTRICT",
+   "SET_NULL"
+  ]
+ },
+ {
+  "catalogo": "CARDINALITY",
+  "acelerador": "METADATA",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 3,
+  "clase": "c?",
+  "motivo": "100% valores con dígitos",
+  "muestra": [
+   "0:1",
+   "0:N",
+   "1:1",
+   "1:N"
+  ]
+ },
+ {
+  "catalogo": "LEGAL_FORM",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AG",
+   "LLC",
+   "SA",
+   "SCRL",
+   "SL"
+  ]
+ },
+ {
+  "catalogo": "LEGAL_ENTITY_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['legal_entity']",
+  "muestra": [
+   "BRANCH",
+   "FINANCING_VEHICLE",
+   "HOLDING",
+   "JOINT_VENTURE",
+   "OPERATING_COMPANY"
+  ]
+ },
+ {
+  "catalogo": "PRIMARY_STOCK_EXCHANGE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BME_MADRID",
+   "EURONEXT_PARIS",
+   "LSE",
+   "NASDAQ",
+   "NYSE"
+  ]
+ },
+ {
+  "catalogo": "LIFECYCLE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 16,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "DISPOSED",
+   "DISSOLVED",
+   "DORMANT",
+   "FULLY_DEPRECIATED"
+  ]
+ },
+ {
+  "catalogo": "AUDIT_PERIOD_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ CONSOLIDATION_FREQUENCY (FINANCE, J=0.75, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "TAX_REGISTRATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['tax_registration']",
+  "muestra": [
+   "NON_RESIDENT_WITH_INCOME",
+   "OTHER",
+   "PERMANENT_ESTABLISHMENT",
+   "PRIMARY",
+   "VAT_OSS"
+  ]
+ },
+ {
+  "catalogo": "CBC_REPORTING_ROLE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CONSTITUENT_ENTITY",
+   "EXCLUDED_ENTITY",
+   "REPORTING_ENTITY"
+  ]
+ },
+ {
+  "catalogo": "E_INVOICING_SYSTEM",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CFDI_MX",
+   "FATTURAPA_IT",
+   "NFE_BR",
+   "SII_ES",
+   "TICKETBAI_ES"
+  ]
+ },
+ {
+  "catalogo": "OWNER_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "INDIVIDUAL",
+   "INVESTMENT_FUND",
+   "LEGAL_ENTITY",
+   "NOMINEE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "SHARE_CLASS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DUAL_CLASS_A",
+   "DUAL_CLASS_B",
+   "NON_VOTING",
+   "ORDINARY",
+   "PREFERRED"
+  ]
+ },
+ {
+  "catalogo": "ACQUISITION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CAPITAL_INCREASE",
+   "GIFT",
+   "INCORPORATION",
+   "INHERITANCE",
+   "MERGER"
+  ]
+ },
+ {
+  "catalogo": "CONSOLIDATION_METHOD_IMPLIED",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COST",
+   "EQUITY",
+   "FULL",
+   "PROPORTIONAL"
+  ]
+ },
+ {
+  "catalogo": "ACCOUNTING_STANDARD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 20,
+  "usos": 13,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ARGAAP",
+   "BRGAAP",
+   "CHILEGAAP",
+   "COLGAAP",
+   "FRENCH_PCG"
+  ]
+ },
+ {
+  "catalogo": "BOOK_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MANAGEMENT",
+   "REGULATORY",
+   "STATUTORY_GROUP",
+   "STATUTORY_LOCAL",
+   "TAX"
+  ]
+ },
+ {
+  "catalogo": "PERIOD_KIND_DEFAULT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 2,
+  "clase": "b?",
+  "motivo": "≈ DEPRECIATION_FREQUENCY (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY"
+  ]
+ },
+ {
+  "catalogo": "ROUNDING_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ROUND_DOWN",
+   "ROUND_HALF_EVEN_BANKERS",
+   "ROUND_HALF_UP",
+   "ROUND_UP"
+  ]
+ },
+ {
+  "catalogo": "BOOK_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ COA_STATUS (FINANCE, J=0.67, también sin etiqueta)",
+  "muestra": [
+   "ACTIVE",
+   "CLOSED",
+   "DEPRECATED",
+   "DRAFT",
+   "FROZEN"
+  ]
+ },
+ {
+  "catalogo": "EXTERNAL_LEDGER_SYSTEM_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 12,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "A3",
+   "BUSINESS_CENTRAL",
+   "CUSTOM",
+   "HOLDED",
+   "MICROSOFT_DYNAMICS_365_F_O"
+  ]
+ },
+ {
+  "catalogo": "ADJUSTMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CLASSIFICATION_DIFFERENCE",
+   "DISCLOSURE_DIFFERENCE",
+   "MEASUREMENT_DIFFERENCE",
+   "RECOGNITION_DIFFERENCE"
+  ]
+ },
+ {
+  "catalogo": "ADJUSTMENT_TOPIC",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DEFERRED_TAXES",
+   "EMPLOYEE_BENEFITS_IAS19",
+   "FINANCIAL_INSTRUMENTS_IFRS9",
+   "GOODWILL_AMORTIZATION",
+   "INVENTORY_VALUATION"
+  ]
+ },
+ {
+  "catalogo": "DIRECTION",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DECREASE_TARGET",
+   "INCREASE_TARGET",
+   "RECLASSIFY"
+  ]
+ },
+ {
+  "catalogo": "GROUP_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MANAGEMENT_GROUP_ONLY",
+   "REGIONAL_GROUP",
+   "SUB_GROUP",
+   "TAX_GROUP_ONLY",
+   "TOP_LEVEL_GROUP"
+  ]
+ },
+ {
+  "catalogo": "CONSOLIDATION_FREQUENCY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ PAYMENT_FREQUENCY (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "POLICY_TOPIC",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 16,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CASH_FLOW_PRESENTATION",
+   "DEPRECIATION_METHOD",
+   "EMPLOYEE_BENEFITS",
+   "FINANCIAL_INSTRUMENTS_CLASSIFICATION",
+   "FX_TRANSLATION"
+  ]
+ },
+ {
+  "catalogo": "POLICY_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DISCRETIONARY",
+   "MANDATORY_NORMATIVE",
+   "VOLUNTARY"
+  ]
+ },
+ {
+  "catalogo": "DISCLOSURE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CHANGE_IN_ACCOUNTING_POLICY",
+   "CHANGE_IN_ESTIMATE",
+   "CORRECTION_OF_PRIOR_PERIOD_ERROR",
+   "EARLY_ADOPTION",
+   "NEW_STANDARD_ADOPTION"
+  ]
+ },
+ {
+  "catalogo": "DISCLOSURE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AMENDED",
+   "APPROVED",
+   "DRAFT",
+   "FOR_REVIEW",
+   "PUBLISHED"
+  ]
+ },
+ {
+  "catalogo": "COA_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANALYTICAL_INTERNAL",
+   "GROUP_CUSTOM",
+   "LEGAL_ENTITY_SPECIFIC",
+   "STANDARD_INTERNATIONAL",
+   "STANDARD_NATIONAL"
+  ]
+ },
+ {
+  "catalogo": "COA_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ DEFINITION_STATUS (FINANCE, J=0.83, también sin etiqueta)",
+  "muestra": [
+   "ACTIVE",
+   "DEPRECATED",
+   "DRAFT",
+   "FROZEN",
+   "IN_REVIEW"
+  ]
+ },
+ {
+  "catalogo": "TRANSITION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "INTERNAL_CONSOLIDATION_OF_PLANS",
+   "MIGRATION_TO_DIFFERENT_STANDARD",
+   "NEW_STANDARD_VERSION",
+   "REORGANIZATION"
+  ]
+ },
+ {
+  "catalogo": "TRANSITION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ PERFORMANCE_CALIBRATION_STATUS (HR, J=0.60, también sin etiqueta)",
+  "muestra": [
+   "COMPLETED",
+   "IN_PROGRESS",
+   "PLANNED",
+   "ROLLED_BACK"
+  ]
+ },
+ {
+  "catalogo": "ACCOUNT_NATURE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ASSET",
+   "CONTRA_ASSET",
+   "CONTRA_LIABILITY",
+   "CONTRA_REVENUE",
+   "EQUITY"
+  ]
+ },
+ {
+  "catalogo": "ACCOUNT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['account']",
+  "muestra": [
+   "BALANCE_SHEET",
+   "CASH_FLOW_INDICATOR",
+   "INCOME_STATEMENT",
+   "MEMO_OFF_BALANCE",
+   "STATISTICAL"
+  ]
+ },
+ {
+  "catalogo": "ACCOUNT_SUB_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FINANCIAL_EXPENSE",
+   "FINANCIAL_REVENUE",
+   "NON_CURRENT_ASSET",
+   "OPERATING_EXPENSE",
+   "OPERATING_REVENUE"
+  ]
+ },
+ {
+  "catalogo": "NORMAL_BALANCE_SIDE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ ENTRY_SIDE (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "CREDIT",
+   "DEBIT"
+  ]
+ },
+ {
+  "catalogo": "REQUIRES_SUBLEDGER",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCOUNTS_PAYABLE",
+   "ACCOUNTS_RECEIVABLE",
+   "FIXED_ASSETS",
+   "INVENTORY",
+   "NULL"
+  ]
+ },
+ {
+  "catalogo": "TAX_CODE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXEMPT_REVENUE",
+   "NON_DEDUCTIBLE_EXPENSE",
+   "TAXABLE_REVENUE"
+  ]
+ },
+ {
+  "catalogo": "TAX_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 17,
+  "usos": 7,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CORPORATE_INCOME_TAX",
+   "CUSTOMS_DUTY",
+   "DIGITAL_SERVICES_TAX",
+   "ENVIRONMENTAL_TAX",
+   "EXCISE_DUTY"
+  ]
+ },
+ {
+  "catalogo": "TAX_TREATMENT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 14,
+  "usos": 4,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCELERATED_DEPRECIATION_TAX_INCENTIVE",
+   "DEDUCTIBLE",
+   "DEPRECIABLE_TAX_DEDUCTIBLE",
+   "DEPRECIABLE_TAX_PARTIAL",
+   "EXEMPT"
+  ]
+ },
+ {
+  "catalogo": "STATEMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 12,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC",
+   "BALANCE_SHEET",
+   "CASH_FLOW_STATEMENT",
+   "COMPREHENSIVE_INCOME",
+   "DAILY_INTRADAY"
+  ]
+ },
+ {
+  "catalogo": "MAPPING_SIGN",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADD",
+   "AS_IS",
+   "SUBTRACT"
+  ]
+ },
+ {
+  "catalogo": "STATEMENT_PRESENTATION_FORMAT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPARATIVE_BUDGET",
+   "COMPARATIVE_PRIOR_YEAR",
+   "FUNCTION_OF_EXPENSE",
+   "NATURE_OF_EXPENSE"
+  ]
+ },
+ {
+  "catalogo": "MAPPING_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CROSS_STANDARD",
+   "GROUP_HARMONIZATION",
+   "INTRA_STANDARD_VERSION",
+   "LE_SPECIFIC_TO_TEMPLATE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "MAPPING_RELATION",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MANY_TO_MANY",
+   "MANY_TO_ONE",
+   "ONE_TO_MANY",
+   "ONE_TO_ONE"
+  ]
+ },
+ {
+  "catalogo": "COST_CENTER_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['cost_center']",
+  "muestra": [
+   "ADMINISTRATIVE",
+   "EXECUTIVE",
+   "FINANCE",
+   "HR",
+   "IT"
+  ]
+ },
+ {
+  "catalogo": "COST_CENTER_PURPOSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DIRECT_COSTS",
+   "INVESTMENT_CENTER",
+   "OVERHEAD",
+   "PROFIT_CENTER",
+   "REVENUE_CENTER"
+  ]
+ },
+ {
+  "catalogo": "COST_ALLOCATION_METHOD_DEFAULT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ABC_ACTIVITY_BASED",
+   "DIRECT",
+   "NONE",
+   "RECIPROCAL",
+   "STEP_DOWN"
+  ]
+ },
+ {
+  "catalogo": "PROJECT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['project']",
+  "muestra": [
+   "CAPEX",
+   "CLIENT_PROJECT",
+   "CONSTRUCTION",
+   "CONSULTING",
+   "EVENT"
+  ]
+ },
+ {
+  "catalogo": "PROJECT_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "ARCHIVED",
+   "CANCELLED",
+   "COMPLETED",
+   "IN_EXECUTION"
+  ]
+ },
+ {
+  "catalogo": "SEGMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "entidad ['segment']",
+  "muestra": [
+   "BRAND_SEGMENT",
+   "BUSINESS_UNIT_SEGMENT",
+   "CHANNEL_SEGMENT",
+   "CUSTOMER_TYPE_SEGMENT",
+   "GEOGRAPHIC_SEGMENT"
+  ]
+ },
+ {
+  "catalogo": "REPORTABILITY_CRITERIA",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "67% valores con dígitos",
+  "muestra": [
+   "AGGREGATED_MEETS_75_PCT",
+   "ASSETS_10_PCT_RULE",
+   "MANAGEMENT_VOLUNTARY",
+   "OTHER",
+   "PROFIT_LOSS_10_PCT_RULE"
+  ]
+ },
+ {
+  "catalogo": "DIMENSION_PURPOSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "KPI_TRACKING",
+   "MANAGEMENT_REPORTING",
+   "OPERATIONAL_ANALYSIS",
+   "OTHER",
+   "REGULATORY_REPORTING"
+  ]
+ },
+ {
+  "catalogo": "DIMENSION_SLOT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "100% valores con dígitos",
+  "muestra": [
+   "CUSTOM_DIM_1",
+   "CUSTOM_DIM_2",
+   "CUSTOM_DIM_3",
+   "CUSTOM_DIM_4",
+   "CUSTOM_DIM_5"
+  ]
+ },
+ {
+  "catalogo": "VALUE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CALCULATED",
+   "EXTERNAL_LOOKUP",
+   "FLAT_LIST",
+   "HIERARCHICAL"
+  ]
+ },
+ {
+  "catalogo": "REQUIREMENT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ CERTIFICATION_REQUIREMENT_KIND (HR, J=0.60, también sin etiqueta)",
+  "muestra": [
+   "MANDATORY",
+   "OPTIONAL",
+   "PROHIBITED",
+   "RECOMMENDED"
+  ]
+ },
+ {
+  "catalogo": "VALIDATION_SEVERITY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ DQ_SEVERITY (METADATA, J=1.00, etiquetado)",
+  "muestra": [
+   "ERROR",
+   "INFO",
+   "WARNING"
+  ]
+ },
+ {
+  "catalogo": "JOURNAL_ENTRY_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DRAFT",
+   "PENDING_REVIEW",
+   "POSTED",
+   "REVERSED",
+   "VOID"
+  ]
+ },
+ {
+  "catalogo": "JOURNAL_ENTRY_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 12,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['journal_entry']",
+  "muestra": [
+   "ACCRUAL",
+   "ADJUSTMENT",
+   "CLOSING",
+   "DEFERRAL",
+   "FX_REVALUATION"
+  ]
+ },
+ {
+  "catalogo": "JOURNAL_ENTRY_SOURCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 12,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BANK_STATEMENT",
+   "CUSTOMER_INVOICE",
+   "CUSTOMER_PAYMENT",
+   "FIXED_ASSET_TRANSACTION",
+   "INTEGRATION_FEED"
+  ]
+ },
+ {
+  "catalogo": "ADJUSTMENT_BOOK_PAIR_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "IFRS_TO_LOCAL",
+   "INTRA_BOOK",
+   "LOCAL_TO_IFRS",
+   "MGMT_TO_STATUTORY",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "ENTRY_SIDE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 3,
+  "clase": "b?",
+  "motivo": "≈ NORMAL_BALANCE_SIDE (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "CREDIT",
+   "DEBIT"
+  ]
+ },
+ {
+  "catalogo": "COUNTERPARTY_ROLE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BANK",
+   "EMPLOYEE",
+   "OTHER",
+   "SUPPLIER"
+  ]
+ },
+ {
+  "catalogo": "PERIOD_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ CONSOLIDATION_FREQUENCY (FINANCE, J=0.80, también sin etiqueta)",
+  "muestra": [
+   "AD_HOC",
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "PERIOD_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 20,
+  "usos": 5,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ARCHIVED",
+   "CLOSED",
+   "FILED",
+   "FILED_LATE",
+   "HARD_CLOSED"
+  ]
+ },
+ {
+  "catalogo": "STATE_TRANSITION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMERGENCY_REOPEN",
+   "HARD_CLOSE",
+   "OPEN_PERIOD",
+   "REOPEN_HARD",
+   "REOPEN_SOFT"
+  ]
+ },
+ {
+  "catalogo": "CLOSE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUDIT_CLOSE",
+   "EXTRAORDINARY_CLOSE",
+   "MONTHLY_CLOSE",
+   "QUARTERLY_CLOSE",
+   "YEAR_END_CLOSE"
+  ]
+ },
+ {
+  "catalogo": "CLOSE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BLOCKED_BY_DEPENDENCIES",
+   "COMPLETED",
+   "IN_PROGRESS",
+   "NOT_STARTED",
+   "READY_FOR_HARD_CLOSE"
+  ]
+ },
+ {
+  "catalogo": "STEP_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 21,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCRUAL_ENTRIES",
+   "AUDITOR_REVIEW_HANDOFF",
+   "AUDIT_FINDINGS_RESOLVED",
+   "BAD_DEBT_PROVISION",
+   "BALANCE_SHEET_PREP"
+  ]
+ },
+ {
+  "catalogo": "STEP_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BLOCKED",
+   "COMPLETED",
+   "FAILED",
+   "IN_PROGRESS",
+   "NOT_STARTED"
+  ]
+ },
+ {
+  "catalogo": "REVERSAL_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUDIT_FINDING",
+   "CUSTOMER_DISPUTE",
+   "DATA_ERROR",
+   "DOCUMENT_INVALIDATED",
+   "FRAUDULENT"
+  ]
+ },
+ {
+  "catalogo": "PRIOR_PERIOD_ADJUSTMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['prior_period_adjustment']",
+  "muestra": [
+   "ACCOUNTING_POLICY_CHANGE",
+   "AUDITOR_REQUIRED_ADJUSTMENT",
+   "ERROR_CORRECTION",
+   "MANDATORY_RESTATEMENT",
+   "REGULATORY_RESTATEMENT"
+  ]
+ },
+ {
+  "catalogo": "MATERIALITY_ASSESSMENT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "IMMATERIAL_BUT_DISCLOSED",
+   "IMMATERIAL_NOT_DISCLOSED",
+   "MATERIAL"
+  ]
+ },
+ {
+  "catalogo": "SNAPSHOT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC",
+   "BUDGET_BASELINE",
+   "DAILY_GRANULAR",
+   "FORECAST_BASELINE",
+   "HALF_YEAR_END"
+  ]
+ },
+ {
+  "catalogo": "INVOICE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADVANCE_PAYMENT_INVOICE",
+   "EXPORT_INVOICE",
+   "INTRA_EU_INVOICE",
+   "OTHER",
+   "PROFORMA_INVOICE"
+  ]
+ },
+ {
+  "catalogo": "INVOICE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED_BY_CUSTOMER",
+   "CANCELLED",
+   "DISPUTED",
+   "DRAFT",
+   "ISSUED"
+  ]
+ },
+ {
+  "catalogo": "VAT_TREATMENT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXEMPT",
+   "MARGIN_SCHEME",
+   "OSS_SCHEME",
+   "OUT_OF_SCOPE",
+   "REVERSE_CHARGE"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_METHOD_DEFAULT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BANK_DRAFT",
+   "BANK_TRANSFER",
+   "CARD",
+   "CASH",
+   "CHECK"
+  ]
+ },
+ {
+  "catalogo": "E_INVOICING_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCEPTED_BY_AUTHORITY",
+   "ACCEPTED_BY_CUSTOMER",
+   "NOT_REQUIRED",
+   "PENDING_SUBMISSION",
+   "REJECTED"
+  ]
+ },
+ {
+  "catalogo": "RECTIFICATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AMOUNT_CORRECTION",
+   "DATA_CORRECTION",
+   "REPLACEMENT",
+   "TOTAL_CANCELLATION"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 22,
+  "usos": 5,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ALLOCATED",
+   "CANCELLED",
+   "DEFERRED_PAYMENT_PLAN",
+   "DRAFT",
+   "DUE"
+  ]
+ },
+ {
+  "catalogo": "ALLOCATION_PRIORITY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BY_CUSTOMER_INDICATION",
+   "BY_DUE_DATE",
+   "FIFO_OLDEST_FIRST",
+   "LIFO_NEWEST_FIRST",
+   "MANUAL_MANAGER_DECISION"
+  ]
+ },
+ {
+  "catalogo": "CREDIT_NOTE_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMMERCIAL_GOODWILL",
+   "CONTRACT_CANCELLATION",
+   "DAMAGED_GOODS",
+   "INVOICING_ERROR",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "CREDIT_NOTE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['credit_note']",
+  "muestra": [
+   "GOODWILL",
+   "PARTIAL_RETURN",
+   "PRICE_REDUCTION",
+   "REBATE",
+   "TOTAL_RETURN"
+  ]
+ },
+ {
+  "catalogo": "CREDIT_NOTE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPLIED_TO_INVOICE",
+   "CANCELLED",
+   "DRAFT",
+   "ISSUED",
+   "REFUNDED_TO_CUSTOMER"
+  ]
+ },
+ {
+  "catalogo": "DEBIT_NOTE_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADDITIONAL_SERVICES",
+   "COLLECTION_COSTS",
+   "FX_DIFFERENCE",
+   "LATE_PAYMENT_INTEREST",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "DISPUTE_SIDE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "PAYABLE",
+   "RECEIVABLE"
+  ]
+ },
+ {
+  "catalogo": "DISPUTE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 11,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADMINISTRATIVE_ERROR",
+   "CONTRACT_TERMS_VIOLATION",
+   "DELIVERY_NOT_RECEIVED",
+   "DUPLICATE_INVOICE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "RESOLUTION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CONTRACT_AMENDMENT",
+   "CREDIT_NOTE_ISSUED",
+   "FULL_ACCEPTANCE_DISPUTE",
+   "OTHER",
+   "PARTIAL_ACCEPTANCE"
+  ]
+ },
+ {
+  "catalogo": "MATCHING_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FOUR_WAY",
+   "THREE_WAY",
+   "TWO_WAY"
+  ]
+ },
+ {
+  "catalogo": "MATCHING_RESULT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXACT_MATCH",
+   "FAILED",
+   "GR_NOT_FOUND",
+   "MATCH_WITHIN_TOLERANCE",
+   "MULTIPLE_DISCREPANCIES"
+  ]
+ },
+ {
+  "catalogo": "MANUAL_RESOLUTION_DECISION",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCEPT_INVOICE_AS_IS",
+   "ACCEPT_WITH_OVERRIDE",
+   "DISPUTE_INVOICE",
+   "REJECT_INVOICE",
+   "REQUEST_CORRECTION_FROM_SUPPLIER"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_TERM_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADVANCE_PAYMENT",
+   "EARLY_DISCOUNT",
+   "INSTALLMENT_SPLIT",
+   "MILESTONE_BILLING",
+   "NET_PAYMENT"
+  ]
+ },
+ {
+  "catalogo": "AGING_SIDE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AP_PAYABLE",
+   "AR_RECEIVABLE"
+  ]
+ },
+ {
+  "catalogo": "AGING_BUCKET",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "86% valores con dígitos",
+  "muestra": [
+   "BUCKET_181_365",
+   "BUCKET_1_30",
+   "BUCKET_31_60",
+   "BUCKET_61_90",
+   "BUCKET_91_180"
+  ]
+ },
+ {
+  "catalogo": "PROVISION_METHODOLOGY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "71% valores con dígitos",
+  "muestra": [
+   "IFRS_9_CASE_BY_CASE",
+   "IFRS_9_ECL_GENERAL_APPROACH",
+   "IFRS_9_ECL_SIMPLIFIED_LIFETIME",
+   "OTHER",
+   "PGC_NRV_13_AGE_BASED"
+  ]
+ },
+ {
+  "catalogo": "PROVISION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DECREASE",
+   "INCREASE",
+   "INITIAL_RECOGNITION",
+   "RELEASE",
+   "REVERSAL_OF_WRITE_OFF"
+  ]
+ },
+ {
+  "catalogo": "PROVISION_SCOPE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COLLECTIVE_BUCKET",
+   "COLLECTIVE_COUNTERPARTY",
+   "COLLECTIVE_PORTFOLIO",
+   "INDIVIDUAL_INVOICE"
+  ]
+ },
+ {
+  "catalogo": "DUNNING_CASE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['dunning_case']",
+  "muestra": [
+   "ACCOUNT_LEVEL_DUNNING",
+   "MULTI_INVOICE_DUNNING",
+   "SINGLE_INVOICE_DUNNING"
+  ]
+ },
+ {
+  "catalogo": "CURRENT_DUNNING_LEVEL",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "88% valores con dígitos",
+  "muestra": [
+   "NIVEL_0_REMINDER_FRIENDLY",
+   "NIVEL_1_REMINDER_FORMAL",
+   "NIVEL_2_DEMAND_LETTER",
+   "NIVEL_3_FINAL_DEMAND",
+   "NIVEL_4_LEGAL_PRE_ACTION"
+  ]
+ },
+ {
+  "catalogo": "DUNNING_CASE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CLOSED",
+   "ESCALATING",
+   "IN_LEGAL_ACTION",
+   "ON_HOLD",
+   "OPEN"
+  ]
+ },
+ {
+  "catalogo": "COMMUNICATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['communication']",
+  "muestra": [
+   "COURT_NOTIFICATION",
+   "DEMAND_LETTER",
+   "FINAL_DEMAND",
+   "LEGAL_THREAT_LETTER",
+   "PAYMENT_PLAN_PROPOSAL"
+  ]
+ },
+ {
+  "catalogo": "DELIVERY_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BOUNCED",
+   "DELIVERED",
+   "READ_BY_RECIPIENT",
+   "RECEIVED_BY_LEGAL_PROCESS",
+   "SENT"
+  ]
+ },
+ {
+  "catalogo": "CUSTOMER_RESPONSE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED",
+   "DISPUTE_RAISED",
+   "NEGOTIATION_REQUESTED",
+   "NO_RESPONSE",
+   "PAYMENT_MADE"
+  ]
+ },
+ {
+  "catalogo": "BANK_ACCOUNT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 11,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['bank_account']",
+  "muestra": [
+   "CONCENTRATION_HEADER",
+   "ESCROW",
+   "FX_OPERATING",
+   "MONEY_MARKET",
+   "OPERATING_CURRENT"
+  ]
+ },
+ {
+  "catalogo": "BANK_ACCOUNT_PURPOSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CAPEX",
+   "FX_HEDGING",
+   "INTRA_GROUP",
+   "INVESTMENT",
+   "OPERATING_PAYABLES"
+  ]
+ },
+ {
+  "catalogo": "RECONCILIATION_FREQUENCY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC",
+   "DAILY",
+   "MONTHLY",
+   "WEEKLY"
+  ]
+ },
+ {
+  "catalogo": "E_BANKING_CONNECTION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "62% valores con dígitos",
+  "muestra": [
+   "CAMT_053",
+   "CAMT_054",
+   "EBICS",
+   "MANUAL_UPLOAD",
+   "MT942"
+  ]
+ },
+ {
+  "catalogo": "STATEMENT_FORMAT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "56% valores con dígitos",
+  "muestra": [
+   "BAI2",
+   "CSV_PROPRIETARY",
+   "ISO20022_CAMT_053",
+   "ISO20022_CAMT_054",
+   "OFX"
+  ]
+ },
+ {
+  "catalogo": "IMPORT_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ARCHIVED",
+   "FAILED_PARSE",
+   "PARSED",
+   "RECEIVED",
+   "REJECTED"
+  ]
+ },
+ {
+  "catalogo": "TRANSACTION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 36,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADDITION",
+   "BANK_FEE",
+   "BANK_INTEREST_CREDIT",
+   "BANK_INTEREST_DEBIT",
+   "CAPITALIZATION"
+  ]
+ },
+ {
+  "catalogo": "RATE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AVERAGE_DAILY",
+   "AVERAGE_MONTHLY_END",
+   "AVERAGE_QUARTERLY_END",
+   "AVERAGE_YEARLY_END",
+   "BUDGET_RATE"
+  ]
+ },
+ {
+  "catalogo": "RATE_SOURCE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 14,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AEAT_OFFICIAL_TAX_ES",
+   "BANCO_DE_ESPANA",
+   "BANK_OF_ENGLAND",
+   "BLOOMBERG",
+   "ECB_EUROPEAN_CENTRAL_BANK"
+  ]
+ },
+ {
+  "catalogo": "AUTHORITATIVE_FOR_PURPOSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUDGET_AND_FORECAST",
+   "CONSOLIDATION_TRANSLATION",
+   "MONTH_END_REVALUATION",
+   "OTHER",
+   "TAX_FILING"
+  ]
+ },
+ {
+  "catalogo": "POSITION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['position']",
+  "muestra": [
+   "END_OF_DAY",
+   "INTRADAY_AFTERNOON",
+   "INTRADAY_MORNING",
+   "MONTHLY_END",
+   "QUARTERLY_END"
+  ]
+ },
+ {
+  "catalogo": "FORECAST_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 16,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC_SCENARIO",
+   "DIRECT_METHOD_RECEIPTS_PAYMENTS",
+   "FULL_YEAR_REFORECAST",
+   "INDIRECT_METHOD_FROM_BUDGET",
+   "MERGER_ACQUISITION_PROJECTION"
+  ]
+ },
+ {
+  "catalogo": "FORECAST_HORIZON_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "100% valores con dígitos",
+  "muestra": [
+   "LONG_ANNUAL_5YEARS",
+   "LONG_QUARTERLY_3YEARS",
+   "MEDIUM_MONTHLY_12MONTHS",
+   "MEDIUM_MONTHLY_6MONTHS",
+   "SHORT_DAILY_30DAYS"
+  ]
+ },
+ {
+  "catalogo": "FORECAST_VERSION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['forecast_version']",
+  "muestra": [
+   "BASE_CASE",
+   "MANAGEMENT_APPROVED",
+   "OPTIMISTIC",
+   "PESSIMISTIC",
+   "STRESS"
+  ]
+ },
+ {
+  "catalogo": "FORECAST_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "b?",
+  "motivo": "≈ NOTE_STATUS (FINANCE, J=0.67, también sin etiqueta)",
+  "muestra": [
+   "APPROVED",
+   "ARCHIVED",
+   "DRAFT",
+   "IN_REVIEW",
+   "SUPERSEDED"
+  ]
+ },
+ {
+  "catalogo": "CASH_FLOW_CATEGORY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FINANCING_DEBT_PROCEEDS",
+   "FINANCING_DEBT_REPAYMENT",
+   "FINANCING_DIVIDEND_PAID",
+   "FINANCING_INTEREST_PAID",
+   "FINANCING_INTEREST_RECEIVED"
+  ]
+ },
+ {
+  "catalogo": "CASH_FLOW_DIRECTION",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "INFLOW",
+   "OUTFLOW"
+  ]
+ },
+ {
+  "catalogo": "CONFIDENCE_LEVEL",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "HIGH_COMMITTED",
+   "LOW_TENTATIVE",
+   "MEDIUM_LIKELY"
+  ]
+ },
+ {
+  "catalogo": "SOURCE_DOCUMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUDGET_LINE",
+   "CONTRACT",
+   "CUSTOMER_INVOICE_DUE",
+   "MANUAL_INPUT",
+   "MODEL_BASED_PROJECTION"
+  ]
+ },
+ {
+  "catalogo": "INSTRUMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 14,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BANK_OVERDRAFT",
+   "BOND_ISSUED",
+   "COMMERCIAL_PAPER",
+   "FACTORING_WITHOUT_RECOURSE",
+   "FACTORING_WITH_RECOURSE"
+  ]
+ },
+ {
+  "catalogo": "INTEREST_RATE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FIXED",
+   "FLOATING_EURIBOR_PLUS_SPREAD",
+   "FLOATING_OTHER",
+   "FLOATING_SOFR_PLUS_SPREAD",
+   "VARIABLE_INDEXED_INFLATION"
+  ]
+ },
+ {
+  "catalogo": "INTEREST_RATE_INDEX",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ESTR",
+   "EURIBOR_3M",
+   "EURIBOR_6M",
+   "EUR_OVERNIGHT",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "REPAYMENT_SCHEDULE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AMORTIZING_FRENCH",
+   "AMORTIZING_LINEAR",
+   "BALLOON_PAYMENT",
+   "BULLET_AT_MATURITY",
+   "CUSTOM"
+  ]
+ },
+ {
+  "catalogo": "DERIVATIVE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMMODITY_FORWARD",
+   "CROSS_CURRENCY_SWAP",
+   "EQUITY_FORWARD",
+   "FX_FORWARD",
+   "FX_OPTION_CALL"
+  ]
+ },
+ {
+  "catalogo": "EMIR_REPORTING_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "NOT_REQUIRED",
+   "PENDING",
+   "REJECTED",
+   "REPORTED"
+  ]
+ },
+ {
+  "catalogo": "HEDGE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CASH_FLOW_HEDGE",
+   "FAIR_VALUE_HEDGE",
+   "NET_INVESTMENT_HEDGE"
+  ]
+ },
+ {
+  "catalogo": "HEDGED_ITEM_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FIRM_COMMITMENT",
+   "FIXED_RATE_DEBT",
+   "FLOATING_RATE_DEBT",
+   "FORECAST_PURCHASES",
+   "FORECAST_SALES"
+  ]
+ },
+ {
+  "catalogo": "HEDGED_ITEM_REFERENCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CUSTOMER_INVOICE_LIST",
+   "FINANCING_INSTRUMENT_DEBT",
+   "FORECAST_MODEL_OUTPUT",
+   "NET_INVESTMENT_LE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "EFFECTIVENESS_ASSESSMENT_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DOLLAR_OFFSET",
+   "OTHER",
+   "QUALITATIVE_CRITICAL_TERMS_MATCH",
+   "REGRESSION_ANALYSIS"
+  ]
+ },
+ {
+  "catalogo": "DISCONTINUATION_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EFFECTIVENESS_FAILED",
+   "HEDGED_ITEM_NO_LONGER_EXISTS",
+   "INSTRUMENT_EXPIRED",
+   "INSTRUMENT_TERMINATED_EARLY",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "TEST_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC",
+   "INITIAL",
+   "RECURRING_QUARTERLY"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_RUN_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['payment_run']",
+  "muestra": [
+   "AD_HOC_URGENT",
+   "BIWEEKLY_SUPPLIERS",
+   "MONTHLY_PAYROLL",
+   "MONTHLY_TAX_PAYMENTS",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_RUN_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED_BY_BANK",
+   "APPROVED",
+   "CANCELLED",
+   "DRAFT",
+   "FULLY_PROCESSED"
+  ]
+ },
+ {
+  "catalogo": "LINE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 12,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "CANCELLED",
+   "COMPLETED",
+   "DRAFT",
+   "EXECUTED"
+  ]
+ },
+ {
+  "catalogo": "RECONCILIATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 21,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AP_SUPPLIER_PAYMENT",
+   "AR_CUSTOMER_PAYMENT",
+   "BANK_CHARGE",
+   "BANK_INTEREST",
+   "BS_ASSETS_EQUALS_LIABILITIES_AND_EQUITY"
+  ]
+ },
+ {
+  "catalogo": "MATCH_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUTO_EXACT_MATCH",
+   "AUTO_FUZZY_MATCH",
+   "AUTO_TOLERANCE_MATCH",
+   "MANUAL_REVIEW",
+   "RULE_BASED_PATTERN"
+  ]
+ },
+ {
+  "catalogo": "ASSIGNMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "INITIAL_ASSIGNMENT",
+   "INTERNAL_TRANSFER",
+   "LOAN_TO_OTHER_LE",
+   "OTHER",
+   "REASSIGNMENT_AFTER_DISPOSAL"
+  ]
+ },
+ {
+  "catalogo": "DEPRECIATION_FREQUENCY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ PERIOD_KIND_DEFAULT (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY"
+  ]
+ },
+ {
+  "catalogo": "PLAN_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "FULLY_DEPRECIATED",
+   "SUPERSEDED",
+   "SUSPENDED"
+  ]
+ },
+ {
+  "catalogo": "SUPERSEDE_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "IMPAIRMENT_RECOGNIZED",
+   "METHOD_CHANGE",
+   "OTHER",
+   "RESIDUAL_VALUE_REVALUATION",
+   "USEFUL_LIFE_REVIEW"
+  ]
+ },
+ {
+  "catalogo": "IMPAIRMENT_SCOPE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CASH_GENERATING_UNIT",
+   "GROUP_OF_CGUS_WITH_GOODWILL",
+   "INDIVIDUAL_ASSET"
+  ]
+ },
+ {
+  "catalogo": "IMPAIRMENT_TEST_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_MANDATORY",
+   "END_OF_YEAR_REVIEW",
+   "EXTERNAL_VALUATION",
+   "TRIGGERED_BY_INDICATOR"
+  ]
+ },
+ {
+  "catalogo": "IMPAIRMENT_INDICATOR",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CARRYING_AMOUNT_EXCEEDS_MARKET_CAP",
+   "ECONOMIC_PERFORMANCE_WORSE_THAN_EXPECTED",
+   "EXTERNAL_MARKET_DECLINE",
+   "INTEREST_RATE_INCREASE",
+   "INTERNAL_OBSOLESCENCE"
+  ]
+ },
+ {
+  "catalogo": "RECOVERABLE_AMOUNT_BASIS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FAIR_VALUE_LESS_COSTS_TO_SELL",
+   "HIGHER_OF_BOTH",
+   "VALUE_IN_USE"
+  ]
+ },
+ {
+  "catalogo": "LEASE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMBEDDED_LEASE",
+   "FINANCE_LEASE_IFRS",
+   "FINANCE_LEASE_PGC_ES",
+   "LEASEBACK",
+   "OPERATING_LEASE_IFRS"
+  ]
+ },
+ {
+  "catalogo": "LEASE_CLASSIFICATION_IFRS16",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXEMPT_LOW_VALUE",
+   "EXEMPT_SHORT_TERM",
+   "ON_BALANCE"
+  ]
+ },
+ {
+  "catalogo": "UNDERLYING_ASSET_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EQUIPMENT_INDUSTRIAL",
+   "EQUIPMENT_IT",
+   "EQUIPMENT_MEDICAL",
+   "OTHER",
+   "REAL_ESTATE_INDUSTRIAL"
+  ]
+ },
+ {
+  "catalogo": "PAYMENT_FREQUENCY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ CONSOLIDATION_FREQUENCY (FINANCE, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "VARIABLE_PAYMENT_INDEX",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CPI_INFLATION",
+   "INTEREST_RATE_EURIBOR",
+   "NONE",
+   "REVENUE_LINKED",
+   "USAGE_LINKED"
+  ]
+ },
+ {
+  "catalogo": "LEASE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "EXPIRED",
+   "MODIFIED",
+   "RENEWED"
+  ]
+ },
+ {
+  "catalogo": "PRESENTATION_FORMAT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CLASSIFIED_LIQUIDITY_DECREASING",
+   "CLASSIFIED_LIQUIDITY_INCREASING",
+   "FUNCTION_OF_EXPENSE",
+   "MIXED",
+   "NATURE_OF_EXPENSE"
+  ]
+ },
+ {
+  "catalogo": "PRECISION_ROUNDING",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "b?",
+  "motivo": "≈ PRESENTATION_UNIT (FINANCE, J=0.75, también sin etiqueta)",
+  "muestra": [
+   "BILLIONS",
+   "MILLIONS",
+   "THOUSANDS",
+   "UNITS"
+  ]
+ },
+ {
+  "catalogo": "DEFINITION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ COA_STATUS (FINANCE, J=0.83, también sin etiqueta)",
+  "muestra": [
+   "ACTIVE",
+   "ARCHIVED",
+   "DEPRECATED",
+   "DRAFT",
+   "FROZEN"
+  ]
+ },
+ {
+  "catalogo": "REGULATORY_FORMAT_REQUIRED",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXCEL",
+   "NONE",
+   "PDF_OFFICIAL",
+   "XBRL_ESEF",
+   "XBRL_IFRS"
+  ]
+ },
+ {
+  "catalogo": "VALUE_CALCULATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DIRECT_FROM_ACCOUNT_MAPPING",
+   "EXTERNAL_REFERENCE",
+   "FORMULA_EXPRESSION",
+   "MANUAL_INPUT",
+   "SUM_OF_CHILD_LINES"
+  ]
+ },
+ {
+  "catalogo": "EXPECTED_SIGN_FOR_NORMAL",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EITHER",
+   "NEGATIVE",
+   "POSITIVE"
+  ]
+ },
+ {
+  "catalogo": "SUBTOTAL_COLOR_EMPHASIS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BOLD",
+   "BOLD_UNDERLINE",
+   "ITALIC",
+   "NONE",
+   "UNDERLINE"
+  ]
+ },
+ {
+  "catalogo": "SNAPSHOT_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "ARCHIVED",
+   "DRAFT_GENERATED",
+   "IN_AUDITOR_REVIEW",
+   "IN_INTERNAL_REVIEW"
+  ]
+ },
+ {
+  "catalogo": "RESTATEMENT_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCOUNTING_POLICY_CHANGE_MANDATORY",
+   "ACCOUNTING_POLICY_CHANGE_VOLUNTARY",
+   "AUDITOR_REQUIRED",
+   "ERROR_CORRECTION_IAS8",
+   "MERGER_RETROSPECTIVE_APPLICATION"
+  ]
+ },
+ {
+  "catalogo": "VERSION_CHANGE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADDITIONAL_DISCLOSURE_ADDED",
+   "AUDITOR_ADJUSTMENT",
+   "OTHER",
+   "RECLASSIFICATION_ONLY",
+   "RESTATEMENT_IAS8_ERROR"
+  ]
+ },
+ {
+  "catalogo": "REGULATORY_RESUBMISSION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED_BY_REGULATOR",
+   "NOT_REQUIRED",
+   "REQUIRED_PENDING",
+   "SUBMITTED"
+  ]
+ },
+ {
+  "catalogo": "APPROVAL_STEP_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUDITOR_OPINION_ISSUED",
+   "AUDIT_COMMITTEE_REVIEW",
+   "BOARD_APPROVAL",
+   "CFO_REVIEW",
+   "CONTROLLER_REVIEW"
+  ]
+ },
+ {
+  "catalogo": "COMPARATIVE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUDGET_SAME_PERIOD",
+   "FORECAST_LATEST",
+   "OTHER",
+   "PEER_BENCHMARK",
+   "PRIOR_PERIOD_RESTATED"
+  ]
+ },
+ {
+  "catalogo": "NOTE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 29,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCOUNTING_POLICIES",
+   "BORROWINGS",
+   "CASH_FLOW_RECONCILIATION",
+   "COMMITMENTS_CONTINGENCIES",
+   "EMPLOYEE_BENEFITS"
+  ]
+ },
+ {
+  "catalogo": "CONTENT_FORMAT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MARKDOWN",
+   "PLAIN_TEXT",
+   "RICH_TEXT_HTML",
+   "XBRL_INLINE_HTML"
+  ]
+ },
+ {
+  "catalogo": "NOTE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ FORECAST_STATUS (FINANCE, J=0.67, también sin etiqueta)",
+  "muestra": [
+   "APPROVED",
+   "DRAFT",
+   "IN_REVIEW",
+   "PUBLISHED",
+   "SUPERSEDED"
+  ]
+ },
+ {
+  "catalogo": "REFERENCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "NOTE_TO_EXTERNAL_DOCUMENT",
+   "NOTE_TO_NOTE",
+   "NOTE_TO_PRIOR_YEAR_NOTE",
+   "NOTE_TO_STATEMENT_LINE"
+  ]
+ },
+ {
+  "catalogo": "CASH_FLOW_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DIRECT",
+   "DIRECT_METHOD",
+   "INDIRECT",
+   "INDIRECT_METHOD",
+   "MIXED"
+  ]
+ },
+ {
+  "catalogo": "REGULATOR_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "entidad ['regulator']",
+  "muestra": [
+   "AEAT_TAX_AUTHORITY_SPAIN",
+   "AMF_FRANCE",
+   "BAFIN_GERMANY",
+   "BANCO_DE_PORTUGAL",
+   "BANK_OF_SPAIN"
+  ]
+ },
+ {
+  "catalogo": "FILING_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 30,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_REPORT_LISTED",
+   "ANNUAL_REPORT_NON_LISTED",
+   "BOND_PROSPECTUS",
+   "CBCR_ANNUAL",
+   "CIT_ANNUAL_FINAL"
+  ]
+ },
+ {
+  "catalogo": "FILING_FORMAT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXCEL_TEMPLATE",
+   "INLINE_XBRL_IXBRL",
+   "OTHER",
+   "PDF_OFFICIAL",
+   "XBRL_ESEF"
+  ]
+ },
+ {
+  "catalogo": "FILING_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCEPTED",
+   "ACKNOWLEDGED_BY_REGULATOR",
+   "AMENDED_RESUBMITTED",
+   "DRAFT",
+   "READY_TO_SUBMIT"
+  ]
+ },
+ {
+  "catalogo": "AMENDMENT_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUDITOR_FINDING",
+   "ERROR_CORRECTION",
+   "OTHER",
+   "REGULATORY_REQUEST",
+   "VOLUNTARY_DISCLOSURE_ADD"
+  ]
+ },
+ {
+  "catalogo": "BUDGET_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVITY_BASED_BUDGET",
+   "CAPITAL_BUDGET",
+   "CASH_BUDGET",
+   "HEADCOUNT_BUDGET",
+   "MASTER_BUDGET"
+  ]
+ },
+ {
+  "catalogo": "BUDGET_REVISION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXTRAORDINARY_REVISION",
+   "FINAL_RESTATED",
+   "MID_YEAR_REFORECAST",
+   "ORIGINAL_APPROVED",
+   "REVISED_Q1"
+  ]
+ },
+ {
+  "catalogo": "BUDGET_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE_CURRENT",
+   "APPROVED",
+   "ARCHIVED",
+   "DRAFT",
+   "IN_CONSOLIDATION"
+  ]
+ },
+ {
+  "catalogo": "PRESENTATION_UNIT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 2,
+  "clase": "b?",
+  "motivo": "≈ PRECISION_ROUNDING (FINANCE, J=0.75, también sin etiqueta)",
+  "muestra": [
+   "MILLIONS",
+   "THOUSANDS",
+   "UNITS"
+  ]
+ },
+ {
+  "catalogo": "PREPARATION_APPROACH",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BOTTOM_UP",
+   "ITERATIVE_HYBRID",
+   "ROLLING",
+   "TOP_DOWN",
+   "ZERO_BASED"
+  ]
+ },
+ {
+  "catalogo": "GRANULARITY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_ONLY",
+   "ANNUAL_WITH_MONTHLY_BREAKDOWN",
+   "ANNUAL_WITH_QUARTERLY_BREAKDOWN",
+   "MONTHLY_ROLLING"
+  ]
+ },
+ {
+  "catalogo": "REVISION_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BOARD_REQUEST",
+   "MAJOR_ECONOMIC_EVENT",
+   "MANAGEMENT_DECISION",
+   "M_AND_A_ACTIVITY",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "CALCULATION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ALLOCATION_FROM_HIGHER_LEVEL",
+   "DIRECT_INPUT",
+   "DRIVER_BASED",
+   "EXTERNAL_IMPORT",
+   "FORMULA_BASED"
+  ]
+ },
+ {
+  "catalogo": "LINE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 19,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BALANCE_SHEET_ITEM",
+   "CAPEX",
+   "CREDIT_APPLIED",
+   "DEDUCTION_APPLIED",
+   "DEPRECIATION_AMORTIZATION"
+  ]
+ },
+ {
+  "catalogo": "DISTRIBUTION_PERIOD_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MONTHLY",
+   "QUARTERLY",
+   "WEEKLY"
+  ]
+ },
+ {
+  "catalogo": "DISTRIBUTION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BACK_LOADED",
+   "EQUAL_SPREAD",
+   "FRONT_LOADED",
+   "HISTORICAL_PATTERN",
+   "MANUAL_CUSTOM"
+  ]
+ },
+ {
+  "catalogo": "ASSUMPTION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMMODITY_PRICE",
+   "COMPETITOR_BEHAVIOR",
+   "ENERGY_COST",
+   "INTERNAL_HEADCOUNT_GROWTH",
+   "INTERNAL_PRICING_STRATEGY"
+  ]
+ },
+ {
+  "catalogo": "ASSUMPTION_VALUE_UNIT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ABSOLUTE_AMOUNT",
+   "COUNT",
+   "INDEX",
+   "OTHER",
+   "PERCENTAGE"
+  ]
+ },
+ {
+  "catalogo": "SOURCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BANK_RESEARCH_REPORT",
+   "CONSULTANT_REPORT",
+   "ECB_PROJECTION",
+   "GOVERNMENT_FORECAST",
+   "IMF_OUTLOOK"
+  ]
+ },
+ {
+  "catalogo": "DRIVER_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AVERAGE_PRICE_PER_UNIT",
+   "AVERAGE_REVENUE_PER_CUSTOMER",
+   "AVERAGE_SALARY",
+   "CAPEX_INTENSITY",
+   "CHURN_RATE"
+  ]
+ },
+ {
+  "catalogo": "DRIVER_UNIT",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FTE",
+   "MONETARY",
+   "PERCENTAGE",
+   "RATIO",
+   "UNITS"
+  ]
+ },
+ {
+  "catalogo": "SCENARIO_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BASE_CASE",
+   "CONTINGENCY_PLAN",
+   "M_AND_A_HYPOTHETICAL",
+   "OPTIMISTIC",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "ACTUALIZATION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DRIVER_BASED",
+   "MANAGEMENT_OVERLAY",
+   "MIXED_MECHANICAL_PLUS_OVERLAY",
+   "ML_PREDICTIVE_MODEL",
+   "REGRESSION_BASED"
+  ]
+ },
+ {
+  "catalogo": "ACTUALIZATION_METHOD_APPLIED",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DRIVER",
+   "MIXED",
+   "OVERLAY",
+   "TREND"
+  ]
+ },
+ {
+  "catalogo": "VARIANCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTUAL_VS_BUDGET",
+   "ACTUAL_VS_FORECAST",
+   "BUDGET_VS_BUDGET_REVISION",
+   "CURRENT_FORECAST_VS_PRIOR_FORECAST",
+   "CURRENT_YEAR_ACTUAL_VS_PRIOR_YEAR_ACTUAL"
+  ]
+ },
+ {
+  "catalogo": "VARIANCE_FAVORABLE_UNFAVORABLE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FAVORABLE",
+   "NEUTRAL_WITHIN_TOLERANCE",
+   "UNFAVORABLE"
+  ]
+ },
+ {
+  "catalogo": "VARIANCE_CAUSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 11,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DATA_QUALITY_ISSUE",
+   "FORECAST_BIAS",
+   "FX_VARIANCE",
+   "GENUINE_BUSINESS_DEVIATION",
+   "METHODOLOGY_CHANGE"
+  ]
+ },
+ {
+  "catalogo": "ACTION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CANCELLED",
+   "COMPLETED",
+   "ESCALATED",
+   "IN_PROGRESS",
+   "NOT_STARTED"
+  ]
+ },
+ {
+  "catalogo": "SCENARIO_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE_MONITORED",
+   "APPROVED",
+   "ARCHIVED",
+   "DRAFT",
+   "FOR_REVIEW"
+  ]
+ },
+ {
+  "catalogo": "CHANGE_REASON",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCOUNTING_STANDARD_CHANGE",
+   "BENCHMARK_ALIGNMENT",
+   "DATA_SOURCE_CHANGE",
+   "ERROR_CORRECTION",
+   "GAIN_OF_CONTROL"
+  ]
+ },
+ {
+  "catalogo": "CONSOLIDATION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "80% valores con dígitos",
+  "muestra": [
+   "COST_METHOD",
+   "EQUITY_METHOD_IAS28",
+   "FULL_CONSOLIDATION_IFRS10",
+   "HELD_FOR_SALE_IFRS5",
+   "PROPORTIONAL_CONSOLIDATION_IFRS11"
+  ]
+ },
+ {
+  "catalogo": "CONTROL_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CONTRACTUAL_CONTROL",
+   "DE_FACTO_CONTROL",
+   "JOINT_CONTROL",
+   "LEGAL_CONTROL_MAJORITY",
+   "NO_CONTROL"
+  ]
+ },
+ {
+  "catalogo": "INTERCOMPANY_TRANSACTION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['intercompany_transaction']",
+  "muestra": [
+   "IC_CASH_TRANSFER",
+   "IC_COST_RECHARGE",
+   "IC_DIVIDEND",
+   "IC_FIXED_ASSET_TRANSFER",
+   "IC_INTANGIBLE_TRANSFER"
+  ]
+ },
+ {
+  "catalogo": "ELIMINATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COST_RECHARGE",
+   "CROSS_INVESTMENT",
+   "IC_AR_VS_AP",
+   "IC_DIVIDEND",
+   "IC_INTEREST_LOAN"
+  ]
+ },
+ {
+  "catalogo": "MATCHING_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DISPUTED",
+   "MATCHED_EXACT",
+   "MATCHED_WITHIN_TOLERANCE",
+   "MISMATCHED_AMOUNT",
+   "MISMATCHED_FX"
+  ]
+ },
+ {
+  "catalogo": "MISMATCH_CAUSE",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCRUAL_VS_CASH_DIFFERENCE",
+   "AMOUNT_KEYING_ERROR",
+   "FX_RATE_DIFFERENCE",
+   "MISSING_INVOICE_ONE_SIDE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "PROPOSED_RESOLUTION_ACTION",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADJUST_BOTH_SIDES",
+   "ADJUST_ONE_SIDE",
+   "AWAIT_PERIOD_CLOSING",
+   "CANCEL_TRANSACTION",
+   "ESCALATE_TO_CONTROLLER"
+  ]
+ },
+ {
+  "catalogo": "ELIMINATION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AUTOMATIC_FROM_IC_TRANSACTION",
+   "IMPORT_FROM_EXTERNAL_TOOL",
+   "MANUAL_GENERATED",
+   "RULE_BASED_TEMPLATE"
+  ]
+ },
+ {
+  "catalogo": "ELIMINATION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DRAFT",
+   "FAILED_VALIDATION",
+   "GENERATED",
+   "POSTED_TO_CONSOLIDATED",
+   "REVERSED"
+  ]
+ },
+ {
+  "catalogo": "REVALUATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "HYPERINFLATIONARY_ECONOMY_IAS29",
+   "MONETARY_REVALUATION_FOREIGN_CURRENCY_BALANCES",
+   "NON_MONETARY_HISTORICAL_REVALUATION",
+   "TRANSLATION_FUNCTIONAL_TO_REPORTING"
+  ]
+ },
+ {
+  "catalogo": "REVALUATION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CURRENT_NON_CURRENT",
+   "CURRENT_RATE_METHOD",
+   "MONETARY_NON_MONETARY",
+   "TEMPORAL_METHOD"
+  ]
+ },
+ {
+  "catalogo": "ACCOUNT_CLASSIFICATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EQUITY_HISTORICAL",
+   "MONETARY_ASSET",
+   "MONETARY_LIABILITY",
+   "NON_MONETARY_ASSET",
+   "NON_MONETARY_LIABILITY"
+  ]
+ },
+ {
+  "catalogo": "NCI_SHARE_OF_GOODWILL_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 1,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FULL_GOODWILL"
+  ]
+ },
+ {
+  "catalogo": "ASSIGNED_CGU_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUSINESS_UNIT_CGU",
+   "GEOGRAPHIC_SEGMENT_CGU",
+   "MULTIPLE_LE_CGU",
+   "OTHER",
+   "SINGLE_LE_CGU"
+  ]
+ },
+ {
+  "catalogo": "TEST_TRIGGER",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_MANDATORY_IAS36",
+   "ECONOMIC_DOWNTURN",
+   "INDICATOR_OF_IMPAIRMENT",
+   "MANAGEMENT_REQUEST",
+   "REGULATORY_CHANGE"
+  ]
+ },
+ {
+  "catalogo": "RECOVERABLE_AMOUNT_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FAIR_VALUE_LESS_COSTS_OF_DISPOSAL",
+   "HIGHER_OF_BOTH",
+   "VALUE_IN_USE_DCF"
+  ]
+ },
+ {
+  "catalogo": "NCI_MEASUREMENT_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FAIR_VALUE_AT_ACQUISITION",
+   "PROPORTIONATE_SHARE_NET_ASSETS"
+  ]
+ },
+ {
+  "catalogo": "RUN_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['run']",
+  "muestra": [
+   "AD_HOC_RECONSOLIDATION",
+   "MONTHLY_HARD_CLOSE",
+   "PROFORMA_SIMULATION",
+   "QUARTERLY_INTERIM",
+   "YEAR_END_FINAL"
+  ]
+ },
+ {
+  "catalogo": "TAX_JURISDICTION_SUBNATIONAL",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ES_NAVARRA",
+   "US_CALIFORNIA",
+   "US_TEXAS"
+  ]
+ },
+ {
+  "catalogo": "TAX_AUTHORITY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AEAT_SPAIN",
+   "AFIP_ARGENTINA",
+   "BUNDESZENTRALAMT_DE",
+   "DGI_FRANCE",
+   "HACIENDA_FORAL_BIZKAIA"
+  ]
+ },
+ {
+  "catalogo": "TAX_IDENTIFICATION_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CIF_ES",
+   "CNPJ_BRAZIL",
+   "CUIT_ARGENTINA",
+   "EIN_US",
+   "EORI_EU"
+  ]
+ },
+ {
+  "catalogo": "TAX_RESIDENCY_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DUAL_RESIDENT_WITH_TIE_BREAKER",
+   "NON_RESIDENT_NO_PE",
+   "NON_RESIDENT_WITH_PE",
+   "OTHER",
+   "RESIDENT_FULL"
+  ]
+ },
+ {
+  "catalogo": "PERIOD_FREQUENCY",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ CONSOLIDATION_FREQUENCY (FINANCE, J=0.80, también sin etiqueta)",
+  "muestra": [
+   "AD_HOC_PER_EVENT",
+   "ANNUAL",
+   "MONTHLY",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "AMENDMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPLEMENTARY_ADDITIONAL_PAYMENT",
+   "CORRECTING_ERROR_NO_PAYMENT_IMPACT",
+   "OTHER",
+   "REQUESTED_BY_AUDIT",
+   "SUBSTITUTIVE_FULL_REPLACEMENT"
+  ]
+ },
+ {
+  "catalogo": "SUBMISSION_METHOD",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ELECTRONIC_FILING_AEAT",
+   "ELECTRONIC_FILING_OTHER_AUTHORITY",
+   "IN_PERSON_FILING",
+   "OTHER",
+   "PAPER_FILING"
+  ]
+ },
+ {
+  "catalogo": "AUDIT_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AGREED",
+   "CLOSED_NO_ADJUSTMENT",
+   "CLOSED_WITH_ADJUSTMENT",
+   "DISPUTED",
+   "IN_LITIGATION"
+  ]
+ },
+ {
+  "catalogo": "DEFERRED_TAX_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['deferred_tax']",
+  "muestra": [
+   "DEFERRED_TAX_ASSET_DTA",
+   "DEFERRED_TAX_LIABILITY_DTL"
+  ]
+ },
+ {
+  "catalogo": "TEMPORARY_DIFFERENCE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 15,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BAD_DEBT_PROVISION_TAX_DEFERRED",
+   "DEPRECIATION_ACCELERATED_TAX",
+   "FAIR_VALUE_ADJUSTMENTS",
+   "IFRS_16_LEASE_ACCOUNTING",
+   "IMPAIRMENT_PROVISION"
+  ]
+ },
+ {
+  "catalogo": "APPLICABLE_TAX_RATE_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ENACTED_RATE_CURRENT_YEAR",
+   "ENACTED_RATE_FUTURE_YEAR",
+   "EXPECTED_RATE_UNDER_REGULATION",
+   "SUBSTANTIVELY_ENACTED"
+  ]
+ },
+ {
+  "catalogo": "EXPECTED_REVERSAL_PERIOD_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "50% valores con dígitos",
+  "muestra": [
+   "CURRENT_NEXT_YEAR",
+   "INDEFINITE_TIMING",
+   "LONG_TERM_OVER_10_YEARS",
+   "MEDIUM_TERM_5_10_YEARS",
+   "NEVER_PERMANENT"
+  ]
+ },
+ {
+  "catalogo": "MOVEMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUSINESS_COMBINATION_ACQUIRED",
+   "DISPOSAL_DERECOGNITION",
+   "FX_TRANSLATION_EFFECT",
+   "NOL_UTILIZATION",
+   "ORIGINATION_NEW_DIFFERENCE"
+  ]
+ },
+ {
+  "catalogo": "PROVISIONING_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_TRUE_UP_AFTER_FILING",
+   "ESTIMATED_TAX_PAYMENT",
+   "INTERIM_REPORTING_IAS_34",
+   "MONTHLY_PROVISION",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "ENTRY_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ARCHIVED",
+   "CALCULATED",
+   "DRAFT",
+   "POSTED_TO_GL",
+   "REVIEWED"
+  ]
+ },
+ {
+  "catalogo": "CALCULATION_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AMENDED",
+   "COMPLETED_OK",
+   "DRAFT",
+   "FINAL",
+   "IN_PREPARATION"
+  ]
+ },
+ {
+  "catalogo": "SAFE_HARBOUR_APPLIED_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DE_MINIMIS_TEST",
+   "NONE",
+   "QDMTT_SAFE_HARBOUR",
+   "ROUTINE_PROFITS_TEST",
+   "TRANSITIONAL_CBCR_SAFE_HARBOUR"
+  ]
+ },
+ {
+  "catalogo": "GLOBE_INFORMATION_RETURN_GIR_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED",
+   "AMENDED",
+   "IN_PREPARATION",
+   "NOT_REQUIRED",
+   "READY"
+  ]
+ },
+ {
+  "catalogo": "EFFECTIVE_TAX_RATE_METHODOLOGY_USED",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "GLOBE_RULES_OECD_2024",
+   "OTHER",
+   "SIMPLIFIED_TRANSITIONAL_CBCR_BASED"
+  ]
+ },
+ {
+  "catalogo": "TOP_UP_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "IIR",
+   "QDMTT",
+   "UTPR"
+  ]
+ },
+ {
+  "catalogo": "CBCR_EXCHANGE_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXCHANGED_VIA_MCAA",
+   "NOT_EXCHANGED_YET",
+   "NOT_REQUIRED"
+  ]
+ },
+ {
+  "catalogo": "ARRANGEMENT_KIND",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CFC_AVOIDANCE",
+   "FINANCING_STRUCTURE",
+   "HYBRID_MISMATCH",
+   "INTRA_GROUP_REORGANIZATION",
+   "IP_LICENSING"
+  ]
+ },
+ {
+  "catalogo": "REPORTING_STATUS",
+  "acelerador": "FINANCE",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED",
+   "AMENDED",
+   "IDENTIFIED_PENDING_REVIEW",
+   "NOT_REPORTABLE_ASSESSED",
+   "READY_TO_REPORT"
+  ]
+ },
+ {
+  "catalogo": "SUPPLIER_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "BLOCKED",
+   "DRAFT",
+   "INACTIVE",
+   "ON_HOLD"
+  ]
+ },
+ {
+  "catalogo": "SUPPLIER_CATEGORY",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "GOODS",
+   "LOGISTICS",
+   "PROFESSIONAL",
+   "SERVICES",
+   "SUBCONTRACTOR"
+  ]
+ },
+ {
+  "catalogo": "SUPPLIER_KIND",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['supplier']",
+  "muestra": [
+   "COMPANY",
+   "INDIVIDUAL_AUTONOMO",
+   "PUBLIC_ENTITY"
+  ]
+ },
+ {
+  "catalogo": "QUALIFICATION_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "CONDITIONAL",
+   "EXPIRED",
+   "PENDING",
+   "REJECTED"
+  ]
+ },
+ {
+  "catalogo": "RISK_LEVEL",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 4,
+  "clase": "b",
+  "motivo": "≈ DATA_CRITICALITY (METADATA, J=1.00, etiquetado)",
+  "muestra": [
+   "CRITICAL",
+   "HIGH",
+   "LOW",
+   "MEDIUM"
+  ]
+ },
+ {
+  "catalogo": "SITE_KIND",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BILLING",
+   "HEADQUARTERS",
+   "PLANT",
+   "WAREHOUSE"
+  ]
+ },
+ {
+  "catalogo": "REQUISITION_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ TIME_OFF_REQUEST_STATUS (HR, J=0.71, también sin etiqueta)",
+  "muestra": [
+   "APPROVED",
+   "CANCELLED",
+   "CONVERTED",
+   "DRAFT",
+   "REJECTED"
+  ]
+ },
+ {
+  "catalogo": "PO_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CANCELLED",
+   "CLOSED",
+   "DRAFT",
+   "INVOICED",
+   "ISSUED"
+  ]
+ },
+ {
+  "catalogo": "PO_TYPE",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BLANKET",
+   "CONTRACT_RELEASE",
+   "SERVICE",
+   "STANDARD"
+  ]
+ },
+ {
+  "catalogo": "INCOTERM",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CIF",
+   "DAP",
+   "DDP",
+   "EXW",
+   "FCA"
+  ]
+ },
+ {
+  "catalogo": "RECEIPT_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DISPUTED",
+   "DRAFT",
+   "POSTED",
+   "REVERSED"
+  ]
+ },
+ {
+  "catalogo": "CONTRACT_KIND",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['contract']",
+  "muestra": [
+   "FIXED_PRICE",
+   "FRAMEWORK",
+   "SLA",
+   "TIME_AND_MATERIALS"
+  ]
+ },
+ {
+  "catalogo": "EVALUATION_STATUS",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "COMPLETED",
+   "DRAFT"
+  ]
+ },
+ {
+  "catalogo": "EVALUATION_DIMENSION",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPLIANCE",
+   "DELIVERY",
+   "PRICE",
+   "QUALITY",
+   "SERVICE"
+  ]
+ },
+ {
+  "catalogo": "UOM",
+  "acelerador": "PROCUREMENT",
+  "estado": "DEFINIDO",
+  "n_valores": 7,
+  "usos": 26,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "HOUR",
+   "KG",
+   "LITER",
+   "M2",
+   "M3"
+  ]
+ },
+ {
+  "catalogo": "BANK_KIND",
+  "acelerador": "FINANCE",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['bank']",
+  "muestra": [
+   "CENTRAL",
+   "COMMERCIAL",
+   "COOPERATIVE",
+   "INVESTMENT",
+   "ONLINE"
+  ]
+ },
+ {
+  "catalogo": "LENDER_KIND",
+  "acelerador": "FINANCE",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['lender']",
+  "muestra": [
+   "BANK",
+   "BONDHOLDER",
+   "FUND",
+   "GOVERNMENT",
+   "INTERCOMPANY"
+  ]
+ },
+ {
+  "catalogo": "AUDITOR_KIND",
+  "acelerador": "FINANCE",
+  "estado": "DEFINIDO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['auditor']",
+  "muestra": [
+   "BIG_FOUR",
+   "INTERNAL",
+   "LOCAL",
+   "MID_TIER"
+  ]
+ },
+ {
+  "catalogo": "ADDRESS_USE",
+  "acelerador": "_GLOBAL_",
+  "estado": "DEFINIDO",
+  "n_valores": 6,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BILLING",
+   "FISCAL",
+   "OPERATIONAL",
+   "OTHER",
+   "REGISTERED"
+  ]
+ },
+ {
+  "catalogo": "CONTACT_TYPE",
+  "acelerador": "_GLOBAL_",
+  "estado": "DEFINIDO",
+  "n_valores": 7,
+  "usos": 4,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMAIL",
+   "FAX",
+   "MOBILE",
+   "OTHER",
+   "PHONE"
+  ]
+ },
+ {
+  "catalogo": "CONTACT_USE",
+  "acelerador": "_GLOBAL_",
+  "estado": "DEFINIDO",
+  "n_valores": 7,
+  "usos": 4,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BILLING",
+   "COMMERCIAL",
+   "EMERGENCY",
+   "GENERAL",
+   "LEGAL"
+  ]
+ },
+ {
+  "catalogo": "ACCRUAL_CALCULATION_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_LUMP",
+   "FIXED_ALLOWANCE",
+   "HOURS_WORKED",
+   "MONTHLY_ACCRUAL",
+   "PER_PAY_PERIOD"
+  ]
+ },
+ {
+  "catalogo": "ACCRUAL_PERIOD_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ PERIOD_KIND_DEFAULT (FINANCE, J=0.75, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "MONTHLY",
+   "PER_PAY_PERIOD",
+   "QUARTERLY"
+  ]
+ },
+ {
+  "catalogo": "ACCRUAL_POLICY_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ BENEFIT_PROGRAM_STATUS (HR, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "RETIRED",
+   "SUSPENDED"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_COVERAGE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMPLOYEE_CHILDREN",
+   "EMPLOYEE_ONLY",
+   "EMPLOYEE_SPOUSE",
+   "FAMILY"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_ENROLLMENT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL_RENEWAL",
+   "LIFE_EVENT",
+   "NEW_HIRE",
+   "OPEN_ENROLLMENT"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_ENROLLMENT_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "b",
+  "motivo": "≈ CONTRACT_STATUS (METADATA, J=0.60, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "PENDING",
+   "TERMINATED",
+   "WAIVED"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_PROGRAM_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 10,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['benefit_program']",
+  "muestra": [
+   "CHILDCARE",
+   "DENTAL",
+   "DISABILITY",
+   "HEALTH",
+   "LIFE_INSURANCE"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_PROGRAM_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ ACCRUAL_POLICY_STATUS (HR, J=1.00, también sin etiqueta)",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "RETIRED",
+   "SUSPENDED"
+  ]
+ },
+ {
+  "catalogo": "CANDIDATE_STATUS",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPLIED",
+   "HIRED",
+   "INTERVIEWED",
+   "OFFER_EXTENDED",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "CAREER_LEVEL_CATEGORY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DIRECTOR",
+   "EXECUTIVE",
+   "INDIVIDUAL_CONTRIBUTOR",
+   "MANAGER",
+   "SPECIALIST"
+  ]
+ },
+ {
+  "catalogo": "CERTIFICATION_ACQUISITION_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COURSE_COMPLETION",
+   "EQUIVALENCE",
+   "EXAM",
+   "EXPERIENCE",
+   "RENEWAL"
+  ]
+ },
+ {
+  "catalogo": "CERTIFICATION_REQUIREMENT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ REQUIREMENT (FINANCE, J=0.60, también sin etiqueta)",
+  "muestra": [
+   "MANDATORY",
+   "OPTIONAL",
+   "RECOMMENDED",
+   "REGULATORY"
+  ]
+ },
+ {
+  "catalogo": "COMPENSATION_PACKAGE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "entidad ['compensation_package']",
+  "muestra": [
+   "BASE",
+   "EXECUTIVE",
+   "SALES",
+   "TOTAL_CASH",
+   "TOTAL_REWARDS"
+  ]
+ },
+ {
+  "catalogo": "COMPENSATION_PACKAGE_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ RATING_TABLE_STATUS (INSURANCE, J=0.60, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "EXPIRED",
+   "SUPERSEDED"
+  ]
+ },
+ {
+  "catalogo": "DATA_PROTECTION_LAW_KIND",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "60% valores con dígitos",
+  "muestra": [
+   "DPA_2018_UK",
+   "GDPR_EU",
+   "LFPDPPP_MX",
+   "LOI_09_08_MA",
+   "PDP_AR_LEY_25326"
+  ]
+ },
+ {
+  "catalogo": "EDUCATION_LEVEL_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BACHELOR",
+   "DOCTORATE",
+   "MASTER",
+   "OTHER",
+   "PRIMARY"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYEE_CERTIFICATION_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "EXPIRED",
+   "IN_PROGRESS",
+   "PENDING_RENEWAL",
+   "REVOKED"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYEE_POSITION_ASSIGNMENT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "entidad ['employee_position_assignment']",
+  "muestra": [
+   "ACTING",
+   "INTERIM",
+   "PRIMARY",
+   "SECONDARY",
+   "TEMPORARY"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYMENT_CONTRACT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 8,
+  "usos": 3,
+  "clase": "c?",
+  "motivo": "entidad ['employment_contract']",
+  "muestra": [
+   "APPRENTICESHIP",
+   "FIXED_TERM",
+   "FREELANCE",
+   "INTERNSHIP",
+   "PART_TIME"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYMENT_CONTRACT_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ LEGAL_CONTRACT_STATUS (LEGAL, J=0.71, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "DRAFT",
+   "EXPIRED",
+   "RENEWED",
+   "SUSPENDED"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYMENT_LEGAL_FRAMEWORK_KIND",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AR_LCT",
+   "ES_ESTATUTO_TRABAJADORES",
+   "MA_CODE_TRAVAIL",
+   "MX_LFT",
+   "UK_EMPLOYMENT_RIGHTS_ACT"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYMENT_LIFECYCLE_STATUS",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 9,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMPLOYMENT_ACTIVE",
+   "EMPLOYMENT_ALUMNI",
+   "EMPLOYMENT_NOTICE_PERIOD",
+   "EMPLOYMENT_ONBOARDING",
+   "EMPLOYMENT_ON_LEAVE_TEMPORARY"
+  ]
+ },
+ {
+  "catalogo": "EMPLOYMENT_TERMINATION_REASON",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 11,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DEATH_IN_SERVICE",
+   "DISMISSAL_MISCONDUCT",
+   "DISMISSAL_PERFORMANCE",
+   "DISMISSAL_REORGANIZATION_LAYOFF",
+   "END_OF_FIXED_TERM_CONTRACT"
+  ]
+ },
+ {
+  "catalogo": "GENDER_SELF_DECLARED",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FEMALE",
+   "MALE",
+   "NON_BINARY",
+   "NOT_RECORDED",
+   "PREFER_NOT_TO_SAY"
+  ]
+ },
+ {
+  "catalogo": "HALF_DAY_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AFTERNOON",
+   "MORNING"
+  ]
+ },
+ {
+  "catalogo": "JOB_FAMILY_CATEGORY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 11,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CUSTOMER_SERVICE",
+   "ENGINEERING",
+   "FINANCE",
+   "GENERAL_MANAGEMENT",
+   "HUMAN_RESOURCES"
+  ]
+ },
+ {
+  "catalogo": "LEAVE_KIND",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 13,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BEREAVEMENT_LEAVE",
+   "JURY_DUTY",
+   "MEDICAL_LEAVE_FMLA_OR_EQUIVALENT",
+   "MILITARY_LEAVE",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "LEAVE_PAYMENT_SOURCE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMPLOYER_PAID",
+   "MIXED",
+   "MUTUAL_INSURANCE",
+   "SOCIAL_SECURITY",
+   "UNPAID"
+  ]
+ },
+ {
+  "catalogo": "MARITAL_STATUS",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DIVORCED",
+   "DOMESTIC_PARTNERSHIP_CIVIL_UNION",
+   "MARRIED",
+   "PREFER_NOT_TO_SAY",
+   "SEPARATED"
+  ]
+ },
+ {
+  "catalogo": "PARTIAL_CYCLE_REASON",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "LEAVE_OF_ABSENCE",
+   "MID_CYCLE_HIRE",
+   "MID_CYCLE_TERMINATION",
+   "ROLE_CHANGE",
+   "TRANSFER"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_PAYMENT_FREQUENCY",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 6,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BIMONTHLY_FORTNIGHTLY",
+   "BIWEEKLY",
+   "MONTHLY",
+   "OTHER",
+   "SEMIMONTHLY_TWICE_MONTHLY"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_PERIOD_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BIWEEKLY",
+   "MONTHLY",
+   "SEMI_MONTHLY",
+   "WEEKLY"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_RECONCILIATION_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "MATCHED",
+   "PENDING",
+   "RESOLVED",
+   "VARIANCE"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_RUN_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "CALCULATED",
+   "CANCELLED",
+   "CLOSED",
+   "DRAFT"
+  ]
+ },
+ {
+  "catalogo": "PAY_INCREASE_FREQUENCY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AD_HOC",
+   "ANNUAL",
+   "BIENNIAL",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_CYCLE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['performance_cycle'] · ≈ AUDIT_PERIOD_KIND (FINANCE, J=0.60, también sin etiqueta)",
+  "muestra": [
+   "ANNUAL",
+   "CONTINUOUS",
+   "PROJECT_BASED",
+   "QUARTERLY",
+   "SEMI_ANNUAL"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_CYCLE_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "b",
+  "motivo": "≈ POS_STATUS (SITE, J=0.60, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "CLOSED",
+   "IN_CALIBRATION",
+   "PLANNED"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_METHODOLOGY_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPETENCY",
+   "KPI",
+   "MBO",
+   "NINE_BOX",
+   "OKR"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_REVIEW_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACKNOWLEDGED",
+   "CALIBRATION",
+   "COMPLETED",
+   "MANAGER_REVIEW",
+   "NOT_STARTED"
+  ]
+ },
+ {
+  "catalogo": "POSITION_ASSIGNMENT_CHANGE_REASON",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DEMOTION",
+   "LATERAL_MOVE",
+   "NEW_HIRE",
+   "PROMOTION",
+   "REORGANIZATION"
+  ]
+ },
+ {
+  "catalogo": "POSITION_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CLOSED",
+   "DRAFT",
+   "FILLED",
+   "FROZEN",
+   "OPEN"
+  ]
+ },
+ {
+  "catalogo": "QUALIFYING_LIFE_EVENT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADOPTION",
+   "BIRTH",
+   "DEATH_OF_DEPENDENT",
+   "DISABILITY",
+   "DIVORCE"
+  ]
+ },
+ {
+  "catalogo": "RATING_CHANGE_DIRECTION",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 3,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DOWN",
+   "UNCHANGED",
+   "UP"
+  ]
+ },
+ {
+  "catalogo": "RATING_SCALE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DESCRIPTIVE",
+   "LETTER",
+   "NUMERIC_10",
+   "NUMERIC_5",
+   "PERCENTAGE"
+  ]
+ },
+ {
+  "catalogo": "RELOCATION_PROVIDED_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FULL",
+   "LUMP_SUM",
+   "NONE",
+   "PARTIAL"
+  ]
+ },
+ {
+  "catalogo": "SALARY_BAND_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['salary_band']",
+  "muestra": [
+   "BROADBAND",
+   "MARKET_BASED",
+   "STEP",
+   "TRADITIONAL"
+  ]
+ },
+ {
+  "catalogo": "TERMINATION_DIRECTION",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BY_OPERATION_OF_LAW",
+   "INVOLUNTARY_BY_EMPLOYER",
+   "MUTUAL_AGREEMENT",
+   "VOLUNTARY_BY_EMPLOYEE"
+  ]
+ },
+ {
+  "catalogo": "TIME_OFF_REJECTION_REASON",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BLACKOUT_PERIOD",
+   "INCOMPLETE_REQUEST",
+   "INSUFFICIENT_BALANCE",
+   "POLICY_VIOLATION",
+   "STAFFING_CONSTRAINT"
+  ]
+ },
+ {
+  "catalogo": "TIME_OFF_REQUEST_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ REQUISITION_STATUS (PROCUREMENT, J=0.71, también sin etiqueta)",
+  "muestra": [
+   "APPROVED",
+   "CANCELLED",
+   "DRAFT",
+   "REJECTED",
+   "SUBMITTED"
+  ]
+ },
+ {
+  "catalogo": "TIME_OFF_UNIT_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 3,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DAYS",
+   "HALF_DAYS",
+   "HOURS"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_ASSESSMENT_METHOD",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ATTENDANCE",
+   "EXAM",
+   "NONE",
+   "PRACTICAL",
+   "PROJECT"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_PROGRAM_CATEGORY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPLIANCE",
+   "LEADERSHIP",
+   "ONBOARDING",
+   "PRODUCT",
+   "SOFT_SKILLS"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_PROGRAM_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "c?",
+  "motivo": "entidad ['training_program']",
+  "muestra": [
+   "CERTIFICATION_PREP",
+   "ELEARNING",
+   "EXTERNAL",
+   "INTERNAL",
+   "WORKSHOP"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_PROGRAM_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 3,
+  "usos": 2,
+  "clase": "b",
+  "motivo": "≈ CATALOG_STATUS (MARKETING, J=1.00, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "ARCHIVED",
+   "DRAFT"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_RECURRENCE_FREQUENCY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ANNUAL",
+   "BIENNIAL",
+   "ONE_TIME",
+   "ON_DEMAND"
+  ]
+ },
+ {
+  "catalogo": "WORKER_CLASSIFICATION_KIND",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 8,
+  "usos": 3,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPRENTICE",
+   "BOARD_MEMBER_DIRECTOR",
+   "CONSULTANT_AGENCY",
+   "CONTRACTOR_1099_OR_AUTONOMO",
+   "EMPLOYEE_W2_OR_EQUIVALENT"
+  ]
+ },
+ {
+  "catalogo": "WORKING_TIME_BASIS",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FULL_TIME_STANDARD",
+   "OTHER",
+   "PART_TIME_REGULAR",
+   "PART_TIME_VARIABLE_HOURS",
+   "ZERO_HOURS_CONTRACT"
+  ]
+ },
+ {
+  "catalogo": "WORK_AUTHORIZATION_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CITIZEN",
+   "EU_FREEDOM_OF_MOVEMENT",
+   "PERMANENT_RESIDENT",
+   "PERMIT_PENDING",
+   "STUDENT_VISA"
+  ]
+ },
+ {
+  "catalogo": "WORK_LOCATION_MODE",
+  "acelerador": "HR",
+  "estado": "FROM_VISOR",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FULLY_OFFICE_ONSITE",
+   "FULLY_REMOTE",
+   "HYBRID",
+   "OTHER",
+   "ROLE_DEPENDENT_FLEXIBLE"
+  ]
+ },
+ {
+  "catalogo": "ABSENCE_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CANCELLED",
+   "CLOSED",
+   "ONGOING",
+   "OPEN"
+  ]
+ },
+ {
+  "catalogo": "HR_DATA_ACCESS_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DELETE",
+   "EXPORT",
+   "READ",
+   "SHARE",
+   "UPDATE"
+  ]
+ },
+ {
+  "catalogo": "CANDIDATE_APPLICATION_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['candidate_application']",
+  "muestra": [
+   "AGENCY",
+   "CAMPUS",
+   "DIRECT",
+   "INTERNAL",
+   "REFERRAL"
+  ]
+ },
+ {
+  "catalogo": "APPROVAL_ACTION",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "DELEGATED",
+   "ESCALATED",
+   "REJECTED",
+   "RETURNED"
+  ]
+ },
+ {
+  "catalogo": "SALARY_BENCHMARK_SOURCE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CONSULTANCY",
+   "INTERNAL",
+   "MARKET_SURVEY",
+   "PUBLIC_DATA"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_CALIBRATION_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b?",
+  "motivo": "≈ TRANSITION_STATUS (FINANCE, J=0.60, también sin etiqueta)",
+  "muestra": [
+   "COMPLETED",
+   "IN_PROGRESS",
+   "LOCKED",
+   "PLANNED"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_OBJECTIVE_CATEGORY",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BUSINESS",
+   "DEVELOPMENT",
+   "INDIVIDUAL",
+   "STRATEGIC",
+   "TEAM"
+  ]
+ },
+ {
+  "catalogo": "BACKGROUND_CHECK_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CANCELLED",
+   "FAILED",
+   "IN_PROGRESS",
+   "PASSED",
+   "PENDING"
+  ]
+ },
+ {
+  "catalogo": "BACKGROUND_CHECK_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['background_check']",
+  "muestra": [
+   "CREDIT",
+   "CRIMINAL",
+   "EDUCATION",
+   "EMPLOYMENT",
+   "IDENTITY"
+  ]
+ },
+ {
+  "catalogo": "BACKGROUND_CHECK_RESULT",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CLEAR",
+   "CONSIDER",
+   "FLAGGED",
+   "NOT_COMPLETED"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_CLAIM_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "APPROVED",
+   "IN_REVIEW",
+   "PAID",
+   "REJECTED",
+   "SUBMITTED"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_CLAIM_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DENTAL",
+   "MEDICAL",
+   "OTHER",
+   "REIMBURSEMENT",
+   "VISION"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_COMPLETION_RESULT",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FAILED",
+   "INCOMPLETE",
+   "PASSED",
+   "WAIVED"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_CYCLE_SCOPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPANY",
+   "DEPARTMENT",
+   "DIVISION",
+   "INDIVIDUAL",
+   "TEAM"
+  ]
+ },
+ {
+  "catalogo": "TRAINING_DELIVERY_MODE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "HYBRID",
+   "IN_PERSON",
+   "SELF_PACED",
+   "VIRTUAL"
+  ]
+ },
+ {
+  "catalogo": "CERTIFICATION_SOURCE_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 2,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EMPLOYEE_VOLUNTARY",
+   "EMPLOYER_REQUIRED"
+  ]
+ },
+ {
+  "catalogo": "KEY_RESULT_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACHIEVED",
+   "AT_RISK",
+   "MISSED",
+   "NOT_STARTED",
+   "ON_TRACK"
+  ]
+ },
+ {
+  "catalogo": "DATA_PROCESSING_LEGAL_BASIS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CONSENT",
+   "CONTRACT",
+   "LEGAL_OBLIGATION",
+   "LEGITIMATE_INTEREST",
+   "PUBLIC_TASK"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_SYSTEM_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ERP_MODULE",
+   "EXTERNAL_PROVIDER",
+   "HYBRID",
+   "INTERNAL"
+  ]
+ },
+ {
+  "catalogo": "INTERVIEW_MODE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ONSITE",
+   "PANEL",
+   "PHONE",
+   "VIDEO"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_OBJECTIVE_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACHIEVED",
+   "ACTIVE",
+   "CANCELLED",
+   "DRAFT",
+   "MISSED"
+  ]
+ },
+ {
+  "catalogo": "OFFER_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCEPTED",
+   "DECLINED",
+   "DRAFT",
+   "EXPIRED",
+   "EXTENDED"
+  ]
+ },
+ {
+  "catalogo": "PIP_OUTCOME",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "EXTENDED",
+   "ONGOING",
+   "SUCCESSFUL",
+   "TERMINATED"
+  ]
+ },
+ {
+  "catalogo": "PIP_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ SUPPLY_REQUEST_STATUS (HEALTHCARE, J=0.80, etiquetado)",
+  "muestra": [
+   "ACTIVE",
+   "CANCELLED",
+   "COMPLETED",
+   "DRAFT"
+  ]
+ },
+ {
+  "catalogo": "BENEFIT_PLAN_TIER_KIND",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ SUPPORT_TIER (METADATA, J=0.60, etiquetado)",
+  "muestra": [
+   "BASIC",
+   "EXECUTIVE",
+   "PREMIUM",
+   "STANDARD"
+  ]
+ },
+ {
+  "catalogo": "PROFICIENCY_LEVEL",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ADVANCED",
+   "BASIC",
+   "EXPERT",
+   "INTERMEDIATE",
+   "NONE"
+  ]
+ },
+ {
+  "catalogo": "OBJECTIVE_PROGRESS_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 4,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AT_RISK",
+   "COMPLETED",
+   "OFF_TRACK",
+   "ON_TRACK"
+  ]
+ },
+ {
+  "catalogo": "INTERVIEW_RECOMMENDATION",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 2,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "NEUTRAL",
+   "NO",
+   "STRONG_NO",
+   "STRONG_YES",
+   "YES"
+  ]
+ },
+ {
+  "catalogo": "EMERGENCY_CONTACT_RELATIONSHIP",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "b",
+  "motivo": "≈ CONTACT_RELATIONSHIP (HEALTHCARE, J=0.75, etiquetado)",
+  "muestra": [
+   "CHILD",
+   "FRIEND",
+   "OTHER",
+   "PARENT",
+   "PARTNER"
+  ]
+ },
+ {
+  "catalogo": "INTERVIEW_SESSION_STATUS",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "CANCELLED",
+   "COMPLETED",
+   "NO_SHOW",
+   "RESCHEDULED",
+   "SCHEDULED"
+  ]
+ },
+ {
+  "catalogo": "SKILL_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "FUNCTIONAL",
+   "LANGUAGE",
+   "LEADERSHIP",
+   "SOFT",
+   "TECHNICAL"
+  ]
+ },
+ {
+  "catalogo": "CANDIDATE_SOURCE_CHANNEL",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 7,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "AGENCY",
+   "CAREERS_SITE",
+   "DIRECT_SOURCING",
+   "EVENT",
+   "JOB_BOARD"
+  ]
+ },
+ {
+  "catalogo": "INTERVIEW_STAGE_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['interview_stage']",
+  "muestra": [
+   "BEHAVIORAL",
+   "FINAL",
+   "OFFER",
+   "PANEL",
+   "SCREENING"
+  ]
+ },
+ {
+  "catalogo": "TIME_OFF_TRANSACTION_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCRUAL",
+   "ADJUSTMENT",
+   "CARRYOVER",
+   "EXPIRY",
+   "PAYOUT"
+  ]
+ },
+ {
+  "catalogo": "PAYROLL_VARIANCE_TYPE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "DUPLICATE",
+   "MISSING",
+   "OVERPAYMENT",
+   "RECLASSIFICATION",
+   "UNDERPAYMENT"
+  ]
+ },
+ {
+  "catalogo": "CANDIDATE_WITHDRAWAL_REASON",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACCEPTED_OTHER_OFFER",
+   "COMPENSATION",
+   "LOCATION",
+   "NO_RESPONSE",
+   "PERSONAL"
+  ]
+ },
+ {
+  "catalogo": "RATING_DIMENSION",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "COMPETENCY",
+   "GOALS",
+   "PERFORMANCE",
+   "POTENTIAL",
+   "VALUES"
+  ]
+ },
+ {
+  "catalogo": "PERFORMANCE_RATING_SCALE",
+  "acelerador": "HR",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 5,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "BELOW",
+   "EXCEEDS",
+   "MEETS",
+   "OUTSTANDING",
+   "PARTIALLY_MEETS"
+  ]
+ },
+ {
+  "catalogo": "CUSTOMER_KIND",
+  "acelerador": "COMMERCIAL",
+  "estado": "CONFIRMADO",
+  "n_valores": 5,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['customer']",
+  "muestra": [
+   "COMPANY",
+   "GROUP",
+   "INDIVIDUAL",
+   "NON_PROFIT",
+   "PUBLIC_SECTOR"
+  ]
+ },
+ {
+  "catalogo": "CUSTOMER_SEGMENT",
+  "acelerador": "COMMERCIAL",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ENTERPRISE",
+   "MID_MARKET",
+   "RETAIL",
+   "SMB",
+   "STRATEGIC"
+  ]
+ },
+ {
+  "catalogo": "CUSTOMER_STATUS",
+  "acelerador": "COMMERCIAL",
+  "estado": "CONFIRMADO",
+  "n_valores": 6,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ACTIVE",
+   "BLOCKED",
+   "CHURNED",
+   "INACTIVE",
+   "ON_HOLD"
+  ]
+ },
+ {
+  "catalogo": "BRAND_KIND",
+  "acelerador": "MARKETING",
+  "estado": "CONFIRMADO",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "c?",
+  "motivo": "entidad ['brand']",
+  "muestra": [
+   "CORPORATE_MASTER_BRAND",
+   "FAMILY_BRAND",
+   "GEOGRAPHIC_VARIANT_BRAND",
+   "INGREDIENT_BRAND",
+   "OTHER"
+  ]
+ },
+ {
+  "catalogo": "BRAND_STATUS",
+  "acelerador": "MARKETING",
+  "estado": "CONFIRMADO",
+  "n_valores": 8,
+  "usos": 1,
+  "clase": "a",
+  "motivo": "",
+  "muestra": [
+   "ABANDONED",
+   "ACTIVE",
+   "DECLINING_PHASE_OUT",
+   "DISPUTED_LITIGATION",
+   "IN_DEVELOPMENT"
+  ]
+ }
+]

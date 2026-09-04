@@ -19,6 +19,7 @@
 
 ## D. Aceleradores (se irán añadiendo)
 - `PLANTILLA_acelerador.md` — cómo definir cada modelo cargable
+- `PLANTILLA_estandar_sectorial.md` — cómo dar de alta un estándar sectorial (FHIR/BIAN/ACORD…) como capa de correspondencia+perfil sobre el canónico (andamiaje METADATO-87)
 - (futuro) `ACC_observability.json`, `ACC_finance.json`, `ACC_rrhh.json`… cada uno con: entidades, ubicación física, carga inicial, i18n.
 
 ## Orden de carga (bootstrap Control Plane)

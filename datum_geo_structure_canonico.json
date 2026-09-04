@@ -1,0 +1,408 @@
+{
+ "_meta": {
+  "scope": "Estructura canónica derivada de la dimensión GEOGRAPHY para verificación (NO canonizado)",
+  "termino": "GEO_STRUCTURE (bajo HIERARCHY)",
+  "conflicto_ISO": "country y country_subdivision cuelgan hoy de ISO_CODE. region/province propuestas como entidades propias entran en conflicto con country_subdivision (self-referencial), que hoy las absorbe. Decisión pendiente: (a) desnormalizar country_subdivision en region+province+locality, o (b) mantener country_subdivision y derivar niveles.",
+  "n_entidades_nuevas": 11,
+  "n_existentes_afectadas": 2
+ },
+ "business_term": "GEO_STRUCTURE",
+ "entities_nuevas": {
+  "continent": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA",
+   "type": "REF",
+   "desc": "Continente (nivel raíz de la jerarquía administrativa).",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "EU, AF…",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "supra_zone": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA",
+   "type": "REF",
+   "desc": "Zona supranacional administrativa (UE, EFTA, Magreb). No comercial.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "UE, MAGREB…",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "continent_code",
+     "tyd": "TYD_CODE",
+     "desc": "continente padre",
+     "mandatory": 1,
+     "fk_target": "continent"
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "region": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · en conflicto con country_subdivision",
+   "type": "REF",
+   "desc": "Región / CCAA (ISO 3166-2). Hoy modelada dentro de country_subdivision.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "ISO 3166-2: ES-AN",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "country_code",
+     "tyd": "TYD_CODE",
+     "desc": "país",
+     "mandatory": 1,
+     "fk_target": "country"
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "subdivision_category_code",
+     "tyd": "TYD_CODE",
+     "desc": "tipo (CCAA…)",
+     "fk_target": "reference_value"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "province": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · en conflicto con country_subdivision",
+   "type": "REF",
+   "desc": "Provincia (ISO 3166-2). Hoy modelada dentro de country_subdivision.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "ISO 3166-2: ES-A",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "region_code",
+     "tyd": "TYD_CODE",
+     "desc": "región padre (parent_code)",
+     "mandatory": 1,
+     "fk_target": "region"
+    },
+    {
+     "name": "country_code",
+     "tyd": "TYD_CODE",
+     "desc": "país",
+     "mandatory": 1,
+     "fk_target": "country"
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "locality": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · grano base (poblado INE PENDIENTE)",
+   "type": "REF",
+   "desc": "Localidad / municipio (grano base de la dimensión). Poblado INE pendiente.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "código municipio",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "province_code",
+     "tyd": "TYD_CODE",
+     "desc": "provincia padre",
+     "mandatory": 1,
+     "fk_target": "province"
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "postal_code_range",
+     "tyd": "TYD_NAME",
+     "desc": "rango CP"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "commercial_hierarchy": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · estructura (valores por compañía)",
+   "type": "REF",
+   "desc": "Jerarquía comercial configurable por compañía (división→área→zona de influencia).",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "id de la jerarquía comercial",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "commercial_level": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · weak",
+   "type": "REF",
+   "desc": "Nivel de una jerarquía comercial (división/área/zona).",
+   "attributes": [
+    {
+     "name": "commercial_hierarchy_code",
+     "tyd": "TYD_CODE",
+     "desc": "jerarquía padre",
+     "pk": 1,
+     "mandatory": 1,
+     "fk_target": "commercial_hierarchy",
+     "is_identifying": true
+    },
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "nivel",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "parent_level_code",
+     "tyd": "TYD_CODE",
+     "desc": "nivel padre (self)",
+     "fk_target": "commercial_level"
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "commercial_member": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · puente N:M",
+   "type": "REF",
+   "desc": "Membresía N:M: zona comercial ↔ country/locality (no herencia del árbol administrativo).",
+   "attributes": [
+    {
+     "name": "commercial_hierarchy_code",
+     "tyd": "TYD_CODE",
+     "desc": "jerarquía",
+     "pk": 1,
+     "mandatory": 1,
+     "fk_target": "commercial_hierarchy",
+     "is_identifying": true
+    },
+    {
+     "name": "commercial_level_code",
+     "tyd": "TYD_CODE",
+     "desc": "nivel/zona",
+     "pk": 1,
+     "mandatory": 1,
+     "is_identifying": true
+    },
+    {
+     "name": "member_geo_code",
+     "tyd": "TYD_CODE",
+     "desc": "country o locality",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "member_geo_type_code",
+     "tyd": "TYD_CODE",
+     "desc": "COUNTRY / LOCALITY",
+     "mandatory": 1,
+     "fk_target": "object_type"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "tax_jurisdiction": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · estructura (valores por compañía/norma)",
+   "type": "REF",
+   "desc": "Jurisdicción fiscal (ES-Común, ES-PaísVasco foral…). No 1:1 con administrativa.",
+   "attributes": [
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "ES-COMUN, ES-PV…",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "tax_regime": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · weak",
+   "type": "REF",
+   "desc": "Régimen fiscal dentro de una jurisdicción.",
+   "attributes": [
+    {
+     "name": "tax_jurisdiction_code",
+     "tyd": "TYD_CODE",
+     "desc": "jurisdicción padre",
+     "pk": 1,
+     "mandatory": 1,
+     "fk_target": "tax_jurisdiction",
+     "is_identifying": true
+    },
+    {
+     "name": "code",
+     "tyd": "TYD_CODE",
+     "desc": "régimen",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "name_long",
+     "tyd": "TYD_NAME",
+     "desc": "nombre"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  },
+  "tax_jurisdiction_geo": {
+   "business_term": "GEO_STRUCTURE",
+   "_status": "NUEVA · puente N:M",
+   "type": "REF",
+   "desc": "Ancla N:M: jurisdicción fiscal ↔ country/region.",
+   "attributes": [
+    {
+     "name": "tax_jurisdiction_code",
+     "tyd": "TYD_CODE",
+     "desc": "jurisdicción",
+     "pk": 1,
+     "mandatory": 1,
+     "fk_target": "tax_jurisdiction",
+     "is_identifying": true
+    },
+    {
+     "name": "geo_code",
+     "tyd": "TYD_CODE",
+     "desc": "country o region",
+     "pk": 1,
+     "mandatory": 1
+    },
+    {
+     "name": "geo_type_code",
+     "tyd": "TYD_CODE",
+     "desc": "COUNTRY / REGION",
+     "mandatory": 1,
+     "fk_target": "object_type"
+    },
+    {
+     "name": "system",
+     "tyd": "TYD_SYSTEM",
+     "desc": "",
+     "mandatory": 1
+    }
+   ]
+  }
+ },
+ "entities_existentes_afectadas": {
+  "country": {
+   "_status": "EXISTE · hoy en ISO_CODE · nivel pivote",
+   "business_term_actual": "ISO_CODE"
+  },
+  "country_subdivision": {
+   "_status": "EXISTE · hoy en ISO_CODE · CONFLICTO: absorbe region+province",
+   "business_term_actual": "ISO_CODE"
+  }
+ }
+}
